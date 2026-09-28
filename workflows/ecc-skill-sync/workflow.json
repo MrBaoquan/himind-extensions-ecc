@@ -1,10 +1,11 @@
 {
   "schema_version": "workflow_package.v1",
   "id": "com.mrbaoquan.workflow.ecc-skill-sync",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "distribution_targets": ["workbench", "github"],
   "name": "ECC 技能同步",
   "description": "探测上游 ECC 技能库是否前进，拉源码、按策略生成技能包、跑门禁，再把够格的版本发到市场，收尾报出还欠校对的条数。上游没变就跳过搬运，但每天都报一次校对积压。",
+  "release_notes": "补充版本更新说明字段，工作流与技能、插件一样在市场展示本次改动。",
   "min_agent_version": "0.3.47",
   "local_requirements": {
     "platform": "windows",
