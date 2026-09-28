@@ -32,7 +32,21 @@
         "quarantined": { "type": "array", "items": { "type": "object" } },
         "derived_metadata": { "type": "integer" },
         "reviewed_metadata": { "type": "integer" },
-        "categories": { "type": "object" }
+        "categories": { "type": "object" },
+        "review": {
+          "type": "object",
+          "required": ["total", "pending", "stale"],
+          "properties": {
+            "total": { "type": "integer" },
+            "pending": { "type": "integer" },
+            "stale": { "type": "integer" },
+            "truncated": { "type": "integer" },
+            "upstream_commit": { "type": "string" },
+            "by_category": { "type": "object" },
+            "items": { "type": "array", "items": { "type": "object" } }
+          },
+          "additionalProperties": true
+        }
       },
       "additionalProperties": true
     }

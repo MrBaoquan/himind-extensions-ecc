@@ -127,7 +127,8 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	if distDir == "" {
 		distDir = filepath.Join(repoRoot, "dist")
 	}
-	result := PublishResult{Repository: repository, Channel: channel, DryRun: options.DryRun}
+	// Items 显式初始化为空切片，避免没有可发布项时编出 null（report schema 要求 array）。
+	result := PublishResult{Repository: repository, Channel: channel, DryRun: options.DryRun, Items: []PublishItem{}}
 
 	index, err := catalog.Load(filepath.Join(repoRoot, filepath.FromSlash(CatalogFile)))
 	if err != nil {

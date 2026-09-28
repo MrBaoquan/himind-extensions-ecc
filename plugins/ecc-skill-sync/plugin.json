@@ -4,8 +4,8 @@
   "author": "马宝全",
   "categories": ["software-engineering"],
   "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
-  "release_notes": "1.0.7：缓存命中不再联网，探测结论本地交接；上游没动时同步更快，断流也不误判。",
-  "version": "1.0.7",
+  "release_notes": "1.0.9：同步报告的数组字段不再编成 null，制品 schema 校验干净通过。",
+  "version": "1.0.9",
   "distribution_targets": ["workbench", "github"],
   "entry": "ecc-skill-sync.exe",
   "runtime": "process-jsonrpc-stdio",
@@ -104,6 +104,26 @@
       "risk_level": "network_write",
       "availability": "local",
       "timeout_seconds": 3600
+    },
+    {
+      "id": "ecc.sync.review_queue",
+      "description": "报出还欠人工校对的技能条数与明细",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "source_root": {"type": "string"},
+          "status": {"type": "string", "enum": ["derived", "stale"]},
+          "category": {"type": "string"},
+          "limit": {"type": "integer", "minimum": 0, "maximum": 500},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "read_only",
+      "availability": "local",
+      "timeout_seconds": 600
     }
   ],
   "permissions": [

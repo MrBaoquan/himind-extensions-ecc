@@ -40,7 +40,7 @@
           "label": "允许发布未校对条目",
           "type": "boolean",
           "default": false,
-          "hint": "默认只发 manifests/metadata.json 里标成 reviewed 的技能，其余挂起。"
+          "hint": "默认只发 manifests/metadata.json 里标成 reviewed 的技能，其余挂起；运行收尾会报出还欠校对多少条。"
         }
       ]
     }

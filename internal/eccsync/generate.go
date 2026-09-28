@@ -79,7 +79,16 @@ type plannedSkill struct {
 // 整个过程是纯函数式的：同样的上游提交 + 同样的策略与元数据，
 // 跑多少次都得到同样的字节，因此「没有变化」可以被精确判定成零动作。
 func Generate(input GenerateInput) (GenerateResult, error) {
-	result := GenerateResult{Categories: map[string]int{}}
+	// slice 字段显式初始化为空切片：零值 nil 会被 json.Marshal 编成 null，
+	// 而制品 schema 声明这些字段是 array，null 会让校验（advisory）报错。
+	result := GenerateResult{
+		Skills:       []string{},
+		Changed:      []string{},
+		Unchanged:    []string{},
+		Quarantined:  []QuarantineEntry{},
+		StaleReviews: []string{},
+		Categories:   map[string]int{},
+	}
 	source, err := Discover(input.SourceRoot, input.Policy)
 	if err != nil {
 		return result, err

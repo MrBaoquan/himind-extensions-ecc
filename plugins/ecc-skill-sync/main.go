@@ -36,10 +36,18 @@ type input struct {
 	PrivateKeyPath string `json:"private_key_path"`
 	KeyID          string `json:"key_id"`
 	DistDir        string `json:"dist_dir"`
+	Status         string `json:"status"`
+	Category       string `json:"category"`
 	// TimeoutSeconds 由工作流或调用方传入，Agent 侧据此决定这次调用的等待上限。
 	// 插件自己不拿它做取消：能力是同步执行的，能不能等由调用方负责。
 	TimeoutSeconds int `json:"timeout_seconds"`
 }
+
+// defaultReviewItems 是不指定 limit 时回给调用方的明细条数。
+//
+// 条数（total/pending/stale）永远是全量，被截断的只有 items：定时任务要的是
+// 「欠了多少」，而 300 条明细塞进一次能力应答只会把运行记录撑爆。
+const defaultReviewItems = 50
 
 func main() {
 	if err := jsonrpc.Serve(os.Stdin, os.Stdout, handle); err != nil {
@@ -90,8 +98,53 @@ func handle(request jsonrpc.Request) (any, *jsonrpc.Error) {
 		return map[string]any{"ok": value.OK, "gate": value}, nil
 	case "ecc.sync.publish":
 		return publish(in)
+	case "ecc.sync.review_queue":
+		return reviewQueue(in)
 	default:
 		return nil, jsonrpc.InvalidParams("unsupported ecc sync capability: " + request.Method)
+	}
+}
+
+// reviewQueue 报出此刻还欠人工校对的技能。
+//
+// 派生的机械文案发不到市场，这是有意的闸门；但闸门如果不报数，「技能少了几条」
+// 就只能等用户自己发现。所以定时同步的收尾会调它，把待校对与待重校的条数
+// 写进运行记录，用户不打开仓库也知道该补哪一批。
+func reviewQueue(in input) (any, *jsonrpc.Error) {
+	repoRoot, rpcError := resolveRepo(in)
+	if rpcError != nil {
+		return nil, rpcError
+	}
+	queue, err := eccsync.BuildReviewQueue(repoRoot, strings.TrimSpace(in.SourceRoot))
+	if err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	queue = queue.Filter(strings.TrimSpace(in.Status), strings.TrimSpace(in.Category))
+	limit := in.Limit
+	if limit <= 0 {
+		limit = defaultReviewItems
+	}
+	return map[string]any{"ok": true, "review": reviewSummary(queue, limit)}, nil
+}
+
+// reviewSummary 把队列压成报告用的形状。
+//
+// limit <= 0 表示不截断，留给内部调用；能力入口会把缺省值补成 defaultReviewItems。
+func reviewSummary(queue eccsync.ReviewQueue, limit int) map[string]any {
+	items := queue.Items
+	truncated := 0
+	if limit > 0 && len(items) > limit {
+		truncated = len(items) - limit
+		items = items[:limit]
+	}
+	return map[string]any{
+		"total":           queue.Total,
+		"pending":         queue.Pending,
+		"stale":           queue.Stale,
+		"by_category":     queue.ByCategory,
+		"upstream_commit": queue.UpstreamCommit,
+		"items":           items,
+		"truncated":       truncated,
 	}
 }
 
@@ -141,17 +194,26 @@ func generate(in input) (any, *jsonrpc.Error) {
 	}
 
 	response := map[string]any{"ok": true, "generate": result}
-	report, artifactErr := writeReport(repoRoot, "generate", map[string]any{
+	report := map[string]any{
 		"kind":      "generate",
 		"repo_root": repoRoot,
 		"upstream":  upstream,
 		"result":    result,
-	})
+	}
+	// 校对积压跟着报告一起落地：报告是这次同步唯一会被人回看的产物，
+	// 把「还欠多少条」放在这里，用户看一份文件就知道下一步该干什么。
+	if queue, queueErr := eccsync.BuildReviewQueue(repoRoot, sourceRoot); queueErr == nil {
+		response["review"] = reviewSummary(queue, defaultReviewItems)
+		report["review"] = response["review"]
+	} else {
+		response["review_error"] = queueErr.Error()
+	}
+	artifact, artifactErr := writeReport(repoRoot, "generate", report)
 	if artifactErr != nil {
 		response["artifact_error"] = artifactErr.Error()
 		return response, nil
 	}
-	response["artifacts"] = []any{report}
+	response["artifacts"] = []any{artifact}
 	return response, nil
 }
 
