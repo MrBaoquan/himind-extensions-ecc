@@ -58,7 +58,10 @@ type GenerateResult struct {
 	Quarantined []QuarantineEntry `json:"quarantined"`
 	Derived     int               `json:"derived_metadata"`
 	Reviewed    int               `json:"reviewed_metadata"`
-	Categories  map[string]int    `json:"categories"`
+	// StaleReviews 列出「已校对、但校对之后上游正文又变了」的技能。
+	// 它们照常发布，只是需要人重新读一遍文案是否还对得上。
+	StaleReviews []string       `json:"stale_reviews,omitempty"`
+	Categories   map[string]int `json:"categories"`
 }
 
 // plannedSkill 是一个已经通过全部前置检查、准备落盘的技能。
@@ -246,12 +249,28 @@ func Generate(input GenerateInput) (GenerateResult, error) {
 		if err := os.WriteFile(filepath.Join(targetDirectory, "skill.json"), manifest, 0o644); err != nil {
 			return result, err
 		}
+		// 校对基线：文案刚被人读过（元数据摘要变了）就把当前正文记成基线。
+		// 上游单独改了正文时基线保持不动，这条就一直是「待重校」——反过来用
+		// SourceDigest 当基线，等于上游一动就自动认定「刚重校过」，那这个标记
+		// 就永远不会亮。
+		reviewedDigest := ""
+		if plan.entry.Source == "reviewed" {
+			textChanged := previous.MetadataDigest != "" && previous.MetadataDigest != plan.meta
+			reviewedDigest = previous.ReviewedDigest
+			if reviewedDigest == "" || textChanged {
+				reviewedDigest = plan.skill.Digest
+			}
+			if reviewedDigest != plan.skill.Digest {
+				result.StaleReviews = append(result.StaleReviews, plan.skill.Slug)
+			}
+		}
 		nextLock.Skills[plan.skill.Slug] = LockSkill{
 			Version:        skillVersion,
 			SourceDigest:   plan.skill.Digest,
 			SyncedDigest:   plan.digest,
 			MetadataDigest: plan.meta,
 			SourceCommit:   input.Upstream.Commit,
+			ReviewedDigest: reviewedDigest,
 			SourcePath:     plan.skill.SourcePath,
 			Tier:           plan.tier,
 			Rewritten:      plan.tier != "A",

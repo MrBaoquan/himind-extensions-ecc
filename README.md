@@ -56,6 +56,8 @@ go run ./tools/cmd/himind-ecc-sync probe    -repo-root .
 go run ./tools/cmd/himind-ecc-sync generate -repo-root .
 go run ./tools/cmd/himind-ecc-sync gate     -repo-root .
 go run ./tools/cmd/himind-ecc-sync publish  -repo-root . -dry-run
+go run ./tools/cmd/himind-ecc-sync review-queue -repo-root . -format md
+go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/decisions.json
 ```
 
 ## 自动化的边界
@@ -63,6 +65,20 @@ go run ./tools/cmd/himind-ecc-sync publish  -repo-root . -dry-run
 没人看着的时候，只允许这一类变化自动发版：只动了 A 档技能、门禁全绿、元数据已人工校对过。其余情况一律停下等人——B 档改写、技能被删或改名、上游许可证变化、门禁不过。
 
 停下来不是失败：门禁不过会把原因写进 `manifests/quarantine.json`，元数据没校对过的技能会进「待校对」队列，等人在 `manifests/metadata.json` 里把 `source` 改成 `reviewed` 才会发出去。
+
+校对队列不必手翻元数据表：
+
+```powershell
+# 还欠着人工校对的技能（--status stale 只看「上游改了正文、文案该重读」的）
+go run ./tools/cmd/himind-ecc-sync review-queue -repo-root . -format md
+
+# 把一轮校对结论落库，一次读一批
+go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/decisions.json
+```
+
+`decisions.json` 的形状是 `{"技能目录名": {"name": "中文动作短语（≤18 字）", "description": "一句话说清用途（≤120 字）"}}`。落库是**先全批校验、再整体写**：一条不合法就一条都不落，避免人读到一半被打断却不知道停在哪里。
+
+校对过的技能会记一个**校对基线**：只有人重新改过文案时，基线才跟到当前正文；上游单方面改了正文，这条会进 `stale` 队列提示重读，但不会撤下市场。
 
 细节和取舍写在 [docs/ADR.md](docs/ADR.md)。
 

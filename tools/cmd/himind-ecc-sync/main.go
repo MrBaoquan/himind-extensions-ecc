@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/MrBaoquan/himind-extensions-ecc/internal/eccsync"
@@ -28,6 +29,10 @@ func main() {
 	dryRun := flags.Bool("dry-run", false, "只报告，不发布")
 	limit := flags.Int("limit", 0, "单次最多发布几个技能，0 表示不限制")
 	allowDerived := flags.Bool("allow-derived", false, "连元数据尚未人工确认的技能一起发布")
+	format := flags.String("format", "json", "review-queue 的输出格式：json 或 md")
+	status := flags.String("status", "", "review-queue 只看某一类状态：derived 或 stale")
+	category := flags.String("category", "", "review-queue 只看某个 HiMind 分类")
+	decisions := flags.String("decisions", "", "review-apply 的校对结论文件")
 	if err := flags.Parse(os.Args[2:]); err != nil {
 		os.Exit(2)
 	}
@@ -70,6 +75,35 @@ func main() {
 		}
 	case "publish":
 		value, err := eccsync.Publish(absolute, eccsync.PublishOptions{DryRun: *dryRun, Limit: *limit, AllowDerived: *allowDerived})
+		if err != nil {
+			fail(err)
+		}
+		result = value
+	case "review-queue":
+		value, err := eccsync.BuildReviewQueue(absolute, *sourceRoot)
+		if err != nil {
+			fail(err)
+		}
+		queue := value.Filter(*status, *category)
+		if *limit > 0 && len(queue.Items) > *limit {
+			queue.Items = queue.Items[:*limit]
+		}
+		if *format == "md" {
+			fmt.Print(queue.Markdown())
+			return
+		}
+		result = queue
+	case "review-apply":
+		path := strings.TrimSpace(*decisions)
+		if path == "" {
+			fmt.Fprintln(os.Stderr, "review-apply 需要 -decisions <file.json>")
+			os.Exit(2)
+		}
+		entries, err := eccsync.LoadDecisions(path)
+		if err != nil {
+			fail(err)
+		}
+		value, err := eccsync.ApplyReviewDecisions(absolute, entries, time.Now())
 		if err != nil {
 			fail(err)
 		}
@@ -122,5 +156,5 @@ func fail(err error) {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "用法: himind-ecc-sync <probe|fetch|generate|gate|publish> [选项]")
+	fmt.Fprintln(os.Stderr, "用法: himind-ecc-sync <probe|fetch|generate|gate|publish|review-queue|review-apply> [选项]")
 }

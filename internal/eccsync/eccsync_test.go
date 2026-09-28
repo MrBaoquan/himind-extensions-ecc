@@ -5,9 +5,11 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"sync/atomic"
 	"testing"
+	"time"
 
 	"github.com/MrBaoquan/himind-extensions/tooling/catalog"
 	"github.com/MrBaoquan/himind-extensions/tooling/distribution"
@@ -430,5 +432,363 @@ func testPolicy() Policy {
 			Holder:     "Affaan Mustafa",
 		},
 		SkillIDPrefix: "com.mrbaoquan.ecc.skill",
+	}
+}
+
+// ---- 校对链路 ----
+
+// testPolicyJSON 是一份最小可用的 upstream-policy.json。
+// 分类映射是必需的：技能的分类由上游模块推导，模块没映射就是「无法定分类」，
+// 那样连校对队列都进不去。
+const testPolicyJSON = `{
+  "schema_version": 1,
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "package": "ecc-universal",
+    "license": "MIT",
+    "holder": "Affaan Mustafa"
+  },
+  "module_categories": {"core": "software-engineering"},
+  "excluded_skills": {},
+  "file_policy": {"max_files_per_skill": 40, "max_file_bytes": 1048576, "text_extensions": [".md"]},
+  "rewrites": [],
+  "skill_id_prefix": "com.mrbaoquan.ecc.skill"
+}
+`
+
+func writeTestFile(t *testing.T, path, content string) {
+	t.Helper()
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func writeTestSkill(t *testing.T, sourceRoot, slug, name, description string) {
+	t.Helper()
+	document := "---\nname: " + name + "\ndescription: " + description + "\n---\n\n# " + name + "\n\n正文第一段。\n"
+	writeTestFile(t, filepath.Join(sourceRoot, "skills", slug, "SKILL.md"), document)
+}
+
+// reviewFixture 造一份最小的「本仓库 + 上游源码树」。
+//
+// 只用三条技能：alpha 还没人读过，beta 校对过且与当前正文对得上，gamma 校对过
+// 但校对之后上游又改过正文。真实仓库有 268 条，可校对链路的判据只有「锁文件里
+// 的基线」和「上游正文摘要」两项，三种状态各一条就够把它们分开。
+func reviewFixture(t *testing.T) (repoRoot, sourceRoot string) {
+	t.Helper()
+	repoRoot = t.TempDir()
+	sourceRoot = t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, PolicyFile), testPolicyJSON)
+	writeTestFile(t, filepath.Join(sourceRoot, "package.json"), `{"version":"2.2.3"}`)
+	writeTestFile(t, filepath.Join(sourceRoot, "manifests", "install-modules.json"),
+		`{"modules":[{"id":"core","kind":"skill","paths":["skills/alpha","skills/beta","skills/gamma"]}]}`)
+	writeTestSkill(t, sourceRoot, "alpha", "alpha-helper", "Alpha helper for repetitive chores.")
+	writeTestSkill(t, sourceRoot, "beta", "beta-helper", "Beta helper for repetitive chores.")
+	writeTestSkill(t, sourceRoot, "gamma", "gamma-helper", "Gamma helper for repetitive chores.")
+	return repoRoot, sourceRoot
+}
+
+func testPolicyOf(t *testing.T, repoRoot string) Policy {
+	t.Helper()
+	policy, err := LoadPolicy(filepath.Join(repoRoot, PolicyFile))
+	if err != nil {
+		t.Fatalf("读策略失败：%v", err)
+	}
+	return policy
+}
+
+// sourceDigestOf 直接问上游源码树「这条技能此刻的正文摘要」，避免在测试里
+// 手写摘要——手写的摘要一旦对不上，测出来的就不是真实行为。
+func sourceDigestOf(t *testing.T, repoRoot, sourceRoot, slug string) string {
+	t.Helper()
+	source, err := Discover(sourceRoot, testPolicyOf(t, repoRoot))
+	if err != nil {
+		t.Fatalf("扫描上游源码树失败：%v", err)
+	}
+	for _, skill := range source.Skills {
+		if skill.Slug == slug {
+			return skill.Digest
+		}
+	}
+	t.Fatalf("上游源码树里没有 %s", slug)
+	return ""
+}
+
+func TestReviewQueueSeparatesDerivedStaleAndReviewed(t *testing.T) {
+	repoRoot, sourceRoot := reviewFixture(t)
+	betaDigest := sourceDigestOf(t, repoRoot, sourceRoot, "beta")
+	staleBaseline := "0000000000000000000000000000000000000000000000000000000000000000"
+	if err := SaveMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)), Metadata{
+		SchemaVersion: MetadataVersion,
+		Skills: map[string]MetadataEntry{
+			"alpha": {Name: "Alpha Helper", Description: "机械推导出来的说明", Source: "derived", Note: "显示名称由上游客名缩写而来"},
+			"beta":  {Name: "乙工具", Description: "把乙这件事做完", Categories: []string{"software-engineering"}, Source: "reviewed"},
+			"gamma": {Name: "丙工具", Description: "把丙这件事做完", Categories: []string{"software-engineering"}, Source: "reviewed"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := SaveLock(filepath.Join(repoRoot, LockFile), Lock{
+		SchemaVersion: LockVersion,
+		Upstream:      LockUpstream{Repository: "affaan-m/ECC", Version: "2.2.3", Commit: "d3b8a3e"},
+		Skills: map[string]LockSkill{
+			"alpha": {Version: "2.2.3", SourceDigest: sourceDigestOf(t, repoRoot, sourceRoot, "alpha")},
+			"beta":  {Version: "2.2.3", ReviewedDigest: betaDigest},
+			// gamma 的基线是「上一次校对时的正文」，与此刻正文不同 —— 这正是 stale。
+			"gamma": {Version: "2.2.3", ReviewedDigest: staleBaseline},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	queue, err := BuildReviewQueue(repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatalf("算校对队列失败：%v", err)
+	}
+	if queue.Total != 3 || queue.Pending != 1 || queue.Stale != 1 {
+		t.Fatalf("待校对 1 条、待重校 1 条，得到 total=%d pending=%d stale=%d", queue.Total, queue.Pending, queue.Stale)
+	}
+	if len(queue.Items) != 2 {
+		t.Fatalf("队列只该有 alpha 与 gamma，得到 %d 条：%+v", len(queue.Items), queue.Items)
+	}
+	if queue.Items[0].Slug != "alpha" || queue.Items[0].Status != ReviewStatusDerived {
+		t.Fatalf("alpha 该是待校对，得到 %+v", queue.Items[0])
+	}
+	if queue.Items[0].CurrentName != "Alpha Helper" {
+		t.Fatalf("待校对条目要显示机械推导出的文案，得到 %q", queue.Items[0].CurrentName)
+	}
+	if queue.Items[0].UpstreamName != "alpha-helper" {
+		t.Fatalf("待校对条目要带上游原文供对照，得到 %q", queue.Items[0].UpstreamName)
+	}
+	stale := queue.Items[1]
+	if stale.Slug != "gamma" || stale.Status != ReviewStatusStale {
+		t.Fatalf("gamma 该是待重校，得到 %+v", stale)
+	}
+	if stale.ReviewedDigest != staleBaseline || stale.CurrentDigest == "" {
+		t.Fatalf("待重校条目要同时给出校对基线与当前正文摘要，得到 %+v", stale)
+	}
+	if stale.CurrentName != "丙工具" {
+		t.Fatalf("待重校条目仍要显示市场正在用的文案，得到 %q", stale.CurrentName)
+	}
+	if queue.ByCategory["software-engineering"] != 2 {
+		t.Fatalf("分类统计要算上每个待办条目，得到 %v", queue.ByCategory)
+	}
+
+	// beta 校对过且与当前正文对得上：它不该出现在队列里。
+	for _, item := range queue.Items {
+		if item.Slug == "beta" {
+			t.Fatal("已校对且未过期的技能不该出现在队列里")
+		}
+	}
+
+	if filtered := queue.Filter(ReviewStatusStale, "software-engineering"); len(filtered.Items) != 1 || filtered.Pending != 0 || filtered.Stale != 1 {
+		t.Fatalf("按分类收窄待重校应当只剩 gamma，得到 %+v", filtered)
+	}
+	if filtered := queue.Filter(ReviewStatusDerived, ""); len(filtered.Items) != 1 || filtered.Stale != 0 {
+		t.Fatalf("按状态收窄待校对应当只剩 alpha，得到 %+v", filtered)
+	}
+
+	markdown := queue.Markdown()
+	for _, want := range []string{"待校对 1，待重校 1", "## software-engineering（2）", "alpha-helper"} {
+		if !strings.Contains(markdown, want) {
+			t.Fatalf("清单里应当出现 %q：\n%s", want, markdown)
+		}
+	}
+}
+
+func TestApplyReviewDecisionsIsAllOrNothing(t *testing.T) {
+	repoRoot, sourceRoot := reviewFixture(t)
+	alphaReviewed := MetadataEntry{Name: "甲工具", Description: "把甲这件事做完", Categories: []string{"software-engineering"}, Source: "reviewed"}
+	betaDerived := MetadataEntry{Name: "Beta Helper", Description: "机械推导出来的说明", Categories: []string{"software-engineering"}, Source: "derived", Note: "显示名称由上游客名缩写而来"}
+	metadataPath := filepath.Join(repoRoot, filepath.FromSlash(MetadataFile))
+	if err := SaveMetadata(metadataPath, Metadata{SchemaVersion: MetadataVersion, Skills: map[string]MetadataEntry{
+		"alpha": alphaReviewed,
+		"beta":  betaDerived,
+	}}); err != nil {
+		t.Fatal(err)
+	}
+	if err := SaveLock(filepath.Join(repoRoot, LockFile), Lock{
+		SchemaVersion: LockVersion,
+		Skills: map[string]LockSkill{
+			"alpha": {Version: "2.2.3"},
+			"beta":  {Version: "2.2.3"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	// 第 200 条不合法就中途停下，人不知道自己读到哪儿了；所以整批要么全落、要么一条不落。
+	_, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"alpha": {Name: "甲工具改名", Description: "把甲这件事做完，而且做得更稳"},
+		"beta":  {Name: strings.Repeat("超", 19), Description: "名称超过 18 字上限"},
+	}, time.Now())
+	if err == nil {
+		t.Fatal("名称超过 18 字必须整批拒绝")
+	}
+	if !strings.Contains(err.Error(), "beta") || !strings.Contains(err.Error(), "18") {
+		t.Fatalf("错误信息要点名是哪条、超了什么，得到 %q", err.Error())
+	}
+	after, err := LoadMetadata(metadataPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !reflect.DeepEqual(after.Skills["alpha"], alphaReviewed) || !reflect.DeepEqual(after.Skills["beta"], betaDerived) {
+		t.Fatal("整批拒绝时一条都不该落库")
+	}
+
+	// slug 写错也要当场拦住，而不是落进一份对不上的元数据表。
+	if _, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"ghost": {Name: "不存在的技能", Description: "把不存在这件事做完"},
+	}, time.Now()); err == nil || !strings.Contains(err.Error(), "不在同步锁里") {
+		t.Fatalf("锁里没有的 slug 必须报错，得到 %v", err)
+	}
+
+	result, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"alpha": {Name: "甲工具改名", Description: "把甲这件事做完，而且做得更稳"},
+		"beta":  {Name: "乙工具", Description: "把乙这件事做完"},
+	}, time.Date(2026, 9, 28, 8, 39, 36, 0, time.UTC))
+	if err != nil {
+		t.Fatalf("合法的一批应当落库：%v", err)
+	}
+	if result.DecisionsOf != 2 || len(result.Applied) != 2 || result.Reviewed != 2 || result.Pending != 0 {
+		t.Fatalf("落库摘要不对：%+v", result)
+	}
+	if result.ReviewedAt != "2026-09-28T08:39:36Z" {
+		t.Fatalf("落库时间要写进元数据表，得到 %q", result.ReviewedAt)
+	}
+	after, err = LoadMetadata(metadataPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if after.Skills["beta"].Source != "reviewed" || after.Skills["beta"].Name != "乙工具" {
+		t.Fatalf("落库后 beta 该是人工校对的文案，得到 %+v", after.Skills["beta"])
+	}
+	// 推导留痕必须清掉：留着会让下一个人以为这条还没读过。
+	if after.Skills["beta"].Note != "" {
+		t.Fatalf("校对过后不该再留推导备注，得到 %q", after.Skills["beta"].Note)
+	}
+
+	// 同一批再算一次队列：没有待办了。
+	queue, err := BuildReviewQueue(repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if queue.Pending != 0 || queue.Stale != 0 || len(queue.Items) != 0 {
+		t.Fatalf("两条都校对过之后队列该空，得到 %+v", queue)
+	}
+}
+
+// 校对基线只在「文案刚被人读过」时刷新。用 SourceDigest 当基线的话，
+// 上游一动就会被判成「刚重校过」，待重校标记永远亮不起来 —— 那这条链路的
+// 唯一价值就没了。
+func TestGenerateMovesReviewBaselineOnlyWhenTextWasRewritten(t *testing.T) {
+	repoRoot, sourceRoot := reviewFixture(t)
+	if err := SaveMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)), Metadata{
+		SchemaVersion: MetadataVersion,
+		Skills: map[string]MetadataEntry{
+			"alpha": {Name: "甲工具", Description: "把甲这件事做完", Source: "reviewed"},
+			"beta":  {Name: "乙工具", Description: "把乙这件事做完", Source: "reviewed"},
+			"gamma": {Name: "丙工具", Description: "把丙这件事做完", Source: "reviewed"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	upstream := LockUpstream{
+		Repository:    "affaan-m/ECC",
+		Package:       "ecc-universal",
+		Version:       "2.2.3",
+		Commit:        "d3b8a3e908904e242ed2dbe66af62cca71131419",
+		License:       "MIT",
+		LicenseHolder: "Affaan Mustafa",
+	}
+	input := GenerateInput{
+		RepoRoot:   repoRoot,
+		SourceRoot: sourceRoot,
+		Policy:     testPolicyOf(t, repoRoot),
+		Upstream:   upstream,
+		Now:        time.Date(2026, 9, 28, 8, 39, 36, 0, time.UTC),
+		Tool:       "ecc-sync test",
+	}
+
+	first, err := Generate(input)
+	if err != nil {
+		t.Fatalf("首次生成失败：%v", err)
+	}
+	if len(first.StaleReviews) != 0 {
+		t.Fatalf("刚校对过的文案不该被判成待重校，得到 %v", first.StaleReviews)
+	}
+	firstLock, err := LoadLock(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	betaInitialDigest := sourceDigestOf(t, repoRoot, sourceRoot, "beta")
+	if firstLock.Skills["beta"].ReviewedDigest != betaInitialDigest {
+		t.Fatalf("首次生成要把当前正文记成校对基线，得到 %q", firstLock.Skills["beta"].ReviewedDigest)
+	}
+
+	// 上游只动 beta 的正文：基线不该跟着动，标记要亮起来。
+	writeTestSkill(t, sourceRoot, "beta", "beta-helper", "Beta helper now covers a different chore entirely.")
+	second, err := Generate(input)
+	if err != nil {
+		t.Fatalf("上游改动后再生成失败：%v", err)
+	}
+	if len(second.StaleReviews) != 1 || second.StaleReviews[0] != "beta" {
+		t.Fatalf("只有 beta 该被标成待重校，得到 %v", second.StaleReviews)
+	}
+	secondLock, err := LoadLock(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if secondLock.Skills["beta"].ReviewedDigest != betaInitialDigest {
+		t.Fatalf("上游改正文不该刷新校对基线，否则待重校永远不会亮：%q", secondLock.Skills["beta"].ReviewedDigest)
+	}
+	betaNewDigest := sourceDigestOf(t, repoRoot, sourceRoot, "beta")
+	if secondLock.Skills["beta"].SourceDigest != betaNewDigest || betaNewDigest == betaInitialDigest {
+		t.Fatalf("锁文件要跟上新的正文摘要：%+v", secondLock.Skills["beta"])
+	}
+	// alpha 与 gamma 一个字节没动，它们不该被牵连。
+	if firstLock.Skills["alpha"].Version != secondLock.Skills["alpha"].Version {
+		t.Fatalf("别的技能没动就不该涨版本：%q → %q", firstLock.Skills["alpha"].Version, secondLock.Skills["alpha"].Version)
+	}
+
+	// 人重新读过文案之后，基线跟到新正文，标记熄灭。
+	if _, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"beta": {Name: "乙工具", Description: "把乙这件事换成的新做法做完"},
+	}, time.Date(2026, 9, 28, 9, 0, 0, 0, time.UTC)); err != nil {
+		t.Fatalf("重新校对落库失败：%v", err)
+	}
+	third, err := Generate(input)
+	if err != nil {
+		t.Fatalf("重新校对后再生成失败：%v", err)
+	}
+	if containsString(third.StaleReviews, "beta") {
+		t.Fatalf("重新校对过之后不该再是待重校，得到 %v", third.StaleReviews)
+	}
+	thirdLock, err := LoadLock(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if thirdLock.Skills["beta"].ReviewedDigest != betaNewDigest {
+		t.Fatalf("重新校对后基线要跟到新正文，得到 %q", thirdLock.Skills["beta"].ReviewedDigest)
+	}
+
+	// 再来一次同样的输入：内容没变，同步序号与锁文件都该原地不动。
+	before, err := os.ReadFile(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	fourth, err := Generate(input)
+	if err != nil {
+		t.Fatalf("重复生成失败：%v", err)
+	}
+	after, err := os.ReadFile(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(before) != string(after) || len(fourth.Changed) != 0 {
+		t.Fatalf("上游与元数据都没变时必须是零动作：changed=%v", fourth.Changed)
 	}
 }

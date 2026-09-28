@@ -180,9 +180,16 @@ type LockSkill struct {
 	MetadataDigest string `json:"metadata_digest,omitempty"`
 	// SourceCommit 记录这个技能的搬运基线来自哪次上游提交。
 	SourceCommit string `json:"source_commit,omitempty"`
-	SourcePath   string `json:"source_path"`
-	Tier         string `json:"tier"`
-	Rewritten    bool   `json:"rewritten,omitempty"`
+	// ReviewedDigest 是「人工校对这条市场文案时，上游正文长什么样」。
+	//
+	// 有了它才分得清两种变化：文案被校对过（MetadataDigest 变）与上游正文
+	// 又动过（SourceDigest 变）。两者都不稀奇，稀奇的是第二种发生在第一种之后——
+	// 那时文案还没过时，但正在过时的路上，需要重新读一遍，而正文本身没变时
+	// 这条基线一动都不该动。
+	ReviewedDigest string `json:"reviewed_digest,omitempty"`
+	SourcePath     string `json:"source_path"`
+	Tier           string `json:"tier"`
+	Rewritten      bool   `json:"rewritten,omitempty"`
 }
 
 // Lock 是 upstream.lock.json。
