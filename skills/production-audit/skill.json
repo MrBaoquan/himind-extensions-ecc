@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.production-audit",
-  "name": "Production Audit",
+  "name": "生产就绪审计",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Local-evidence production readiness audit for shipped apps, pre-launch reviews, post-merge checks, and \"what breaks in…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "仅凭本地证据做上线就绪审计，覆盖发布前评估、合并后检查与上线后哪里会出问题，不上传仓库数据。当要在发布前做生产风险排查时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

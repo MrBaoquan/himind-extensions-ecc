@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.scientific-db-pubmed-database",
-  "name": "Pubmed Database",
+  "name": "PubMed 文献检索",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PMID lookup, citation…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "检索 PubMed 与 NCBI：MeSH 查询、PMID 定位、引文获取与文献监测。当要找医学文献或跟踪某个主题的新论文时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

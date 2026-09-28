@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agentic-engineering",
-  "name": "Engineering",
+  "name": "Agent 化工程方法",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "以评测先行、任务拆解与按成本选择模型的思路推进工程。当规划或执行由 agent 端到端承担的研发工作时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

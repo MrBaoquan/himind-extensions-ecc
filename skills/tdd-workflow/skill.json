@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.tdd-workflow",
-  "name": "Tdd Workflow",
+  "name": "测试驱动开发",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Test-driven development workflow: write a failing test first, watch it fail, implement the smallest change to green,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "先写会失败的测试、看它失败，再写最小实现转绿，最后在单测、集成与端到端层面重构并保持高覆盖。当要按 TDD 写功能或修缺陷时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

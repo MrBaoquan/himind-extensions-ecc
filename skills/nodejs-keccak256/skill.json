@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nodejs-keccak256",
-  "name": "Nodejs Keccak256",
+  "name": "以太坊哈希防错",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Prevent Ethereum hashing bugs in JavaScript and TypeScript. Node's sha3-256 is NIST SHA3, not Ethereum Keccak-256, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "避免 JS/TS 里的以太坊哈希缺陷：Node 的 sha3-256 是 NIST 版本而非 Keccak-256，会静默破坏选择器、签名与地址。当选择器、签名或存储槽对不上时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

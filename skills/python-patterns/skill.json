@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.python-patterns",
-  "name": "Python Patterns",
+  "name": "Python 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "地道的 Python 写法、PEP 8、类型标注与最佳实践。当要写或审 Python 代码、纠结写法或类型时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.browser-qa",
-  "name": "Browser Qa",
+  "name": "浏览器上线验证",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run automated post-deploy UI verification with a browser automation MCP (claude-in-chrome, Playwright, or Puppeteer):…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用浏览器自动化做上线后 UI 验证：控制台报错与性能冒烟、表单与登录交互、三档断点截图比对与无障碍审计。当发布后要验证页面时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.healthcare-emr-patterns",
-  "name": "Emr Patterns",
+  "name": "电子病历开发",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "EMR/EHR development patterns for healthcare applications. Clinical safety, encounter workflows, prescription…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "医疗应用的病历系统开发模式：临床安全、就诊流程、处方生成、决策支持集成与无障碍优先的录入界面。当要开发病历相关功能时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

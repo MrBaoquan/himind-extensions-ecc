@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.logistics-exception-management",
-  "name": "Management",
+  "name": "物流异常处理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Codified freight-exception handling expertise for shipment delays, damages, losses, shortages, and carrier disputes,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "处理延迟、破损、丢失、短少与承运商纠纷：升级路径、各运输方式下承运商的实际做派、索赔流程，以及「认赔还是追赔」的判断框架。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

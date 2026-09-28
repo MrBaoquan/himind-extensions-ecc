@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.product-capability",
-  "name": "Product Capability",
+  "name": "需求转能力方案",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Translate PRD intent, roadmap asks, or product discussions into an implementation-ready capability plan that exposes…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把 PRD、路线图或产品讨论翻译成可直接开工的能力方案，提前暴露约束、不变量、接口与待决项。当要把需求落成可执行规划时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

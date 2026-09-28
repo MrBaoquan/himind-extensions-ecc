@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kotlin-testing",
-  "name": "Kotlin Testing",
+  "name": "Kotlin 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Kotlin testing patterns with Kotest, MockK, coroutine testing, property-based testing, and Kover coverage.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Kotlin 测试实践：Kotest、MockK、协程测试、基于属性的测试与覆盖率。当要写 Kotlin 测试或测试协程时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

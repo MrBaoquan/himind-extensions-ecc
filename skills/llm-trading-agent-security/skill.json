@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.llm-trading-agent-security",
-  "name": "Agent Security",
+  "name": "交易 Agent 安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Security patterns for autonomous trading agents with wallet or transaction authority.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "有钱包或交易权限的自动交易 agent 安全：提示注入、额度上限、发送前模拟、熔断、MEV 防护与密钥管理。当 agent 能动用资金时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

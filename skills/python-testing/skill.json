@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.python-testing",
-  "name": "Python Testing",
+  "name": "Python 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Python testing strategies using pytest, TDD methodology, fixtures, mocking, parametrization, and coverage requirements.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Python 测试策略：pytest、测试先行、夹具、Mock、参数化与覆盖率要求。当要写 pytest 用例时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

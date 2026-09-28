@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.netmiko-ssh-automation",
-  "name": "Ssh Automation",
+  "name": "网络设备 SSH 自动化",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Safe Python Netmiko patterns for read-only collection, bounded batch SSH, TextFSM parsing, guarded config changes,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Python Netmiko 安全访问网络设备：只读采集、批量 SSH、TextFSM 解析、受控改配置与超时重试。当要批量采集设备状态或推送配置时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

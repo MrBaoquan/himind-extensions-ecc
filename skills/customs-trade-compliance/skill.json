@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.customs-trade-compliance",
-  "name": "Trade Compliance",
+  "name": "关务与贸易合规",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Codified customs and trade compliance expertise — HS/HTS tariff classification with GRI rules, commercial invoices and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "HS/HTS 归类与 GRI 规则、商业发票与报关单证、Incoterms 2020、自贸协定与关税优化（USMCA、RCEP、FTZ、退税）、受限方筛查与处罚应对，覆盖美欧英与亚太。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

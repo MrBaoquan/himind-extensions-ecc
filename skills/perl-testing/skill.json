@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.perl-testing",
-  "name": "Perl Testing",
+  "name": "Perl 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Perl testing patterns using Test2::V0, Test::More, prove runner, mocking, coverage with Devel::Cover, and TDD…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Perl 测试实践：Test2::V0、Test::More、运行器、Mock、覆盖率与测试先行。当要写 Perl 测试或统计覆盖率时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

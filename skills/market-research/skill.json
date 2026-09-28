@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.market-research",
-  "name": "Market Research",
+  "name": "市场调研",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Conduct market research, competitive analysis, investor due diligence, and industry intelligence with source…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "做市场研究、竞争分析与行业情报，结论面向决策并标注来源。当要看市场规模、对手对比或做技术扫描时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

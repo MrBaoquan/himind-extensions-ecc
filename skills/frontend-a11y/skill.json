@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.frontend-a11y",
-  "name": "Frontend A11y",
+  "name": "前端无障碍",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Accessibility patterns for React and Next.js — semantic HTML, ARIA attributes, form labeling, keyboard navigation,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React 与 Next.js 的无障碍实践：语义标签、属性、表单标注、键盘导航、焦点管理与读屏支持。当要写或审表单、弹窗、下拉与标签页时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

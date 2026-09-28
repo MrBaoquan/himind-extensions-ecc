@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.returns-reverse-logistics",
-  "name": "Reverse Logistics",
+  "name": "退货与逆向物流",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Codified expertise for returns authorization, receipt and inspection, disposition decisions, refund processing, fraud…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "退货授权、收货检验、处置决策、退款处理、欺诈识别与保修索赔管理，含分级框架、处置经济性测算与厂商追偿流程。当要处理退货或保修争议时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.homelab-network-setup",
-  "name": "Network Setup",
+  "name": "家庭网络规划",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Practical home and homelab network planning for gateways, switches, access points, IP ranges, DHCP reservations, DNS,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "家庭与实验室网络的实用规划：网关、交换机、AP、IP 段、DHCP 保留、DNS、布线与常见坑。当要规划或排查家庭网络时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

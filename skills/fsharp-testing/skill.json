@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.fsharp-testing",
-  "name": "Fsharp Testing",
+  "name": "F# 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "F# testing patterns with xUnit, FsUnit, Unquote, FsCheck property-based testing, integration tests, and test…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "F# 测试实践：xUnit、断言库、基于属性的测试与集成测试。当要写或审 F# 测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

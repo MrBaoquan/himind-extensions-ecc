@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.swift-protocol-di-testing",
-  "name": "Di Testing",
+  "name": "Swift 依赖注入测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Protocol-based dependency injection for testable Swift code — mock file system, network, and external APIs using…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用协议做依赖注入，把文件系统、网络与外部接口替换成可控实现，让 Swift 代码可测。当 Swift 代码要测试且需替换外部依赖时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

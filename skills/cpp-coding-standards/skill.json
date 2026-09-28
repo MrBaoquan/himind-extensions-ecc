@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.cpp-coding-standards",
-  "name": "Coding Standards",
+  "name": "C++ 编码规范",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "C++ coding standards based on the C++ Core Guidelines (isocpp.github.io).",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "基于 C++ Core Guidelines 的编码规范。当要编写、评审或重构 C++ 代码、要求现代且安全的写法时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.continuous-agent-loop",
-  "name": "Agent Loop",
+  "name": "持续 Agent 循环",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "带质量闸门、评测与恢复控制的持续自主循环模式。当要让 agent 循环自我检查、按评测卡关并从失败中恢复时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

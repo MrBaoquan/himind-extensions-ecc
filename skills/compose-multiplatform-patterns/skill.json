@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.compose-multiplatform-patterns",
-  "name": "Patterns",
+  "name": "Compose 跨平台界面",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Compose Multiplatform and Jetpack Compose patterns for KMP projects — state management, navigation, theming,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "KMP 项目的 Compose Multiplatform 与 Jetpack Compose 模式：状态管理、导航、主题、性能与平台差异 UI。当要写 Compose 界面或状态时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

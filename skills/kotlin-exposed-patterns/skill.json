@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kotlin-exposed-patterns",
-  "name": "Exposed Patterns",
+  "name": "Exposed ORM 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "JetBrains Exposed ORM patterns including DSL queries, DAO pattern, transactions, HikariCP connection pooling, Flyway…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "JetBrains Exposed 的用法：DSL 与 DAO 查询、事务、连接池、迁移与仓库模式。当要用 Exposed 操作数据库时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

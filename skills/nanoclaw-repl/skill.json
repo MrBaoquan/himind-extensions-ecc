@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nanoclaw-repl",
-  "name": "Nanoclaw Repl",
+  "name": "终端会话工具",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate and extend NanoClaw, ECC's zero-dependency session-aware REPL, with persistent markdown-backed sessions and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "使用并扩展 NanoClaw 这个零依赖终端会话工具：markdown 持久会话与斜杠命令，支持切换模型、加载技能、会话分支、跨会话搜索与导出。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

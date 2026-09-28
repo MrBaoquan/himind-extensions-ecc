@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.automation-audit-ops",
-  "name": "Audit Ops",
+  "name": "自动化盘点",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first automation inventory and overlap audit workflow for ECC.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "先取证再动手，把仓库里跑着的定时任务、钩子、连接器、MCP 服务和包装层盘一遍：哪些还活着、哪些坏了、哪些重复、哪些缺位。当要改自动化之前先弄清现状时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

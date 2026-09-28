@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.tasteforge-video",
-  "name": "Tasteforge Video",
+  "name": "素材风格炼取",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use for file-driven multimodal image, video, and 3D-asset discovery; taste interviews; distill or apply workflows;…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "以文件驱动做图像、视频与 3D 资产发现、风格访谈与提炼，输出风格包与可编辑剪辑工程并留溯源审计。当要复用某套视觉风格时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

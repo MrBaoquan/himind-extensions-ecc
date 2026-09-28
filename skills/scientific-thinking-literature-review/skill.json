@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.scientific-thinking-literature-review",
-  "name": "Literature Review",
+  "name": "文献综述",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Systematic literature-review workflow for academic, biomedical, technical, and scientific topics, including search…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "做系统性文献综述：规划检索、筛选来源、综合结论、核查引用并留下证据链。当要写一篇经得起查的综述时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

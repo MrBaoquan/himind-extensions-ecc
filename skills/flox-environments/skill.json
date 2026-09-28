@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.flox-environments",
-  "name": "Flox Environments",
+  "name": "可复现开发环境",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Create reproducible, cross-platform (macOS/Linux) development environments with Flox, a declarative Nix-based…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Flox（基于 Nix 的声明式环境管理器）搭建可复现的跨平台开发环境，锁定工具链与依赖版本。当要统一团队环境或装系统级依赖时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

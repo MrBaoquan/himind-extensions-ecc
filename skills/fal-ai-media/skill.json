@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.fal-ai-media",
-  "name": "Fal Ai Media",
+  "name": "AI 媒体生成",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Unified media generation via fal.ai MCP — image, video, and audio.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "经 fal.ai 统一生成图像、视频与音频：文生图、文或图生视频、语音合成与视频转音频。当要批量产出多模态素材时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

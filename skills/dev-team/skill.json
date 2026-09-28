@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dev-team",
-  "name": "Dev Team",
+  "name": "多角色评审",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Simulate a collaborative dev team session where multiple role-based personas (PM, Architect, Developer, QA) respond to…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "让产品、架构、开发、测试四种角色在同一会话里就同一问题各自发言。当要设计功能、评审提案或启动新项目、需要多视角时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

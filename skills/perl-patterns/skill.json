@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.perl-patterns",
-  "name": "Perl Patterns",
+  "name": "Perl 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Modern Perl 5.36+ idioms, best practices, and conventions for building robust, maintainable Perl applications.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "现代 Perl 5.36+ 的惯例与最佳实践，写出稳健可维护的应用。当要写或审现代 Perl 代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

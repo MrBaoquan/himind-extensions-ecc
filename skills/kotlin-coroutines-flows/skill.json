@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kotlin-coroutines-flows",
-  "name": "Coroutines Flows",
+  "name": "Kotlin 协程",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Kotlin Coroutines and Flow patterns for Android and KMP — structured concurrency, Flow operators, StateFlow, error…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Android 与 KMP 的协程与 Flow 模式：结构化并发、流操作符、状态流、错误处理与测试。当要写协程代码或排查取消与并发问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

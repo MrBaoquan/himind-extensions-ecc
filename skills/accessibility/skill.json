@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.accessibility",
-  "name": "Accessibility",
+  "name": "无障碍设计",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design, implement, and audit accessible UI to WCAG 2.2 Level AA across Web, iOS, and Android — semantic ARIA roles and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "按 WCAG 2.2 AA 设计、实现并审查 Web、iOS 与 Android 的无障碍界面：语义角色与标签、焦点管理、对比度、点击区域与读屏支持。当要做无障碍合规或键盘可用性时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

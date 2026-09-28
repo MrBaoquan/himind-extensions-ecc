@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-change-feature",
-  "name": "Change Feature",
+  "name": "功能行为调整",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Orchestrate altering an existing, working feature to new desired behavior — update its tests to the new spec, change…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "编排把一个已能工作的功能改成新行为：先按新规格改测试，再改实现，评审后受控提交。当行为没坏但应该不一样时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.context-budget",
-  "name": "Context Budget",
+  "name": "上下文预算审计",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Audits Claude Code context window consumption across agents, skills, MCP servers, and rules.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "审计 agent、技能、MCP 与规则占用的上下文窗口，找出冗余并按优先级给出省 token 的建议。当上下文快要撑爆时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

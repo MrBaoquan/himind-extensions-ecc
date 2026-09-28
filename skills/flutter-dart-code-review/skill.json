@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.flutter-dart-code-review",
-  "name": "Dart Code Review",
+  "name": "Flutter 代码评审",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Library-agnostic Flutter/Dart code review checklist covering widget best practices, state management patterns (BLoC,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "不绑定具体库的 Flutter/Dart 评审清单：组件实践、状态管理方案、Dart 惯例、性能、无障碍、安全与分层架构。当要评审 Flutter 代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

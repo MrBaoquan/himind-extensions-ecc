@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.regex-vs-llm-structured-text",
-  "name": "Structured Text",
+  "name": "结构化文本解析",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Decision framework for parsing structured text (quizzes, forms, invoices, receipts, tables) with a hybrid regex-first…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "解析表单、票据、表格等结构化文本的选型框架：正则先扛大部分、置信度低的条目交给模型兜底修正。当要在正则与模型之间取舍时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

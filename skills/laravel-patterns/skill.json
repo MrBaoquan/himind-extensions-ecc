@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.laravel-patterns",
-  "name": "Laravel Patterns",
+  "name": "Laravel 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Laravel architecture patterns, routing/controllers, Eloquent ORM, service layers, queues, events, caching, and API…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Laravel 架构模式：路由与控制器、Eloquent、服务层、队列、事件、缓存与接口资源。当要开发或评审 Laravel 应用时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.evm-token-decimals",
-  "name": "Evm Token Decimals",
+  "name": "代币精度防错",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Prevent silent decimal mismatch bugs across EVM chains. Covers runtime decimal lookup, chain-aware caching,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "防止跨 EVM 链的精度不一致缺陷：运行时读取小数位、按链缓存、桥接代币精度漂移与安全归一化。当余额、价格或转账数量对不上时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

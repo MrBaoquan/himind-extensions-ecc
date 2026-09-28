@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dashboard-builder",
-  "name": "Dashboard Builder",
+  "name": "监控看板搭建",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build monitoring dashboards that answer real operator questions for Grafana, SigNoz, and similar platforms.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为 Grafana、SigNoz 等平台搭建能回答运维真问题的监控看板。当要把指标变成值班时真看得上、真用得上的看板，而不是好看没用的展板时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

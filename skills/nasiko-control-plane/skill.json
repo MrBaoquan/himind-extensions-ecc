@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nasiko-control-plane",
-  "name": "Control Plane",
+  "name": "Nasiko 生命周期管理",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Manage the experimental Nasiko CLI lifecycle through ECC — read-only status checks, consent-gated install of the pinned…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "经 ECC 管理实验性 Nasiko CLI：只读状态检查、预览后按确认安装指定版本、校验归属后卸载。当要安装、检查或移除 Nasiko CLI 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.email-ops",
-  "name": "Email Ops",
+  "name": "邮件处理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first mailbox triage, drafting, send verification, and sent-mail-safe follow-up workflow for ECC.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "取证式处理邮箱：分拣、起草、发送校验，以及确认落进已发送之后的跟进。当要整理邮件、起草或真实发出邮件，并证明邮件确实发出去时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nestjs-patterns",
-  "name": "Nestjs Patterns",
+  "name": "NestJS 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "NestJS architecture patterns for modules, controllers, providers, DTO validation, guards, interceptors, config, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "NestJS 架构模式：模块、控制器、提供者、参数校验、守卫、拦截器与配置管理。当要开发或评审 NestJS 后端时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

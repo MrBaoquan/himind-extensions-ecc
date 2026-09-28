@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.springboot-verification",
-  "name": "Verification",
+  "name": "Spring Boot 发布校验",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run the full Spring Boot verification loop — Maven or Gradle build, SpotBugs, PMD, and Checkstyle static analysis, unit…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "跑完整的 Spring Boot 校验流程：构建、静态分析、单元与容器化集成测试、覆盖率、依赖与密钥扫描及差异审查，产出就绪报告。当要在发布前验收时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

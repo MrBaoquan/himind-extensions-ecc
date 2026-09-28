@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.hexagonal-architecture",
-  "name": "Architecture",
+  "name": "端口适配器架构",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design, implement, and refactor Ports \u0026 Adapters systems with clear domain boundaries, dependency inversion, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "设计、实现并重构端口与适配器架构：明确领域边界、依赖反转与可测试的用例编排。当领域逻辑与基础设施纠缠、或要引入该架构时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.blender-motion-state-inspection",
-  "name": "State Inspection",
+  "name": "Blender 动作检查",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground contact, facing…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "检查 Blender 里的角色、骨骼、姿态、动画重定向、接地、朝向与模型动作对齐。当截图说不清动作问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

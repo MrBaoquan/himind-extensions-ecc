@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.prediction-market-oracle-research",
-  "name": "Oracle Research",
+  "name": "预测市场情报",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Research prediction markets as data sources or oracle signals for products, agents, dashboards, and corporate decision…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把预测市场当作数据源或信号源做研究，给出市场隐含概率、注意事项与集成方式，不构成投资建议。当要评估预测市场能否接入产品或决策时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

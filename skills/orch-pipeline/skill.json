@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-pipeline",
-  "name": "Orch Pipeline",
+  "name": "编排引擎",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Shared orchestration engine behind the orch-* skill family — the gated Research-Plan-TDD-Review-Commit pipeline, size…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "新功能、缺陷修复与重构等编排技能共用的引擎：受控的调研—规划—测试—评审—提交流水线、规模分级与两道人工确认。一般经具体编排技能间接使用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

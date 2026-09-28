@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.prompt-optimizer",
-  "name": "Prompt Optimizer",
+  "name": "提示词优化",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Analyze draft prompts, detect intent and missing context, match ECC commands, skills, and agents, and output a…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "分析草稿提示词，识别意图与缺失信息，匹配可用的命令、技能与 agent，输出可直接使用的优化版并附带理由。仅给建议、不执行任务。当想改好提示词时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

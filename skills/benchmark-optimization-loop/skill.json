@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.benchmark-optimization-loop",
-  "name": "Optimization Loop",
+  "name": "优化测量循环",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Convert 'make it faster' requests into a bounded measured optimization loop — baseline first, generate one-hypothesis…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把「让它更快」变成有界的度量循环：先建基线，一次只改一个假设，每版都过正确性闸门，最后留下最快的安全版本。当要提速或对比多个改法时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

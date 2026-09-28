@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.database-migrations",
-  "name": "Migrations",
+  "name": "数据库迁移",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Safe, reversible database migration patterns: forward-only production changes, expand-contract zero-downtime renames,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "安全可回滚的迁移模式：只向前变更、零停机改名、并发建索引、分批回填，并覆盖主流迁移工具的工作流。当要写表结构或数据迁移时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

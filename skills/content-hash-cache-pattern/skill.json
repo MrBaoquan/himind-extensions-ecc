@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.content-hash-cache-pattern",
-  "name": "Hash Cache Pattern",
+  "name": "内容哈希缓存",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用内容哈希缓存耗时的文件处理结果：与路径无关、内容变了自动失效，并与服务层分离。当重复处理同一批文件太慢、想按内容做缓存时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

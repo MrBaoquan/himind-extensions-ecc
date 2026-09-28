@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.workspace-surface-audit",
-  "name": "Surface Audit",
+  "name": "环境能力盘点",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Audit the active repo, MCP servers, plugins, connectors, env surfaces, and harness setup, then recommend the…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "审计当前仓库、MCP 服务、插件、连接器、环境变量与工具链配置，再推荐最值得装的技能、钩子与运维流程。当要摸清手上这套环境到底有哪些能力时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

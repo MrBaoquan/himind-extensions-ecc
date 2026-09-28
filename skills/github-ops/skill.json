@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.github-ops",
-  "name": "Github Ops",
+  "name": "GitHub 运维",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 gh 命令做仓库日常运营：Issue 分诊、PR 管理、CI/CD、发布管理与安全监控。当要处理 issue、PR、CI 状态、release、贡献者等运营事务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

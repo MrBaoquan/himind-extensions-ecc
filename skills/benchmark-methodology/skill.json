@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.benchmark-methodology",
-  "name": "Methodology",
+  "name": "竞品打分方法",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Score a scoped competitor set into comparable profile cards: nine weighted dimensions (positioning, voice, visual…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把圈定的竞品打成可比档案卡：九个加权维度配 1-5 分锚定标准，并画出张力四象限。当要对标竞品或做体系化打分时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

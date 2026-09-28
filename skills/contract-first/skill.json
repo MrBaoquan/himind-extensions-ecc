@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.contract-first",
-  "name": "Contract First",
+  "name": "契约先行",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Coordinate frontend/backend or service-to-service work through one authoritative machine-checkable contract (OpenAPI,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用一份可机器校验的契约（OpenAPI、AsyncAPI、Protobuf 或 JSON Schema）协调前后端与服务间协作，并生成消费方类型、验证集成。当多方要并行演进接口时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

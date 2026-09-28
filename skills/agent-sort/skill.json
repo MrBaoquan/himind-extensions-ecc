@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-sort",
-  "name": "Agent Sort",
+  "name": "按需精简安装",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build an evidence-backed ECC install plan for a specific repo by sorting skills, commands, rules, hooks, and extras…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "结合具体仓库，把技能、命令、规则与钩子分成常用与备用两档，产出有证据支持的精简安装清单。当只想装项目真正需要的东西时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

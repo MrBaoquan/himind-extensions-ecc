@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.swiftui-patterns",
-  "name": "Swiftui Patterns",
+  "name": "SwiftUI 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "SwiftUI architecture patterns, state management with @Observable, view composition, navigation, performance…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "SwiftUI 架构模式：可观察状态管理、视图组合、导航、性能优化与现代 iOS/macOS 界面实践。当要写或审 SwiftUI 视图时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.postgres-patterns",
-  "name": "Postgres Patterns",
+  "name": "PostgreSQL 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "PostgreSQL database patterns for query optimization, schema design, indexing, and security.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "PostgreSQL 的查询优化、表结构设计、索引与安全，含行级权限策略实践。当要设计表与索引、配置权限，或查询太慢时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

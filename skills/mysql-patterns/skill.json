@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.mysql-patterns",
-  "name": "Mysql Patterns",
+  "name": "MySQL 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "MySQL and MariaDB schema, query, indexing, transaction, replication, and connection-pool patterns for production…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "MySQL 与 MariaDB 的表结构、查询、索引、事务、复制与连接池模式。当要设计表与索引，或查询、事务、从库延迟出问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

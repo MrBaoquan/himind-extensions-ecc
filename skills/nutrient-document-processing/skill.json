@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nutrient-document-processing",
-  "name": "Processing",
+  "name": "文档处理转换",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Process, convert, OCR, extract, redact, sign, and fill documents using the Nutrient DWS API.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Nutrient DWS 处理 PDF、DOCX、XLSX、PPTX、HTML 与图片：转换、OCR、提取、脱敏、签名与填表。当要批量加工文档时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

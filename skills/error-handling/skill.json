@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.error-handling",
-  "name": "Error Handling",
+  "name": "错误处理",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Patterns for robust error handling across TypeScript, Python, and Go.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "TypeScript、Python 与 Go 的稳健错误处理：类型化错误、错误边界、重试、熔断与面向用户的报错文案。当要设计错误类型或重试策略时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

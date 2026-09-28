@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.blueprint",
-  "name": "Blueprint",
+  "name": "工程蓝图",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Turn a one-line objective into a step-by-step construction plan for multi-session, multi-agent engineering projects:…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把一句话目标变成分步施工计划：按一个 PR 粒度切步、每步自带上下文、标出可并行的依赖关系，并配对抗评审与计划变更协议。当要规划大型多会话项目时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

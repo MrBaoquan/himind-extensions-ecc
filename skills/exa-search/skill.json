@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.exa-search",
-  "name": "Exa Search",
+  "name": "语义检索",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Neural search via Exa MCP for web, code, and company research.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Exa 做神经搜索：网页、代码、公司情报、人物与深度研究。当关键词搜索找不准、需要语义发现时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

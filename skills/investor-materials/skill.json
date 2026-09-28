@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.investor-materials",
-  "name": "Investor Materials",
+  "name": "融资材料",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Create and update pitch decks, one-pagers, investor memos, accelerator applications, financial models, and fundraising…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "撰写并迭代路演稿、一页纸、投资人备忘、加速器申请与财务模型，保证多份材料口径一致。当要准备对外融资材料时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.customer-billing-ops",
-  "name": "Billing Ops",
+  "name": "客户计费运营",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate customer billing workflows such as subscriptions, refunds, churn triage, billing-portal recovery, and plan…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "通过 Stripe 一类计费工具处理订阅、退款、流失排查、计费门户恢复与套餐分析。当要帮客户查订阅状态，或做影响收入的计费操作时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

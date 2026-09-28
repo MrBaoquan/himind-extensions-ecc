@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.pytorch-patterns",
-  "name": "Pytorch Patterns",
+  "name": "PyTorch 实践",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "PyTorch 深度学习实践：稳健高效可复现的训练流程、模型结构与数据加载。当要写或审 PyTorch 训练循环，或结果无法复现时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.motion-advanced",
-  "name": "Motion Advanced",
+  "name": "进阶动效",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Advanced motion patterns for React / Next.js — drag \u0026 drop, gestures, text animations, SVG path drawing, custom hooks,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React 与 Next.js 的进阶动效：拖放、手势、文字动画、SVG 描边、自定义钩子与命令式动画序列。当要做复杂交互动效时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

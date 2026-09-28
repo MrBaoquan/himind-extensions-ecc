@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.springboot-security",
-  "name": "Security",
+  "name": "Spring 安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Spring Security best practices for authn/authz, validation, CSRF, secrets, headers, rate limiting, and dependency…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Spring Boot 服务的认证授权、参数校验、CSRF、密钥、响应头、限流与依赖安全检查。当要审 Spring Security 相关配置时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

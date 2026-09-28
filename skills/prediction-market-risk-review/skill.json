@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.prediction-market-risk-review",
-  "name": "Market Risk Review",
+  "name": "预测市场风控",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Review prediction-market, basket, oracle, and trading-agent workflows for compliance, safety, data-quality, privacy,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "审查预测市场、篮子、预言机与交易 agent 流程里的合规、安全、数据质量、隐私与执行风险。当流程要接触账户授权、组合数据或 API 密钥时，先用它。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

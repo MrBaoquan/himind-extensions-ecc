@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dmux-workflows",
-  "name": "Dmux Workflows",
+  "name": "多智能体并行",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Multi-agent orchestration using dmux (tmux pane manager for AI agents).",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 dmux（tmux 里的 AI agent 面板管理器）编排多个 agent 并行开发，给出跨 Claude Code、Codex、OpenCode 的协作模式。当要同时开多个会话并行推进时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

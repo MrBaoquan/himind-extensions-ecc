@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.plan-orchestrate",
-  "name": "Plan Orchestrate",
+  "name": "计划拆解编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Read a plan document, decompose it into steps, design a per-step agent chain from the ECC catalogue, and emit…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "读一份计划文档，拆成步骤，并为每步设计对应的执行链条，产出可直接使用的编排提示。仅生成、不自动执行。当手上有分步计划要落地时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

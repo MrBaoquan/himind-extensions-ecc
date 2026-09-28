@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.opensource-pipeline",
-  "name": "Pipeline",
+  "name": "开源发布流水线",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Open-source pipeline: fork, sanitize, and package private projects for safe public release.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把私有项目分支、脱敏并打包成可安全公开的仓库，由分叉、脱敏、打包三个环节串联。当要把私有项目开源时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

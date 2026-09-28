@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.django-verification",
-  "name": "Verification",
+  "name": "Django 发布校验",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run the full Django verification loop — environment check, mypy/ruff/black linting, migration safety, pytest with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "跑完整的 Django 校验流程：环境检查、静态检查、迁移安全性、测试覆盖率、依赖与安全扫描及配置审查，产出分阶段的通过与否报告。当要发布或提 PR 前用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

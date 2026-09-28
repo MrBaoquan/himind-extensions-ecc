@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.skill-scout",
-  "name": "Skill Scout",
+  "name": "技能先搜后建",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Search existing local, marketplace, GitHub, and web skill sources before creating a new skill.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "新建技能前先查本地、市场、GitHub 与网络上的现成技能，避免重复造轮子。当要创建、改造或寻找技能时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

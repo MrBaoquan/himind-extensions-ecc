@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.brand-voice",
-  "name": "Brand Voice",
+  "name": "写作语气提炼",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build a source-derived writing style profile from real posts, essays, launch notes, docs, or site copy, then reuse that…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "从真实文章、公告、文档或站点文案里提炼专属写作风格，供内容、外联与社媒复用。当要让文字听起来像你而不是 AI 味时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

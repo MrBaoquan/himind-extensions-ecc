@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.x-api",
-  "name": "X Api",
+  "name": "X 接口接入",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "X/Twitter API integration for posting tweets, threads, reading timelines, search, and analytics.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "对接 X/Twitter API 发推文与长帖、读时间线、搜索和分析，含 OAuth 授权与速率限制处理。当要以程序方式操作 X 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

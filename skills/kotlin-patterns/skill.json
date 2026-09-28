@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kotlin-patterns",
-  "name": "Kotlin Patterns",
+  "name": "Kotlin 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Idiomatic Kotlin patterns, best practices, and conventions for building robust, efficient, and maintainable Kotlin…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "地道的 Kotlin 实践与约定：协程、空安全与 DSL 构建器。当要写或审 Kotlin 代码、纠结写法或空安全时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

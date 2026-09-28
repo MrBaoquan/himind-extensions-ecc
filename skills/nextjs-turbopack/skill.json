@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nextjs-turbopack",
-  "name": "Nextjs Turbopack",
+  "name": "Next.js 构建提速",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Next.js 16+ and Turbopack guidance — incremental Rust bundling, file-system caching, faster dev startup and HMR,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Next.js 16 及以上与 Turbopack：增量打包、文件缓存、更快的启动与热更新，与 webpack 的取舍及中间件文件名变更。当构建或热更新慢时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

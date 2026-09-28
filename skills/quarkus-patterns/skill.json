@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.quarkus-patterns",
-  "name": "Quarkus Patterns",
+  "name": "Quarkus 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Quarkus 3.x LTS architecture patterns with Camel for messaging, RESTful API design, CDI services, data access with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Quarkus 3.x 架构模式：Camel 消息、接口设计、CDI 服务、Panache 数据访问与异步处理。当要开发或评审事件驱动的 Quarkus 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

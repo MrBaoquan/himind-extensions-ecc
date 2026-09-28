@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.frontend-design-direction",
-  "name": "Design Direction",
+  "name": "前端设计方向",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Set an ECC-specific frontend design direction for production UI work.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为生产级界面确定设计方向。当要建或改网站、看板、应用、组件与落地页，需要更强的产品化设计判断时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

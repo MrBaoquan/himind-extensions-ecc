@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.e2e-testing",
-  "name": "E2e Testing",
+  "name": "端到端测试",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Playwright 端到端测试实践：页面对象模型、配置、CI 集成、产物管理与不稳定用例治理。当要写 Playwright 用例或修 CI 上偶发失败时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

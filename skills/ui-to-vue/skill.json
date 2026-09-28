@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ui-to-vue",
-  "name": "Ui To Vue",
+  "name": "截图转 Vue 组件",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use when the user has UI screenshots or design exports that need batch conversion into Vue 3 components, especially…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把界面截图或设计稿批量转成 Vue 3 组件，适配常见组件库。当手上只有图、要批量生成 Vue 页面时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.liquid-glass-design",
-  "name": "Glass Design",
+  "name": "iOS 液态玻璃界面",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "iOS 26 Liquid Glass design system — dynamic glass material with blur, reflection, and interactive morphing for SwiftUI,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "iOS 26 液态玻璃设计体系：带模糊、反射与交互动效的动态玻璃材质，用于 SwiftUI、UIKit 与小组件。当要做 iOS 26 新风格界面时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

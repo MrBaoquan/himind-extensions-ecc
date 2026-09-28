@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.code-tour",
-  "name": "Code Tour",
+  "name": "代码导览",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "生成带真实文件与行号锚点的分步导览文件，用于新人上手、架构走查、PR 讲解与故障复盘。当要带人读代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

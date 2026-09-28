@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.quarkus-tdd",
-  "name": "Quarkus Tdd",
+  "name": "Quarkus 测试驱动",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Quarkus 3.x 的测试先行开发：JUnit 5、Mockito、REST Assured、Camel 测试与覆盖率。当要给事件驱动服务加功能或修缺陷时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

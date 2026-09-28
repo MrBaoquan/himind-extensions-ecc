@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-harness-construction",
-  "name": "Construction",
+  "name": "Agent 工具面设计",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design and optimize AI agent action spaces, tool definitions, and observation formatting for higher completion rates.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "设计并优化 agent 的动作空间、工具定义与观察结果格式，以提高任务完成率。当要定义或调整 agent 的工具集与输出格式时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

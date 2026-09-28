@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.healthcare-phi-compliance",
-  "name": "Phi Compliance",
+  "name": "医疗隐私合规",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Protected Health Information (PHI) and PII compliance patterns for healthcare applications: data classification,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "医疗应用的健康与个人信息合规：数据分级、行级访问控制、防篡改审计、字段标注，以及日志、URL、浏览器存储等常见泄露点。当代码要接触患者数据时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

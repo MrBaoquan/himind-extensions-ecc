@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.network-config-validation",
-  "name": "Config Validation",
+  "name": "网络配置校验",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Pre-deployment checks for router and switch configuration, including dangerous commands, duplicate addresses, subnet…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "部署前检查路由器与交换机配置：危险命令、重复地址、子网重叠、失效引用、管理面风险与安全规范。当要在上线前审网络配置时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

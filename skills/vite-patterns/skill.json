@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.vite-patterns",
-  "name": "Vite Patterns",
+  "name": "Vite 构建配置",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Vite build tool patterns including config, plugins, HMR, env variables, proxy setup, SSR, library mode, dependency…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Vite 模式：配置与插件、热更新、环境变量、代理、服务端渲染、库模式、依赖预打包与构建优化。当要改 Vite 配置或优化构建时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

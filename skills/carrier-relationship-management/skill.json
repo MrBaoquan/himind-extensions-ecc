@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.carrier-relationship-management",
-  "name": "Management",
+  "name": "承运商管理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Manage truckload, LTL, and intermodal carrier portfolios: sourcing and FMCSA vetting, freight rate and fuel-surcharge…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "管理整车、零担与多式联运承运商池：寻源与资质核验、运价与燃油附加费谈判、招标与路由指南、承运商评分、配额分配与续约。当要引入承运商或评估运力绩效时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

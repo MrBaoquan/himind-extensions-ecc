@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.network-interface-health",
-  "name": "Interface Health",
+  "name": "网口健康诊断",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Diagnose interface errors, drops, CRCs, duplex mismatches, flapping, speed negotiation issues, and counter trends on…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "诊断路由器、交换机与 Linux 主机的接口错误、丢包、CRC、双工与速率不匹配、震荡及计数趋势。当接口报错或丢包时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

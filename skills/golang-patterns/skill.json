@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.golang-patterns",
-  "name": "Golang Patterns",
+  "name": "Go 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "地道的 Go 实践与约定，写出稳健、高效、易维护的服务。当要写或审 Go 代码、纠结结构与惯例时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

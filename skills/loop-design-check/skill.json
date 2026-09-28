@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.loop-design-check",
-  "name": "Loop Design Check",
+  "name": "循环设计检查",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design a goal-oriented agent loop or review one for failure modes: spinning, Goodhart-gaming the verifier, or running a…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "设计或评审目标导向的 agent 循环，防空转、防讨好校验器、防错答案一路跑到底。当要设计自主循环或审查其失效模式时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.healthcare-cdss-patterns",
-  "name": "Cdss Patterns",
+  "name": "临床决策支持",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Clinical Decision Support System (CDSS) development patterns.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "临床决策支持系统开发模式：用药相互作用检查、剂量校验、临床评分（NEWS2、qSOFA）、告警分级与病历系统集成。当要搭临床决策支持时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

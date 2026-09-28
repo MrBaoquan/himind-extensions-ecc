@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.windows-desktop-e2e",
-  "name": "Desktop E2e",
+  "name": "Windows 桌面端到端测试",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 pywinauto 与 Windows UI 自动化对 WPF、WinForms、Win32/MFC、Qt 原生桌面应用做端到端测试。当要给 Windows 桌面应用写测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

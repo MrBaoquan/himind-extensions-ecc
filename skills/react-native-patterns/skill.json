@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.react-native-patterns",
-  "name": "Native Patterns",
+  "name": "React Native 开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "React Native and Expo app patterns — Expo Router navigation, state separation (server/client/route/form), TanStack…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React Native 与 Expo 应用模式：路由导航、状态分层、数据请求与校验、高性能列表、样式方案、原生能力与安全存储。当要写 RN 或 Expo 页面时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

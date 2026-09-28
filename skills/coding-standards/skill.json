@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.coding-standards",
-  "name": "Coding Standards",
+  "name": "通用编码规范",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "跨项目的编码约定：命名、可读性、不可变性与代码质量评审。当要审代码质量、又没有任何框架专用规范适用时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

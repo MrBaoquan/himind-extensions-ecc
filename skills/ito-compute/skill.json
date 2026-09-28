@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ito-compute",
-  "name": "Ito Compute",
+  "name": "GPU 算力预订",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Query live GPU inventory, submit an authenticated Itô fixed-rate RFQ, inspect RFQ or procurement status, revoke device…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "查询实时 GPU 库存、提交固定价算力询价、查看询价与采购状态、吊销设备凭据，并按需跑节点资格校验。当要找 H100/H200 算力或询价时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

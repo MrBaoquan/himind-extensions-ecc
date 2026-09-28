@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.laravel-security",
-  "name": "Laravel Security",
+  "name": "Laravel 安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Laravel security best practices — authentication, authorization, Eloquent safety, CSRF, XSS prevention, API security,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Laravel 安全实践：认证、授权、Eloquent 安全、CSRF、XSS 防护、API 安全与安全部署配置。当要审 Laravel 的认证、数据访问或 API 安全时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

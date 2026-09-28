@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.competitive-report-structure",
-  "name": "Report Structure",
+  "name": "竞争报告成稿",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Assemble scored competitor profile cards (from benchmark-methodology) into a decision-grade competitive report with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把对标评分卡组装成能拍板的竞争报告：格局图、分层、矩阵、空白机会与策略建议。当要交付最终竞争分析时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

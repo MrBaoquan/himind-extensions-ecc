@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.scientific-pkg-gget",
-  "name": "Gget",
+  "name": "基因组数据查询",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style searches, enrichment…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 gget 的命令行与 Python 接口查询基因组数据库、检索序列、做类 BLAST 搜索与富集分析。当要拉取生物信息学数据时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

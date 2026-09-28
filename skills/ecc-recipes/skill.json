@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ecc-recipes",
-  "name": "Ecc Recipes",
+  "name": "命令配方查询",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Map a described workflow to the right ECC command group with run-order and stop condition, or browse all command-group…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把描述的工作流映射到对应的命令组，给出执行顺序与停止条件，或浏览现有配方族。仅作建议、不执行。当要问某个任务该跑哪些命令时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

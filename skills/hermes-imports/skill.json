@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.hermes-imports",
-  "name": "Hermes Imports",
+  "name": "工作流转技能",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Convert local Hermes operator workflows into sanitized ECC skills and release-pack artifacts.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把本地私有工作流脱敏后转成可公开复用的技能与发布包，避免泄露凭据与本地路径。当要把内部流程对外开源时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

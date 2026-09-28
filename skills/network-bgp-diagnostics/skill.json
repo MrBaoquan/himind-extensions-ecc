@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.network-bgp-diagnostics",
-  "name": "Bgp Diagnostics",
+  "name": "BGP 故障诊断",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Diagnostics-only BGP troubleshooting patterns for neighbor state, route exchange, prefix policy, AS path inspection,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "仅诊断式的 BGP 排障：邻居状态、路由交换、前缀策略、AS 路径检查与安全取证。当 BGP 邻居中断、路由缺失或要查前缀策略时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

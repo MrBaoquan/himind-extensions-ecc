@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.backend-patterns",
-  "name": "Backend Patterns",
+  "name": "后端开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Node.js、Express 与 Next.js 的服务端架构模式、接口设计、数据库优化与实践。当要写或审这类后端接口与数据访问时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

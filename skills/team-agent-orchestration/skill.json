@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.team-agent-orchestration",
-  "name": "Orchestration",
+  "name": "Agent 团队编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run team-based orchestration for agent squads: work items with owners and scope, agent Kanban state, branch isolation,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向 agent 团队的编排：带负责人与范围的工作项、看板状态、分支隔离、控制面板可见性与合并闸门。当要并行协调多个 agent 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

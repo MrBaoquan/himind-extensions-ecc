@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.growth-log",
-  "name": "Growth Log",
+  "name": "成长日志",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Write growth log entries that extract reusable patterns from completed work — root cause, transferable rule, and a…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把完成的工作写成可复用经验：根因、可迁移规则与识别信号，避免流水账，并合并重复条目。当要在复杂任务后沉淀所得时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

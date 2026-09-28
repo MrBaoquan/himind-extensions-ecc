@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.visa-doc-translate",
-  "name": "Visa Doc Translate",
+  "name": "签证材料翻译",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Translate visa document images (bank deposit, employment, income, and retirement certificates; HEIC, PNG, or JPG) into…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "识别存款、在职、收入、退休等签证材料图并译成英文，输出原文图加规整译文的中英对照 PDF。当要备齐移民或签证材料时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

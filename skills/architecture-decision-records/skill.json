@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.architecture-decision-records",
-  "name": "Decision Records",
+  "name": "架构决策记录",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Capture architectural decisions as numbered ADR markdown files in docs/adr/ with context, alternatives considered,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把架构决策写成编号 ADR 文件，含背景、备选方案、后果与索引。当要记录决策、或纠结框架与数据库选型时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

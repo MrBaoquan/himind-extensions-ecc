@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.marketing-campaign",
-  "name": "Marketing Campaign",
+  "name": "营销活动统筹",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "End-to-end marketing campaign planning and execution. Covers audience research, positioning, campaign angle definition,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "端到端策划并执行营销活动：受众研究、定位、落地页文案、邮件序列、社媒与广告文案、短视频脚本与内容日历。当要做多渠道产品发布时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

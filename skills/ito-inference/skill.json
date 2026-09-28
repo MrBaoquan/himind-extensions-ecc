@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ito-inference",
-  "name": "Ito Inference",
+  "name": "模型托管接入",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Inspect the availability of model serving on a completed Itô compute booking and, when the canonical backend becomes…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在已订好的算力上查看模型服务可用性，并在后端就绪后提交已确认的服务清单。当算力已订好、要开 OpenAI 兼容推理端点时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

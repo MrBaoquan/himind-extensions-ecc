@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.tinystruct-patterns",
-  "name": "Patterns",
+  "name": "tinystruct 开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Expert guidance for developing with the tinystruct Java framework.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "使用 tinystruct 这个 Java 框架的实践：应用类、路由映射、单元测试、动作注册表、HTTP 与命令行双模式及内置服务器。当要基于 tinystruct 开发时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

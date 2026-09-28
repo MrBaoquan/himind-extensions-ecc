@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.perl-security",
-  "name": "Perl Security",
+  "name": "Perl 安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Comprehensive Perl security covering taint mode, input validation, safe process execution, DBI parameterized queries,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Perl 安全实践：污点模式、输入校验、安全执行进程、DBI 参数化查询、Web 安全与 perlcritic 策略。当要审 Perl 的输入处理或查询时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

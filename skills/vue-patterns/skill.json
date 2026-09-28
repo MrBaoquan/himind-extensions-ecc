@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.vue-patterns",
-  "name": "Vue Patterns",
+  "name": "Vue 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Vue.js 3 Composition API patterns, component architecture, reactivity best practices, Pinia state management, Vue…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Vue 3 组合式 API 模式：组件架构、响应式实践、Pinia 状态管理、路由与 Nuxt 服务端渲染。当要写或审 Vue、Nuxt 或 Pinia 代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

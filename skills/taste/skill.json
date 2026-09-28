@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.taste",
-  "name": "Taste",
+  "name": "影像风格方向",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Creative-direction layer for music videos and short-form edits in the angelcore / cloud-trance / hyperpop family — a…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "给音乐视频与短视频定创作方向：美学名词、情绪与色彩光照体系、卡点剪辑语法。当要先定片子的整体调性时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

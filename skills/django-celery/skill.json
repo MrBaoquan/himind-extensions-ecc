@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.django-celery",
-  "name": "Django Celery",
+  "name": "Django 异步任务",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Django + Celery async task patterns — configuration, task design, beat scheduling, retries, canvas workflows,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Django 与 Celery 的异步任务模式：配置、任务设计、定时调度、重试、编排、监控与测试。当要给 Django 应用加后台或定时任务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

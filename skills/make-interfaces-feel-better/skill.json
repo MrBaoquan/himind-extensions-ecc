@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.make-interfaces-feel-better",
-  "name": "Feel Better",
+  "name": "界面细节打磨",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Apply concrete design-engineering details that make interfaces feel polished.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "落实让界面显得精致的工程细节：间距、字体、边框、阴影、动效、点击区域、图标、换行与交互状态。当要评审或提升 UI 质感时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

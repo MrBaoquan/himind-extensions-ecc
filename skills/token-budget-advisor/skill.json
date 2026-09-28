@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.token-budget-advisor",
-  "name": "Budget Advisor",
+  "name": "回答长度控制",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Offer a choice of response depth (25%/50%/75%/100%) with token estimates before answering, then answer at that level.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "回答前先给出四档深度与对应 token 预估，再按选定档位作答。当想控制回答长度或篇幅时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

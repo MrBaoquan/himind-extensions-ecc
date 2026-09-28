@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.video-editing",
-  "name": "Video Editing",
+  "name": "AI 视频剪辑",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "AI-assisted video editing workflows for cutting, structuring, and augmenting real footage.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "从原始素材出发，经 FFmpeg、Remotion、配音与生成工具剪辑，再到后期工具收尾。当要把一堆素材剪成成片时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

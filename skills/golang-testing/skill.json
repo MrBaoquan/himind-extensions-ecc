@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.golang-testing",
-  "name": "Golang Testing",
+  "name": "Go 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Go testing patterns including table-driven tests, subtests, benchmarks, fuzzing, and test coverage.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Go 测试实践：表驱动用例、子测试、基准、模糊测试与覆盖率，按测试先行推进。当要写 Go 测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.canary-watch",
-  "name": "Canary Watch",
+  "name": "发布后巡检",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use this skill to monitor and verify a deployed URL after releases — checks HTTP endpoints, SSE streams, static assets,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "发布、合并或升级依赖后巡检线上 URL：接口、SSE 流、静态资源、控制台报错与性能回退。当要在上线后做冒烟与金丝雀验证时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

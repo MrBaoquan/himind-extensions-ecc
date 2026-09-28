@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.springboot-tdd",
-  "name": "Springboot Tdd",
+  "name": "Spring Boot 测试驱动",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Spring Boot 的测试先行开发：JUnit 5、Mockito、MockMvc、容器化集成测试与覆盖率。当要加功能、修缺陷或重构时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

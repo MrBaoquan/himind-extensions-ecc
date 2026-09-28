@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ui-demo",
-  "name": "Ui Demo",
+  "name": "界面演示录制",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Record polished UI demo videos using Playwright. Use when the user asks to create a demo, walkthrough, screen…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Playwright 录制带可见光标、节奏自然的精致 UI 演示视频，输出 WebM。当要给产品做演示片时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

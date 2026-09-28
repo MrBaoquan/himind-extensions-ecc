@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.social-publisher",
-  "name": "Social Publisher",
+  "name": "社媒排期发布",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Agent-driven scheduling and publishing of social media posts across 13 platforms via SocialClaw.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "经 SocialClaw 在 X、LinkedIn、Instagram、TikTok、YouTube、Reddit 等 13 个平台排期发布与监测。当要批量铺开或管理社媒发布时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

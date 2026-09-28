@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.finance-billing-ops",
-  "name": "Billing Ops",
+  "name": "收入与账单核对",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first revenue, pricing, refunds, team-billing, and billing-model truth workflow for ECC.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "取证式核对收入、定价、退款、团队账单与计费模型。当要一份销售快照、定价对比、重复扣费定位，或代码级而不是口头上的计费真相时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.parallel-execution-optimizer",
-  "name": "Optimizer",
+  "name": "并行加速编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Speed up a task by turning it into a dependency graph of parallel lanes with a lane matrix, batched reads and checks,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把任务拆成可并行的依赖图：分车道矩阵、批量读检查、按文件或分支隔离写入，最后给出统一验证表。当想靠并行把任务做快时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

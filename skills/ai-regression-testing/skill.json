@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ai-regression-testing",
-  "name": "Regression Testing",
+  "name": "AI 回归测试",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Regression testing strategies for AI-assisted development. Sandbox-mode API testing without database dependencies,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向 AI 辅助开发的回归测试策略：免数据库的接口沙箱测试、自动化查错流程，以及同模型自审盲区的兜底。当要给 AI 写的代码补回归覆盖时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

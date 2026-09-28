@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.social-graph-ranker",
-  "name": "Graph Ranker",
+  "name": "人脉排序引擎",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Weighted social-graph ranking for warm intro discovery, bridge scoring, and network gap analysis across X and LinkedIn.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "基于社交图谱做加权排序，用于发现可引荐路径、识别桥梁人物与网络空白。当只想要排序能力本身而非整套外联流程时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

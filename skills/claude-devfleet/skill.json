@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.claude-devfleet",
-  "name": "Claude Devfleet",
+  "name": "多 Agent 并行开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Orchestrate multi-agent coding tasks via Claude DevFleet — plan projects, dispatch parallel agents in isolated…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "编排多 agent 编码任务：拆解项目、在隔离工作树里并行派发、跟踪进度并读取结构化汇报。当要多 agent 并行开发时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

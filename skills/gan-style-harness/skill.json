@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.gan-style-harness",
-  "name": "Gan Style Harness",
+  "name": "生成评审循环",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "GAN-inspired Generator-Evaluator agent harness for building high-quality applications autonomously.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "借鉴对抗生成的生成器与评审器循环，让功能在两者反复迭代中自主做到达标。当希望功能自主开发直至达到质量线时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

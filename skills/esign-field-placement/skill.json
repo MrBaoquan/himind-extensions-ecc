@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.esign-field-placement",
-  "name": "Field Placement",
+  "name": "电子签字段定位",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Deterministic method for placing signature, date, and text fields in a web e-signature composer through a browser…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在网页版电子签编排器里用固定签名页与数值坐标（不走拖拽）确定性放置签名、日期与文本字段，默认存草稿。当要批量准备合同信封、且字段位置必须可复现时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

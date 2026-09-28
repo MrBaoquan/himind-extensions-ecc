@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.homelab-wireguard-vpn",
-  "name": "Wireguard Vpn",
+  "name": "WireGuard 远程接入",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "WireGuard VPN server setup, peer configuration, key generation, split tunneling vs full tunnel routing, and remote…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "WireGuard 服务端搭建、对端配置、密钥生成，以及分流与全局路由的选择。当要从手机或笔记本远程接入家庭网络时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.rails-patterns",
-  "name": "Rails Patterns",
+  "name": "Rails 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Ruby on Rails framework patterns for Rails 7.1+ and 8.x apps.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Rails 7.1+ 与 8.x 的框架模式：目录约定、瘦控制器与服务对象、表单与查询对象、ActiveRecord 惯例、后台任务、组件化视图与实时交互。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

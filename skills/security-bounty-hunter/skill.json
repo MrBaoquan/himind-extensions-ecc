@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.security-bounty-hunter",
-  "name": "Bounty Hunter",
+  "name": "漏洞赏金挖掘",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Hunt for exploitable, bounty-worthy security issues in repositories.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在仓库里找可被远程触发、够格提交真实报告的漏洞，而不是一堆只在本机成立的噪音。当要找可上报的安全问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

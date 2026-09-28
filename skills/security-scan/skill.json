@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.security-scan",
-  "name": "Security Scan",
+  "name": "配置安全扫描",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "扫描 agent 配置目录里的安全漏洞、错误配置与注入风险，覆盖说明文件、设置、MCP 服务、钩子与 agent 定义。当要审计 agent 配置时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

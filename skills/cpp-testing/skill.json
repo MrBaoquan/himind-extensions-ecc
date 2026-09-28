@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.cpp-testing",
-  "name": "Cpp Testing",
+  "name": "C++ 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use only when writing/updating/fixing C++ tests, configuring GoogleTest/CTest, diagnosing failing or flaky tests, or…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "只在编写或修正 C++ 测试、配置 GoogleTest/CTest、排查失败或偶发用例、补覆盖率与内存检查时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

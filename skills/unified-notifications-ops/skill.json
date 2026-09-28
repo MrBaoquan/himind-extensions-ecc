@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.unified-notifications-ops",
-  "name": "Notifications Ops",
+  "name": "通知统一治理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate notifications as one ECC-native workflow across GitHub, Linear, desktop alerts, hooks, and connected…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把 GitHub、Linear、桌面提醒、钩子与各类通信入口的通知统一成一条流程。当真正的问题是告警路由、重复推送、升级策略或收件箱爆炸时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

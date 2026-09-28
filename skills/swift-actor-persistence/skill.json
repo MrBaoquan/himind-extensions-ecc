@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.swift-actor-persistence",
-  "name": "Actor Persistence",
+  "name": "Swift 并发持久化",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Thread-safe data persistence in Swift using actors — in-memory cache with file-backed storage, eliminating data races…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 actor 做线程安全的数据持久化：内存缓存加文件存储，从设计上消除数据竞争。当 Swift 持久化遇到线程安全问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

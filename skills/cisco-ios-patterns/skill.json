@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.cisco-ios-patterns",
-  "name": "Cisco Ios Patterns",
+  "name": "Cisco IOS 配置审查",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Cisco IOS and IOS-XE review patterns for show commands, config hierarchy, wildcard masks, ACL placement, interface…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Cisco IOS / IOS-XE 的 show 命令、配置层级、通配符掩码、ACL 位置、接口整洁与变更窗口安全校验。当要读、写或审 Cisco 配置时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

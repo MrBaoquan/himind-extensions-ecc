@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.api-design",
-  "name": "Api Design",
+  "name": "REST API 设计",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "REST API design patterns including resource naming, status codes, pagination, filtering, error responses, versioning,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "REST 接口设计规范：资源命名、状态码、分页、过滤、错误响应、版本管理与限流。当要设计或评审接口约定时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

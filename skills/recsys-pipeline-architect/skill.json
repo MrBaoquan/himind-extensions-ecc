@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.recsys-pipeline-architect",
-  "name": "Pipeline Architect",
+  "name": "推荐流水线设计",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design composable recommendation, ranking, and feed pipelines using the six-stage…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Source→Hydrator→Filter→Scorer→Selector→SideEffect 六段式框架设计可组合的推荐、排序与信息流管线。当要搭从候选中挑 Top K 的系统时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

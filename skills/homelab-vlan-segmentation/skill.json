@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.homelab-vlan-segmentation",
-  "name": "Vlan Segmentation",
+  "name": "家庭网络网段隔离",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Segmenting home networks into VLANs for IoT, guest, trusted, and server traffic using UniFi, pfSense/OPNsense, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 UniFi、pfSense/OPNsense 与 MikroTik 把家庭网络分成 IoT、访客、可信与服务器网段，含 trunk、防火墙规则与 SSID 映射。当要做网段隔离时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

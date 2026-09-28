@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.messages-ops",
-  "name": "Messages Ops",
+  "name": "即时消息处理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first live messaging workflow for ECC. Use when the user wants to read texts or DMs, recover a recent one-time…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "取证式处理短信与私信：读取消息、找回近期验证码、回复前先看完整会话，并证明查的是哪个消息源。当要在消息渠道里定位信息或准备回复时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

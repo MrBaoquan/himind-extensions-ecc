@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ai-first-engineering",
-  "name": "First Engineering",
+  "name": "AI 优先研发流程",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Engineering operating model for teams where AI agents generate a large share of implementation output.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向大部分代码由 agent 产出的团队，定好协作流程、评审闸门与代码归属规则。当团队要建立 AI 优先的开发制度时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

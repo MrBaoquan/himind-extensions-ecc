@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-fix-defect",
-  "name": "Orch Fix Defect",
+  "name": "缺陷修复编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Orchestrate fixing a bug — reproduce it as a failing regression test, fix to green, review, and gated commit — by…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "编排修缺陷的完整流程：先用失败的回归用例复现，再修到通过，评审后受控提交。当已有行为出错时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

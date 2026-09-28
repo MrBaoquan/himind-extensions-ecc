@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.operator-approval-loop",
-  "name": "Approval Loop",
+  "name": "对外消息批准回路",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operator approval contract with internal filing notices for agent-drafted outbound messages, hashed drafts, epoch-keyed…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "给 agent 起草的对外消息加一道人工批准契约：内部备案通知、草稿哈希、按轮次记录的批准决定、可留存的投递回执，以及起草前的基线闸门。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

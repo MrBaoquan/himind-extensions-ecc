@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.foundation-models-on-device",
-  "name": "Models On Device",
+  "name": "端侧模型调用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Apple FoundationModels framework for on-device LLM — text generation, guided generation with @Generable, tool calling,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在 iOS 上使用 Apple 端侧大模型框架：文本生成、结构化生成、工具调用与流式输出。当要在 iOS 应用里加端侧模型能力时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

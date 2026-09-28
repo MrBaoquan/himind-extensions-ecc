@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.delivery-gate",
-  "name": "Delivery Gate",
+  "name": "交付闸门",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Stop hook that blocks Claude from finishing until quality checks pass.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在质量检查通过前拦住 agent 收尾的钩子，识别敷衍话术、过期学习日志与磁盘空间不足。当需要机械地强制每次留下经验沉淀时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

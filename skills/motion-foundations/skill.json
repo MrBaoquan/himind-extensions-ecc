@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.motion-foundations",
-  "name": "Motion Foundations",
+  "name": "动效基础层",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Motion tokens, spring presets, performance rules, device adaptation, accessibility enforcement, and SSR safety for…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "动效的基础设定：时长与缓动变量、弹簧预设、性能规则、设备适配、无障碍与首屏渲染安全。当要建立动效规范时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

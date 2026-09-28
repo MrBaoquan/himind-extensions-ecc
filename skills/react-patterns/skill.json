@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.react-patterns",
-  "name": "React Patterns",
+  "name": "React 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "React 18/19 patterns including hooks discipline, server/client component boundaries, Suspense + error boundaries, form…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React 18/19 模式：钩子纪律、服务端与客户端组件边界、挂起与错误边界、表单动作、数据获取、状态管理决策与无障碍优先的组合。当要写或审 React 组件时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

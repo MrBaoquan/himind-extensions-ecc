@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.docker-patterns",
-  "name": "Docker Patterns",
+  "name": "Docker 实践",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Docker and Docker Compose patterns for local development, hardened CLI installer harnesses, container security,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Docker 与 Compose 实践：本地开发、加固的 CLI 安装器、容器安全、网络、卷与多服务编排。当要写或审 Dockerfile 与 Compose 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

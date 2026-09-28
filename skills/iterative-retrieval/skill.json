@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.iterative-retrieval",
-  "name": "Retrieval",
+  "name": "渐进式检索",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Pattern for progressively refining context retrieval to solve the subagent context problem.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "多轮逐步细化上下文检索，解决子 agent 拿不到所需上下文的问题。当子任务缺上下文、需要跨轮次补齐信息时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

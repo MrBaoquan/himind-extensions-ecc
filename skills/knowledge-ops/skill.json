@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.knowledge-ops",
-  "name": "Knowledge Ops",
+  "name": "知识库管理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Knowledge base management, ingestion, sync, and retrieval across multiple storage layers (local files, MCP memory,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在多套存储之间管理知识（本地文件、MCP memory、向量库、Git 仓库）：入库、同步、去重与检索。当要沉淀、整理或跨库搜索自己的知识时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

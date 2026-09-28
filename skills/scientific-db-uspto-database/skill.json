@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.scientific-db-uspto-database",
-  "name": "Uspto Database",
+  "name": "专利商标检索",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR checks, assignment…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "查询 USPTO 专利与商标数据：专利检索、商标状态、转让记录，并留下可复现的研究日志。当要做知识产权检索与留痕时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

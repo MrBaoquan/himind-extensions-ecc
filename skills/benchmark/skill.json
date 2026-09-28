@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.benchmark",
-  "name": "Benchmark",
+  "name": "性能基线对比",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Measure performance baselines and detect regressions across browser Core Web Vitals (LCP, INP, CLS, page weight), API…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "测量并对比性能基线：浏览器核心指标、接口延迟分位与构建测试耗时，前后对比结果存入版本库。当页面变慢、接口变慢或要确认优化有效时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

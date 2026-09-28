@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ralphinho-rfc-pipeline",
-  "name": "Rfc Pipeline",
+  "name": "RFC 并行落地",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Split an RFC into a multi-agent execution DAG — decompose into work units with dependencies and acceptance tests, run…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把一份 RFC 拆成多 agent 并行执行的任务图：按依赖与验收拆工作单元，逐单元调研、规划、实现、测试与评审，再经队列合并并做整系统验证。当特性大到单个 agent 做不完时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

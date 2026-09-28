@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.git-workflow",
-  "name": "Git Workflow",
+  "name": "Git 工作流",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Git workflow patterns including branching strategies, commit conventions, keeping history clean and readable, tidying…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Git 工作流规范：分支策略、提交约定、历史整洁、合并前的本地提交整理、merge 与 rebase 取舍及冲突处理。当要定分支策略或规范提交时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

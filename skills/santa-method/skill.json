@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.santa-method",
-  "name": "Santa Method",
+  "name": "对抗式双审",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Multi-agent adversarial verification: two independent reviewers with the same rubric must both pass before output…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "两个独立评审按同一标准都通过才放行，配修复后复审的收敛循环与升级给人兜底。当要卡住发布、上线或合规敏感内容时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.mcp-server-patterns",
-  "name": "Server Patterns",
+  "name": "MCP 服务开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build MCP servers with Node/TypeScript SDK — tools, resources, prompts, Zod validation, stdio vs Streamable HTTP.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Node/TypeScript 开发 MCP 服务：工具、资源、提示、参数校验与传输方式选择。当要构建或调试 MCP 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.csharp-testing",
-  "name": "Csharp Testing",
+  "name": "C# 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "C# 与 .NET 测试实践：xUnit、断言库、Mock、集成测试与用例组织。当要写或审 .NET 测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

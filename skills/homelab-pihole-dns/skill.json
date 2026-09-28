@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.homelab-pihole-dns",
-  "name": "Homelab Pihole Dns",
+  "name": "Pi-hole 与 DNS",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Pi-hole installation, blocklist management, DNS-over-HTTPS setup, DHCP integration, local DNS records, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Pi-hole 安装、拦截列表管理、DoH 配置、DHCP 集成、本地 DNS 记录与解析故障排查。当明确要安装或调优 Pi-hole 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

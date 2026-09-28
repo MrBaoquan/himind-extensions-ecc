@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-architecture-audit",
-  "name": "Architecture Audit",
+  "name": "Agent 架构诊断",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Full-stack diagnostic for agent and LLM applications. Audits the 12-layer agent stack for wrapper regression, memory…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向 agent 与 LLM 应用的全栈诊断，审查 12 层结构里的封装回退、记忆污染、工具使用失范、隐形修复循环与渲染错乱，按严重度给出改进项。当自研 agent 表现不对劲时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

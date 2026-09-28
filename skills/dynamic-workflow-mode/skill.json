@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dynamic-workflow-mode",
-  "name": "Workflow Mode",
+  "name": "动态工作流编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Design task-local harnesses, eval gates, and reusable skill extraction for Claude dynamic workflow mode and other…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为自适应 agent 设计任务级脚手架、评测闸门与可复用技能沉淀。当要搭任务级工作流，或把临时做法沉淀成技能时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

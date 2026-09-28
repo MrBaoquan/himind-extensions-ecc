@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.deep-research",
-  "name": "Deep Research",
+  "name": "深度研究报告",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Produce cited research reports from multiple web sources using firecrawl and exa MCP tools — plan sub-questions, search…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用检索工具拆子问题、深读来源，产出带行内引用与置信度的研究报告。当要一份有据可查的深度调研时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

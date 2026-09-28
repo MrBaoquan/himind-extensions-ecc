@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.crosspost",
-  "name": "Crosspost",
+  "name": "多平台分发",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Multi-platform content distribution across X, LinkedIn, Threads, and Bluesky.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把同一主题分发到 X、LinkedIn、Threads 与 Bluesky，逐平台改写适配，不做同文同发。当要一稿多平台铺开时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

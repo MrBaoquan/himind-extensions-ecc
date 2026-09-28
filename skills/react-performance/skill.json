@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.react-performance",
-  "name": "React Performance",
+  "name": "React 性能优化",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "React and Next.js performance optimization patterns adapted from Vercel Engineering's React Best Practices…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React 与 Next.js 的性能优化规则集，按请求瀑布、包体积、服务端、客户端取数、重渲染、渲染与微性能等优先级分类。当页面卡顿或包体变大时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

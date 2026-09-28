@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.rust-patterns",
-  "name": "Rust Patterns",
+  "name": "Rust 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Idiomatic Rust patterns, ownership, error handling, traits, concurrency, and best practices for building safe,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "地道的 Rust 实践：所有权、错误处理、特征与并发。当要写或审 Rust 代码、纠结所有权或并发时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

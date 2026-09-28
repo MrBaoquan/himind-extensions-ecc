@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.jpa-patterns",
-  "name": "Jpa Patterns",
+  "name": "JPA 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "JPA/Hibernate patterns for entity design, relationships, query optimization, transactions, auditing, indexing,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Spring Boot 里的 JPA/Hibernate 模式：实体与关联设计、查询优化、事务、审计、索引、分页与连接池。当查询、事务或 N+1 出问题时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

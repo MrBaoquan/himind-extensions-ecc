@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.counterparty-channel-discipline",
-  "name": "Channel Discipline",
+  "name": "外部频道纪律",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Per-channel strict prompts, mention gating, silent observation, and a communication autonomy policy for agents that sit…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "给混在外部方群聊、共享频道里的 agent 定发言规矩：逐渠道提示词、只在被点名时应答、静默观察、不泄露内部上下文，风险内容只出草稿等人工批准。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

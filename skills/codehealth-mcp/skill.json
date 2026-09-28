@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.codehealth-mcp",
-  "name": "Codehealth Mcp",
+  "name": "代码健康检查",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Real-time structural Code Health via CodeScene MCP — review before edits, verify score deltas after changes, gate…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "经 CodeScene MCP 做结构健康体检：改动前评估、改动后核对评分变化、卡住提交与 PR。当要判断重构或 AI 改动是否让代码变差时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

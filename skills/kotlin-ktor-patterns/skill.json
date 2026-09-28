@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kotlin-ktor-patterns",
-  "name": "Ktor Patterns",
+  "name": "Ktor 服务开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Ktor 服务端模式：路由 DSL、插件、认证、依赖注入、序列化、WebSocket 与测试。当要搭建或扩展 Ktor 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

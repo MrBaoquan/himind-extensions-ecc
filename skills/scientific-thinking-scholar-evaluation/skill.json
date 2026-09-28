@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.scientific-thinking-scholar-evaluation",
-  "name": "Scholar Evaluation",
+  "name": "学术成果评估",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Structured scholarly-work evaluation for papers, proposals, literature reviews, methods sections, evidence quality,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "按可复现的量规评估论文、提案、综述与方法：证据质量、方法严谨性与引用支撑。当要审阅或打分学术成果时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

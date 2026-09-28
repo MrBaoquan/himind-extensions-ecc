@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.remotion-video-creation",
-  "name": "Video Creation",
+  "name": "Remotion 视频",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Best practices for Remotion - Video creation in React. 29 domain-specific rules covering 3D, animations, audio,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 React 写视频的 Remotion 实践准则，覆盖 3D、动画、音频、字幕、图表与转场。当要以代码方式产出可控视频时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

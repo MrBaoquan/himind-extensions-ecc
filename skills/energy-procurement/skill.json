@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.energy-procurement",
-  "name": "Energy Procurement",
+  "name": "能源采购",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Procure electricity and natural gas for commercial and industrial facilities: tariff and rate-schedule optimization,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为工商业设施采购电力与天然气：电价与费率方案优化、需量电费削减、供应商招标、固定/指数/组合对冲、绿电 PPA 与 REC 评估及可持续披露。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

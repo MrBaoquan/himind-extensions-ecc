@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.eval-harness",
-  "name": "Eval Harness",
+  "name": "评测驱动开发",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Eval-driven development (EDD) framework for AI coding sessions — define capability and regression evals before coding,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "AI 编码的评测驱动开发：动手前先定义能力与回归评测，用代码、模型、规则或人工评分，并跟踪通过率与稳定性。当要给 agent 任务定通过标准时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

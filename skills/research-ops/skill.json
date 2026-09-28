@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.research-ops",
-  "name": "Research Ops",
+  "name": "现状调研",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first current-state research workflow for ECC. Use when the user wants fresh facts, comparisons, enrichment,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "以证据为先做现状研究：查最新事实、做对比、补背景，或基于当前公开证据给建议。当结论必须紧跟当下且要有出处时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.redis-patterns",
-  "name": "Redis Patterns",
+  "name": "Redis 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, and connection management…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Redis 数据结构、缓存策略、分布式锁、限流、发布订阅与连接管理。当要加缓存、锁、限流，或需要评审键设计时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

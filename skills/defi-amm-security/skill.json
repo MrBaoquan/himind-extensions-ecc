@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.defi-amm-security",
-  "name": "Defi Amm Security",
+  "name": "AMM 合约安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Security checklist for Solidity AMM contracts, liquidity pools, and swap flows.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Solidity AMM、流动性池与兑换流程的安全清单：重入、CEI 顺序、捐赠与通胀攻击、预言机操纵、滑点、权限与整数运算。当审计或编写 AMM 代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

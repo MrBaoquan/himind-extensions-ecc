@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.manim-video",
-  "name": "Manim Video",
+  "name": "Manim 动画",
   "author": "Affaan Mustafa",
   "categories": [
     "video-post"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build reusable Manim explainers for technical concepts, graphs, system diagrams, and product walkthroughs, then hand…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用 Manim 制作可复用的技术讲解动画：概念演示、图表、系统图与产品走查。当要把抽象原理讲成动画时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

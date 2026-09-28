@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.inventory-demand-planning",
-  "name": "Demand Planning",
+  "name": "需求与库存计划",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Codified demand planning expertise for multi-location retailers: demand forecasting method selection, ABC/XYZ…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "多门店零售的需求预测方法选择、ABC/XYZ 分类、安全库存与补货点优化、促销增量与促销后回落估算、季节切换与降价时机。当要做备货与促销计划时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

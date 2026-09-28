@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.project-flow-ops",
-  "name": "Project Flow Ops",
+  "name": "研发流程运营",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate execution flow across GitHub and Linear by triaging issues and pull requests, linking active work, and keeping…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在 GitHub 与 Linear 之间打通执行流：分诊 issue 与 PR、关联在办工作，GitHub 对外、Linear 做内部执行层。当要梳理 backlog 或对齐两套工具时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

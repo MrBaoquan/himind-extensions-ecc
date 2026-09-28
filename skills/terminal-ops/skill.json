@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.terminal-ops",
-  "name": "Terminal Ops",
+  "name": "仓库命令执行",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first repo execution workflow for ECC. Use when the user wants a command run, a repo checked, a CI failure…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "取证式执行：跑命令、查仓库、定位 CI 失败、推送一个小修复，并对「执行了什么、验证了什么」给出确切证据。当要让 agent 动手并交付可核查的结论时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

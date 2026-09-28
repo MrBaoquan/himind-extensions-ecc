@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.competitive-platform-analysis",
-  "name": "Platform Analysis",
+  "name": "竞争格局盘点",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use when scoping a competitive landscape — identifying, categorising, and score-filtering a competitor set before any…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "划定竞争范围，识别、归类并筛选出对手清单，为后续对标打分做准备。当要做竞争分析、先确定和谁比时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.brand-discovery",
-  "name": "Brand Discovery",
+  "name": "品牌定位梳理",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run a structured, resumable multi-session brand identity interview across 8 modules (purpose, positioning, audience,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "分多次访谈式追问，弄清品牌目的、定位、受众、性格、声音与叙事，最后落成一份品牌手册。当要从零厘清品牌是谁时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

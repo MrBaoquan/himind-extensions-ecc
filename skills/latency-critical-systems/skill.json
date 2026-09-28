@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.latency-critical-systems",
-  "name": "Critical Systems",
+  "name": "低延迟系统调优",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Optimize and verify latency-sensitive systems — realtime dashboards, market data feeds, streaming agents, execution…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "优化并验证延迟敏感系统：实时看板、行情数据、流式 agent、执行网关、队列与缓存，跟踪延迟分位、数据新鲜度与队列深度。当延迟或吞吐不达标时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

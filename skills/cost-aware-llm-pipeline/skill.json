@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.cost-aware-llm-pipeline",
-  "name": "Aware Llm Pipeline",
+  "name": "LLM 成本优化",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Cost optimization patterns for LLM API usage — model routing by task complexity, budget tracking, retry logic, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "LLM 调用降本模式：按任务复杂度选模型、预算跟踪、重试策略与提示缓存。当模型开销要压下来，或要按档位与预算分发任务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.cost-tracking",
-  "name": "Cost Tracking",
+  "name": "用量与成本",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Track and report Claude Code token usage, spending, and budgets from the local ECC cost-tracker metrics log.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "从本地用量日志汇总 token 消耗、花费与预算，按模型、会话或日期给出明细。当要查这段花了多少、哪个模型最贵、预算还剩多少时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

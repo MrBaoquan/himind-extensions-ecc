@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.safety-guard",
-  "name": "Safety Guard",
+  "name": "危险操作护栏",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Guard against destructive operations with three modes: Careful intercepts dangerous commands (rm -rf, git push --force,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "三种模式拦截破坏性操作：谨慎模式拦下危险命令待确认、冻结模式锁定写入目录、守卫模式两者兼施。当在生产环境或无人值守跑 agent 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

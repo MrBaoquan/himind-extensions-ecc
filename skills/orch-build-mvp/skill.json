@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-build-mvp",
-  "name": "Orch Build Mvp",
+  "name": "MVP 快速搭建",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Orchestrate bootstrapping a working MVP from a design or spec document — ingest the SDD/PRD, plan thin vertical slices,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "从设计或需求文档引导出可运行的最小可用版本：拆薄切片、打通首个端到端链路，再进入生成与评审循环。当要把方案文档变成可运行的 MVP 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

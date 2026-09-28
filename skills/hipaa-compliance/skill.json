@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.hipaa-compliance",
-  "name": "Hipaa Compliance",
+  "name": "HIPAA 合规",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "HIPAA-specific entrypoint for healthcare privacy and security work.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向 HIPAA 的医疗隐私与安全入口：受保护健康信息处理、适用主体、商业伙伴协议、泄露应对与美国合规要求。当任务明确以 HIPAA 为框架时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

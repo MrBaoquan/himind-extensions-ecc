@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.quarkus-security",
-  "name": "Quarkus Security",
+  "name": "Quarkus 安全",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Quarkus security implementation patterns: JWT and OIDC authentication, @RolesAllowed RBAC and SecurityIdentity checks,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Quarkus 安全实现模式：JWT 与 OIDC 认证、角色权限与身份校验、参数化查询、密码哈希、CORS 与安全响应头、限流、审计日志与密钥管理。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

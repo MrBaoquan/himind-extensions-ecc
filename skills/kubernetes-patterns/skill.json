@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.kubernetes-patterns",
-  "name": "Patterns",
+  "name": "Kubernetes 实践",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Kubernetes 工作负载模式、资源管理、RBAC、探针、自动扩缩、ConfigMap/Secret 与 kubectl 排查。当要写或审 K8s 清单、排查探针或权限时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

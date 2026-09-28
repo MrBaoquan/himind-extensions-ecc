@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.springboot-patterns",
-  "name": "Patterns",
+  "name": "Spring Boot 开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Spring Boot architecture patterns, REST API design, layered services, data access, caching, async processing, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Spring Boot 架构模式：接口设计、分层服务、数据访问、缓存、异步处理与日志。当要开发或评审 Spring Boot 后端时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

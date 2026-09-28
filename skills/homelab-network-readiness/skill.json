@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.homelab-network-readiness",
-  "name": "Network Readiness",
+  "name": "家庭网络就绪检查",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Readiness checklist for homelab VLAN segmentation, local DNS filtering (Pi-hole, AdGuard Home), and WireGuard-style…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "家庭与实验室网络的就绪清单：VLAN 划分、本地 DNS 过滤与 WireGuard 远程访问。当要规划或审查家庭网络改造时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

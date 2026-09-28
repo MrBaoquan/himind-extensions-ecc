@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.fastapi-patterns",
-  "name": "Fastapi Patterns",
+  "name": "FastAPI 实践",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "FastAPI best practices covering project structure, Pydantic v2 schemas, dependency injection, async handlers,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "FastAPI 最佳实践：项目结构、数据模型、依赖注入、异步处理、认证授权、事务服务层与测试。当要开发或评审 FastAPI 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

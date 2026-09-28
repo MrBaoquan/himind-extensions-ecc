@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ito-training",
-  "name": "Ito Training",
+  "name": "模型训练接入",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Inspect the availability of ML training on a completed Itô compute booking and, when the canonical backend becomes…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在已订好的算力上查看训练可用性，并在后端就绪后提交已确认的训练清单。当算力已订好、要做预训练、微调或强化学习时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

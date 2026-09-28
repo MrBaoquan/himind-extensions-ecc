@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ecc-tools-cost-audit",
-  "name": "Tools Cost Audit",
+  "name": "用量成本审计",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Evidence-first ECC Tools burn and billing audit workflow. Use when investigating runaway PR creation, quota bypass,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "对 ECC Tools 的用量与账单做取证式审计，定位失控的 PR 创建、配额绕过、高价模型泄漏、重复任务与 GitHub App 费用异常。当账单突然飙高要查原因时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

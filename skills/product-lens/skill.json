@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.product-lens",
-  "name": "Product Lens",
+  "name": "产品价值校验",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Validate the why before building through four product diagnostics — a YC-style product diagnostic that produces…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "动手前先校验「为什么做」：产品诊断与立项建议、产品市场契合信号打分、用户旅程耗时评估与功能优先级排序。当要判断一个产品想法值不值得做时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

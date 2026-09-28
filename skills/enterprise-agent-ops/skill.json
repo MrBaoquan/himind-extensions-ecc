@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.enterprise-agent-ops",
-  "name": "Agent Ops",
+  "name": "Agent 运维管控",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operational controls for long-lived or cloud-hosted agent systems — runtime lifecycle (start, pause, stop, restart),…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "长期运行或云端 agent 系统的运维控制：启停与重启、日志指标追踪、最小权限与急停开关，以及带审计的灰度与回滚。当要长期运维 agent 服务时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

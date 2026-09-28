@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.click-path-audit",
-  "name": "Click Path Audit",
+  "name": "交互链路审计",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Trace every user-facing button/touchpoint through its full state change sequence to find bugs where functions…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把每个用户可见按钮的完整状态变化链走一遍，找出单个功能没问题、连起来却互相抵消或状态错乱的缺陷。当查不出问题但用户反馈按钮异常时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

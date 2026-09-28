@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.security-review",
-  "name": "Security Review",
+  "name": "安全评审",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "在接入认证、处理用户输入、管理密钥、新增接口或涉及支付与敏感功能时，给出完整的安全清单与实现模式。当改动触及安全边界时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

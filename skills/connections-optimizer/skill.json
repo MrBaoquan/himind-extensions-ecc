@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.connections-optimizer",
-  "name": "Optimizer",
+  "name": "人脉整理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Reorganize the user's X and LinkedIn network with review-first pruning, add/follow recommendations, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "重整 X 与 LinkedIn 的人脉：先复核再取关、给出该关注谁的建议，并用你本人的语气起草各渠道的破冰消息。当想清理关注列表、按当前重点重排人脉时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

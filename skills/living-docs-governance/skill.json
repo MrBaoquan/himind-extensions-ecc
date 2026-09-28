@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.living-docs-governance",
-  "name": "Docs Governance",
+  "name": "长期文档治理",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Keep a long-lived project's documentation from rotting by assigning existing project docs clear constitution, map,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "给长期项目文档定好纲领、地图、状态与历史四类角色，并挂到 agent 实际读取的源头，避免文档腐烂。当文档与代码脱节时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

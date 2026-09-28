@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.rust-testing",
-  "name": "Rust Testing",
+  "name": "Rust 测试",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Rust testing patterns including unit tests, integration tests, async testing, property-based testing, mocking, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Rust 测试实践：单元、集成、异步、基于属性的测试、Mock 与覆盖率，按测试先行推进。当要写 Rust 测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

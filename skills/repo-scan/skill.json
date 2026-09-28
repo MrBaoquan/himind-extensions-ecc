@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.repo-scan",
-  "name": "Repo Scan",
+  "name": "仓库资产扫描引导",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Bootstrap pointer that installs the external repo-scan skill from a pinned, reviewable commit.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "从固定可审的提交安装外部 repo-scan 技能，为跨技术栈源码资产审计做准备。当需要先装好 repo-scan 再跑审计时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

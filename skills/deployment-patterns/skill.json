@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.deployment-patterns",
-  "name": "Patterns",
+  "name": "部署与 CI/CD",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Web 应用的部署流程、CI/CD 流水线、容器化、健康检查、回滚策略与上线前就绪清单。当要搭 CI/CD、容器化应用或做上线检查时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dotnet-patterns",
-  "name": "Dotnet Patterns",
+  "name": ".NET 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Idiomatic C# and .NET patterns, conventions, dependency injection, async/await, and best practices for building robust,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "地道的 C# 与 .NET 实践：约定、依赖注入、异步写法与可维护性。当要写或审 .NET 代码、纠结依赖注入或异步写法时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

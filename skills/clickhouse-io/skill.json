@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.clickhouse-io",
-  "name": "Clickhouse Io",
+  "name": "ClickHouse 使用",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "ClickHouse 的表设计、查询优化与分析场景实践。当要写 ClickHouse 表结构或查询，或分析查询太慢时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

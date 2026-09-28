@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.inherit-legacy-style",
-  "name": "Legacy Style",
+  "name": "遗留项目风格继承",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Prevent AI style drift on legacy projects by scanning the codebase for implicit conventions, resolving conflicts with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "扫描遗留项目里的隐性约定，逐条与人对齐冲突，写出可执行的风格规则文件与可选挂接，防止 AI 写歪风格。当要在老项目上引入 AI 时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

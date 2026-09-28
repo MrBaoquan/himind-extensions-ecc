@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.autonomous-loops",
-  "name": "Autonomous Loops",
+  "name": "自主循环模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Patterns and architectures for autonomous Claude Code loops — from simple sequential pipelines to RFC-driven…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "自主 agent 循环的模式与架构，从简单串行流水线到多 agent 有向无环图。仅保留兼容用途，新的循环设计请用持续 agent 循环。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

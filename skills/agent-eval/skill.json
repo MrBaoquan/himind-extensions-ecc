@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-eval",
-  "name": "Agent Eval",
+  "name": "编码 Agent 对比",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Head-to-head comparison of coding agents (Claude Code, Aider, Codex, etc.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "用自定义任务横向对比编码 agent 的通过率、成本、耗时与稳定性。当要在几个 agent 之间选型，或想用数据而非印象评估某次调整时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

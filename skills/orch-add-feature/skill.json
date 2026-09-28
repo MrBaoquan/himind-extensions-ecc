@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-add-feature",
-  "name": "Orch Add Feature",
+  "name": "新功能编排",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Orchestrate building a brand-new feature end to end — research, plan, TDD implementation, review, and gated commit — by…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "端到端编排一个全新功能的建设：调研、规划、测试先行实现、评审与受控提交。当要新增尚不存在的能力时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

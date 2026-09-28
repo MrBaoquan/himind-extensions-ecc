@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.uncloud",
-  "name": "Uncloud",
+  "name": "Uncloud 集群管理",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Use when managing an Uncloud cluster — deploying services, configuring Caddy ingress, adding static proxy routes for…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "管理 Uncloud 集群：部署服务、配置 Caddy 入口、为集群外设备加静态代理路由、发布端口、扩缩容与查日志。当要用 uc CLI 运维集群时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

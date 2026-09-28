@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.android-clean-architecture",
-  "name": "Clean Architecture",
+  "name": "Android 整洁架构",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Clean Architecture patterns for Android and Kotlin Multiplatform projects — module structure, dependency rules,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Android 与 Kotlin 多平台项目的整洁架构模式：模块划分、依赖规则、用例与仓库分层。当要规划 Android 或 KMP 项目的分层与数据流时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

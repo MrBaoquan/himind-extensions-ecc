@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.healthcare-eval-harness",
-  "name": "Eval Harness",
+  "name": "患者安全评测",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Patient safety evaluation harness for healthcare application deployments.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向医疗上线的患者安全评测：决策支持准确性、隐私泄露、临床流程完整性与集成合规的自动化测试，不通过则卡住发布。当医疗部署要过安全闸门时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

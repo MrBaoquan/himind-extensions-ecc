@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.investor-outreach",
-  "name": "Investor Outreach",
+  "name": "投资人沟通",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Draft cold emails, warm intro blurbs, follow-ups, update emails, and investor communications for fundraising.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "起草给天使、VC、战略投资人与加速器的冷邮件、引荐话术、跟进与进展更新。当要在融资中做个性化对外沟通时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

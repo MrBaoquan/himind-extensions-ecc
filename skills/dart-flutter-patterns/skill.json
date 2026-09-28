@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.dart-flutter-patterns",
-  "name": "Flutter Patterns",
+  "name": "Flutter 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Production-ready Dart and Flutter patterns covering null safety, immutable state with Freezed, async composition,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Dart 与 Flutter 生产实践：空安全、不可变状态、异步组合、组件架构、状态管理、路由鉴权、网络与测试。当要写或审 Flutter 代码时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

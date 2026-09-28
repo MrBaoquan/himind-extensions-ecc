@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.production-scheduling",
-  "name": "Scheduling",
+  "name": "生产排程",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Codified expertise for production scheduling, job sequencing, line balancing, changeover optimization, and bottleneck…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "离散与批量制造的生产排程、工序排序、产线平衡、换型优化与瓶颈处理，含鼓-缓冲-绳、SMED、OEE 分析、异常应对与 ERP/MES 交互模式。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

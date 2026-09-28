@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.bun-runtime",
-  "name": "Bun Runtime",
+  "name": "Bun 运行时",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Bun as runtime, package manager, bundler, and test runner. When to choose Bun vs Node, migration notes, and Vercel…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把 Bun 当作运行时、包管理器、打包器与测试运行器使用：选型对比、迁移要点与部署支持。当要决定是否用 Bun 或做迁移时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

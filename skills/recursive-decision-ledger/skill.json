@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.recursive-decision-ledger",
-  "name": "Decision Ledger",
+  "name": "递归决策账本",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run repeated rollouts (\"Prime Gauss\" style recursive prompting) while keeping an append-only decision ledger of trials,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "反复重跑与递归推演时，把每次试验、评分、一致性检查与升级闸门记成只追加的账本，避免递归累积的自信自动放行交易、部署或破坏性操作。当要多次重跑收敛结论时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

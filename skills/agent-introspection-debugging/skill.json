@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-introspection-debugging",
-  "name": "Debugging",
+  "name": "Agent 自我调试",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Structured self-debugging workflow for AI agent failures using capture, diagnosis, contained recovery, and…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "agent 失败后的结构化自省：先取证、再诊断、做受限恢复并产出复盘报告。当一次运行失败、需要可复现的结论而不是简单重试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

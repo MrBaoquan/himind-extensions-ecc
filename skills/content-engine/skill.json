@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.content-engine",
-  "name": "Content Engine",
+  "name": "平台内容体系",
   "author": "Affaan Mustafa",
   "categories": [
     "content-production"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Create platform-native content systems for X, LinkedIn, TikTok, YouTube, newsletters, and repurposed multi-platform…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为 X、LinkedIn、TikTok、YouTube 与 newsletter 规划原生内容体系，把一份素材改写适配到各平台。当要做内容日历或成套社媒内容时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

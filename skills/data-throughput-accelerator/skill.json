@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.data-throughput-accelerator",
-  "name": "Accelerator",
+  "name": "数据搬运提速",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Diagnose and accelerate large data movement — ingestion, backfill, export, ETL, warehouse loading, manifest catch-up,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "诊断并加速大规模数据搬运：采集、回填、导出、ETL、入库与表同步，先定位真正瓶颈再验证并固化最快路径。当数据搬运太慢时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.frontend-patterns",
-  "name": "Frontend Patterns",
+  "name": "前端开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "React 与 Next.js 的前端开发模式、状态管理、性能优化与界面实践。当要写或审 React/Next.js 组件、状态或渲染性能时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.quarkus-verification",
-  "name": "Verification",
+  "name": "Quarkus 发布校验",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Verification loop for Quarkus projects: build, static analysis (Checkstyle, PMD, SpotBugs), tests with JaCoCo coverage,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Quarkus 项目的校验流程：构建、静态分析、带覆盖率的测试、依赖与容器安全扫描、原生编译、健康检查与配置校验。当要提 PR 或大改后验收时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.google-workspace-ops",
-  "name": "Workspace Ops",
+  "name": "Google 办公套件",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Operate across Google Drive, Docs, Sheets, and Slides as one workflow surface for plans, trackers, decks, and shared…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把 Drive、Docs、Sheets、Slides 当做一个工作面：查找、汇总、编辑、迁移与清理共享文档与表格。当要在 Workspace 里整理材料而不落回裸接口调用时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

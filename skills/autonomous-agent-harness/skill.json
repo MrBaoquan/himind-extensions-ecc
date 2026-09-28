@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.autonomous-agent-harness",
-  "name": "Agent Harness",
+  "name": "常驻自主 Agent",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "把编码 agent 改造成带持久记忆、定时任务、电脑操作与任务队列的常驻自主系统。当要让 agent 持续无人值守运行时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

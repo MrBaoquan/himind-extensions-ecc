@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.angular-developer",
-  "name": "Angular Developer",
+  "name": "Angular 开发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Generates Angular code and provides architectural guidance. Trigger when creating projects, components, or services, or…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "生成 Angular 代码并给出架构建议，覆盖响应式信号、表单、依赖注入、路由、服务端渲染、无障碍、动画与样式。当要新建或改造 Angular 应用时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

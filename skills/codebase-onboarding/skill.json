@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.codebase-onboarding",
-  "name": "Onboarding",
+  "name": "代码库上手",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Analyze an unfamiliar codebase and generate a structured onboarding guide with architecture map, key entry points,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "分析陌生代码库并生成结构化上手指南：架构地图、关键入口、约定与初始说明文件。当刚接手一个项目时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

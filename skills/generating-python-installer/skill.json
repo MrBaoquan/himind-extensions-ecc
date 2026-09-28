@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.generating-python-installer",
-  "name": "Python Installer",
+  "name": "Python 安装包",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Commercial-grade Python installer expert for Windows: Nuitka extreme compilation, dist slimming, DLL footprint…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "面向 Windows 的商业级 Python 打包：极限编译、依赖瘦身、动态库体积分析与安装包制作，产出最小最快的安装程序。当 Python 应用要发布安装包时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

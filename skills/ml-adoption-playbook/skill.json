@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.ml-adoption-playbook",
-  "name": "Adoption Playbook",
+  "name": "机器学习落地",
   "author": "Affaan Mustafa",
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "End-to-end methodology for AI agents and software engineers to add machine learning algorithms to existing non-ML…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "给原本不含机器学习的代码库加上 ML 能力的完整方法：问题界定、数据准备、架构解耦与基线模型接入。当要首次引入机器学习时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

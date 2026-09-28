@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.data-scraper-agent",
-  "name": "Data Scraper Agent",
+  "name": "数据采集 Agent",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build a fully automated AI-powered data collection agent for any public source — job boards, prices, news, GitHub,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为公开来源搭建全自动采集 agent：定时运行、用免费模型补全信息、落到表格或数据库并根据反馈调整。当要长期自动采集数据时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.quality-nonconformance",
-  "name": "Nonconformance",
+  "name": "质量不合格处理",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Quality control and non-conformance management for regulated manufacturing (FDA 21 CFR 820, IATF 16949, AS9100): NCR…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "受监管制造（FDA 21 CFR 820、IATF 16949、AS9100）的不合格品处置：NCR 全流程、5Why 与鱼骨图、故障树、8D 根因分析、CAPA、SPC 判读与 AQL 抽样。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

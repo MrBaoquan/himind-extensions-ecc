@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.mailtrap-email-integration",
-  "name": "Email Integration",
+  "name": "Mailtrap 发信对接",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Guides agents through integrating transactional email sending via Mailtrap's Email API, including sandbox testing,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "通过 Mailtrap Email API 接入事务邮件：沙箱测试、域名验证与接口鉴权。当要开发发信功能、排查投递问题，或搭建安全的开发、预发邮件测试时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

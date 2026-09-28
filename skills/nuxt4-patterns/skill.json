@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.nuxt4-patterns",
-  "name": "Nuxt4 Patterns",
+  "name": "Nuxt 4 开发模式",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Nuxt 4 app patterns for hydration safety, performance, route rules, lazy loading, and SSR-safe data fetching with…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Nuxt 4 应用模式：水合安全、性能、路由规则、懒加载与服务端渲染安全的数据获取。当要开发 Nuxt 4 应用或排查水合不一致时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

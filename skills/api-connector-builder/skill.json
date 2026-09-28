@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.api-connector-builder",
-  "name": "Connector Builder",
+  "name": "接口连接器开发",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Build a new API connector or provider by matching the target repo's existing integration pattern exactly.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "照着目标仓库已有的集成写法再加一个 API 连接器或服务商接入，避免同一个仓库里出现两套集成架构。当需要接入新服务、又不想另起一套模式时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.council",
-  "name": "Council",
+  "name": "多方会审",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls.",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "为含糊或高风险的决策召集四种视角各自表态，在选定方向前先把分歧摊开。当有多条可行路径且需要结构化辩论时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.swift-concurrency-6-2",
-  "name": "Concurrency 6 2",
+  "name": "Swift 6.2 并发",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.3",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Swift 6.2 Approachable Concurrency — single-threaded by default, @concurrent for explicit background offloading,…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Swift 6.2 的可上手并发模型：默认单线程、按需显式切后台、主线程类型的隔离一致性。当要迁移到 Swift 6.2 并发写法时用。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
