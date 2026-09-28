@@ -9,6 +9,14 @@
     "github"
   ],
   "default_branch": "main",
+  "feature_packs": [
+    {
+      "id": "com.mrbaoquan.ecc.feature.sync",
+      "name": "ECC 技能同步",
+      "plugin_ids": ["com.mrbaoquan.ecc-skill-sync"],
+      "skill_ids": []
+    }
+  ],
   "extensions": [
     {
       "type": "plugin",
