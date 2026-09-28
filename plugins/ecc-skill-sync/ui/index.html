@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ECC 分发管理</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">📦</span>
+        <div class="brand-text">
+          <strong>ECC 分发管理</strong>
+          <small id="brand-sub">上游技能的分发策略与状态</small>
+        </div>
+      </div>
+      <div class="toolbar">
+        <label class="field repo">
+          <span>ECC 仓库</span>
+          <input id="repo" type="text" spellcheck="false" placeholder="himind-extensions-ecc 仓库根目录" />
+        </label>
+        <button id="repo-use" class="btn" type="button">进入</button>
+        <button id="refresh" class="btn" type="button">刷新</button>
+        <button id="probe" class="btn" type="button">检查上游</button>
+        <button id="dry-run" class="btn" type="button">预演发布</button>
+        <label class="field narrow">
+          <span>单次上限</span>
+          <input id="limit" type="number" min="0" max="500" step="5" value="10" />
+        </label>
+        <button id="publish" class="btn primary" type="button">发布待发项</button>
+      </div>
+    </header>
+
+    <p class="notice" id="notice" hidden></p>
+
+    <main class="layout">
+      <aside class="rail">
+        <div class="rail-head">
+          <strong>分发控制</strong>
+          <span class="pill" id="policy-count">—</span>
+        </div>
+        <div class="rail-body" id="rail-body">
+          <section class="rail-section">
+            <h2>按功能分类</h2>
+            <ul id="category-list" class="rule-list"></ul>
+          </section>
+          <section class="rail-section">
+            <h2>按上游模块</h2>
+            <ul id="module-list" class="rule-list"></ul>
+          </section>
+          <section class="rail-section">
+            <h2>按单条技能</h2>
+            <ul id="skill-rule-list" class="rule-list"></ul>
+            <p class="rail-hint" id="skill-rule-hint">单条技能在右侧列表里逐条排除。</p>
+          </section>
+        </div>
+        <p class="rail-foot" id="policy-foot" title=""></p>
+      </aside>
+
+      <section class="detail">
+        <div class="stats" id="stats"></div>
+        <div class="filters">
+          <label class="field">
+            <span>分发状态</span>
+            <select id="filter-state">
+              <option value="">全部状态</option>
+              <option value="distributed">已分发</option>
+              <option value="pending">待发布</option>
+              <option value="held">待校对</option>
+              <option value="excluded">已排除</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>功能分类</span>
+            <select id="filter-category"><option value="">全部分类</option></select>
+          </label>
+          <label class="field">
+            <span>上游模块</span>
+            <select id="filter-module"><option value="">全部模块</option></select>
+          </label>
+          <label class="field grow">
+            <span>关键字</span>
+            <input id="filter-keyword" type="search" spellcheck="false" placeholder="技能 ID、名称、模块、上游路径" />
+          </label>
+          <button id="filter-reset" class="btn" type="button">重置</button>
+        </div>
+        <div class="table-wrap">
+          <table class="items">
+            <thead>
+              <tr>
+                <th class="col-skill">技能</th>
+                <th class="col-category">功能分类</th>
+                <th class="col-module">上游模块</th>
+                <th class="col-version">版本</th>
+                <th class="col-state">分发状态</th>
+                <th class="col-action">参与分发</th>
+              </tr>
+            </thead>
+            <tbody id="items-body"></tbody>
+          </table>
+          <p class="table-foot" id="table-foot"></p>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop" id="modal" hidden>
+      <form class="modal" id="modal-form">
+        <h2 id="modal-title">排除原因</h2>
+        <p class="modal-desc" id="modal-desc"></p>
+        <label class="modal-field">
+          <span>原因</span>
+          <input id="modal-input" type="text" maxlength="80" spellcheck="false" />
+        </label>
+        <p class="modal-hint">原因会写进 dispatch-policy.json，随仓库长期生效。</p>
+        <div class="modal-actions">
+          <button type="button" class="btn" id="modal-cancel">取消</button>
+          <button type="submit" class="btn primary" id="modal-confirm">排除</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

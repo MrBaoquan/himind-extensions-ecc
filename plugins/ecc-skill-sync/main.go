@@ -38,6 +38,15 @@ type input struct {
 	DistDir        string `json:"dist_dir"`
 	Status         string `json:"status"`
 	Category       string `json:"category"`
+	// 分发管理要用的筛选项：状态、上游模块与关键字，三者互不冲突。
+	State   string `json:"state"`
+	Module  string `json:"module"`
+	Keyword string `json:"keyword"`
+	// 分发策略的三个集合：一次写入整份，界面改完直接回传。
+	// 键是「被排除项」，值是原因；缺省空表表示全部参与分发。
+	ExcludedModules    map[string]string `json:"excluded_modules"`
+	ExcludedCategories map[string]string `json:"excluded_categories"`
+	ExcludedSkills     map[string]string `json:"excluded_skills"`
 	// TimeoutSeconds 由工作流或调用方传入，Agent 侧据此决定这次调用的等待上限。
 	// 插件自己不拿它做取消：能力是同步执行的，能不能等由调用方负责。
 	TimeoutSeconds int `json:"timeout_seconds"`
@@ -100,9 +109,102 @@ func handle(request jsonrpc.Request) (any, *jsonrpc.Error) {
 		return publish(in)
 	case "ecc.sync.review_queue":
 		return reviewQueue(in)
+	case "ecc.sync.distribution":
+		return distribution(in)
+	case "ecc.sync.dispatch_policy_save":
+		return saveDispatchPolicy(in)
 	default:
 		return nil, jsonrpc.InvalidParams("unsupported ecc sync capability: " + request.Method)
 	}
+}
+
+// distribution 报出「哪些技能参与分发、各自卡在哪一步」。
+//
+// 发布管理界面靠它渲染：总览计数与分类分组永远全量返回，被截断的只有明细，
+// 否则 268 条技能会把一次能力应答撑成一份没人看得完的清单。
+func distribution(in input) (any, *jsonrpc.Error) {
+	repoRoot, rpcError := resolveRepo(in)
+	if rpcError != nil {
+		return nil, rpcError
+	}
+	report, err := eccsync.BuildDistribution(repoRoot, eccsync.DistributionOptions{
+		State:    strings.TrimSpace(in.State),
+		Category: strings.TrimSpace(in.Category),
+		Module:   strings.TrimSpace(in.Module),
+		Keyword:  strings.TrimSpace(in.Keyword),
+	})
+	if err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	limit := in.Limit
+	if limit <= 0 {
+		limit = defaultReviewItems
+	}
+	truncated := 0
+	items := report.Items
+	if limit > 0 && len(items) > limit {
+		truncated = len(items) - limit
+		items = items[:limit]
+	}
+	return map[string]any{
+		"ok":                true,
+		"generated_at":      report.GeneratedAt,
+		"repo_root":         report.RepoRoot,
+		"repository":        report.Repository,
+		"upstream_commit":   report.UpstreamCommit,
+		"commit_date":       report.CommitDate,
+		"sequence":          report.Sequence,
+		"policy_path":       report.PolicyPath,
+		"policy_file":       report.PolicyFile,
+		"policy":            report.Policy,
+		"totals":            report.Totals,
+		"categories":        report.Categories,
+		"modules":           report.Modules,
+		"module_categories": report.ModuleCategories,
+		"items":             items,
+		"truncated":         truncated,
+	}, nil
+}
+
+// saveDispatchPolicy 把界面改完的分发策略写回仓库。
+//
+// 三个集合整份覆盖，而不是增量叠加：界面手里本来就是完整策略，增量接口会让
+// 「取消排除」变成一次语义含糊的删除，改错一步就得手翻文件。
+//
+// 落盘前先校验：写错一个模块名不会报错，只会静默地什么都不排除。那种错误
+// 必须在这一步被拦下，否则用户会以为排掉了，实际还在发。
+func saveDispatchPolicy(in input) (any, *jsonrpc.Error) {
+	repoRoot, rpcError := resolveRepo(in)
+	if rpcError != nil {
+		return nil, rpcError
+	}
+	policy := eccsync.DispatchPolicy{
+		SchemaVersion:      eccsync.DispatchPolicyVersion,
+		UpdatedAt:          time.Now().UTC().Format(time.RFC3339),
+		ExcludedModules:    in.ExcludedModules,
+		ExcludedCategories: in.ExcludedCategories,
+		ExcludedSkills:     in.ExcludedSkills,
+	}
+	modules, err := eccsync.LoadModuleMap(filepath.Join(repoRoot, filepath.FromSlash(eccsync.ModulesFile)))
+	if err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	lock, err := eccsync.LoadLock(filepath.Join(repoRoot, eccsync.LockFile))
+	if err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	if err := eccsync.ValidateDispatchTargets(policy, modules, lock); err != nil {
+		return nil, jsonrpc.InvalidParams(err.Error())
+	}
+	path := filepath.Join(repoRoot, eccsync.DispatchPolicyFile)
+	if err := eccsync.SaveDispatchPolicy(path, policy); err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	saved, err := eccsync.LoadDispatchPolicy(path)
+	if err != nil {
+		return nil, jsonrpc.InternalError(err.Error())
+	}
+	return map[string]any{"ok": true, "policy_path": path, "policy": saved}, nil
 }
 
 // reviewQueue 报出此刻还欠人工校对的技能。

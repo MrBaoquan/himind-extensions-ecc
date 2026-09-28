@@ -9,11 +9,13 @@
 | 目录 | 说明 |
 | --- | --- |
 | `skills/` | 迁移后的技能，正文与上游逐字一致，只补了 `skill.json` |
-| `plugins/ecc-skill-sync/` | 同步插件，6 个能力：探测 / 拉取 / 生成 / 门禁 / 发布 / 校对队列 |
+| `plugins/ecc-skill-sync/` | 同步插件，8 个能力：探测 / 拉取 / 生成 / 门禁 / 发布 / 校对队列 / 分发状态 / 分发策略 |
+| `plugins/ecc-skill-sync/ui/` | 插件自带的分发管理界面，按分类与模块控制谁参与分发 |
 | `workflows/ecc-skill-sync/` | 把这 6 步串起来的工作流，可手动跑，也可挂定时计划 |
 | `tools/cmd/himind-ecc-sync/` | 同一个过程的命令行入口，调试用 |
 | `internal/eccsync/` | 真正的实现，插件和 CLI 共用 |
 | `upstream-policy.json` | 迁移策略：搬什么、不搬什么、怎么改名 |
+| `dispatch-policy.json` | 分发策略：搬进来的技能里，哪一类不往外发 |
 | `upstream.lock.json` | 同步锚点：当前对齐到上游哪个提交 |
 | `manifests/` | 元数据、隔离清单、模块使用情况 |
 | `.himind/catalog.json` | 市场索引，发布时写入 |
@@ -61,6 +63,39 @@ go run ./tools/cmd/himind-ecc-sync publish  -repo-root . -dry-run
 go run ./tools/cmd/himind-ecc-sync review-queue -repo-root . -format md
 go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/decisions.json
 ```
+
+## 谁不往外发：分发策略
+
+上游 268 条技能不会条条都用得上，所以「往外发」这件事得能收窄。`upstream-policy.json` 决定「哪些上游技能值得搬进仓库」，`dispatch-policy.json` 决定「已经搬进来的技能里，哪些继续往外发」——两份合成一份的话，「不想发」会被记成「不想收」，技能从仓库里消失，用户既看不见也回不来。
+
+策略按三类规则生效，越具体的先判：单条技能 > 上游模块 > HiMind 分类。缺省是「全部参与分发」，所以三个集合都是空表时，跑出来的结果和没有这份文件时一样。
+
+被排掉的技能不再发新版本。线上已有的旧版本不会下架（下架对用户是倒退），只是从这一刻起停止更新。本次跳过多少条会写进发布报告的 `excluded` 与 `excluded_items`，记的是「少了哪一条、被分类 / 模块 / 单条哪条规则挡的、为什么」——半年后有人问某条技能怎么不更新了，答案在报告和策略文件里。
+
+插件与工作流不受这份策略约束：它们是本仓库自己写的扩展，要停发改的是自己的分发落点；把两者混在一起，哪天误排一个分类，工具链自己就跟着停更了。
+
+三种改法，读的都是仓库里这一份文件：
+
+| 方式 | 怎么做 |
+| --- | --- |
+| 界面 | 插件视图「分发管理」：按分类或模块整组开关，单条技能也能单独排掉，改完即落盘 |
+| 命令行 | `dispatch` 看状态，`dispatch-exclude` / `dispatch-include` 改策略 |
+| 定时任务 | 什么都不用做：`ecc.sync.publish` 每次读同一份策略，排掉的技能一直跳过 |
+
+```powershell
+# 看此刻每条技能卡在哪一步（distributed / pending / held / excluded）
+go run ./tools/cmd/himind-ecc-sync dispatch -repo-root . -state excluded
+
+# 整块排掉一个上游模块，写清原因
+go run ./tools/cmd/himind-ecc-sync dispatch-exclude -repo-root . -exclude-module media-generation -reason "团队不做视频生成"
+
+# 反悔了，整块放回来
+go run ./tools/cmd/himind-ecc-sync dispatch-include -repo-root . -include-module media-generation
+```
+
+模块名、分类名、技能 slug 写错会在落盘前被拦下——这种错如果不拦，不会报错，只会静默地什么都不排除，人以为排掉了、实际还在发。
+
+策略是内容事实，改完要提交到仓库：定时任务跑在哪个工作区，读的就是那个工作区里的这一份文件。只在某台机器上改、不提交，别的机器和下一次干净检出都会回到旧策略。
 
 ## 自动化的边界
 

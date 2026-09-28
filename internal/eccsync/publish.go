@@ -70,11 +70,33 @@ type PublishResult struct {
 	DryRun     bool     `json:"dry_run"`
 	Pending    int      `json:"pending"`
 	Held       []string `json:"held_for_metadata_review,omitempty"`
-	Published  int      `json:"published"`
-	Failed     int      `json:"failed"`
+	// Excluded 是本次按分发策略跳过的技能条数。
+	//
+	// 它和 Held 是两个不同的闸门：Held 是「文案还没校对」，改了 metadata 就能发；
+	// Excluded 是「这一类的分发策略说不要」，只有改 dispatch-policy.json 才会变。
+	// 跳过必须报数，否则定时任务会安安静静地少发一批，谁也不知道为什么。
+	Excluded      int            `json:"excluded"`
+	ExcludedItems []ExcludedItem `json:"excluded_items,omitempty"`
+	Published     int            `json:"published"`
+	Failed        int            `json:"failed"`
 	// CleanedDrafts 是本次顺手清掉的残留 Draft Release id，正常情况下为空。
 	CleanedDrafts []int64       `json:"cleaned_drafts,omitempty"`
 	Items         []PublishItem `json:"items"`
+}
+
+// ExcludedItem 是一条被分发策略挡下的上游技能。
+//
+// 记的不是「少了一条」而是「少了哪一条、被哪条规则挡的、为什么」：策略是
+// 按类生效的，一条技能消失时必须能立刻回溯到是分类、模块还是它自己被排除。
+type ExcludedItem struct {
+	Slug       string   `json:"slug"`
+	ID         string   `json:"id"`
+	Version    string   `json:"version"`
+	Module     string   `json:"module,omitempty"`
+	Categories []string `json:"categories,omitempty"`
+	Rule       string   `json:"rule"`
+	Keyword    string   `json:"keyword"`
+	Reason     string   `json:"reason"`
 }
 
 // publishTarget 是一次待发布的扩展：类型、稳定 ID、版本与源码目录。
@@ -134,15 +156,30 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	if err != nil {
 		return result, err
 	}
-	targets, err := pendingTargets(repoRoot, lock, extensions, index)
+	// 分发策略在挑「待发目标」时生效：判定必须发生在目标成型之前，
+	// 否则限流截断、依赖解析、制品打包各自都要再判一次，早晚判得不一样。
+	dispatchPolicy, err := LoadDispatchPolicy(filepath.Join(repoRoot, DispatchPolicyFile))
 	if err != nil {
 		return result, err
 	}
+	modules, err := LoadModuleMap(filepath.Join(repoRoot, filepath.FromSlash(ModulesFile)))
+	if err != nil {
+		return result, err
+	}
+	metadata, err := LoadMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)))
+	if err != nil {
+		return result, err
+	}
+	context := DispatchContext{Policy: dispatchPolicy, Modules: modules, Fallback: policy.ModuleCategories}
+	targets, excluded, err := pendingTargets(repoRoot, lock, extensions, index, context, metadata)
+	if err != nil {
+		return result, err
+	}
+	result.Excluded = len(excluded)
+	if len(excluded) > 0 {
+		result.ExcludedItems = excluded
+	}
 	if !options.AllowDerived {
-		metadata, err := LoadMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)))
-		if err != nil {
-			return result, err
-		}
 		targets, result.Held = splitByMetadataSource(targets, metadata)
 	}
 	result.Pending = len(targets)
@@ -256,14 +293,29 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	return result, nil
 }
 
-// pendingTargets 找出「本地已经有、索引里还缺」的扩展。
+// pendingTargets 找出「本地已经有、索引里还缺、分发策略也允许发」的扩展。
 //
 // 技能来自上游搬运锁，版本由上游内容推导；插件与工作流是本仓库自有的两件
 // 扩展，版本写在各自的源码清单里，改代码就要手工涨版本。这里只负责把索引里
 // 没有的版本挑出来，顺序固定为插件、技能、工作流。
-func pendingTargets(repoRoot string, lock Lock, extensions extensionsDocument, index *catalog.Catalog) ([]publishTarget, error) {
+//
+// 分发策略只约束上游技能。插件与工作流是本仓库自己写的扩展：它们要停发，
+// 改的是自己的分发落点，而不是「上游某类技能不发」这条策略；把两者混在一起，
+// 哪天误排了一个分类，工具链自己就跟着停更了。
+//
+// 被策略挡下的技能走 excluded 返回，不静默消失——「少了几条」是这套流程里
+// 最需要被看出来的事。
+func pendingTargets(
+	repoRoot string,
+	lock Lock,
+	extensions extensionsDocument,
+	index *catalog.Catalog,
+	context DispatchContext,
+	metadata Metadata,
+) ([]publishTarget, []ExcludedItem, error) {
 	published := publishedVersions(index)
 	targets := make([]publishTarget, 0, len(lock.Skills)+2)
+	excluded := []ExcludedItem{}
 	for _, entry := range extensions.Extensions {
 		if entry.Type != distribution.KindPlugin && entry.Type != distribution.KindWorkflow {
 			continue
@@ -271,7 +323,7 @@ func pendingTargets(repoRoot string, lock Lock, extensions extensionsDocument, i
 		dir := filepath.Join(repoRoot, filepath.FromSlash(entry.Path))
 		manifest, err := catalog.ReadManifest(dir, entry.Type)
 		if err != nil {
-			return nil, err
+			return nil, nil, err
 		}
 		if published[entry.Type+"/"+manifest.ID][manifest.Version] {
 			continue
@@ -285,13 +337,31 @@ func pendingTargets(repoRoot string, lock Lock, extensions extensionsDocument, i
 		if published[distribution.KindSkill+"/"+id][item.Version] {
 			continue
 		}
+		module := context.Modules.ModuleOf(slug)
+		categories := context.CategoriesOf(metadata.Skills[slug], module)
+		if decision := context.Decide(slug, module, categories); decision.Excluded {
+			excluded = append(excluded, ExcludedItem{
+				Slug:       slug,
+				ID:         id,
+				Version:    item.Version,
+				Module:     module,
+				Categories: categories,
+				Rule:       decision.Rule,
+				Keyword:    decision.Keyword,
+				Reason:     decision.Reason,
+			})
+			continue
+		}
 		targets = append(targets, publishTarget{
 			kind: distribution.KindSkill, id: id, version: item.Version,
 			dir: filepath.Join(repoRoot, "skills", slug), slug: slug,
 		})
 	}
 	sortTargets(targets)
-	return targets, nil
+	// 锁文件是 map，遍历顺序随机；跳过清单必须自己排序，否则同一份策略
+	// 每次跑出来的报告顺序都不一样，运行记录之间没法比对。
+	sort.Slice(excluded, func(i, j int) bool { return excluded[i].Slug < excluded[j].Slug })
+	return targets, excluded, nil
 }
 
 // publishedVersions 把索引收成「(类型, ID) → 已发过的全部版本」。

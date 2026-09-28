@@ -4,8 +4,8 @@
   "author": "马宝全",
   "categories": ["software-engineering"],
   "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
-  "release_notes": "1.0.9：同步报告的数组字段不再编成 null，制品 schema 校验干净通过。",
-  "version": "1.0.9",
+  "release_notes": "1.1.0：新增分发管理界面。可按功能分类、上游模块或单条技能决定谁参与分发，排除原因与范围写进仓库里的 dispatch-policy.json 长期生效；定时同步与手动发布都读同一份策略，被排除的技能不再发新版本，插件与工作流不受影响。",
+  "version": "1.1.0",
   "distribution_targets": ["workbench", "github"],
   "entry": "ecc-skill-sync.exe",
   "runtime": "process-jsonrpc-stdio",
@@ -124,6 +124,46 @@
       "risk_level": "read_only",
       "availability": "local",
       "timeout_seconds": 600
+    },
+    {
+      "id": "ecc.sync.distribution",
+      "description": "报出每条技能此刻的分发状态，以及分类与模块的排除概览",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "state": {"type": "string", "enum": ["distributed", "pending", "held", "excluded"]},
+          "category": {"type": "string"},
+          "module": {"type": "string"},
+          "keyword": {"type": "string"},
+          "limit": {"type": "integer", "minimum": 0, "maximum": 500},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "read_only",
+      "availability": "local",
+      "timeout_seconds": 600
+    },
+    {
+      "id": "ecc.sync.dispatch_policy_save",
+      "description": "整份写回分发策略：哪些分类、模块或单条技能不参与分发",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "excluded_modules": {"type": "object"},
+          "excluded_categories": {"type": "object"},
+          "excluded_skills": {"type": "object"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "local_write",
+      "availability": "local",
+      "timeout_seconds": 600
     }
   ],
   "permissions": [
@@ -133,5 +173,29 @@
     "process.git",
     "process.gh",
     "network.github.write"
-  ]
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "ecc-skill-sync.dispatch",
+        "title": "ECC 分发管理",
+        "short_title": "分发管理",
+        "icon": "package",
+        "quick_access": true,
+        "order": 60,
+        "location": "plugin_navigation",
+        "entry": "ui/index.html"
+      }
+    ],
+    "commands": [
+      {"id": "ecc.sync.probe", "title": "探测上游 ECC 变更"},
+      {"id": "ecc.sync.fetch", "title": "拉取上游 ECC 源码"},
+      {"id": "ecc.sync.generate", "title": "生成 ECC 技能包与索引"},
+      {"id": "ecc.sync.gate", "title": "运行 ECC 同步门禁"},
+      {"id": "ecc.sync.publish", "title": "发布 ECC 扩展到市场"},
+      {"id": "ecc.sync.review_queue", "title": "查看 ECC 待校对技能"},
+      {"id": "ecc.sync.distribution", "title": "查看 ECC 分发状态"},
+      {"id": "ecc.sync.dispatch_policy_save", "title": "保存 ECC 分发策略"}
+    ]
+  }
 }
