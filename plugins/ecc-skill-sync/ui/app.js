@@ -119,6 +119,14 @@
     }
   }
 
+  function forgetRepoRoot() {
+    try {
+      window.localStorage.removeItem(STORE_KEY);
+    } catch (error) {
+      /* 清不掉只影响下次自动填充，不影响本次使用 */
+    }
+  }
+
   function adoptRepoRoot(path) {
     state.repoRoot = path;
     el('repo').value = path;
@@ -135,15 +143,76 @@
     }
   }
 
+  // 仓库根目录的推断交给插件：只有它读得到「本插件是从哪个本地市场源装的」，
+  // 而宿主给的 workspace_root 说的是这次开发任务开在哪个目录，两者常不是一回事。
+  //
+  // 返回 null 表示这条能力不可用（例如插件被单独打开），调用方据此退回旧行为。
+  async function repoHint(path) {
+    try {
+      const response = await bridgeInvoke('ecc.sync.repo_hint', {
+        repo_root: path || '',
+        timeout_seconds: 60,
+      });
+      return (response && response.repo_hint) || null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function samePath(left, right) {
+    const normalize = (value) => text(value).replace(/[\\/]+$/, '').toLowerCase();
+    const normalized = normalize(left);
+    return normalized !== '' && normalized === normalize(right);
+  }
+
+  function usableCandidates(hint) {
+    return ((hint && hint.candidates) || []).filter((item) => item && item.has_policy && item.path);
+  }
+
+  // 该用哪个目录：记住的那个确实还能用就继续用，否则换成宿主推断出来的第一个。
+  // 推断不可用时才退回旧行为（记住的路径 → 当前工作区），老 Agent 上照常能用。
+  function chooseRepoRoot(stored, hint, workspace) {
+    if (hint && hint.current && hint.current.valid) return { path: stored, source: 'stored' };
+    const usable = usableCandidates(hint);
+    if (usable.length) return { path: usable[0].path, source: 'host' };
+    if (hint) return { path: '', source: '' };
+    if (stored) return { path: stored, source: 'stored' };
+    return { path: workspace || '', source: workspace ? 'workspace' : '' };
+  }
+
+  function isRepoPathError(error) {
+    const message = reason(error);
+    return message.indexOf('不是 ECC 同步仓库') >= 0 || message.indexOf('需要 repo_root') >= 0;
+  }
+
+  // 手里的路径已经不能用了：换一个候选，换不动就把记忆清掉，
+  // 免得下次打开又从一个错的路径开始。
+  async function recoverRepoRoot() {
+    const hint = await repoHint(state.repoRoot);
+    const next = usableCandidates(hint).find((item) => !samePath(item.path, state.repoRoot));
+    if (!next) return '';
+    adoptRepoRoot(next.path);
+    return next.path;
+  }
+
   async function boot() {
-    const candidate = storedRepoRoot() || (await workspaceFromHost());
-    if (!candidate) {
-      notify('先填上 himind-extensions-ecc 仓库根目录，再进入分发管理。', 'warn');
+    const stored = storedRepoRoot();
+    const hint = await repoHint(stored);
+    const workspace = hint ? '' : await workspaceFromHost();
+    const choice = chooseRepoRoot(stored, hint, workspace);
+    if (!choice.path) {
+      notify('没找到 ECC 仓库，请填写 himind-extensions-ecc 仓库根目录。', 'warn');
       el('repo').focus();
       return;
     }
-    adoptRepoRoot(candidate);
-    await reload();
+    adoptRepoRoot(choice.path);
+    if (choice.source !== 'stored') forgetRepoRoot();
+    const candidates = usableCandidates(hint).length;
+    const note = choice.source === 'host'
+      ? '已自动定位 ECC 仓库：' + choice.path +
+        (candidates > 1 ? '（本机另有 ' + (candidates - 1) + ' 个候选，可在上方改写）' : '')
+      : '';
+    await reload(note);
   }
 
   async function useTypedRepoRoot() {
@@ -158,7 +227,7 @@
 
   // ---------- 读取与渲染 ----------
 
-  async function reload() {
+  async function reload(note) {
     if (!state.repoRoot) {
       notify('先填上 himind-extensions-ecc 仓库根目录，再进入分发管理。', 'warn');
       return;
@@ -181,8 +250,13 @@
         if (item.slug && item.name) state.skillNames[item.slug] = item.name;
       });
       render();
-      notify('');
+      notify(note || '', note ? 'ok' : '');
     } catch (error) {
+      if (isRepoPathError(error)) {
+        const recovered = await recoverRepoRoot();
+        if (recovered) return reload('已自动改用 ' + recovered);
+        forgetRepoRoot();
+      }
       notify('读取分发状态失败：' + reason(error), 'error');
     } finally {
       setBusy(false);

@@ -4,8 +4,8 @@
   "author": "马宝全",
   "categories": ["software-engineering"],
   "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
-  "release_notes": "1.1.3：修掉报告互相覆盖。同一秒里跑的两次（真发一次、紧接着干跑复核）不再覆盖彼此，撞名自动加序号；发布报告只在拿到真实上游提交时才写锚点，不再出现空锚点。",
-  "version": "1.1.3",
+  "release_notes": "1.1.4：分发管理面板不再填错仓库。以前打开面板填的是当前开发工作区，现在改成从本机注册的市场源与安装来源推断 ECC 仓库，记住的路径不合法时自动换掉；没给参数的调用也用同一份推断。",
+  "version": "1.1.4",
   "distribution_targets": ["workbench", "github"],
   "entry": "ecc-skill-sync.exe",
   "runtime": "process-jsonrpc-stdio",
@@ -164,6 +164,22 @@
       "risk_level": "local_write",
       "availability": "local",
       "timeout_seconds": 600
+    },
+    {
+      "id": "ecc.sync.repo_hint",
+      "description": "推断本机的 ECC 仓库根目录，并校验调用方手里那一个还能不能用",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "read_only",
+      "availability": "local",
+      "timeout_seconds": 600
     }
   ],
   "permissions": [
@@ -195,7 +211,8 @@
       {"id": "ecc.sync.publish", "title": "发布 ECC 扩展到市场"},
       {"id": "ecc.sync.review_queue", "title": "查看 ECC 待校对技能"},
       {"id": "ecc.sync.distribution", "title": "查看 ECC 分发状态"},
-      {"id": "ecc.sync.dispatch_policy_save", "title": "保存 ECC 分发策略"}
+      {"id": "ecc.sync.dispatch_policy_save", "title": "保存 ECC 分发策略"},
+      {"id": "ecc.sync.repo_hint", "title": "推断 ECC 仓库目录"}
     ]
   }
 }

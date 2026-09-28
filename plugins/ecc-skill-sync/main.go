@@ -67,6 +67,8 @@ func handle(request jsonrpc.Request) (any, *jsonrpc.Error) {
 		return nil, rpcError
 	}
 	switch request.Method {
+	case "ecc.sync.repo_hint":
+		return repoHint(in)
 	case "ecc.sync.probe":
 		repoRoot, rpcError := resolveRepo(in)
 		if rpcError != nil {
@@ -349,7 +351,8 @@ func publish(in input) (any, *jsonrpc.Error) {
 
 // resolveRepo 找出这次要操作的仓库根目录。
 //
-// repo_root 优先，其次才用工作区；两者都必须真的指着同步仓库——
+// repo_root 优先，其次才用工作区；两者都没给时，用本机推断出的那一个。
+// 三种来源都必须真的指着同步仓库——
 // 只认「目录存在」会让一次手滑把生成物写进业务项目里，
 // 到时候 diff 里全是技能目录，很难看出是哪儿错了。
 func resolveRepo(in input) (string, *jsonrpc.Error) {
@@ -358,14 +361,31 @@ func resolveRepo(in input) (string, *jsonrpc.Error) {
 		candidate = strings.TrimSpace(in.WorkspaceRoot)
 	}
 	if candidate == "" {
-		return "", jsonrpc.InvalidParams("需要 repo_root：指向 himind-extensions-ecc 仓库根目录（也可以用 workspace_root 指定）")
+		candidate = strings.TrimSpace(os.Getenv(repoRootEnv))
+	}
+	if candidate == "" {
+		inferred, usable := inferredRepoRoot()
+		switch len(usable) {
+		case 0:
+			return "", jsonrpc.InvalidParams("需要 repo_root：指向 himind-extensions-ecc 仓库根目录（也可以用 workspace_root 指定）")
+		case 1:
+			candidate = inferred
+		default:
+			// 推断出多个时不挑一个：本机同时放着两个 ECC 仓库时，猜错一次就是
+			// 把这一批发到另一个仓库去。列出候选，把选择权交回给调用方。
+			paths := make([]string, 0, len(usable))
+			for _, item := range usable {
+				paths = append(paths, item.Path)
+			}
+			return "", jsonrpc.InvalidParams("本机有多个可能的 ECC 仓库，请显式指定 repo_root：" + strings.Join(paths, " / "))
+		}
 	}
 	absolute, err := filepath.Abs(candidate)
 	if err != nil {
 		return "", jsonrpc.InvalidParams(err.Error())
 	}
-	if info, err := os.Stat(filepath.Join(absolute, eccsync.PolicyFile)); err != nil || info.IsDir() {
-		return "", jsonrpc.InvalidParams("repo_root 不是 ECC 同步仓库（缺少 " + eccsync.PolicyFile + "）：" + absolute)
+	if valid, reason := usableRepoRoot(absolute); !valid {
+		return "", jsonrpc.InvalidParams("repo_root " + reason + "：" + absolute)
 	}
 	return absolute, nil
 }
