@@ -4,8 +4,65 @@
   "distribution_id": "mrbaoquan/himind-extensions-ecc",
   "channel": "beta",
   "catalog_id": "public",
-  "generation": "sync-8fed361b112c883f",
+  "generation": "sync-869f7d9a3dfc1fed",
   "plugins": [
+    {
+      "allow_disable": true,
+      "allow_uninstall": true,
+      "artifact_id": "github:plugin/com.mrbaoquan.ecc-skill-sync@1.1.0:com.mrbaoquan.ecc-skill-sync-1.1.0.hmpkg",
+      "artifact_sha256": "1a6b0e8f97d6006dec1cb523ea88698039e4927c27b84102f4f546ca8a72bfe9",
+      "assignment": "optional",
+      "author_name": "马宝全",
+      "capability_ids": [
+        "ecc.sync.probe",
+        "ecc.sync.fetch",
+        "ecc.sync.generate",
+        "ecc.sync.gate",
+        "ecc.sync.publish",
+        "ecc.sync.review_queue",
+        "ecc.sync.distribution",
+        "ecc.sync.dispatch_policy_save"
+      ],
+      "categories": [
+        "software-engineering"
+      ],
+      "channel": "beta",
+      "dependencies": [],
+      "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
+      "download_url": "https://github.com/mrbaoquan/himind-extensions-ecc/releases/download/plugin%2Fcom.mrbaoquan.ecc-skill-sync@1.1.0/com.mrbaoquan.ecc-skill-sync-1.1.0.hmpkg",
+      "file_name": "com.mrbaoquan.ecc-skill-sync-1.1.0.hmpkg",
+      "file_size": 5922268,
+      "governance": "optional",
+      "install_mode": "prompt",
+      "managed": false,
+      "management": "user_managed",
+      "min_agent_version": "0.3.47",
+      "name": "ECC 技能同步",
+      "organization_reason": "",
+      "permissions": [
+        "filesystem.workspace.read",
+        "filesystem.workspace.write",
+        "process.go",
+        "process.git",
+        "process.gh",
+        "network.github.write"
+      ],
+      "plugin_dependencies": [],
+      "plugin_id": "com.mrbaoquan.ecc-skill-sync",
+      "published_at": "2026-09-28T15:30:56Z",
+      "release_notes": "1.1.0：新增分发管理界面。可按功能分类、上游模块或单条技能决定谁参与分发，排除原因与范围写进仓库里的 dispatch-policy.json 长期生效；定时同步与手动发布都读同一份策略，被排除的技能不再发新版本，插件与工作流不受影响。",
+      "release_tag": "plugin/com.mrbaoquan.ecc-skill-sync@1.1.0",
+      "review_status": "published",
+      "sha256": "1a6b0e8f97d6006dec1cb523ea88698039e4927c27b84102f4f546ca8a72bfe9",
+      "signature": "jIThOTjaY5HDR2tKXT5Vxq7Zh57LeIPnBRm0G2sRw28KYN4qnZcVfRtMi4kMrDo0gPcwbW5wtWcz/DWsEInDTVR26ZruJ4JRa1DqvHduQ6oZ9HWa5A6UeamqYL2wM9yYNq/DPprdPTl0Zc8UyKu5PpAliykE6wRzY0wfO64hnNAneV6C25kmDGi+N3LFoY9VKa9IU4l1iappz3DSvpgzO1ndF8h4r8I5sOsA9iyjF0YZ0ug2OItk+Z7n0LuECxEV+VLZ9gUKTKBR5eHpOJLNP+DtayGa00mtH1dcTUVEo0IJkH9aszSlh36/pkFbccEDQ/6Ft4uB8Vc4akSAW9nHHgKvFeai46v7rlE09nuQY505KO1t+ByZ58YfcY1xuf/M8uTVIkK8RUB28E+jfuGoZxTTSwVcXxTK7mFpJPUPd10O97l8Wn7kuQ497frevLCihgsxGO4UHAT1mPAvqXwvdNPOom1nhpNtVMeLM0Rcc3APhy6wuWaWJSrOesuz+edd",
+      "signature_algorithm": "rsa-pss-sha256",
+      "signature_key_id": "himind-production-2026",
+      "source": "github",
+      "source_commit": "55e16546c54684dc8fe1e2186be82492c7dc3794",
+      "source_tree": "",
+      "version": "1.1.0",
+      "view_count": 0
+    },
     {
       "allow_disable": true,
       "allow_uninstall": true,
@@ -11559,20 +11616,20 @@
       "channel": "beta",
       "dependencies": [
         {
-          "kind": "plugin",
           "id": "com.mrbaoquan.ecc-skill-sync",
-          "required": true,
+          "kind": "plugin",
           "min_version": "",
-          "version": "1.0.9",
+          "pinned": true,
+          "required": true,
           "sha256": "05f636313c7afa21b05928107d07cb5fb633c844a84cf132ada6441da1db623a",
           "source": {
-            "kind": "github",
+            "artifact_url": "https://github.com/mrbaoquan/himind-extensions-ecc/releases/download/plugin%2Fcom.mrbaoquan.ecc-skill-sync@1.0.9/com.mrbaoquan.ecc-skill-sync-1.0.9.hmpkg",
             "id": "github:mrbaoquan/himind-extensions-ecc",
-            "repository": "mrbaoquan/himind-extensions-ecc",
+            "kind": "github",
             "reference": "plugin/com.mrbaoquan.ecc-skill-sync@1.0.9",
-            "artifact_url": "https://github.com/mrbaoquan/himind-extensions-ecc/releases/download/plugin%2Fcom.mrbaoquan.ecc-skill-sync@1.0.9/com.mrbaoquan.ecc-skill-sync-1.0.9.hmpkg"
+            "repository": "mrbaoquan/himind-extensions-ecc"
           },
-          "pinned": true
+          "version": "1.0.9"
         }
       ],
       "description": "探测上游 ECC 技能库是否前进，拉源码、按策略生成技能包、跑门禁，再把够格的版本发到市场，收尾报出还欠校对的条数。上游没变就跳过搬运，但每天都报一次校对积压。",
