@@ -1,7 +1,96 @@
 {
-  "catalog_id": "public",
-  "channel": "beta",
+  "schema_version": 1,
+  "source_id": "",
   "distribution_id": "mrbaoquan/himind-extensions-ecc",
+  "channel": "beta",
+  "catalog_id": "public",
+  "generation": "sync-8bb56d398cee5deb",
+  "plugins": [],
+  "skills": [
+    {
+      "allow_disable": true,
+      "allow_uninstall": true,
+      "artifact_id": "github:skill/com.mrbaoquan.ecc.skill.search-first@2.2.2:com.mrbaoquan.ecc.skill.search-first-2.2.2.hmskill",
+      "artifact_sha256": "18cbe5ba49057e4e6b010b19e83a3341fdf54a1428aa97c05c059e35f6840315",
+      "assignment": "optional",
+      "author_name": "Affaan Mustafa",
+      "capability_ids": [],
+      "categories": [
+        "software-engineering"
+      ],
+      "channel": "beta",
+      "dependencies": [],
+      "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能和 GitHub。找到就直接用或改造，找不到再自己写。",
+      "download_url": "https://github.com/mrbaoquan/himind-extensions-ecc/releases/download/skill%2Fcom.mrbaoquan.ecc.skill.search-first@2.2.2/com.mrbaoquan.ecc.skill.search-first-2.2.2.hmskill",
+      "file_name": "com.mrbaoquan.ecc.skill.search-first-2.2.2.hmskill",
+      "file_size": 4165,
+      "install_mode": "prompt",
+      "managed": false,
+      "management": "user_managed",
+      "min_agent_version": "0.3.37",
+      "name": "先搜后写",
+      "organization_reason": "",
+      "plugin_dependencies": [],
+      "published_at": "2026-09-28T05:47:41Z",
+      "release_notes": "2.2.2：同步自上游 ecc-universal d3b8a3e。",
+      "release_tag": "skill/com.mrbaoquan.ecc.skill.search-first@2.2.2",
+      "risk_summary": "read_only",
+      "sha256": "18cbe5ba49057e4e6b010b19e83a3341fdf54a1428aa97c05c059e35f6840315",
+      "signature": "XHV9YwVIl6OUIaEnPylx0A8oW3AcQv7s1y8c0JgdgnXxmc+dMpw7fq9V83TyK2k+0XTEjQZo42j1GnahbIZW0THFrA97t6DAGUplk5Qr8guimvmqB0UGM4XtFtesKIw5Sg0J1IH92n71T4mEYZRx3A98DwUXjrtiVKuw0Ct1Uc1GRp9VHXW5KPLbtIkk6XWdvkD/L4h2boyMwHlkjWj3KL3XGKKKGloU8PnHsOj1Y6QRN4bqFImF9MgG3VGXjaCNE150YWdn27b6unVLjJdpU3OJl+xMzCf3vmSfrfif8nkwha48KjqVPxJ3HY/XJoGHp+Yuj6HcObYObczY64PhtF9mPNE605uBK3VD7OlQOftr2g+nPHdL/zJ4h3S1PxJYaV6o83eVostkTM7vOh7VFSiMdwUEJZPNSe+Rt8/UEubhmKnAgdoFXdHogE0LxQ3boYyw5QRyJGQsBkj1wmN2zmmpSlVGDeLdX6UO/05zsLouTv6am3DgcjUilNt1gDr/",
+      "signature_algorithm": "rsa-pss-sha256",
+      "signature_key_id": "himind-production-2026",
+      "skill_id": "com.mrbaoquan.ecc.skill.search-first",
+      "source": "github",
+      "source_commit": "1e791063b3310891ad97ac8c7f8d24eaa7b1c283",
+      "source_tree": "",
+      "supported_clients": [
+        "agent-skills"
+      ],
+      "version": "2.2.2"
+    },
+    {
+      "allow_disable": true,
+      "allow_uninstall": true,
+      "artifact_id": "github:skill/com.mrbaoquan.ecc.skill.verification-loop@2.2.1:com.mrbaoquan.ecc.skill.verification-loop-2.2.1.hmskill",
+      "artifact_sha256": "abf230098c222fbd028bb281e6264a20f477014e3a1f787d5226ebe47c144dcc",
+      "assignment": "optional",
+      "author_name": "Affaan Mustafa",
+      "capability_ids": [],
+      "categories": [
+        "testing-quality"
+      ],
+      "channel": "beta",
+      "dependencies": [],
+      "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
+      "download_url": "https://github.com/mrbaoquan/himind-extensions-ecc/releases/download/skill%2Fcom.mrbaoquan.ecc.skill.verification-loop@2.2.1/com.mrbaoquan.ecc.skill.verification-loop-2.2.1.hmskill",
+      "file_name": "com.mrbaoquan.ecc.skill.verification-loop-2.2.1.hmskill",
+      "file_size": 2363,
+      "install_mode": "prompt",
+      "managed": false,
+      "management": "user_managed",
+      "min_agent_version": "0.3.37",
+      "name": "交付前自查",
+      "organization_reason": "",
+      "plugin_dependencies": [],
+      "published_at": "2026-09-28T05:47:45Z",
+      "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+      "release_tag": "skill/com.mrbaoquan.ecc.skill.verification-loop@2.2.1",
+      "risk_summary": "read_only",
+      "sha256": "abf230098c222fbd028bb281e6264a20f477014e3a1f787d5226ebe47c144dcc",
+      "signature": "PHFa05rMuMsp+By2UUeDKbFyj6mr8qi+ASF+o8eQEOfQbSlbY71mFqn25CeQHXuj5uXa3metCAVkLBzxHoAnZYRalBUeDVH5w8rQjRPhKM6xdamUs18h7pSRtHcvYzUjGFwBzSBsPevug3+sBs8IuOXAJmZqPYsmt55Rrfp2IHQPPNonAM4X2sMDm7EqLSBdjndoXMOVs44h14P9xEorskJ2aBJix/BzerUVHSWZ+fP5ZLB8kZdlGiHbNBr+qCSuyBdWmut4jOHgi0B5EQdEmqkhiCwbOLViPtJ79fv+LaTUEwUGcol46F4ZTJRANmYjzkITN1mJZ6a5+Hp5FRn9DXDEHL6EJV2TolYwgWsR1iI7geyMHtAYxbiGh7kG5Xa0ABXNuMhdrJ+SsFcRw3eSKSAmN8KVz/pc6putoN8MzkMOPE/Ma9JV6gIMxfFaZKMf/ielm7BiaWQ7oCW8KPpmrJWk0wZJ80W3BjKcDEVSqOXzvycBwZc20cer6YFEBiOQ",
+      "signature_algorithm": "rsa-pss-sha256",
+      "signature_key_id": "himind-production-2026",
+      "skill_id": "com.mrbaoquan.ecc.skill.verification-loop",
+      "source": "github",
+      "source_commit": "1e791063b3310891ad97ac8c7f8d24eaa7b1c283",
+      "source_tree": "",
+      "supported_clients": [
+        "agent-skills"
+      ],
+      "version": "2.2.1"
+    }
+  ],
+  "workflows": [],
   "feature_packs": [
     {
       "id": "com.mrbaoquan.ecc.feature.sync",
@@ -11,11 +100,5 @@
       ],
       "skill_ids": []
     }
-  ],
-  "generation": "",
-  "plugins": [],
-  "schema_version": 1,
-  "skills": [],
-  "source_id": "",
-  "workflows": []
+  ]
 }
