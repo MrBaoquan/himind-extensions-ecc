@@ -118,3 +118,32 @@ func TestPublishReportSurvivesMissingLock(t *testing.T) {
 		t.Fatalf("报告的基本字段必须齐全：%+v", report)
 	}
 }
+
+// 同一秒里的两次运行不能互相覆盖。
+//
+// 真发一次、紧接着干跑一次复核，两次都落在当前这一秒；覆盖掉的是先写的那份，
+// 也就是唯一一次真发布的凭据。撞名时加序号，命名习惯保持不变。
+func TestWriteRunReportDoesNotOverwriteSameSecond(t *testing.T) {
+	repoRoot := t.TempDir()
+	first, err := WriteRunReport(repoRoot, ReportKindPublish, map[string]any{"kind": ReportKindPublish, "round": 1})
+	if err != nil {
+		t.Fatal(err)
+	}
+	second, err := WriteRunReport(repoRoot, ReportKindPublish, map[string]any{"kind": ReportKindPublish, "round": 2})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if first["uri"] == second["uri"] {
+		t.Fatalf("两次运行写到了同一个文件：%s", first["uri"])
+	}
+	if _, err := os.Stat(filepath.FromSlash(strings.TrimPrefix(second["uri"].(string), "file:///"))); err != nil {
+		t.Fatalf("第二份报告没有真正落盘：%v", err)
+	}
+	entries, err := os.ReadDir(ReportsDir(repoRoot))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(entries) != 2 {
+		t.Fatalf("两份报告都应该在场，实际 %d 份", len(entries))
+	}
+}

@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -50,7 +51,17 @@ func WriteRunReport(repoRoot, kind string, payload any) (map[string]any, error) 
 		// 报告本身还能拿到，比整次运行失败有用。
 		directory = os.TempDir()
 	}
-	path := filepath.Join(directory, time.Now().UTC().Format("20060102T150405Z")+"-"+kind+".json")
+	// 文件名精确到秒，同一秒里跑两次同一种报告（真发一次、紧接着干跑一次复核，
+	// 或者重试）就会互相覆盖——而被顶掉的那份往往正是要复盘的那份。撞名时加序号，
+	// 命名习惯保持不变。
+	stamp := time.Now().UTC().Format("20060102T150405Z")
+	path := filepath.Join(directory, stamp+"-"+kind+".json")
+	for index := 2; index < 100; index++ {
+		if _, err := os.Stat(path); os.IsNotExist(err) {
+			break
+		}
+		path = filepath.Join(directory, fmt.Sprintf("%s-%s-%d.json", stamp, kind, index))
+	}
 	if err := os.WriteFile(path, data, 0o644); err != nil {
 		return nil, err
 	}
