@@ -64,6 +64,12 @@ go run ./tools/cmd/himind-ecc-sync review-queue -repo-root . -format md
 go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/decisions.json
 ```
 
+插件的二进制是提交进仓库的（Agent 侧直接拉起它，不现场编译）。改完插件或 `internal/eccsync` 必须重建，否则装了新版本的机器跑的还是旧行为：
+
+```powershell
+go build -o plugins/ecc-skill-sync/ecc-skill-sync.exe ./plugins/ecc-skill-sync
+```
+
 ## 谁不往外发：分发策略
 
 上游 268 条技能不会条条都用得上，所以「往外发」这件事得能收窄。`upstream-policy.json` 决定「哪些上游技能值得搬进仓库」，`dispatch-policy.json` 决定「已经搬进来的技能里，哪些继续往外发」——两份合成一份的话，「不想发」会被记成「不想收」，技能从仓库里消失，用户既看不见也回不来。
@@ -72,7 +78,7 @@ go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/dec
 
 被排掉的技能不再发新版本。线上已有的旧版本不会下架（下架对用户是倒退），只是从这一刻起停止更新。本次跳过多少条会写进发布报告的 `excluded` 与 `excluded_items`，记的是「少了哪一条、被分类 / 模块 / 单条哪条规则挡的、为什么」——半年后有人问某条技能怎么不更新了，答案在报告和策略文件里。
 
-发布报告每次跑完都落一份，位置是 `.cache/ecc-sync/reports/<UTC 时间戳>-publish.json`，和生成报告（`-generate.json`）并排：生成报告说这次对齐到哪个上游提交，发布报告说在这个提交上谁发了、谁被挡下。定时任务没人看着，这份文件就是事后唯一能翻的账。
+发布报告每次跑完都落一份，位置是 `.cache/ecc-sync/reports/<UTC 时间戳>-publish.json`，和生成报告（`-generate.json`）并排：生成报告说这次对齐到哪个上游提交，发布报告说在这个提交上谁发了、谁被挡下。定时任务没人看着，这份文件就是事后唯一能翻的账。三个入口（`himind-ecc-sync publish`、`ecc.sync.publish` 能力、定时工作流）写的是同一份报告，手动发版同样留痕。
 
 插件与工作流不受这份策略约束：它们是本仓库自己写的扩展，要停发改的是自己的分发落点；把两者混在一起，哪天误排一个分类，工具链自己就跟着停更了。
 

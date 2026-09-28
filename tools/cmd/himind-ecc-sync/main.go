@@ -68,11 +68,11 @@ func main() {
 		}
 		result = value
 	case "generate":
-		value, err := generate(absolute, *sourceRoot, *tool)
+		value, upstream, err := generate(absolute, *sourceRoot, *tool)
 		if err != nil {
 			fail(err)
 		}
-		result = value
+		result = withReportArtifact(value, eccsync.GenerateReport(absolute, upstream, value))
 	case "gate":
 		value, err := eccsync.Gate(absolute)
 		if err != nil {
@@ -88,7 +88,7 @@ func main() {
 		if err != nil {
 			fail(err)
 		}
-		result = value
+		result = withReportArtifact(value, eccsync.PublishReport(absolute, value))
 	case "review-queue":
 		value, err := eccsync.BuildReviewQueue(absolute, *sourceRoot)
 		if err != nil {
@@ -238,24 +238,26 @@ func splitList(value string) []string {
 	return keys
 }
 
-func generate(repoRoot, sourceRoot, tool string) (eccsync.GenerateResult, error) {
+// generate 跑一次生成，并把上游锚点一并交回来：报告要写「对齐到哪个上游提交」，
+// 这个事实本来就在生成过程中算出来了，没必要让调用方再读一遍标记文件。
+func generate(repoRoot, sourceRoot, tool string) (eccsync.GenerateResult, eccsync.LockUpstream, error) {
 	policy, err := eccsync.LoadPolicy(filepath.Join(repoRoot, eccsync.PolicyFile))
 	if err != nil {
-		return eccsync.GenerateResult{}, err
+		return eccsync.GenerateResult{}, eccsync.LockUpstream{}, err
 	}
 	eccsync.SetSkillIDPrefix(policy.SkillIDPrefix)
 	if sourceRoot == "" {
 		sourceRoot, err = eccsync.CachedSource(repoRoot)
 		if err != nil {
-			return eccsync.GenerateResult{}, err
+			return eccsync.GenerateResult{}, eccsync.LockUpstream{}, err
 		}
 	}
 	// 与插件同一条路径：上游事实取自 fetch 落地的源码树，不再单独问一次 HEAD。
 	upstream, err := eccsync.SourceFacts(policy, repoRoot, sourceRoot)
 	if err != nil {
-		return eccsync.GenerateResult{}, err
+		return eccsync.GenerateResult{}, eccsync.LockUpstream{}, err
 	}
-	return eccsync.Generate(eccsync.GenerateInput{
+	result, err := eccsync.Generate(eccsync.GenerateInput{
 		RepoRoot:   repoRoot,
 		SourceRoot: sourceRoot,
 		Policy:     policy,
@@ -263,6 +265,34 @@ func generate(repoRoot, sourceRoot, tool string) (eccsync.GenerateResult, error)
 		Now:        time.Now(),
 		Tool:       tool,
 	})
+	if err != nil {
+		return eccsync.GenerateResult{}, eccsync.LockUpstream{}, err
+	}
+	return result, upstream, nil
+}
+
+// withReportArtifact 把报告落盘，再把信封挂到命令输出上。
+//
+// 报告写失败不能让命令本身变成失败：东西已经生成/发布了，丢的是留痕，不是结果。
+// 输出保持原来的顶层字段不变，只多一个 artifacts，别破坏已有的解析习惯。
+func withReportArtifact(value any, payload map[string]any) any {
+	merged := map[string]any{}
+	data, err := json.Marshal(value)
+	if err != nil {
+		return value
+	}
+	if err := json.Unmarshal(data, &merged); err != nil {
+		return value
+	}
+	repoRoot, _ := payload["repo_root"].(string)
+	kind, _ := payload["kind"].(string)
+	artifact, err := eccsync.WriteRunReport(repoRoot, kind, payload)
+	if err != nil {
+		merged["artifact_error"] = err.Error()
+		return merged
+	}
+	merged["artifacts"] = []any{artifact}
+	return merged
 }
 
 func print(value any) {

@@ -100,6 +100,80 @@ func TestApplyDispatchChangeValidatesBeforeWriting(t *testing.T) {
 	}
 }
 
+// 命令行是真实发版走的那条路，它也得留报告。
+//
+// 发布本身是成功还是失败，看的是「东西有没有推上去」；报告回答的是
+// 「这一批里谁被分发策略挡下了」。两者不能互相顶替：报告没写成，
+// 命令照样算成功，但输出里要能看出报告丢了。
+func TestWithReportArtifactKeepsResultFields(t *testing.T) {
+	repoRoot := t.TempDir()
+	value := eccsync.PublishResult{
+		Repository: "MrBaoquan/himind-extensions-ecc",
+		Channel:    "beta",
+		DryRun:     true,
+		Pending:    1,
+		Excluded:   1,
+		ExcludedItems: []eccsync.ExcludedItem{{
+			Slug: "taste", ID: "com.mrbaoquan.ecc.skill.taste", Version: "1.0.0",
+			Rule: eccsync.DispatchRuleSkill, Keyword: "taste", Reason: "团队不用",
+		}},
+		Items: []eccsync.PublishItem{},
+	}
+
+	merged, ok := withReportArtifact(value, eccsync.PublishReport(repoRoot, value)).(map[string]any)
+	if !ok {
+		t.Fatal("命令输出应当是对象，原来的顶层字段不能被包进新层级")
+	}
+	// 原有的顶层字段一个都不能少、不能改名：脚本和习惯都指着它们。
+	for _, key := range []string{"repository", "channel", "dry_run", "pending", "excluded", "items"} {
+		if _, present := merged[key]; !present {
+			t.Fatalf("原有字段 %q 丢了：%+v", key, merged)
+		}
+	}
+	artifacts, ok := merged["artifacts"].([]any)
+	if !ok || len(artifacts) != 1 {
+		t.Fatalf("输出里应当带上报告信封：%+v", merged["artifacts"])
+	}
+	envelope := artifacts[0].(map[string]any)
+	path := filepath.FromSlash(strings.TrimPrefix(envelope["uri"].(string), "file:///"))
+	payload, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatalf("按信封找不到刚写的报告：%v", err)
+	}
+	// 报告要能自己说清「被挡下的是哪一条」，而不是只有一个数字。
+	if !strings.Contains(string(payload), `"kind": "publish"`) ||
+		!strings.Contains(string(payload), `"rule": "skill"`) {
+		t.Fatalf("报告内容不完整：%s", payload)
+	}
+}
+
+// 缓存目录建不出来时，报告退到临时目录，但记录本身不能丢。
+//
+// 发布已经成功了，这时候让命令报错只会把「发出去了」说成「失败了」。
+// 代价是路径可能不在仓库里——信封里带着真实路径，照样找得到。
+func TestWithReportArtifactFallsBackToTempDir(t *testing.T) {
+	value := eccsync.PublishResult{Repository: "x/y", Channel: "beta", Items: []eccsync.PublishItem{}}
+	// 盘符里带非法字符，仓库内的缓存目录必然建不出来。
+	broken := filepath.Join(t.TempDir(), "bad:dir")
+	merged, ok := withReportArtifact(value, eccsync.PublishReport(broken, value)).(map[string]any)
+	if !ok {
+		t.Fatal("报告落点异常时也应保持原来的输出形状")
+	}
+	if merged["repository"] != "x/y" {
+		t.Fatalf("报告落点异常不该抹掉发布结论：%+v", merged)
+	}
+	artifacts, ok := merged["artifacts"].([]any)
+	if !ok || len(artifacts) != 1 {
+		t.Fatalf("退到临时目录也要给出报告信封：%+v", merged["artifacts"])
+	}
+	envelope := artifacts[0].(map[string]any)
+	path := filepath.FromSlash(strings.TrimPrefix(envelope["uri"].(string), "file:///"))
+	if _, err := os.Stat(path); err != nil {
+		t.Fatalf("信封里的路径必须真的存在：%v", err)
+	}
+	_ = os.Remove(path)
+}
+
 func writeFile(t *testing.T, path, content string) {
 	t.Helper()
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {

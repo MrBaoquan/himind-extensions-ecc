@@ -1,9 +1,6 @@
 package main
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -296,12 +293,7 @@ func generate(in input) (any, *jsonrpc.Error) {
 	}
 
 	response := map[string]any{"ok": true, "generate": result}
-	report := map[string]any{
-		"kind":      "generate",
-		"repo_root": repoRoot,
-		"upstream":  upstream,
-		"result":    result,
-	}
+	report := eccsync.GenerateReport(repoRoot, upstream, result)
 	// 校对积压跟着报告一起落地：报告是这次同步唯一会被人回看的产物，
 	// 把「还欠多少条」放在这里，用户看一份文件就知道下一步该干什么。
 	if queue, queueErr := eccsync.BuildReviewQueue(repoRoot, sourceRoot); queueErr == nil {
@@ -310,7 +302,7 @@ func generate(in input) (any, *jsonrpc.Error) {
 	} else {
 		response["review_error"] = queueErr.Error()
 	}
-	artifact, artifactErr := writeReport(repoRoot, "generate", report)
+	artifact, artifactErr := eccsync.WriteRunReport(repoRoot, eccsync.ReportKindGenerate, report)
 	if artifactErr != nil {
 		response["artifact_error"] = artifactErr.Error()
 		return response, nil
@@ -346,32 +338,13 @@ func publish(in input) (any, *jsonrpc.Error) {
 		return nil, jsonrpc.InternalError(err.Error())
 	}
 	response := map[string]any{"ok": value.Failed == 0, "publish": value}
-	artifact, artifactErr := writeReport(repoRoot, "publish", publishReport(repoRoot, value))
+	artifact, artifactErr := eccsync.WriteRunReport(repoRoot, eccsync.ReportKindPublish, eccsync.PublishReport(repoRoot, value))
 	if artifactErr != nil {
 		response["artifact_error"] = artifactErr.Error()
 		return response, nil
 	}
 	response["artifacts"] = []any{artifact}
 	return response, nil
-}
-
-// publishReport 组装一份发布报告。
-//
-// 上游锚点取自锁文件，跟着报告一起走：生成报告说「这次对齐到哪个上游提交」，
-// 发布报告说「在这个提交上，谁发了、谁被哪条规则挡下」——两份报告对得上，
-// 才谈得上回头复盘某一条技能是哪一步开始不更新的。
-func publishReport(repoRoot string, value eccsync.PublishResult) map[string]any {
-	report := map[string]any{
-		"kind":      "publish",
-		"repo_root": repoRoot,
-		"publish":   value,
-	}
-	// 读不到锁文件不该让整次发布变成失败：发布本身已经成功了，
-	// 报告里少一块锚点，比丢掉整份报告要好。
-	if lock, err := eccsync.LoadLock(filepath.Join(repoRoot, eccsync.LockFile)); err == nil {
-		report["upstream"] = lock.Upstream
-	}
-	return report
 }
 
 // resolveRepo 找出这次要操作的仓库根目录。
@@ -395,37 +368,4 @@ func resolveRepo(in input) (string, *jsonrpc.Error) {
 		return "", jsonrpc.InvalidParams("repo_root 不是 ECC 同步仓库（缺少 " + eccsync.PolicyFile + "）：" + absolute)
 	}
 	return absolute, nil
-}
-
-// writeReport 把一次运行的结论落成 JSON 文件，并返回 Artifact 信封。
-//
-// 落点选 .cache/ 而不是仓库根部：报告每次都不一样，它不是仓库内容的一部分；
-// 写进工作树只会让「上游没变就零动作」这句话变成假的。
-func writeReport(repoRoot, kind string, payload any) (map[string]any, error) {
-	data, err := json.MarshalIndent(payload, "", "  ")
-	if err != nil {
-		return nil, err
-	}
-	data = append(data, '\n')
-	directory := filepath.Join(repoRoot, filepath.FromSlash(eccsync.CacheDir), "reports")
-	if err := os.MkdirAll(directory, 0o755); err != nil {
-		directory = os.TempDir()
-	}
-	path := filepath.Join(directory, time.Now().UTC().Format("20060102T150405Z")+"-"+kind+".json")
-	if err := os.WriteFile(path, data, 0o644); err != nil {
-		return nil, err
-	}
-	absolute, err := filepath.Abs(path)
-	if err != nil {
-		return nil, err
-	}
-	digest := sha256.Sum256(data)
-	return map[string]any{
-		"artifact_id":   "ecc-sync-report",
-		"artifact_type": "ecc_sync_report",
-		"name":          "ECC 同步报告",
-		"uri":           "file:///" + filepath.ToSlash(absolute),
-		"sha256":        hex.EncodeToString(digest[:]),
-		"size_bytes":    len(data),
-	}, nil
 }

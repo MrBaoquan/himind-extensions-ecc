@@ -81,7 +81,7 @@ func TestPublishReportKeepsExcludedItemsOnDisk(t *testing.T) {
 		Items: []eccsync.PublishItem{{Extension: "blueprint", Status: "dry-run"}},
 	}
 
-	artifact, err := writeReport(repoRoot, "publish", publishReport(repoRoot, value))
+	artifact, err := eccsync.WriteRunReport(repoRoot, eccsync.ReportKindPublish, eccsync.PublishReport(repoRoot, value))
 	if err != nil {
 		t.Fatalf("发布报告没落盘：%v", err)
 	}
@@ -119,8 +119,9 @@ func TestPublishReportKeepsExcludedItemsOnDisk(t *testing.T) {
 		t.Fatalf("明细没记住被哪条规则挡下、为什么：%+v", item)
 	}
 
-	// 上游锚点读不到时（空仓库）报告照写，只是少一块锚点。
-	if _, present := written["upstream"]; !present {
-		t.Fatalf("锁文件缺失时也应写出上游锚点字段：%+v", written)
+	// 上游锚点读不到时（空仓库）报告照写，只是少一块锚点：
+	// 写一个空的 upstream 比不写更坏，它在复盘时会假装自己知道对齐到哪个上游。
+	if _, present := written["upstream"]; present {
+		t.Fatalf("锁文件缺失时不该编造上游锚点：%+v", written["upstream"])
 	}
 }
