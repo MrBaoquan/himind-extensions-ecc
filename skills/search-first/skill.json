@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.search-first",
-  "name": "Search First",
+  "name": "先搜后写",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.1",
+  "version": "2.2.2",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Research-before-coding workflow: search npm/PyPI, MCP servers, skills, and GitHub for existing tools before writing…",
-  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能和 GitHub。找到就直接用或改造，找不到再自己写。",
+  "release_notes": "2.2.2：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

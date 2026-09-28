@@ -1,6 +1,6 @@
 {
   "id": "com.mrbaoquan.ecc.skill.verification-loop",
-  "name": "Verification Loop",
+  "name": "交付前自查",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
@@ -11,7 +11,7 @@
     "github"
   ],
   "scope": "organization",
-  "description": "Run a six-phase verification of a Claude Code session's work — build, type check, lint, tests with coverage, security…",
+  "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
   "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
   "min_agent_version": "0.3.37",
   "supported_clients": [

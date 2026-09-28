@@ -67,6 +67,7 @@ type plannedSkill struct {
 	entry  MetadataEntry
 	files  map[string][]byte
 	digest string
+	meta   string
 	tier   string
 }
 
@@ -157,6 +158,7 @@ func Generate(input GenerateInput) (GenerateResult, error) {
 			entry:  entry,
 			files:  files,
 			digest: digestGenerated(files),
+			meta:   digestMetadata(entry),
 			tier:   tierOf(rewritten),
 		})
 	}
@@ -172,10 +174,14 @@ func Generate(input GenerateInput) (GenerateResult, error) {
 	changed := false
 	for _, plan := range plans {
 		previous, ok := lock.Skills[plan.skill.Slug]
+		// 老锁文件没有 metadata_digest 字段，空值只当作「还没记过」：
+		// 回填即可，不能拿它去判变化，否则第一次跑会把几百个技能一起涨版本。
+		metadataChanged := previous.MetadataDigest != "" && previous.MetadataDigest != plan.meta
 		planChanged[plan.skill.Slug] = !ok ||
 			previous.Version == "" ||
 			previous.SourceDigest != plan.skill.Digest ||
-			previous.SyncedDigest != plan.digest
+			previous.SyncedDigest != plan.digest ||
+			metadataChanged
 		if planChanged[plan.skill.Slug] {
 			changed = true
 		}
@@ -241,13 +247,14 @@ func Generate(input GenerateInput) (GenerateResult, error) {
 			return result, err
 		}
 		nextLock.Skills[plan.skill.Slug] = LockSkill{
-			Version:      skillVersion,
-			SourceDigest: plan.skill.Digest,
-			SyncedDigest: plan.digest,
-			SourceCommit: input.Upstream.Commit,
-			SourcePath:   plan.skill.SourcePath,
-			Tier:         plan.tier,
-			Rewritten:    plan.tier != "A",
+			Version:        skillVersion,
+			SourceDigest:   plan.skill.Digest,
+			SyncedDigest:   plan.digest,
+			MetadataDigest: plan.meta,
+			SourceCommit:   input.Upstream.Commit,
+			SourcePath:     plan.skill.SourcePath,
+			Tier:           plan.tier,
+			Rewritten:      plan.tier != "A",
 		}
 		result.Skills = append(result.Skills, plan.skill.Slug)
 		if planChanged[plan.skill.Slug] {
@@ -582,6 +589,17 @@ func digestGenerated(files map[string][]byte) string {
 		fmt.Fprintf(hash, "%s\x00%d\x00", name, len(files[name]))
 		hash.Write(files[name])
 		hash.Write([]byte{0})
+	}
+	return hex.EncodeToString(hash.Sum(nil))
+}
+
+// digestMetadata 把对外元数据摊成一行再取摘要，字段顺序固定，与 JSON 缩进无关。
+func digestMetadata(entry MetadataEntry) string {
+	hash := sha256.New()
+	parts := append([]string{entry.Name, entry.Description}, entry.Categories...)
+	parts = append(parts, entry.Source)
+	for _, part := range parts {
+		fmt.Fprintf(hash, "%s\x00", part)
 	}
 	return hex.EncodeToString(hash.Sum(nil))
 }

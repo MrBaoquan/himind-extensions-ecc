@@ -176,3 +176,25 @@ func TestSameQuarantineIgnoresGeneratedAt(t *testing.T) {
 		t.Fatal("条目变化必须判定为不同")
 	}
 }
+
+func TestDigestMetadataTracksReviewedCopy(t *testing.T) {
+	base := MetadataEntry{
+		Name:        "先搜后写",
+		Description: "搜索现成方案再动手",
+		Categories:  []string{"software-engineering"},
+		Source:      "reviewed",
+	}
+	if digestMetadata(base) != digestMetadata(base) {
+		t.Fatal("同样的元数据必须得到同样的摘要")
+	}
+	sameContent := base
+	sameContent.Note = "这条注释只给人看，不该影响摘要"
+	if digestMetadata(base) != digestMetadata(sameContent) {
+		t.Fatal("推导备注不参与摘要")
+	}
+	edited := base
+	edited.Description = "搜索现成方案再动手，找不到再自己写"
+	if digestMetadata(base) == digestMetadata(edited) {
+		t.Fatal("文案变化必须改变摘要，否则校对过的文案发不出去")
+	}
+}

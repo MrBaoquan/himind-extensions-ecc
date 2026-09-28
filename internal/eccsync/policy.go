@@ -173,6 +173,11 @@ type LockSkill struct {
 	SourceDigest string `json:"source_digest"`
 	// SyncedDigest 是上次搬进本仓库后技能目录内容的摘要。
 	SyncedDigest string `json:"synced_digest,omitempty"`
+	// MetadataDigest 是对外元数据的摘要。
+	//
+	// 技能正文没动、但市场里显示的文案被人校对过时，只有这个摘要会变。
+	// 少了它，改完文案不会涨版本，已发布的技能永远更新不上去。
+	MetadataDigest string `json:"metadata_digest,omitempty"`
 	// SourceCommit 记录这个技能的搬运基线来自哪次上游提交。
 	SourceCommit string `json:"source_commit,omitempty"`
 	SourcePath   string `json:"source_path"`

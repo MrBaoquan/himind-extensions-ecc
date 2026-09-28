@@ -2090,13 +2090,12 @@
       "note": "说明超过 120 字，已按句/词边界截断"
     },
     "search-first": {
-      "name": "Search First",
-      "description": "Research-before-coding workflow: search npm/PyPI, MCP servers, skills, and GitHub for existing tools before writing…",
+      "name": "先搜后写",
+      "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能和 GitHub。找到就直接用或改造，找不到再自己写。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "security-bounty-hunter": {
       "name": "Bounty Hunter",
@@ -2342,13 +2341,12 @@
       "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
     },
     "verification-loop": {
-      "name": "Verification Loop",
-      "description": "Run a six-phase verification of a Claude Code session's work — build, type check, lint, tests with coverage, security…",
+      "name": "交付前自查",
+      "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "video-editing": {
       "name": "Video Editing",
