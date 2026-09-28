@@ -1,0 +1,35 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.operator-approval-loop",
+  "name": "Approval Loop",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "collaboration-delivery"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Operator approval contract with internal filing notices for agent-drafted outbound messages, hashed drafts, epoch-keyed…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/approval-ledger.sql",
+    "references/approval_claims.py",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/operator-approval-loop",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

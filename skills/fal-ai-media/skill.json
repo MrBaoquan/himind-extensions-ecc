@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.fal-ai-media",
+  "name": "Fal Ai Media",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "video-post"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Unified media generation via fal.ai MCP — image, video, and audio.",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/fal-ai-media",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

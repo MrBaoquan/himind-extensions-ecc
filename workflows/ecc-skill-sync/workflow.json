@@ -1,0 +1,159 @@
+{
+  "schema_version": "workflow_package.v1",
+  "id": "com.mrbaoquan.workflow.ecc-skill-sync",
+  "version": "1.0.0",
+  "distribution_targets": ["workbench", "github"],
+  "name": "ECC 技能同步",
+  "description": "探测上游 ECC 技能库是否前进，拉源码、按策略生成技能包、跑门禁，再把够格的版本发到市场。上游没变就零动作结束。",
+  "min_agent_version": "0.3.47",
+  "local_requirements": {
+    "platform": "windows",
+    "workspace": "directory",
+    "required_tools": ["git", "go"],
+    "recommended_tools": ["gh"]
+  },
+  "execution_policy": "segmented",
+  "entrypoints": [
+    {
+      "id": "sync",
+      "at_step": "E-S-PROBE",
+      "label": "同步上游技能",
+      "requires": []
+    }
+  ],
+  "default_entrypoint": "sync",
+  "exits": [
+    {
+      "id": "probed",
+      "at_step": "E-S-PROBE",
+      "label": "只探测，不搬运",
+      "produces": []
+    },
+    {
+      "id": "published",
+      "at_step": "E-S-PUBLISH",
+      "label": "同步收尾",
+      "produces": ["ecc_sync_report"]
+    }
+  ],
+  "default_exitpoint": "published",
+  "capabilities": [
+    "ecc.sync.probe",
+    "ecc.sync.fetch",
+    "ecc.sync.generate",
+    "ecc.sync.gate",
+    "ecc.sync.publish"
+  ],
+  "dependencies": {
+    "skills": [],
+    "plugins": ["com.mrbaoquan.ecc-skill-sync"],
+    "connectors": [],
+    "runtimes": []
+  },
+  "steps": [
+    {
+      "id": "E-S-PROBE",
+      "title": "探测上游变更",
+      "kind": "capability",
+      "capability_id": "ecc.sync.probe",
+      "execution_mode": "sync",
+      "risk_level": "read_only",
+      "input": {
+        "timeout_seconds": 300
+      }
+    },
+    {
+      "id": "E-S-FETCH",
+      "title": "拉取上游源码",
+      "kind": "capability",
+      "capability_id": "ecc.sync.fetch",
+      "execution_mode": "long_running",
+      "risk_level": "local_write",
+      "depends_on": ["E-S-PROBE"],
+      "when": {
+        "operator": "equals",
+        "path": "steps.E-S-PROBE.probe.changed",
+        "value": true
+      },
+      "input": {
+        "timeout_seconds": 900
+      }
+    },
+    {
+      "id": "E-S-GENERATE",
+      "title": "生成技能与索引",
+      "kind": "capability",
+      "capability_id": "ecc.sync.generate",
+      "execution_mode": "long_running",
+      "risk_level": "local_write",
+      "depends_on": ["E-S-FETCH"],
+      "when": {
+        "operator": "equals",
+        "path": "steps.E-S-PROBE.probe.changed",
+        "value": true
+      },
+      "input": {
+        "timeout_seconds": 900
+      }
+    },
+    {
+      "id": "E-S-GATE",
+      "title": "运行三道门禁",
+      "kind": "capability",
+      "capability_id": "ecc.sync.gate",
+      "execution_mode": "long_running",
+      "risk_level": "local_action",
+      "depends_on": ["E-S-GENERATE"],
+      "when": {
+        "operator": "equals",
+        "path": "steps.E-S-PROBE.probe.changed",
+        "value": true
+      },
+      "fail_when": {
+        "operator": "equals",
+        "path": "steps.E-S-GATE.gate.ok",
+        "value": false
+      },
+      "input": {
+        "timeout_seconds": 3000
+      }
+    },
+    {
+      "id": "E-S-PUBLISH",
+      "title": "发布到市场",
+      "kind": "capability",
+      "capability_id": "ecc.sync.publish",
+      "execution_mode": "long_running",
+      "risk_level": "network_write",
+      "depends_on": ["E-S-GATE"],
+      "when": {
+        "operator": "equals",
+        "path": "steps.E-S-PROBE.probe.changed",
+        "value": true
+      },
+      "input": {
+        "timeout_seconds": 1800,
+        "dry_run": false,
+        "allow_derived": false
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "ecc-sync-report",
+      "artifact_type": "ecc_sync_report",
+      "name": "ECC 同步报告",
+      "schema": "artifacts/ecc-sync-report.schema.json",
+      "required": false,
+      "validation": "advisory",
+      "max_bytes": 8388608
+    }
+  ],
+  "ui": {
+    "mode": "declarative",
+    "surfaces": ["agent", "dashboard"],
+    "entry": "ui/workflow-view.json"
+  },
+  "supported_runtimes": [],
+  "created_at": "2026-09-28T00:00:00Z"
+}

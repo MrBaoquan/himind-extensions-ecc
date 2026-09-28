@@ -1,0 +1,1364 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/MrBaoquan/himind-extensions-ecc.git",
+  "distribution_id": "mrbaoquan/himind-extensions-ecc",
+  "channel": "beta",
+  "catalog_id": "public",
+  "default_distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "default_branch": "main",
+  "extensions": [
+    {
+      "type": "plugin",
+      "id": "com.mrbaoquan.ecc-skill-sync",
+      "path": "plugins/ecc-skill-sync"
+    },
+    {
+      "type": "workflow",
+      "id": "com.mrbaoquan.workflow.ecc-skill-sync",
+      "path": "workflows/ecc-skill-sync"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.accessibility",
+      "path": "skills/accessibility"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-architecture-audit",
+      "path": "skills/agent-architecture-audit"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-eval",
+      "path": "skills/agent-eval"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-harness-construction",
+      "path": "skills/agent-harness-construction"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-introspection-debugging",
+      "path": "skills/agent-introspection-debugging"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-payment-x402",
+      "path": "skills/agent-payment-x402"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-sort",
+      "path": "skills/agent-sort"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agentic-engineering",
+      "path": "skills/agentic-engineering"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ai-first-engineering",
+      "path": "skills/ai-first-engineering"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ai-regression-testing",
+      "path": "skills/ai-regression-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.android-clean-architecture",
+      "path": "skills/android-clean-architecture"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.angular-developer",
+      "path": "skills/angular-developer"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.api-connector-builder",
+      "path": "skills/api-connector-builder"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.api-design",
+      "path": "skills/api-design"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.architecture-decision-records",
+      "path": "skills/architecture-decision-records"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.article-writing",
+      "path": "skills/article-writing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.automation-audit-ops",
+      "path": "skills/automation-audit-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.autonomous-agent-harness",
+      "path": "skills/autonomous-agent-harness"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.autonomous-loops",
+      "path": "skills/autonomous-loops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.backend-patterns",
+      "path": "skills/backend-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.benchmark",
+      "path": "skills/benchmark"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.benchmark-methodology",
+      "path": "skills/benchmark-methodology"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.benchmark-optimization-loop",
+      "path": "skills/benchmark-optimization-loop"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.blender-motion-state-inspection",
+      "path": "skills/blender-motion-state-inspection"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.blueprint",
+      "path": "skills/blueprint"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.brand-discovery",
+      "path": "skills/brand-discovery"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.brand-voice",
+      "path": "skills/brand-voice"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.browser-qa",
+      "path": "skills/browser-qa"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.bun-runtime",
+      "path": "skills/bun-runtime"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.canary-watch",
+      "path": "skills/canary-watch"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.carrier-relationship-management",
+      "path": "skills/carrier-relationship-management"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.cisco-ios-patterns",
+      "path": "skills/cisco-ios-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.claude-devfleet",
+      "path": "skills/claude-devfleet"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.click-path-audit",
+      "path": "skills/click-path-audit"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.clickhouse-io",
+      "path": "skills/clickhouse-io"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.code-tour",
+      "path": "skills/code-tour"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.codebase-onboarding",
+      "path": "skills/codebase-onboarding"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.codehealth-mcp",
+      "path": "skills/codehealth-mcp"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.coding-standards",
+      "path": "skills/coding-standards"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.competitive-platform-analysis",
+      "path": "skills/competitive-platform-analysis"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.competitive-report-structure",
+      "path": "skills/competitive-report-structure"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.compose-multiplatform-patterns",
+      "path": "skills/compose-multiplatform-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.connections-optimizer",
+      "path": "skills/connections-optimizer"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.content-engine",
+      "path": "skills/content-engine"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.content-hash-cache-pattern",
+      "path": "skills/content-hash-cache-pattern"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.context-budget",
+      "path": "skills/context-budget"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.continuous-agent-loop",
+      "path": "skills/continuous-agent-loop"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.contract-first",
+      "path": "skills/contract-first"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.cost-aware-llm-pipeline",
+      "path": "skills/cost-aware-llm-pipeline"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.cost-tracking",
+      "path": "skills/cost-tracking"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.council",
+      "path": "skills/council"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.counterparty-channel-discipline",
+      "path": "skills/counterparty-channel-discipline"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.cpp-coding-standards",
+      "path": "skills/cpp-coding-standards"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.cpp-testing",
+      "path": "skills/cpp-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.crosspost",
+      "path": "skills/crosspost"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.csharp-testing",
+      "path": "skills/csharp-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.customer-billing-ops",
+      "path": "skills/customer-billing-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.customs-trade-compliance",
+      "path": "skills/customs-trade-compliance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dart-flutter-patterns",
+      "path": "skills/dart-flutter-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dashboard-builder",
+      "path": "skills/dashboard-builder"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.data-scraper-agent",
+      "path": "skills/data-scraper-agent"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.data-throughput-accelerator",
+      "path": "skills/data-throughput-accelerator"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.database-migrations",
+      "path": "skills/database-migrations"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.deep-research",
+      "path": "skills/deep-research"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.defi-amm-security",
+      "path": "skills/defi-amm-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.delivery-gate",
+      "path": "skills/delivery-gate"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.deployment-patterns",
+      "path": "skills/deployment-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.design-system",
+      "path": "skills/design-system"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dev-team",
+      "path": "skills/dev-team"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.django-celery",
+      "path": "skills/django-celery"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.django-patterns",
+      "path": "skills/django-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.django-security",
+      "path": "skills/django-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.django-tdd",
+      "path": "skills/django-tdd"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.django-verification",
+      "path": "skills/django-verification"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dmux-workflows",
+      "path": "skills/dmux-workflows"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.docker-patterns",
+      "path": "skills/docker-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.documentation-lookup",
+      "path": "skills/documentation-lookup"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dotnet-patterns",
+      "path": "skills/dotnet-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.dynamic-workflow-mode",
+      "path": "skills/dynamic-workflow-mode"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.e2e-testing",
+      "path": "skills/e2e-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ecc-recipes",
+      "path": "skills/ecc-recipes"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ecc-tools-cost-audit",
+      "path": "skills/ecc-tools-cost-audit"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.email-ops",
+      "path": "skills/email-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.energy-procurement",
+      "path": "skills/energy-procurement"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.enterprise-agent-ops",
+      "path": "skills/enterprise-agent-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.error-handling",
+      "path": "skills/error-handling"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.esign-field-placement",
+      "path": "skills/esign-field-placement"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.eval-harness",
+      "path": "skills/eval-harness"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.evm-token-decimals",
+      "path": "skills/evm-token-decimals"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.exa-search",
+      "path": "skills/exa-search"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.fal-ai-media",
+      "path": "skills/fal-ai-media"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.fastapi-patterns",
+      "path": "skills/fastapi-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.finance-billing-ops",
+      "path": "skills/finance-billing-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.flox-environments",
+      "path": "skills/flox-environments"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.flutter-dart-code-review",
+      "path": "skills/flutter-dart-code-review"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.foundation-models-on-device",
+      "path": "skills/foundation-models-on-device"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.frontend-a11y",
+      "path": "skills/frontend-a11y"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.frontend-design-direction",
+      "path": "skills/frontend-design-direction"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.frontend-patterns",
+      "path": "skills/frontend-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.fsharp-testing",
+      "path": "skills/fsharp-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.gan-style-harness",
+      "path": "skills/gan-style-harness"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.gateguard",
+      "path": "skills/gateguard"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.generating-python-installer",
+      "path": "skills/generating-python-installer"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.git-workflow",
+      "path": "skills/git-workflow"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.github-ops",
+      "path": "skills/github-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.golang-patterns",
+      "path": "skills/golang-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.golang-testing",
+      "path": "skills/golang-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.google-workspace-ops",
+      "path": "skills/google-workspace-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.growth-log",
+      "path": "skills/growth-log"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.healthcare-cdss-patterns",
+      "path": "skills/healthcare-cdss-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.healthcare-emr-patterns",
+      "path": "skills/healthcare-emr-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.healthcare-eval-harness",
+      "path": "skills/healthcare-eval-harness"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.healthcare-phi-compliance",
+      "path": "skills/healthcare-phi-compliance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.hermes-imports",
+      "path": "skills/hermes-imports"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.hexagonal-architecture",
+      "path": "skills/hexagonal-architecture"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.hipaa-compliance",
+      "path": "skills/hipaa-compliance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.homelab-network-readiness",
+      "path": "skills/homelab-network-readiness"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.homelab-network-setup",
+      "path": "skills/homelab-network-setup"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.homelab-pihole-dns",
+      "path": "skills/homelab-pihole-dns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.homelab-vlan-segmentation",
+      "path": "skills/homelab-vlan-segmentation"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.homelab-wireguard-vpn",
+      "path": "skills/homelab-wireguard-vpn"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.hookify-rules",
+      "path": "skills/hookify-rules"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.inherit-legacy-style",
+      "path": "skills/inherit-legacy-style"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.intent-driven-development",
+      "path": "skills/intent-driven-development"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.inventory-demand-planning",
+      "path": "skills/inventory-demand-planning"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.investor-materials",
+      "path": "skills/investor-materials"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.investor-outreach",
+      "path": "skills/investor-outreach"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.iterative-retrieval",
+      "path": "skills/iterative-retrieval"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ito-compute",
+      "path": "skills/ito-compute"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ito-inference",
+      "path": "skills/ito-inference"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ito-training",
+      "path": "skills/ito-training"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.java-coding-standards",
+      "path": "skills/java-coding-standards"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.jira-integration",
+      "path": "skills/jira-integration"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.jpa-patterns",
+      "path": "skills/jpa-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.knowledge-ops",
+      "path": "skills/knowledge-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kotlin-coroutines-flows",
+      "path": "skills/kotlin-coroutines-flows"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kotlin-exposed-patterns",
+      "path": "skills/kotlin-exposed-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kotlin-ktor-patterns",
+      "path": "skills/kotlin-ktor-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kotlin-patterns",
+      "path": "skills/kotlin-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kotlin-testing",
+      "path": "skills/kotlin-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.kubernetes-patterns",
+      "path": "skills/kubernetes-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.laravel-patterns",
+      "path": "skills/laravel-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.laravel-plugin-discovery",
+      "path": "skills/laravel-plugin-discovery"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.laravel-security",
+      "path": "skills/laravel-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.laravel-tdd",
+      "path": "skills/laravel-tdd"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.laravel-verification",
+      "path": "skills/laravel-verification"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.latency-critical-systems",
+      "path": "skills/latency-critical-systems"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.lead-intelligence",
+      "path": "skills/lead-intelligence"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.liquid-glass-design",
+      "path": "skills/liquid-glass-design"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.living-docs-governance",
+      "path": "skills/living-docs-governance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.llm-trading-agent-security",
+      "path": "skills/llm-trading-agent-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.logistics-exception-management",
+      "path": "skills/logistics-exception-management"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.loop-design-check",
+      "path": "skills/loop-design-check"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mailtrap-email-integration",
+      "path": "skills/mailtrap-email-integration"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.make-interfaces-feel-better",
+      "path": "skills/make-interfaces-feel-better"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.manim-video",
+      "path": "skills/manim-video"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.market-research",
+      "path": "skills/market-research"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.marketing-campaign",
+      "path": "skills/marketing-campaign"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mcp-server-patterns",
+      "path": "skills/mcp-server-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.messages-ops",
+      "path": "skills/messages-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ml-adoption-playbook",
+      "path": "skills/ml-adoption-playbook"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mle-workflow",
+      "path": "skills/mle-workflow"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.motion-advanced",
+      "path": "skills/motion-advanced"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.motion-foundations",
+      "path": "skills/motion-foundations"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.motion-patterns",
+      "path": "skills/motion-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mysql-patterns",
+      "path": "skills/mysql-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nanoclaw-repl",
+      "path": "skills/nanoclaw-repl"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nasiko-control-plane",
+      "path": "skills/nasiko-control-plane"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nestjs-patterns",
+      "path": "skills/nestjs-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.netmiko-ssh-automation",
+      "path": "skills/netmiko-ssh-automation"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.network-bgp-diagnostics",
+      "path": "skills/network-bgp-diagnostics"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.network-config-validation",
+      "path": "skills/network-config-validation"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.network-interface-health",
+      "path": "skills/network-interface-health"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nextjs-turbopack",
+      "path": "skills/nextjs-turbopack"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nodejs-keccak256",
+      "path": "skills/nodejs-keccak256"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nutrient-document-processing",
+      "path": "skills/nutrient-document-processing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.nuxt4-patterns",
+      "path": "skills/nuxt4-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.opensource-pipeline",
+      "path": "skills/opensource-pipeline"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.operator-approval-loop",
+      "path": "skills/operator-approval-loop"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-add-feature",
+      "path": "skills/orch-add-feature"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-build-mvp",
+      "path": "skills/orch-build-mvp"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-change-feature",
+      "path": "skills/orch-change-feature"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-fix-defect",
+      "path": "skills/orch-fix-defect"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-pipeline",
+      "path": "skills/orch-pipeline"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.orch-refine-code",
+      "path": "skills/orch-refine-code"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.parallel-execution-optimizer",
+      "path": "skills/parallel-execution-optimizer"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.perl-patterns",
+      "path": "skills/perl-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.perl-security",
+      "path": "skills/perl-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.perl-testing",
+      "path": "skills/perl-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.plan-orchestrate",
+      "path": "skills/plan-orchestrate"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.plankton-code-quality",
+      "path": "skills/plankton-code-quality"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.postgres-patterns",
+      "path": "skills/postgres-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.prediction-market-oracle-research",
+      "path": "skills/prediction-market-oracle-research"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.prediction-market-risk-review",
+      "path": "skills/prediction-market-risk-review"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.prisma-patterns",
+      "path": "skills/prisma-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.product-capability",
+      "path": "skills/product-capability"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.product-lens",
+      "path": "skills/product-lens"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.production-audit",
+      "path": "skills/production-audit"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.production-scheduling",
+      "path": "skills/production-scheduling"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.project-flow-ops",
+      "path": "skills/project-flow-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.prompt-optimizer",
+      "path": "skills/prompt-optimizer"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.python-patterns",
+      "path": "skills/python-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.python-testing",
+      "path": "skills/python-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.pytorch-patterns",
+      "path": "skills/pytorch-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.quality-nonconformance",
+      "path": "skills/quality-nonconformance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.quarkus-patterns",
+      "path": "skills/quarkus-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.quarkus-security",
+      "path": "skills/quarkus-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.quarkus-tdd",
+      "path": "skills/quarkus-tdd"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.quarkus-verification",
+      "path": "skills/quarkus-verification"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.rails-patterns",
+      "path": "skills/rails-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ralphinho-rfc-pipeline",
+      "path": "skills/ralphinho-rfc-pipeline"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.react-native-patterns",
+      "path": "skills/react-native-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.react-patterns",
+      "path": "skills/react-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.react-performance",
+      "path": "skills/react-performance"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.react-testing",
+      "path": "skills/react-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.recsys-pipeline-architect",
+      "path": "skills/recsys-pipeline-architect"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.recursive-decision-ledger",
+      "path": "skills/recursive-decision-ledger"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.redis-patterns",
+      "path": "skills/redis-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.regex-vs-llm-structured-text",
+      "path": "skills/regex-vs-llm-structured-text"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.remotion-video-creation",
+      "path": "skills/remotion-video-creation"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.repo-scan",
+      "path": "skills/repo-scan"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.research-ops",
+      "path": "skills/research-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.returns-reverse-logistics",
+      "path": "skills/returns-reverse-logistics"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.rust-patterns",
+      "path": "skills/rust-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.rust-testing",
+      "path": "skills/rust-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.safety-guard",
+      "path": "skills/safety-guard"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.santa-method",
+      "path": "skills/santa-method"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.scientific-db-pubmed-database",
+      "path": "skills/scientific-db-pubmed-database"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.scientific-db-uspto-database",
+      "path": "skills/scientific-db-uspto-database"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.scientific-pkg-gget",
+      "path": "skills/scientific-pkg-gget"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.scientific-thinking-literature-review",
+      "path": "skills/scientific-thinking-literature-review"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.scientific-thinking-scholar-evaluation",
+      "path": "skills/scientific-thinking-scholar-evaluation"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.search-first",
+      "path": "skills/search-first"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.security-bounty-hunter",
+      "path": "skills/security-bounty-hunter"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.security-review",
+      "path": "skills/security-review"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.security-scan",
+      "path": "skills/security-scan"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.seo",
+      "path": "skills/seo"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.skill-scout",
+      "path": "skills/skill-scout"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.social-graph-ranker",
+      "path": "skills/social-graph-ranker"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.social-publisher",
+      "path": "skills/social-publisher"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.springboot-patterns",
+      "path": "skills/springboot-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.springboot-security",
+      "path": "skills/springboot-security"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.springboot-tdd",
+      "path": "skills/springboot-tdd"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.springboot-verification",
+      "path": "skills/springboot-verification"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.swift-actor-persistence",
+      "path": "skills/swift-actor-persistence"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.swift-concurrency-6-2",
+      "path": "skills/swift-concurrency-6-2"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.swift-protocol-di-testing",
+      "path": "skills/swift-protocol-di-testing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.swiftui-patterns",
+      "path": "skills/swiftui-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.taste",
+      "path": "skills/taste"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.tasteforge-video",
+      "path": "skills/tasteforge-video"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.tdd-workflow",
+      "path": "skills/tdd-workflow"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.team-agent-orchestration",
+      "path": "skills/team-agent-orchestration"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.team-builder",
+      "path": "skills/team-builder"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.terminal-ops",
+      "path": "skills/terminal-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.tinystruct-patterns",
+      "path": "skills/tinystruct-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.token-budget-advisor",
+      "path": "skills/token-budget-advisor"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ui-demo",
+      "path": "skills/ui-demo"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.ui-to-vue",
+      "path": "skills/ui-to-vue"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.uncloud",
+      "path": "skills/uncloud"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.unified-notifications-ops",
+      "path": "skills/unified-notifications-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.verification-loop",
+      "path": "skills/verification-loop"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.video-editing",
+      "path": "skills/video-editing"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.visa-doc-translate",
+      "path": "skills/visa-doc-translate"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.vite-patterns",
+      "path": "skills/vite-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.vue-patterns",
+      "path": "skills/vue-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.windows-desktop-e2e",
+      "path": "skills/windows-desktop-e2e"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.workspace-surface-audit",
+      "path": "skills/workspace-surface-audit"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.x-api",
+      "path": "skills/x-api"
+    }
+  ]
+}

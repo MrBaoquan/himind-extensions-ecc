@@ -1,0 +1,34 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.esign-field-placement",
+  "name": "Field Placement",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "collaboration-delivery"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Deterministic method for placing signature, date, and text fields in a web e-signature composer through a browser…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/placement-checklist.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/esign-field-placement",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.market-research",
+  "name": "Market Research",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "content-production"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Conduct market research, competitive analysis, investor due diligence, and industry intelligence with source…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/market-research",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

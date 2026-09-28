@@ -1,0 +1,45 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.video-editing",
+  "name": "Video Editing",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "video-post"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "AI-assisted video editing workflows for cutting, structuring, and augmenting real footage.",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "assets/fusion/ito-production-v1/ITO_PROD_HighlightBloom.setting",
+    "assets/fusion/ito-production-v1/ITO_PROD_LumaHalo.setting",
+    "assets/fusion/ito-production-v1/ITO_PROD_RGBFringe.setting",
+    "assets/fusion/ito-production-v1/README.md",
+    "assets/fusion/ito-production-v1/install_ito_production_v1.lua",
+    "assets/fusion/ito-production-v1/provenance.json",
+    "assets/fusion/ito-v28/ITO_V28_FlashEtherealBloom.setting",
+    "assets/fusion/ito-v28/ITO_V28_RGBDisplacement.setting",
+    "assets/fusion/ito-v28/ITO_V28_SubjectHalo.setting",
+    "assets/fusion/ito-v28/README.md",
+    "assets/fusion/ito-v28/install_ito_v28.lua",
+    "assets/fusion/ito-v28/provenance.json",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/video-editing",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

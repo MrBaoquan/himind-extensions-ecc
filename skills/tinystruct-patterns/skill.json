@@ -1,0 +1,39 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.tinystruct-patterns",
+  "name": "Patterns",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "software-engineering"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Expert guidance for developing with the tinystruct Java framework.",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/architecture.md",
+    "references/data-handling.md",
+    "references/database.md",
+    "references/routing.md",
+    "references/system-usage.md",
+    "references/testing.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/tinystruct-patterns",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

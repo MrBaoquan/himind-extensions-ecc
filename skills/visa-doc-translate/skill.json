@@ -1,0 +1,34 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.visa-doc-translate",
+  "name": "Visa Doc Translate",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "docs-knowledge"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Translate visa document images (bank deposit, employment, income, and retirement certificates; HEIC, PNG, or JPG) into…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "README.md",
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/visa-doc-translate",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

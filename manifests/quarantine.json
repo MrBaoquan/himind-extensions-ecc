@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-28T05:10:19Z",
+  "upstream_commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+  "entries": [
+    {
+      "slug": "agent-self-evaluation",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/evaluate.py"
+      ]
+    },
+    {
+      "slug": "agentic-os",
+      "reason": "策略排除：上游的宿主操作系统壳层，HiMind 自己就是宿主，搬过来只会互相打架"
+    },
+    {
+      "slug": "ck",
+      "reason": "策略排除：上游的会话上下文命令行，依赖上游脚本运行时"
+    },
+    {
+      "slug": "config-gc",
+      "reason": "策略排除：清理的是上游自身的配置目录，对 HiMind 无意义"
+    },
+    {
+      "slug": "configure-ecc",
+      "reason": "策略排除：配置上游安装器，不是可复用的工作方法"
+    },
+    {
+      "slug": "continuous-learning",
+      "reason": "策略排除：依赖上游 hook 与记忆文件布局"
+    },
+    {
+      "slug": "continuous-learning-v2",
+      "reason": "策略排除：依赖上游 hook 与记忆文件布局"
+    },
+    {
+      "slug": "council-multi-model",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/review-with-codex.js"
+      ]
+    },
+    {
+      "slug": "ecc-guide",
+      "reason": "策略排除：介绍上游技能库自身的用法，属于元内容"
+    },
+    {
+      "slug": "frontend-slides",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/export-pdf.sh",
+        "scripts/extract-pptx.py"
+      ]
+    },
+    {
+      "slug": "ios-icon-gen",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/generate_icons.swift",
+        "scripts/iconify_gen.sh"
+      ]
+    },
+    {
+      "slug": "ito-baskets",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/ito-baskets.js"
+      ]
+    },
+    {
+      "slug": "master-agreement-generator",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/build-agreement.js"
+      ]
+    },
+    {
+      "slug": "openclaw-persona-forge",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "gacha.sh"
+      ]
+    },
+    {
+      "slug": "plan-canvas",
+      "reason": "策略排除：依赖上游的 plan-canvas 运行时脚本"
+    },
+    {
+      "slug": "rules-distill",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/scan-rules.sh",
+        "scripts/scan-skills.sh"
+      ]
+    },
+    {
+      "slug": "skill-comply",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/__init__.py",
+        "scripts/classifier.py",
+        "scripts/grader.py",
+        "scripts/parser.py",
+        "scripts/report.py",
+        "scripts/run.py",
+        "scripts/runner.py",
+        "scripts/scenario_generator.py",
+        "scripts/spec_generator.py",
+        "scripts/utils.py"
+      ]
+    },
+    {
+      "slug": "skill-stocktake",
+      "reason": "策略排除：盘点上游技能库自身，属于元内容"
+    },
+    {
+      "slug": "strategic-compact",
+      "reason": "策略排除：操作的是上游会话压缩机制"
+    },
+    {
+      "slug": "taste-application",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/HANDOFF-TEMPLATE.md",
+        "scripts/LICENSE",
+        "scripts/apply.py",
+        "scripts/blender_prop.py",
+        "scripts/distill.py",
+        "scripts/falapi.py",
+        "scripts/forge.py",
+        "scripts/mint.py",
+        "scripts/mint3d.py",
+        "scripts/pipeline.py",
+        "scripts/pyproject.toml",
+        "scripts/requirements-live.txt",
+        "scripts/requirements.txt",
+        "scripts/resolve_ingest.py",
+        "scripts/taste/__init__.py",
+        "scripts/taste/assemble.py",
+        "scripts/taste/cadence.py",
+        "scripts/taste/falapi.py",
+        "scripts/taste/frames.py",
+        "scripts/taste/grade.py",
+        "scripts/taste/pack.py",
+        "scripts/taste/plates.py",
+        "scripts/taste/render3d.py",
+        "scripts/taste/resolve.py",
+        "scripts/taste/timeline.py",
+        "scripts/tasteforge/README.md",
+        "scripts/tasteforge/__init__.py",
+        "scripts/tasteforge/__main__.py",
+        "scripts/tasteforge/apply.py",
+        "scripts/tasteforge/assets.py",
+        "scripts/tasteforge/cli.py",
+        "scripts/tasteforge/contract.py",
+        "scripts/tasteforge/distill.py",
+        "scripts/tasteforge/export.py",
+        "scripts/tasteforge/fixtures/flashethereal/cadence.json",
+        "scripts/tasteforge/fixtures/flashethereal/flashethereal-cut.edl",
+        "scripts/tasteforge/fixtures/flashethereal/grade.json",
+        "scripts/tasteforge/fixtures/flashethereal/grounding.txt",
+        "scripts/tasteforge/fixtures/flashethereal/pack.json",
+        "scripts/tasteforge/fixtures/flashethereal/spec.json",
+        "scripts/tasteforge/integration.py",
+        "scripts/tasteforge/interview.py",
+        "scripts/tasteforge/media/__init__.py",
+        "scripts/tasteforge/media/capcut.py",
+        "scripts/tasteforge/media/common.py",
+        "scripts/tasteforge/media/glitch.py",
+        "scripts/tasteforge/media/manim_geo.py",
+        "scripts/tasteforge/media/stills.py",
+        "scripts/tasteforge/pack.py",
+        "scripts/tasteforge/provenance.py",
+        "scripts/tasteforge/providers.py",
+        "scripts/tasteforge/resolve.py",
+        "scripts/tasteforge/schema.py",
+        "scripts/tasteforge/timeline.py",
+        "scripts/tasteforge/workflow.py",
+        "scripts/verify.py",
+        "scripts/workflow_graphs.py"
+      ]
+    },
+    {
+      "slug": "taste-distillation",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/distill.py",
+        "scripts/mint.py",
+        "scripts/requirements-live.txt",
+        "scripts/requirements.txt",
+        "scripts/taste/__init__.py",
+        "scripts/taste/assemble.py",
+        "scripts/taste/cadence.py",
+        "scripts/taste/falapi.py",
+        "scripts/taste/frames.py",
+        "scripts/taste/grade.py",
+        "scripts/taste/pack.py",
+        "scripts/taste/plates.py",
+        "scripts/taste/render3d.py",
+        "scripts/taste/timeline.py"
+      ]
+    },
+    {
+      "slug": "terminal-opener",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/open-terminal.js"
+      ]
+    },
+    {
+      "slug": "unified-memory",
+      "reason": "策略排除：依赖上游记忆存储实现，HiMind 有自己的会话与记忆"
+    },
+    {
+      "slug": "videodb",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/ws_listener.py"
+      ]
+    }
+  ]
+}

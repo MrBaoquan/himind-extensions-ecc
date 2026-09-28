@@ -1,0 +1,12 @@
+# 同步过程的中间态：缓存、临时文件、本地试跑产物都不入库
+.cache/
+.tmp/
+dist/
+
+# 编辑器与系统噪声
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 注意：plugins/ 下的 *.exe 是入库制品，故意不忽略。

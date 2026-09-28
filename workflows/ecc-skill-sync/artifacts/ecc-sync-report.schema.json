@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECC 同步报告",
+  "type": "object",
+  "required": ["kind", "repo_root", "upstream", "result"],
+  "properties": {
+    "kind": { "type": "string" },
+    "repo_root": { "type": "string" },
+    "upstream": {
+      "type": "object",
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string" },
+        "package": { "type": "string" },
+        "version": { "type": "string" },
+        "commit": { "type": "string" },
+        "commit_date": { "type": "string" },
+        "license": { "type": "string" },
+        "license_holder": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "result": {
+      "type": "object",
+      "required": ["sequence", "version", "skills"],
+      "properties": {
+        "sequence": { "type": "integer" },
+        "version": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "changed": { "type": "array", "items": { "type": "string" } },
+        "unchanged": { "type": "array", "items": { "type": "string" } },
+        "quarantined": { "type": "array", "items": { "type": "object" } },
+        "derived_metadata": { "type": "integer" },
+        "reviewed_metadata": { "type": "integer" },
+        "categories": { "type": "object" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

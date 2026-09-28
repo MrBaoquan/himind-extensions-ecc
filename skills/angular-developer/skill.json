@@ -1,0 +1,68 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.angular-developer",
+  "name": "Angular Developer",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "software-engineering"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Generates Angular code and provides architectural guidance. Trigger when creating projects, components, or services, or…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/angular-animations.md",
+    "references/angular-aria.md",
+    "references/cli.md",
+    "references/component-harnesses.md",
+    "references/component-styling.md",
+    "references/components.md",
+    "references/creating-services.md",
+    "references/data-resolvers.md",
+    "references/define-routes.md",
+    "references/defining-providers.md",
+    "references/di-fundamentals.md",
+    "references/e2e-testing.md",
+    "references/effects.md",
+    "references/hierarchical-injectors.md",
+    "references/host-elements.md",
+    "references/injection-context.md",
+    "references/inputs.md",
+    "references/linked-signal.md",
+    "references/loading-strategies.md",
+    "references/mcp.md",
+    "references/navigate-to-routes.md",
+    "references/outputs.md",
+    "references/reactive-forms.md",
+    "references/rendering-strategies.md",
+    "references/resource.md",
+    "references/route-animations.md",
+    "references/route-guards.md",
+    "references/router-lifecycle.md",
+    "references/router-testing.md",
+    "references/show-routes-with-outlets.md",
+    "references/signal-forms.md",
+    "references/signals-overview.md",
+    "references/tailwind-css.md",
+    "references/template-driven-forms.md",
+    "references/testing-fundamentals.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/angular-developer",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

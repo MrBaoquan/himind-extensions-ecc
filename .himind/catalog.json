@@ -1,0 +1,21 @@
+{
+  "catalog_id": "public",
+  "channel": "beta",
+  "distribution_id": "mrbaoquan/himind-extensions-ecc",
+  "feature_packs": [
+    {
+      "id": "com.mrbaoquan.ecc.feature.sync",
+      "name": "ECC 技能同步",
+      "plugin_ids": [
+        "com.mrbaoquan.ecc-skill-sync"
+      ],
+      "skill_ids": []
+    }
+  ],
+  "generation": "",
+  "plugins": [],
+  "schema_version": 1,
+  "skills": [],
+  "source_id": "",
+  "workflows": []
+}

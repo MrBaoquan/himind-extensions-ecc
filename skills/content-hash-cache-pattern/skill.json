@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.content-hash-cache-pattern",
+  "name": "Hash Cache Pattern",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "software-engineering"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/content-hash-cache-pattern",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

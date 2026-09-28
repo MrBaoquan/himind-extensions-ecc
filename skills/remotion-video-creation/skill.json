@@ -1,0 +1,64 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.remotion-video-creation",
+  "name": "Video Creation",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "video-post"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Best practices for Remotion - Video creation in React. 29 domain-specific rules covering 3D, animations, audio,…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "rules/3d.md",
+    "rules/animations.md",
+    "rules/assets.md",
+    "rules/assets/charts-bar-chart.tsx",
+    "rules/assets/text-animations-typewriter.tsx",
+    "rules/assets/text-animations-word-highlight.tsx",
+    "rules/audio.md",
+    "rules/calculate-metadata.md",
+    "rules/can-decode.md",
+    "rules/charts.md",
+    "rules/compositions.md",
+    "rules/display-captions.md",
+    "rules/extract-frames.md",
+    "rules/fonts.md",
+    "rules/get-audio-duration.md",
+    "rules/get-video-dimensions.md",
+    "rules/get-video-duration.md",
+    "rules/gifs.md",
+    "rules/images.md",
+    "rules/import-srt-captions.md",
+    "rules/lottie.md",
+    "rules/measuring-dom-nodes.md",
+    "rules/measuring-text.md",
+    "rules/sequencing.md",
+    "rules/tailwind.md",
+    "rules/text-animations.md",
+    "rules/timing.md",
+    "rules/transcribe-captions.md",
+    "rules/transitions.md",
+    "rules/trimming.md",
+    "rules/videos.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/remotion-video-creation",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

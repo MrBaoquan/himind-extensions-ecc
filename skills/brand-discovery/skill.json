@@ -1,0 +1,41 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.brand-discovery",
+  "name": "Brand Discovery",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "content-production"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Run a structured, resumable multi-session brand identity interview across 8 modules (purpose, positioning, audience,…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/10_purpose-why.md",
+    "references/20_positioning.md",
+    "references/30_audience-niche.md",
+    "references/40_personality-archetype.md",
+    "references/50_voice-tone.md",
+    "references/60_narrative-story.md",
+    "references/70_founder-tension.md",
+    "references/90_SYNTHESIS.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/brand-discovery",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

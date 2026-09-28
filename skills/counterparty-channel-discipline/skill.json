@@ -1,0 +1,35 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.counterparty-channel-discipline",
+  "name": "Channel Discipline",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "collaboration-delivery"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Per-channel strict prompts, mention gating, silent observation, and a communication autonomy policy for agents that sit…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "references/channel-policy.example.yaml",
+    "references/strict-prompt.template.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/counterparty-channel-discipline",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

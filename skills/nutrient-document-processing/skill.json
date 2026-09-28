@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.nutrient-document-processing",
+  "name": "Processing",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "docs-knowledge"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Process, convert, OCR, extract, redact, sign, and fill documents using the Nutrient DWS API.",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/nutrient-document-processing",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

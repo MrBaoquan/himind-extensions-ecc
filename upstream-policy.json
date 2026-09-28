@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "package": "ecc-universal",
+    "license": "MIT",
+    "holder": "Affaan Mustafa"
+  },
+  "skill_id_prefix": "com.mrbaoquan.ecc.skill.",
+  "min_agent_version": "0.3.37",
+  "module_categories": {
+    "framework-language": "software-engineering",
+    "database": "software-engineering",
+    "security": "testing-quality",
+    "optimization-workflows": "software-engineering",
+    "swift-apple": "software-engineering",
+    "agentic-patterns": "software-engineering",
+    "workflow-quality": "testing-quality",
+    "skill-unified-memory": "docs-knowledge",
+    "research-apis": "docs-knowledge",
+    "document-processing": "docs-knowledge",
+    "business-content": "content-production",
+    "social-distribution": "content-production",
+    "media-generation": "video-post",
+    "operator-workflows": "collaboration-delivery",
+    "operator-desk-patterns": "collaboration-delivery",
+    "orchestration": "collaboration-delivery",
+    "supply-chain-domain": "collaboration-delivery",
+    "prediction-market-skills": "data-automation",
+    "machine-learning": "data-automation",
+    "ito-compute": "data-automation",
+    "devops-infra": "system-device",
+    "nasiko-control-plane": "system-device"
+  },
+  "excluded_skills": {
+    "agentic-os": "上游的宿主操作系统壳层，HiMind 自己就是宿主，搬过来只会互相打架",
+    "ck": "上游的会话上下文命令行，依赖上游脚本运行时",
+    "config-gc": "清理的是上游自身的配置目录，对 HiMind 无意义",
+    "configure-ecc": "配置上游安装器，不是可复用的工作方法",
+    "continuous-learning": "依赖上游 hook 与记忆文件布局",
+    "continuous-learning-v2": "依赖上游 hook 与记忆文件布局",
+    "ecc-guide": "介绍上游技能库自身的用法，属于元内容",
+    "plan-canvas": "依赖上游的 plan-canvas 运行时脚本",
+    "skill-stocktake": "盘点上游技能库自身，属于元内容",
+    "strategic-compact": "操作的是上游会话压缩机制",
+    "unified-memory": "依赖上游记忆存储实现，HiMind 有自己的会话与记忆"
+  },
+  "file_policy": {
+    "max_files_per_skill": 64,
+    "max_file_bytes": 4194304,
+    "text_extensions": [".md", ".markdown", ".txt", ".json", ".yaml", ".yml", ".csv", ".toml"]
+  },
+  "rewrites": [
+    {
+      "from": ".claude/",
+      "to": ".himind/",
+      "note": "上游文档里指向 .claude 目录的路径改成 HiMind 的落点"
+    },
+    {
+      "from": "CLAUDE.md",
+      "to": "AGENTS.md",
+      "note": "项目约定文件名换成 HiMind 使用的 AGENTS.md"
+    }
+  ]
+}

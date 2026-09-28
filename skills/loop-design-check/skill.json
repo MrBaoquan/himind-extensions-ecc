@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.loop-design-check",
+  "name": "Loop Design Check",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "testing-quality"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Design a goal-oriented agent loop or review one for failure modes: spinning, Goodhart-gaming the verifier, or running a…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/loop-design-check",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

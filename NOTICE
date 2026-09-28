@@ -1,0 +1,14 @@
+来源说明
+========
+
+skills/ 目录下的技能内容迁移自 affaan-m/ECC（MIT，Copyright (c) 2026 Affaan Mustafa）。
+
+上游地址：https://github.com/affaan-m/ECC
+同步锚点：upstream.lock.json 中的 commit 与版本号
+迁移规则：upstream-policy.json（哪些搬、哪些不搬、改名与路径改写规则）
+
+本仓库不是上游的 fork，而是「按策略重新打包」的分发仓库：正文逐字保留，
+只补齐 HiMind 侧的 skill.json 元数据；任何与 HiMind 冲突的宿主相关内容不搬。
+
+迁移与发版不靠人手，由仓库内的插件 + 工作流 + 定时计划自动完成，
+过程记录见 docs/ADR.md。

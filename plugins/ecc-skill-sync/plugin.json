@@ -1,0 +1,117 @@
+{
+  "id": "com.mrbaoquan.ecc-skill-sync",
+  "name": "ECC 技能同步",
+  "author": "马宝全",
+  "categories": ["software-engineering"],
+  "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
+  "release_notes": "1.0.0：首个版本。探测上游变更、拉取源码、按策略生成技能包、跑门禁、按需发布。",
+  "version": "1.0.0",
+  "distribution_targets": ["workbench", "github"],
+  "entry": "ecc-skill-sync.exe",
+  "runtime": "process-jsonrpc-stdio",
+  "platforms": ["windows-x64"],
+  "min_agent_version": "0.3.47",
+  "governance": "managed",
+  "capabilities": [
+    {
+      "id": "ecc.sync.probe",
+      "description": "对比上游 HEAD 与本地锁文件，判断要不要同步",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "read_only",
+      "availability": "local",
+      "timeout_seconds": 600
+    },
+    {
+      "id": "ecc.sync.fetch",
+      "description": "把上游指定提交的源码树拉到本地缓存",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "commit": {"type": "string"},
+          "repo_url": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 1800}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "local_write",
+      "availability": "local",
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "ecc.sync.generate",
+      "description": "按策略生成技能包、清单、索引与本次同步报告",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "source_root": {"type": "string"},
+          "tool": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 1800}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "local_write",
+      "availability": "local",
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "ecc.sync.gate",
+      "description": "跑构建、单元测试与扩展仓库契约三道门禁",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "local_action",
+      "availability": "local",
+      "timeout_seconds": 3600
+    },
+    {
+      "id": "ecc.sync.publish",
+      "description": "把新版本发到 GitHub Release 并增补市场索引",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_root": {"type": "string"},
+          "workspace_root": {"type": "string"},
+          "dry_run": {"type": "boolean"},
+          "limit": {"type": "integer"},
+          "allow_derived": {"type": "boolean"},
+          "repository": {"type": "string"},
+          "channel": {"type": "string"},
+          "private_key_path": {"type": "string"},
+          "key_id": {"type": "string"},
+          "dist_dir": {"type": "string"},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600}
+        },
+        "additionalProperties": false
+      },
+      "risk_level": "network_write",
+      "availability": "local",
+      "timeout_seconds": 3600
+    }
+  ],
+  "permissions": [
+    "filesystem.workspace.read",
+    "filesystem.workspace.write",
+    "process.go",
+    "process.git",
+    "process.gh",
+    "network.github.write"
+  ]
+}

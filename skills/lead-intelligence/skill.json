@@ -1,0 +1,37 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.lead-intelligence",
+  "name": "Lead Intelligence",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "content-production"
+  ],
+  "version": "2.2.1",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "AI-native lead intelligence and outreach pipeline. Replaces Apollo, Clay, and ZoomInfo with agent-powered signal…",
+  "release_notes": "2.2.1：同步自上游 ecc-universal d3b8a3e。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "agents/enrichment-agent.md",
+    "agents/mutual-mapper.md",
+    "agents/outreach-drafter.md",
+    "agents/signal-scorer.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/lead-intelligence",
+    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "license": "MIT"
+  }
+}

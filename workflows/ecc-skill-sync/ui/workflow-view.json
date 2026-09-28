@@ -1,0 +1,49 @@
+{
+  "schema_version": "workflow_view.v1",
+  "title": "ECC 技能同步",
+  "sections": [
+    {
+      "id": "source",
+      "title": "同步仓库",
+      "fields": [
+        {
+          "id": "repo_root",
+          "label": "同步仓库目录",
+          "type": "text",
+          "picker": "directory",
+          "span": "full",
+          "placeholder": "himind-extensions-ecc 仓库根目录",
+          "hint": "留空则用当前工作区；目录里必须有 upstream-policy.json，否则视为选错。"
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "title": "发布策略",
+      "fields": [
+        {
+          "id": "dry_run",
+          "label": "只预演不发布",
+          "type": "boolean",
+          "default": false,
+          "hint": "打开后只算出要发什么，不建 Release、不改索引。"
+        },
+        {
+          "id": "limit",
+          "label": "单次发布上限",
+          "type": "number",
+          "default": 0,
+          "hint": "0 表示不限制；想先小批量试跑就填个位数。"
+        },
+        {
+          "id": "allow_derived",
+          "label": "允许发布未校对条目",
+          "type": "boolean",
+          "default": false,
+          "hint": "默认只发 manifests/metadata.json 里标成 reviewed 的技能，其余挂起。"
+        }
+      ]
+    }
+  ],
+  "actions": ["sync"]
+}
