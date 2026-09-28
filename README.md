@@ -72,6 +72,8 @@ go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/dec
 
 被排掉的技能不再发新版本。线上已有的旧版本不会下架（下架对用户是倒退），只是从这一刻起停止更新。本次跳过多少条会写进发布报告的 `excluded` 与 `excluded_items`，记的是「少了哪一条、被分类 / 模块 / 单条哪条规则挡的、为什么」——半年后有人问某条技能怎么不更新了，答案在报告和策略文件里。
 
+发布报告每次跑完都落一份，位置是 `.cache/ecc-sync/reports/<UTC 时间戳>-publish.json`，和生成报告（`-generate.json`）并排：生成报告说这次对齐到哪个上游提交，发布报告说在这个提交上谁发了、谁被挡下。定时任务没人看着，这份文件就是事后唯一能翻的账。
+
 插件与工作流不受这份策略约束：它们是本仓库自己写的扩展，要停发改的是自己的分发落点；把两者混在一起，哪天误排一个分类，工具链自己就跟着停更了。
 
 三种改法，读的都是仓库里这一份文件：
@@ -80,7 +82,7 @@ go run ./tools/cmd/himind-ecc-sync review-apply -repo-root . -decisions .tmp/dec
 | --- | --- |
 | 界面 | 插件视图「分发管理」：按分类或模块整组开关，单条技能也能单独排掉，改完即落盘 |
 | 命令行 | `dispatch` 看状态，`dispatch-exclude` / `dispatch-include` 改策略 |
-| 定时任务 | 什么都不用做：`ecc.sync.publish` 每次读同一份策略，排掉的技能一直跳过 |
+| 定时任务 | 什么都不用做：`ecc.sync.publish` 每次读同一份策略，排掉的技能一直跳过，跳过清单落进当天的发布报告 |
 
 ```powershell
 # 看此刻每条技能卡在哪一步（distributed / pending / held / excluded）

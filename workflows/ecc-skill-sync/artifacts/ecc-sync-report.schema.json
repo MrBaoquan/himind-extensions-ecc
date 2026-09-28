@@ -2,9 +2,9 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ECC 同步报告",
   "type": "object",
-  "required": ["kind", "repo_root", "upstream", "result"],
+  "required": ["kind", "repo_root"],
   "properties": {
-    "kind": { "type": "string" },
+    "kind": { "type": "string", "enum": ["generate", "publish"] },
     "repo_root": { "type": "string" },
     "upstream": {
       "type": "object",
@@ -51,5 +51,69 @@
       "additionalProperties": true
     }
   },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "generate" } }, "required": ["kind"] },
+      "then": { "required": ["upstream", "result"] }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "publish" } }, "required": ["kind"] },
+      "then": {
+        "required": ["publish"],
+        "properties": {
+          "publish": {
+            "type": "object",
+            "required": [
+              "repository",
+              "channel",
+              "dry_run",
+              "pending",
+              "excluded",
+              "published",
+              "failed",
+              "items"
+            ],
+            "properties": {
+              "repository": { "type": "string" },
+              "channel": { "type": "string" },
+              "dry_run": { "type": "boolean" },
+              "pending": { "type": "integer" },
+              "held_for_metadata_review": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "excluded": {
+                "type": "integer",
+                "description": "本次按分发策略跳过的技能条数"
+              },
+              "excluded_items": {
+                "type": "array",
+                "description": "被跳过的是哪一条、被分类/模块/单条哪条规则挡下、为什么",
+                "items": {
+                  "type": "object",
+                  "required": ["slug", "id", "version", "rule", "keyword", "reason"],
+                  "properties": {
+                    "slug": { "type": "string" },
+                    "id": { "type": "string" },
+                    "version": { "type": "string" },
+                    "module": { "type": "string" },
+                    "categories": { "type": "array", "items": { "type": "string" } },
+                    "rule": { "type": "string", "enum": ["skill", "module", "category"] },
+                    "keyword": { "type": "string" },
+                    "reason": { "type": "string" }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "published": { "type": "integer" },
+              "failed": { "type": "integer" },
+              "items": { "type": "array", "items": { "type": "object" } }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": true
 }

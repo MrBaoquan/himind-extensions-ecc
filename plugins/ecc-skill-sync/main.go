@@ -323,6 +323,10 @@ func generate(in input) (any, *jsonrpc.Error) {
 //
 // dry_run 是默认姿势：定时计划先用它确认「今天确实有东西要发」，
 // 真要发时再把开关打开，避免无人值守的第一天就发错东西。
+//
+// 发布同样落一份报告。generate 的报告回答「这次搬进来了什么」，发布的报告
+// 回答「搬进来的这些，哪些真的发出去了、哪些被分发策略挡下」——两件事都要有
+// 落地文件，否则定时任务安安静静地少发一批，事后没有任何地方能查。
 func publish(in input) (any, *jsonrpc.Error) {
 	repoRoot, rpcError := resolveRepo(in)
 	if rpcError != nil {
@@ -341,7 +345,33 @@ func publish(in input) (any, *jsonrpc.Error) {
 	if err != nil {
 		return nil, jsonrpc.InternalError(err.Error())
 	}
-	return map[string]any{"ok": value.Failed == 0, "publish": value}, nil
+	response := map[string]any{"ok": value.Failed == 0, "publish": value}
+	artifact, artifactErr := writeReport(repoRoot, "publish", publishReport(repoRoot, value))
+	if artifactErr != nil {
+		response["artifact_error"] = artifactErr.Error()
+		return response, nil
+	}
+	response["artifacts"] = []any{artifact}
+	return response, nil
+}
+
+// publishReport 组装一份发布报告。
+//
+// 上游锚点取自锁文件，跟着报告一起走：生成报告说「这次对齐到哪个上游提交」，
+// 发布报告说「在这个提交上，谁发了、谁被哪条规则挡下」——两份报告对得上，
+// 才谈得上回头复盘某一条技能是哪一步开始不更新的。
+func publishReport(repoRoot string, value eccsync.PublishResult) map[string]any {
+	report := map[string]any{
+		"kind":      "publish",
+		"repo_root": repoRoot,
+		"publish":   value,
+	}
+	// 读不到锁文件不该让整次发布变成失败：发布本身已经成功了，
+	// 报告里少一块锚点，比丢掉整份报告要好。
+	if lock, err := eccsync.LoadLock(filepath.Join(repoRoot, eccsync.LockFile)); err == nil {
+		report["upstream"] = lock.Upstream
+	}
+	return report
 }
 
 // resolveRepo 找出这次要操作的仓库根目录。
