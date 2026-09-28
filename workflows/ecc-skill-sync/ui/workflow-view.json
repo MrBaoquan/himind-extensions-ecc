@@ -7,13 +7,13 @@
       "title": "同步仓库",
       "fields": [
         {
-          "id": "repo_root",
-          "label": "同步仓库目录",
+          "id": "workspace_root",
+          "label": "同步仓库工作区",
           "type": "text",
           "picker": "directory",
           "span": "full",
           "placeholder": "himind-extensions-ecc 仓库根目录",
-          "hint": "留空则用当前工作区；目录里必须有 upstream-policy.json，否则视为选错。"
+          "hint": "指向保存技能源的同步仓库；目录里必须有 upstream-policy.json，选错会直接拦下。"
         }
       ]
     },

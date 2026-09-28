@@ -117,7 +117,10 @@ func generate(in input) (any, *jsonrpc.Error) {
 			return nil, jsonrpc.InvalidParams("还没有可用的上游源码树，请先跑 ecc.sync.fetch：" + err.Error())
 		}
 	}
-	upstream, err := eccsync.UpstreamFacts(policy, "")
+	// 上游事实取自 fetch 落地的那棵树，而不是再问一次 HEAD：
+	// 否则 api.github.com 抖一下整条定时任务就失败，HEAD 移动还会让
+	// 生成的制品和 probe 判定过的提交对不上。
+	upstream, err := eccsync.SourceFacts(policy, repoRoot, sourceRoot)
 	if err != nil {
 		return nil, jsonrpc.InternalError(err.Error())
 	}

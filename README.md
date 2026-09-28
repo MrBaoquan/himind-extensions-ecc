@@ -23,7 +23,31 @@
 
 在 HiMind Agent 里跑「ECC 技能同步」工作流即可，默认走全流程：探测 → 拉取 → 生成 → 门禁 → 发布。上游没动，整条链会在第一步就结束。
 
+入口只要求一个参数：**同步仓库工作区**（`workspace_root`，正常填本仓库根目录）。这条链要拉上游源码、写生成结果、跑门禁，必须落在明确目录里，所以缺工作区会在入口就被拒，不会跑到一半才失败。
+
+注意：定时计划的 `input` 也要写 `workspace_root`（不是 `repo_root`）。入口声明的是 `requires: ["workspace"]`，只认 `workspace_root` / `workspace` / `project_root` 这三个别名；写别的名字会在调度器启动 Run 时被入口判定拦下（`workflow entrypoint sync requires seed artifact or verifiable fact: workspace`）。插件本身两种名字都收，但入口判定先跑。
+
 想定时，就把它注册成定时计划（每天一次足够，例如 `0 3 * * *`）。跑完的结果在任务中心能查到。
+
+### 自动跑起来的三段
+
+| 段 | 怎么发生 | 看哪里 |
+| --- | --- | --- |
+| 探测 → 发布 | 工作流跑 `probe → fetch → generate → gate → publish`，够格就发 Release | GitHub Release（tag 形如 `workflow/com.mrbaoquan.workflow.ecc-skill-sync@1.0.1`）、`.himind/catalog.json` |
+| 装回来 | 用 `extension.distribution.install` 带上 `repository` / `tag` / `id` / `version` | 安装报告的 `installed` 字段；装完 `current_version` 会更新，旧版本留在 `versions` 里可回滚 |
+| 到点触发 | 定时计划按 cron 拉起同一条 Run，输入里带 `workspace_root` | `schedule.list` 的 `last_run_id` / `last_status` / `next_run_at` |
+
+安装判定是**版本精确匹配**：本机装着 1.0.0 时去装 1.0.1 会正常走升级，不会因为「同名扩展已存在」被跳过。
+
+已发布的工作流按 `plugin → skill → workflow` 顺序进索引——工作流依赖里 pin 了插件的版本与摘要，插件没先进索引，工作流的 pin 就解析不出来。
+
+无人值守的两条硬要求，都已经写进实现里：
+
+- **网络抖动不该让当天的同步整条失败。** 所有 GitHub 请求（REST / raw / codeload / `gh`）共用一套有界重试（5 次，指数退避带正向抖动、单次等待上限 30 秒，只重试传输错误、5xx、429）；用尽后在错误里标明重试次数。
+- **上游事实只取一次，随源码树落盘。** `fetch` 把本次对齐的提交、时间、版本写进源码树根的 `.ecc-upstream-facts.json`，`generate` 只读本地、不再联网问 HEAD。这样 HEAD 在两次探测之间移动也不会让「同一提交生成同一份字节」失效。
+- **命中缓存就不再联网。** `probe` 刚落下的上游提交与版本记在 `.cache/ecc-sync/last-probe.json`（30 分钟内有效），`fetch` 优先读它；本地已有该提交的源码树时，整步零网络请求。
+
+发布同样可以断点续跑：先查 tag 上的 Release 是否存在，缺资产就补传，两个资产都回读确认之后才写索引。半成品状态重跑会自愈，不会撞上「同名 tag 已存在」。
 
 命令行调试：
 

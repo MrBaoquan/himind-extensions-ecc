@@ -22,6 +22,8 @@ func main() {
 	flags := flag.NewFlagSet(command, flag.ExitOnError)
 	repoRoot := flags.String("repo-root", ".", "本仓库根目录")
 	sourceRoot := flags.String("source-root", "", "已解包的上游源码树")
+	commit := flags.String("commit", "", "指定要搬运的上游提交；给了提交且缓存命中时全程不联网")
+	repoURL := flags.String("repo-url", "", "覆盖上游地址，便于本地演练与非 GitHub 镜像")
 	tool := flags.String("tool", "himind-ecc-sync/0.1.0", "写入锁文件的工具标识")
 	dryRun := flags.Bool("dry-run", false, "只报告，不发布")
 	limit := flags.Int("limit", 0, "单次最多发布几个技能，0 表示不限制")
@@ -42,7 +44,10 @@ func main() {
 		}
 		result = value
 	case "fetch":
-		value, err := eccsync.Fetch(absolute, eccsync.FetchOptions{})
+		value, err := eccsync.Fetch(absolute, eccsync.FetchOptions{
+			Commit:  *commit,
+			RepoURL: *repoURL,
+		})
 		if err != nil {
 			fail(err)
 		}
@@ -88,7 +93,8 @@ func generate(repoRoot, sourceRoot, tool string) (eccsync.GenerateResult, error)
 			return eccsync.GenerateResult{}, err
 		}
 	}
-	upstream, err := eccsync.UpstreamFacts(policy, "")
+	// 与插件同一条路径：上游事实取自 fetch 落地的源码树，不再单独问一次 HEAD。
+	upstream, err := eccsync.SourceFacts(policy, repoRoot, sourceRoot)
 	if err != nil {
 		return eccsync.GenerateResult{}, err
 	}

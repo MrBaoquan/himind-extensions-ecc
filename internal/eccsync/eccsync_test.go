@@ -1,8 +1,16 @@
 package eccsync
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"strings"
+	"sync/atomic"
 	"testing"
+
+	"github.com/MrBaoquan/himind-extensions/tooling/catalog"
+	"github.com/MrBaoquan/himind-extensions/tooling/distribution"
 )
 
 func TestVersionCoreKeepsOnlyTwoSegments(t *testing.T) {
@@ -90,12 +98,48 @@ func TestSplitByMetadataSourceHoldsDerivedEntries(t *testing.T) {
 		"reviewed-skill": {Name: "已校对", Source: "reviewed"},
 		"derived-skill":  {Name: "待校对", Source: "derived"},
 	}}
-	ready, held := splitByMetadataSource([]string{"reviewed-skill", "derived-skill", "unknown-skill"}, metadata)
-	if len(ready) != 1 || ready[0] != "reviewed-skill" {
-		t.Fatalf("只有 reviewed 条目可发布，得到 %v", ready)
+	targets := []publishTarget{
+		{kind: distribution.KindSkill, id: "com.mrbaoquan.ecc.skill.reviewed-skill", slug: "reviewed-skill"},
+		{kind: distribution.KindSkill, id: "com.mrbaoquan.ecc.skill.derived-skill", slug: "derived-skill"},
+		{kind: distribution.KindSkill, id: "com.mrbaoquan.ecc.skill.unknown-skill", slug: "unknown-skill"},
+		{kind: distribution.KindPlugin, id: "com.mrbaoquan.ecc-skill-sync"},
+		{kind: distribution.KindWorkflow, id: "com.mrbaoquan.workflow.ecc-skill-sync"},
+	}
+	ready, held := splitByMetadataSource(targets, metadata)
+	if len(ready) != 3 || ready[0].label() != "reviewed-skill" {
+		t.Fatalf("只有 reviewed 技能可发布，插件与工作流不受闸门约束，得到 %v", ready)
+	}
+	if ready[1].kind != distribution.KindPlugin || ready[2].kind != distribution.KindWorkflow {
+		t.Fatalf("插件与工作流必须直通，得到 %v", ready)
 	}
 	if len(held) != 2 || held[0] != "derived-skill" || held[1] != "unknown-skill" {
 		t.Fatalf("derived 与缺失条目都必须挂起，得到 %v", held)
+	}
+}
+
+func TestPublishedVersionsKeepsEveryReleasedVersion(t *testing.T) {
+	index := catalog.New("mrbaoquan/himind-extensions-ecc", "beta", "public")
+	pluginID := "com.mrbaoquan.ecc-skill-sync"
+	// 索引是版本历史：同一个插件会留着 1.0.0 与 1.0.1 两条。先写新的再写旧的，
+	// 复现「新版本在数组前面」的真实排布，顺序不该影响判定。
+	for _, version := range []string{"1.0.1", "1.0.0"} {
+		if err := index.Upsert(distribution.KindPlugin, map[string]interface{}{
+			"plugin_id": pluginID, "version": version,
+		}); err != nil {
+			t.Fatalf("写入索引失败：%v", err)
+		}
+	}
+	published := publishedVersions(index)
+	for _, version := range []string{"1.0.0", "1.0.1"} {
+		if !published[distribution.KindPlugin+"/"+pluginID][version] {
+			t.Fatalf("插件 %s 已发过，必须被判为不再待发", version)
+		}
+	}
+	if published[distribution.KindPlugin+"/"+pluginID]["1.0.2"] {
+		t.Fatal("没发过的 1.0.2 必须仍是待发")
+	}
+	if published[distribution.KindSkill+"/com.mrbaoquan.ecc.skill.search-first"]["2.2.2"] {
+		t.Fatal("索引里没有的技能不该出现在已发集合里")
 	}
 }
 
@@ -196,5 +240,195 @@ func TestDigestMetadataTracksReviewedCopy(t *testing.T) {
 	edited.Description = "搜索现成方案再动手，找不到再自己写"
 	if digestMetadata(base) == digestMetadata(edited) {
 		t.Fatal("文案变化必须改变摘要，否则校对过的文案发不出去")
+	}
+}
+
+// generate 用的上游事实必须来自 fetch 落地的源码树，不能再自己联网问一次 HEAD：
+// 否则 api.github.com 或 raw.githubusercontent.com 抖一下，整条定时任务就会失败。
+func TestSourceFactsPrefersRecordedFactsWithoutNetwork(t *testing.T) {
+	repoRoot := t.TempDir()
+	sourceRoot := filepath.Join(repoRoot, "source", "d3b8a3e")
+	if err := os.MkdirAll(sourceRoot, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	recorded := LockUpstream{
+		Version:       "2.2.2",
+		Commit:        "d3b8a3e908904e242ed2dbe66af62cca71131419",
+		CommitDate:    "2026-09-28T00:38:49Z",
+		License:       "MIT",
+		LicenseHolder: "Affaan Mustafa",
+	}
+	if err := writeSourceFacts(sourceRoot, recorded); err != nil {
+		t.Fatal(err)
+	}
+	facts, err := SourceFacts(testPolicy(), repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatalf("应当直接读事实文件，不该报错：%v", err)
+	}
+	if facts.Commit != recorded.Commit || facts.Version != recorded.Version {
+		t.Fatalf("事实文件没有被采用：%+v", facts)
+	}
+	if facts.Repository != "affaan-m/ECC" || facts.LicenseHolder != "Affaan Mustafa" {
+		t.Fatalf("仓库与许可信息应来自策略：%+v", facts)
+	}
+}
+
+// 更早版本留下的缓存没有事实文件，这时退回用目录名 + package.json + 锁文件，
+// 仍要能拼出完整提交 sha，避免写进锁文件的是短 sha 而让下一次 probe 永远报「有变化」。
+func TestSourceFactsFallsBackToTreeAndLock(t *testing.T) {
+	repoRoot := t.TempDir()
+	sourceRoot := filepath.Join(repoRoot, "source", "d3b8a3e")
+	if err := os.MkdirAll(sourceRoot, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(sourceRoot, "package.json"), []byte(`{"version":"2.2.2"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := SaveLock(filepath.Join(repoRoot, LockFile), Lock{
+		Upstream: LockUpstream{
+			Commit:     "d3b8a3e908904e242ed2dbe66af62cca71131419",
+			CommitDate: "2026-09-28T00:38:49Z",
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	facts, err := SourceFacts(testPolicy(), repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatalf("应当能从树和锁文件拼出事实：%v", err)
+	}
+	if facts.Version != "2.2.2" {
+		t.Fatalf("版本应取自 package.json，得到 %q", facts.Version)
+	}
+	if facts.Commit != "d3b8a3e908904e242ed2dbe66af62cca71131419" {
+		t.Fatalf("提交 sha 应补全为完整值，得到 %q", facts.Commit)
+	}
+	if facts.CommitDate != "2026-09-28T00:38:49Z" {
+		t.Fatalf("提交时间应沿用锁文件，得到 %q", facts.CommitDate)
+	}
+}
+
+// 版本读不到时必须明确失败并指出该重跑 fetch，而不是拿空版本继续往下生成。
+func TestSourceFactsRejectsTreeWithoutVersion(t *testing.T) {
+	repoRoot := t.TempDir()
+	sourceRoot := filepath.Join(repoRoot, "source", "d3b8a3e")
+	if err := os.MkdirAll(sourceRoot, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	_, err := SourceFacts(testPolicy(), repoRoot, sourceRoot)
+	if err == nil {
+		t.Fatal("没有版本信息时必须报错")
+	}
+	if !strings.Contains(err.Error(), SourceFactsFile) {
+		t.Fatalf("错误信息应指出缺哪个文件，得到 %q", err.Error())
+	}
+}
+
+// 传输抖动（TLS 握手超时、连接被重置）重发一次就能恢复：
+// 不该让整条定时同步因为一次网络抖动失败。
+func TestDoRequestRetriesTransportFailure(t *testing.T) {
+	defer silenceBackoff()()
+
+	var attempts int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if atomic.AddInt32(&attempts, 1) == 1 {
+			// 第一轮直接断链，模拟传输层抖动。
+			hijacker, ok := w.(http.Hijacker)
+			if !ok {
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+			connection, _, err := hijacker.Hijack()
+			if err != nil {
+				return
+			}
+			_ = connection.Close()
+			return
+		}
+		_, _ = w.Write([]byte("2.2.2"))
+	}))
+	defer server.Close()
+
+	request, err := http.NewRequest(http.MethodGet, server.URL, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	payload, err := doRequest(request, 1<<20)
+	if err != nil {
+		t.Fatalf("抖动之后应当自动重试成功，得到 %v", err)
+	}
+	if string(payload) != "2.2.2" {
+		t.Fatalf("应当返回重试后的响应，得到 %q", payload)
+	}
+	if got := atomic.LoadInt32(&attempts); got != 2 {
+		t.Fatalf("应当恰好请求两次，得到 %d", got)
+	}
+}
+
+// 4xx 是确定性问题：重试只会白等，必须一次就返回。
+func TestDoRequestDoesNotRetryClientError(t *testing.T) {
+	defer silenceBackoff()()
+
+	var attempts int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		atomic.AddInt32(&attempts, 1)
+		w.WriteHeader(http.StatusNotFound)
+	}))
+	defer server.Close()
+
+	request, err := http.NewRequest(http.MethodGet, server.URL, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := doRequest(request, 1<<20); err == nil {
+		t.Fatal("404 必须返回错误")
+	}
+	if got := atomic.LoadInt32(&attempts); got != 1 {
+		t.Fatalf("404 不应重试，实际请求 %d 次", got)
+	}
+}
+
+// 5xx 值得重试，但要有上界；耗尽之后错误里要能看出重试过。
+func TestDoRequestGivesUpAfterBoundedRetries(t *testing.T) {
+	defer silenceBackoff()()
+
+	var attempts int32
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		atomic.AddInt32(&attempts, 1)
+		w.WriteHeader(http.StatusInternalServerError)
+	}))
+	defer server.Close()
+
+	request, err := http.NewRequest(http.MethodGet, server.URL, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = doRequest(request, 1<<20)
+	if err == nil {
+		t.Fatal("一直 5xx 时必须失败")
+	}
+	if got := atomic.LoadInt32(&attempts); got != requestAttempts {
+		t.Fatalf("应当尝试 %d 次，实际 %d 次", requestAttempts, got)
+	}
+	if !strings.Contains(err.Error(), "已重试") {
+		t.Fatalf("错误信息应说明重试过，得到 %q", err.Error())
+	}
+}
+
+// silenceBackoff 把重试间隔压到 0，免得单测为了等退避而变慢。
+func silenceBackoff() func() {
+	previous := requestBackoff
+	requestBackoff = 0
+	return func() { requestBackoff = previous }
+}
+
+func testPolicy() Policy {
+	return Policy{
+		Upstream: UpstreamRef{
+			Repository: "affaan-m/ECC",
+			Package:    "ecc-universal",
+			License:    "MIT",
+			Holder:     "Affaan Mustafa",
+		},
+		SkillIDPrefix: "com.mrbaoquan.ecc.skill",
 	}
 }

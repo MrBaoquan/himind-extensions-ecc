@@ -61,3 +61,83 @@ Agent 比版本时只看前三段数字。上游版本带 `v` 前缀或 `-beta` 
 只允许「A 档变化 + 门禁全绿 + 元数据已校对」自动发版。B 档改写、技能删除或改名、上游许可证变化、门禁不过——全部停下等人。
 
 判断依据写在 `upstream.lock.json` 和同步报告里，跑完能一眼看出这次是「其实没变」「自动发了」还是「卡住了、卡在哪」。
+
+## 10. 启动入口显式声明工作区，而不是「留空就用当前目录」
+
+`sync` 入口的 `requires` 是 `["workspace"]`，界面字段名是 `workspace_root`（`workflows/ecc-skill-sync/ui/workflow-view.json`）。
+
+理由：这条链要拉上游源码、写生成结果、跑 Go 门禁，都必须落在一个明确的目录里。早先的写法是「不传就用当前工作区」，在手动跑的时候看起来很方便，但定时计划**没有「当前工作区」这个概念**——到点触发时缺工作区，会一路跑到插件步骤才失败，报出来的错还是插件内部的 `repo_root not resolved`，排查成本全落在人身上。
+
+显式声明之后，缺工作区会在入口 preflight 阶段就被拒，错误指向入口参数本身。代价是手动跑必须选一次目录；对一条按天无人值守执行的链，这个代价换来的确定性是值得的。
+
+## 11. 三类制品都要发，且发布顺序是硬约束
+
+一次同步产出三种制品：插件 `com.mrbaoquan.ecc-skill-sync`、技能（每条一个包）、工作流 `com.mrbaoquan.workflow.ecc-skill-sync`。
+
+它们必须按 `plugin → skill → workflow` 的顺序进索引，因为工作流的依赖里 pin 了插件的版本和制品摘要；插件没先进索引，工作流清单里的 pin 就解析不出来。
+
+这条约束由 `internal/eccsync/publish.go` 的 `sortTargets` 固定，不靠调用方自觉。
+
+## 12. 闭环的三段，各自都要有可复查的产物
+
+「自动迁移」不是一条命令跑完就算数，它由三段组成，每段都要能独立复查：
+
+| 段 | 谁执行 | 复查依据 |
+| --- | --- | --- |
+| 发布 | `publish` 能力 → GitHub Release | Release tag `workflow/com.mrbaoquan.workflow.ecc-skill-sync@1.0.4`，制品 sha256 记在 `dist/*.json` 与 `.himind/catalog.json` |
+| 安装 | Agent 的 `extension.distribution.install` | 安装报告里的 `installed` 列表；profile 下 `installation.json` 的 `current_version` |
+| 触发 | 定时计划 `ecc-skill-sync-daily`（`0 3 * * *`） | `schedule.list` 的 `last_run_id` / `last_status` / `next_run_at`，Task 中心能看到同一条 Run |
+
+安装这一段的判定必须是「版本精确匹配」：早先的实现只比对扩展 id，于是本机装着 1.0.0 时去装 1.0.1 会被判成「已安装」直接跳过，报告显示 `state: ready` 但 `installed: []`。现在安装判定比对 id + 版本，旧版本会正常走升级路径（`versions` 保留旧版本用于回滚）。
+
+## 13. 对齐事实随源码树落盘，`generate` 不再自己问一次 HEAD
+
+定时计划第一次真触发时整条链在第三步失败，报的是「无法从上游版本 "" 推出制品版本」。真正的原因不是版本，是 `generate` 为了拿上游事实又打了一次 GitHub：
+
+- 这一步本来只需要「probe 判定过的那份事实」，却被实现成「再问一次 HEAD 与 package.json」。本机出口到 `api.github.com` 是偶发 TLS 握手超时，这一问失败，当天整条同步就没了。
+- 更隐蔽的问题是 HEAD 会在 `probe` 与 `generate` 之间移动。那时生成的制品既不属于 probe 判定过的提交，也不属于下一次 probe 的基线，「同一上游提交生成同一份字节」的确定性直接断掉。
+- 版本读空时若继续往下走，错误会一路变形，最后在 `publish` 报成「无法从上游版本 "" 推出制品版本」，把真正的原因埋掉。
+
+现在的分工是：`fetch` 取一次上游事实，原样写进源码树根的 `.ecc-upstream-facts.json`；`generate` 只读这棵树，不碰网络。`UpstreamFacts` 读不到版本就直接报错，不再返回空值往下传。碰到更早版本留下的、没有事实文件的缓存，退回用「目录名短 sha + 树里的 package.json + 锁文件」拼出来，并尝试用本地裸仓库把短 sha 补全。
+
+收益是可量化的：一次同步从 3 次以上 GitHub 请求降到 2 次（都在 `probe`/`fetch`），且这三步都变成纯本地计算——定时任务里最容易抖的一段彻底消失。
+
+## 14. 发布是能断点续跑的事务，不是一把梭
+
+发布链路要连着打 GitHub 好几次（建 Release、传资产），中间任何一次抖动都会留下半成品。修之前有两种坏结局：
+
+- 一次网络抖动就让当天整条链失败，人得第二天再看。
+- 更糟的是「Release 已经建了、资产只传了一半」。这种中间态重跑时如果直接 `gh release create`，只会撞上 `a release with the same tag name already exists`——本来可以自愈的状态，变成了要人工清理的故障。
+
+现在 `ensureRelease` 是「先查、再补、最后回读」：先看 tag 有没有 Release，没有才建；已经有就只补缺的资产（`--clobber`）；两个资产都在了才返回地址。索引只在回读确认之后才写——索引里的 `download_url` 指向的正是这两个资产，资产没传全就写索引，等于把「装不上」的东西挂到市场上。
+
+判「Release 不存在」和「网络抖一下没查到」也是分开的：只有 `release not found` / `HTTP 404` 才算不存在，其余失败按可重试处理，避免把一次查询抖动误判成「还没发过」而重复建 Release。
+
+底层共用一套有界重试（`internal/eccsync/retry.go`）：REST / raw / codeload 三类请求与所有 `gh` 调用统一走 `runWithRetry`，默认 5 次、退避按 base 翻倍并带正向抖动、单次等待上限 30 秒，只重试传输错误、5xx 与 429（4xx 重试没有意义，直接失败），用尽后在错误里标出「已重试 N 次」。Go 与 `gh` 都会把底层错误压成文本，所以判定按已知的抖动片段做小写匹配。
+
+选择「有界重试 + 幂等补写」而不是「无限重试」或「失败就人工介入」：几十秒内自愈的抖动占绝大多数，连续五次都失败说明不是抖动，这时候把错误交给上层去看，比继续耗时间更值。
+
+## 15. 命中缓存就不该联网，`probe` 的结论要交给 `fetch`
+
+定时计划第一次真触发时，`probe` 已经问到了上游提交，`fetch` 却又去问了一遍。
+
+根因是 `Fetch` 的实现顺序：先 `UpstreamFacts(policy, options.Commit)` 打 `api.github.com` 查提交、再读 `raw.githubusercontent.com` 拿版本，**之后**才检查本地缓存目录。顺序反了，缓存就永远是死代码——每一步都会先承受一次网络抖动，抖输就报 `E-S-FETCH`，本地明明躺着那棵树也用不上。
+
+现在是两段式：
+
+- `options.Commit` 非空且本地已有该提交的源码树（树里有 `skills` 目录）且事实可读，直接返回 `reused`，**零网络请求**；
+- 否则才走 `resolveFetchFacts`。
+
+没有显式提交时也不再无脑问 HEAD：`probe` 会把这次问到的提交、时间、版本写进 `.cache/ecc-sync/last-probe.json`（TTL 30 分钟，短 sha 视为无效），`fetch` 优先读它，读不到才真的打一次 `api.github.com`。
+
+`probe` 自己也紧了：一次同步只问一次上游 HEAD；提交没变时版本直接沿用锁文件里的记录，不再白读一次 `package.json`；提交变了才读一次新版本，且读不到也不影响「变了」这个结论。
+
+为什么 TTL 是 30 分钟而不是「一直有效」：定时计划每天跑一次，两个步骤之间相隔几秒；TTL 只用来覆盖「同一次运行内的交接」。留太久反而危险——间隔几小时后 `probe` 的结论已经过期，拿旧提交去 fetch 会把「该不该同步」判错。
+
+## 16. 残留 Draft 按命名空间清扫，不靠「下次发同一个 tag 顺手清掉」
+
+Draft 清扫原先只覆盖「本次要发的那个 tag」。这条路径有个死角：半成品是上一次发布卡在挂资产那一步留下的，正常情况下下次发同一个 tag 就顺手清掉了；**但只要期间版本号被手工涨过，旧 tag 永远不会再被发一次，那条半成品就永久留在仓库里**。这不是理论推演，是真实发生过的——插件 1.0.5 的 Draft 就因为版本号跳到 1.0.6 而成了孤儿。
+
+现在清扫范围按 `extensions.json` 里的扩展 ID 精确圈定（`managedOwners`）：凡是 tag 归属到本仓库名下扩展、且还处于 Draft 状态的 Release，一次全清，与本次发不发得着它无关。判定不是「见到 Draft 就删」——`managedTag` 只认 `plugin/`、`skill/`、`workflow/` 三种前缀且 `@` 前非空，仓库里别人发的 Release 不在名单里，不会被碰。
+
+清扫只在「本次确实有东西要发」时进行：上游没变时整条链在第一步就结束了，不会为了「顺便看两眼」去动网络。清掉的 id 会写进 `publish.cleaned_drafts`，跑完能复查这次到底清了什么。
