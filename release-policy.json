@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-29T01:30:27Z",
+  "updated_at": "2026-09-29T02:28:37Z",
   "keep_versions": {
     "plugin": 2,
     "skill": 3,
-    "workflow": 2
+    "workflow": 2,
+    "batch": 3
   }
 }
