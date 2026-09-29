@@ -232,6 +232,91 @@ func TestPlanSupersededSeparatesBatchesFromSkills(t *testing.T) {
 	}
 }
 
+// 技能改由批次供货之后，旧的单件 Release 与批次同版本，「每件留三版」永远留得住它。
+// 判定必须落到「这一件现在从哪取」，否则仓库长期挂着几百条不会更新的死记录。
+func TestPlanSupersededPrunesSingleReleasesTakenOverByBatch(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "skill/com.example.alpha@2.2.3"),
+		releaseAt(2, "batch/2.2.3"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Owners:  map[string]bool{"skill/com.example.alpha": true},
+		Batches: map[string]bool{"batch/2.2.3": true},
+		Batched: map[string]string{"skill/com.example.alpha": "2.2.3"},
+		Keep:    map[string]int{distribution.KindSkill: 3, BatchRetentionKey: 3},
+	})
+	if len(plan) != 1 || plan[0].Tag != "skill/com.example.alpha@2.2.3" {
+		t.Fatalf("批次已接管的那一版该回收，实际 %v", plan)
+	}
+}
+
+// 批次之后又单独发过一件时不能回收：批次里没有它，删掉就等于把唯一一份制品删了。
+func TestPlanSupersededKeepsSingleReleaseNewerThanBatch(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "skill/com.example.alpha@2.2.4"),
+		releaseAt(2, "batch/2.2.3"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Owners:  map[string]bool{"skill/com.example.alpha": true},
+		Batches: map[string]bool{"batch/2.2.3": true},
+		Batched: map[string]string{"skill/com.example.alpha": "2.2.3"},
+		Keep:    map[string]int{distribution.KindSkill: 3, BatchRetentionKey: 3},
+	})
+	if len(plan) != 0 {
+		t.Fatalf("比批次还新的一版必须留着，实际回收 %v", plan)
+	}
+}
+
+// 「由批次接管」是回收的加速条件，不是豁免条件：被工作流钉住的单件 tag 照旧不能删。
+func TestPlanSupersededNeverPrunesPinnedBatchedMembers(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "skill/com.example.alpha@2.2.3"),
+		releaseAt(2, "batch/2.2.3"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Owners:    map[string]bool{"skill/com.example.alpha": true},
+		Batches:   map[string]bool{"batch/2.2.3": true},
+		Batched:   map[string]string{"skill/com.example.alpha": "2.2.3"},
+		Protected: map[string]bool{"skill/com.example.alpha@2.2.3": true},
+		Keep:      map[string]int{distribution.KindSkill: 3, BatchRetentionKey: 3},
+	})
+	if len(plan) != 0 {
+		t.Fatalf("被钉住的单件 tag 不能回收，实际 %v", plan)
+	}
+}
+
+func TestBatchedOwnersReadsIndex(t *testing.T) {
+	root := t.TempDir()
+	indexPath := filepath.Join(root, "catalog.json")
+	body := `{
+	  "schema_version": 1,
+	  "skills": [
+	    {"skill_id": "com.example.alpha", "version": "2.2.3", "release_tag": "batch/2.2.3"},
+	    {"skill_id": "com.example.beta", "version": "2.2.2", "release_tag": "skill/com.example.beta@2.2.2"}
+	  ],
+	  "plugins": [
+	    {"plugin_id": "com.example.tool", "version": "1.1.6", "release_tag": "batch/2.2.3"}
+	  ]
+	}`
+	if err := os.WriteFile(indexPath, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	index, err := catalog.Load(indexPath)
+	if err != nil {
+		t.Fatalf("读索引: %v", err)
+	}
+	owners := batchedOwners(index)
+	if owners["skill/com.example.alpha"] != "2.2.3" {
+		t.Fatalf("指向批次的技能没被收进来: %v", owners)
+	}
+	if owners["plugin/com.example.tool"] != "1.1.6" {
+		t.Fatalf("插件也要按同一规则认归属: %v", owners)
+	}
+	if _, ok := owners["skill/com.example.beta"]; ok {
+		t.Fatalf("仍挂在单件 tag 上的扩展不该算批次接管: %v", owners)
+	}
+}
+
 func TestLoadReleaseRetention(t *testing.T) {
 	root := t.TempDir()
 	path := filepath.Join(root, ReleasePolicyFile)

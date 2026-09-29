@@ -124,6 +124,11 @@ type supersedeScope struct {
 	Owners map[string]bool
 	// Batches 是本仓库发过的批次 tag。批次不属于任何单个扩展，只能按 tag 认。
 	Batches map[string]bool
+	// Batched 是「已经改由批次供货」的扩展：归属键形如 skill/<id>，值是批次里
+	// 装的那一版。技能从逐件发布切到批次发布时，旧的单件 Release 与批次内容
+	// 同版本，按「每件留几版」算它永远留在窗口里，仓库就长期挂着几百条再也
+	// 不会更新的记录——只有「这一件现在由批次供」才判得出该回收。
+	Batched map[string]string
 	// Protected 是被依赖 pin 钉住的 tag：删掉它，已发布的工作流就指向一个空处。
 	Protected map[string]bool
 	// Keep 是各类扩展与批次的保留数量。
@@ -197,8 +202,11 @@ func supersededReleases(records []releaseRecord, scope supersedeScope) []Superse
 			}
 			return items[i].tag > items[j].tag
 		})
+		batched := scope.Batched[owner]
 		for index, item := range items {
-			if index < limit {
+			// 窗口内不再等于安全：这一件已经改由批次供货，且这一版不比批次里的
+			// 新，内容就在批次里躺着了。留它只是留一份重复的旧记录。
+			if index < limit && !servedByBatch(item.version, batched) {
 				continue
 			}
 			if scope.Protected[item.tag] {
@@ -210,6 +218,17 @@ func supersededReleases(records []releaseRecord, scope supersedeScope) []Superse
 		}
 	}
 	return out
+}
+
+// servedByBatch 报告某一版是否已经被批次接管。
+//
+// 版本比批次更高时不回收：那是批次之后又单独发过的一件，批次里没有它，
+// 删掉就等于把唯一一份可取的制品删了。
+func servedByBatch(version, batched string) bool {
+	if batched == "" {
+		return false
+	}
+	return catalog.CompareVersions(version, batched) <= 0
 }
 
 // supersededBatches 挑出超出保留窗口的批次 Release。
@@ -291,6 +310,38 @@ func pinnedTags(index *catalog.Catalog) map[string]bool {
 	return protected
 }
 
+// batchedOwners 收出索引里已经指向批次 Release 的扩展，给出批次里装的那一版。
+//
+// 认归属只能看索引当前指哪条 Release：批次的 tag 里没有扩展 ID，成员清单又要
+// 额外下载才读得到，而索引本来就是「现在这一件从哪取」的权威。索引还是单件
+// tag 的一律不算——那说明这一件仍在逐件发。
+func batchedOwners(index *catalog.Catalog) map[string]string {
+	owners := map[string]string{}
+	if index == nil {
+		return owners
+	}
+	for kind, idField := range map[string]string{
+		distribution.KindPlugin:   "plugin_id",
+		distribution.KindSkill:    "skill_id",
+		distribution.KindWorkflow: "workflow_id",
+	} {
+		for _, entry := range index.Entries(kind) {
+			if !distribution.IsBatchTag(catalogText(entry, "release_tag")) {
+				continue
+			}
+			id := catalogText(entry, idField)
+			if id == "" {
+				continue
+			}
+			owner := kind + "/" + id
+			if version := catalogText(entry, "version"); catalog.CompareVersions(version, owners[owner]) > 0 {
+				owners[owner] = version
+			}
+		}
+	}
+	return owners
+}
+
 // PruneOptions 控制一次历史版本回收。
 type PruneOptions struct {
 	// DryRun 只算出要回收哪几条，不删远端。
@@ -346,6 +397,7 @@ func PruneReleases(repoRoot string, options PruneOptions) (PruneResult, error) {
 	plan := planSuperseded(records, supersedeScope{
 		Owners:    managedOwners(extensions),
 		Batches:   managedBatchTags(index),
+		Batched:   batchedOwners(index),
 		Protected: pinnedTags(index),
 		Keep:      keep,
 	})
