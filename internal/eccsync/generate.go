@@ -23,6 +23,9 @@ const (
 	ModulesFile    = "manifests/modules.json"
 	QuarantineFile = "manifests/quarantine.json"
 	CatalogFile    = ".himind/catalog.json"
+	// ReleasePolicyFile 是历史版本回收策略，单独成文件：它约束的是「发完之后
+	// 留几版」，跟上游搬运、分发范围都不是同一件事，混进哪一份都会读错语义。
+	ReleasePolicyFile = "release-policy.json"
 )
 
 // GeneratedHead 标记生成物，人改会被下一次同步覆盖。

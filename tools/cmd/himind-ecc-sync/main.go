@@ -27,6 +27,7 @@ func main() {
 	repoURL := flags.String("repo-url", "", "覆盖上游地址，便于本地演练与非 GitHub 镜像")
 	tool := flags.String("tool", "himind-ecc-sync/0.1.0", "写入锁文件的工具标识")
 	dryRun := flags.Bool("dry-run", false, "只报告，不发布")
+	repository := flags.String("repository", "", "覆盖仓库写法，prune 用它的发货地")
 	limit := flags.Int("limit", 0, "单次最多发布几个技能，0 表示不限制")
 	allowDerived := flags.Bool("allow-derived", false, "连元数据尚未人工确认的技能一起发布")
 	format := flags.String("format", "json", "review-queue 的输出格式：json 或 md")
@@ -83,6 +84,14 @@ func main() {
 			print(result)
 			os.Exit(1)
 		}
+	case "prune":
+		value, err := eccsync.PruneReleases(absolute, eccsync.PruneOptions{
+			DryRun: *dryRun, Repository: *repository,
+		})
+		if err != nil {
+			fail(err)
+		}
+		result = value
 	case "publish":
 		value, err := eccsync.Publish(absolute, eccsync.PublishOptions{DryRun: *dryRun, Limit: *limit, AllowDerived: *allowDerived})
 		if err != nil {
@@ -309,5 +318,5 @@ func fail(err error) {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "用法: himind-ecc-sync <probe|fetch|generate|gate|publish|review-queue|review-apply|dispatch|dispatch-exclude|dispatch-include> [选项]")
+	fmt.Fprintln(os.Stderr, "用法: himind-ecc-sync <probe|fetch|generate|gate|publish|prune|review-queue|review-apply|dispatch|dispatch-exclude|dispatch-include> [选项]")
 }

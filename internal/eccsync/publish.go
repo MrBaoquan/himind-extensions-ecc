@@ -82,6 +82,16 @@ type PublishResult struct {
 	// CleanedDrafts 是本次顺手清掉的残留 Draft Release id，正常情况下为空。
 	CleanedDrafts []int64       `json:"cleaned_drafts,omitempty"`
 	Items         []PublishItem `json:"items"`
+	// Pruned 是发布收尾时顺手回收的历史版本。
+	//
+	// 回收必须排在发布之后：新版本先落地，旧版本才有人接手。顺序反过来，
+	// 一旦中间断掉就是「旧的删了、新的没发出去」。
+	Pruned []SupersededRelease `json:"pruned,omitempty"`
+	// PruneError 记录回收这一步失败的原因。
+	//
+	// 发布本身已经成功，回收只是收尾，不该把一个已经发生的发布判成失败——
+	// 那会让定时任务在下一轮把同一批东西再发一次。失败照实报出来，下一轮再收。
+	PruneError string `json:"prune_error,omitempty"`
 }
 
 // ExcludedItem 是一条被分发策略挡下的上游技能。
@@ -302,6 +312,17 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 		item.Status = "published"
 		result.Published++
 		result.Items = append(result.Items, item)
+	}
+	// 收尾回收历史版本：发布成功之后，本仓库名下超出保留窗口的旧版本就不再需要了。
+	// 干跑不碰远端，也就不做这一步（要看回收计划用 `prune -dry-run`）。
+	if !options.DryRun {
+		pruned, pruneErr := PruneReleases(repoRoot, PruneOptions{Repository: repository})
+		switch {
+		case pruneErr != nil:
+			result.PruneError = pruneErr.Error()
+		default:
+			result.Pruned = pruned.Pruned
+		}
 	}
 	return result, nil
 }
