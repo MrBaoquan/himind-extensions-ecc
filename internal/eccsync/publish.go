@@ -207,9 +207,7 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 		targets, result.Held = splitByMetadataSource(targets, metadata)
 	}
 	result.Pending = len(targets)
-	if options.Limit > 0 && len(targets) > options.Limit {
-		targets = targets[:options.Limit]
-	}
+	targets = capTargets(targets, options.Limit)
 	if len(targets) == 0 {
 		return result, nil
 	}
@@ -599,6 +597,7 @@ func pendingTargets(
 	metadata Metadata,
 ) ([]publishTarget, []ExcludedItem, error) {
 	published := publishedVersions(index)
+	batched := batchServedVersions(index)
 	targets := make([]publishTarget, 0, len(lock.Skills)+2)
 	excluded := []ExcludedItem{}
 	for _, entry := range extensions.Extensions {
@@ -619,7 +618,15 @@ func pendingTargets(
 	}
 	for slug, item := range lock.Skills {
 		id := SkillID(slug)
-		if published[distribution.KindSkill+"/"+id][item.Version] {
+		// 技能是整批发走的。索引里已经有这个版本、但它还挂在单件 tag 上，说明
+		// 这条记录是批次规则生效之前发出去的：回收只看批次 tag 的归属，这样的
+		// 记录永远没人认领，268 条历史 Release 会一直留在仓库首页。
+		//
+		// 判「已发过」因此要两个条件一起看：版本在索引里，且已经由批次接管。
+		// 只差后一半的，纳入本次批次重发一次——制品字节和版本号都不变，市场侧
+		// 看不出更新，仓库侧从「一件一条」收敛成「一批一条」。
+		key := distribution.KindSkill + "/" + id
+		if published[key][item.Version] && batched[key][item.Version] {
 			continue
 		}
 		module := context.Modules.ModuleOf(slug)
@@ -671,6 +678,59 @@ func publishedVersions(index *catalog.Catalog) map[string]map[string]bool {
 		}
 	}
 	return published
+}
+
+// batchServedVersions 把索引收成「(类型, ID) → 已经挂在批次 Release 上的版本」。
+//
+// 索引记录的 release_tag 写着这条记录当时从哪条 Release 取货。技能整批发之后，
+// 成员记录指向批次 tag；仍旧指向单件 tag 的，是批次规则生效之前发出去的那批。
+// 两者必须分开看：已经由批次接管的版本重发只会撞同名 tag，还挂在单件 tag 上的
+// 版本要随下一次同步搬进批次，历史逐件 Release 才有机会被回收接管。
+func batchServedVersions(index *catalog.Catalog) map[string]map[string]bool {
+	batched := map[string]map[string]bool{}
+	if index == nil {
+		return batched
+	}
+	for _, kind := range distribution.Kinds() {
+		for _, entry := range index.Entries(kind) {
+			if !distribution.IsBatchTag(catalogText(entry, "release_tag")) {
+				continue
+			}
+			version := catalogText(entry, "version")
+			if version == "" {
+				continue
+			}
+			key := kind + "/" + catalog.IDOf(kind, entry)
+			if batched[key] == nil {
+				batched[key] = map[string]bool{}
+			}
+			batched[key][version] = true
+		}
+	}
+	return batched
+}
+
+// capTargets 按上限截断待发目标，技能不参与截断。
+//
+// 技能是整批发成一条批次 Release 的：少发一半，批次 tag 已经占掉了，下一次
+// 同步拿同一个版本号去建，撞的是自己刚发的那条。插件与工作流逐件发布，截断
+// 只是少发几件，重跑接着发即可，上限留给它们。limit 为 0 表示不限制。
+func capTargets(targets []publishTarget, limit int) []publishTarget {
+	if limit <= 0 {
+		return targets
+	}
+	kept := make([]publishTarget, 0, len(targets))
+	other := 0
+	for _, target := range targets {
+		if target.kind != distribution.KindSkill {
+			if other >= limit {
+				continue
+			}
+			other++
+		}
+		kept = append(kept, target)
+	}
+	return kept
 }
 
 // sortTargets 固定发布顺序：插件、技能、工作流，同类按 ID。
