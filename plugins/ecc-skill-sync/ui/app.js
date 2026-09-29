@@ -227,6 +227,18 @@
 
   // ---------- 读取与渲染 ----------
 
+  // 宿主会在拉起插件进程前，先按 plugin.json 的契约校验入参：声明了 enum 的
+  // 字段传空串会被直接拒掉（插件代码根本收不到这次调用）。筛选器「不限」时
+  // 值是空串，所以这里统一只在真有值时带上，别把空筛选当参数送出去。
+  function filterPayload() {
+    const payload = {};
+    ['state', 'category', 'module', 'keyword'].forEach((key) => {
+      const value = state.filters[key];
+      if (value) payload[key] = value;
+    });
+    return payload;
+  }
+
   async function reload(note) {
     if (!state.repoRoot) {
       notify('先填上 himind-extensions-ecc 仓库根目录，再进入分发管理。', 'warn');
@@ -235,15 +247,14 @@
     notify('');
     setBusy(true, '读取中…');
     try {
-      const report = await bridgeInvoke('ecc.sync.distribution', {
-        repo_root: state.repoRoot,
-        state: state.filters.state,
-        category: state.filters.category,
-        module: state.filters.module,
-        keyword: state.filters.keyword,
-        limit: MAX_ITEMS,
-        timeout_seconds: 120,
-      });
+      const report = await bridgeInvoke(
+        'ecc.sync.distribution',
+        Object.assign({
+          repo_root: state.repoRoot,
+          limit: MAX_ITEMS,
+          timeout_seconds: 120,
+        }, filterPayload()),
+      );
       state.report = report;
       rememberRepoRoot(state.repoRoot);
       (report.items || []).forEach((item) => {
