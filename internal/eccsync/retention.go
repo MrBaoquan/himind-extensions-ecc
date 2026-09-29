@@ -30,14 +30,23 @@ type ReleaseRetention struct {
 // RetentionVersion 是回收策略文件的结构版本。
 const RetentionVersion = 1
 
+// BatchRetentionKey 是批次 Release 在保留策略里的计数键。
+//
+// 批次不是第四种扩展类型，它是技能的容器；但回收是按 Release 条数算的，批次
+// 必须有自己的计数，否则「技能留三版」会被理解成「每一件的三角版本各留一条」，
+// 而批次里根本不存在「某一件的某一版」这种可以单独回收的粒度。
+const BatchRetentionKey = "batch"
+
 // DefaultKeepVersions 是缺省保留窗口。
 //
 // 插件与工作流留两版：够覆盖「发新版时发现回归、退回上一版」这条真实路径。
-// 技能留三版：技能是按批次发的，批次之间跨度一周，三批约等于近一个月的可回装窗口。
+// 技能留三版：技能是按批次发的，批次之间跨度一周，三批约等于近一个月的可回装
+// 窗口；早期逐件发出去的技能 Release 也按这个数收。
 var DefaultKeepVersions = map[string]int{
 	distribution.KindPlugin:   2,
 	distribution.KindWorkflow: 2,
 	distribution.KindSkill:    3,
+	BatchRetentionKey:         3,
 }
 
 // LoadReleaseRetention 读回收策略；文件不存在时返回缺省策略，便于首次落地。
@@ -106,22 +115,50 @@ type SupersededRelease struct {
 	ReleaseID int64  `json:"release_id"`
 }
 
-// planSuperseded 挑出每个扩展里超出保留窗口的历史 Release。
+// supersedeScope 是一次回收判定的范围：哪些 tag 归本仓库管，哪些被钉住不能删。
+//
+// 装成一个结构而不是继续加参数：这几份名单都是 map，位置传错一个编译器不会
+// 吭声，而回收是真的删远端数据。
+type supersedeScope struct {
+	// Owners 是本仓库名下的单件扩展归属键（形如 skill/<id>）。
+	Owners map[string]bool
+	// Batches 是本仓库发过的批次 tag。批次不属于任何单个扩展，只能按 tag 认。
+	Batches map[string]bool
+	// Protected 是被依赖 pin 钉住的 tag：删掉它，已发布的工作流就指向一个空处。
+	Protected map[string]bool
+	// Keep 是各类扩展与批次的保留数量。
+	Keep map[string]int
+}
+
+// planSuperseded 挑出超出保留窗口的历史 Release。
 //
 // 三条硬规则，任何一条不满足就不回收：
-//   - 只碰本仓库名下的扩展：tag 认不出归属、或者归属不在 extensions.json 里，一律跳过。
-//   - 每个扩展至少留一个版本：排序后前 keep 个版本永远在保留窗口里。
-//   - 被索引当依赖钉住的版本不回收：工作流 pin 住的那个插件版本一旦删掉，
+//   - 只碰本仓库名下的东西：tag 认不出归属、或者归属不在名单里，一律跳过。
+//   - 每一组至少留一个：单件扩展按 ID 分组，批次合成一组，排序后前 keep 个在窗口里。
+//   - 被索引当依赖钉住的 tag 不回收：工作流 pin 住的那个插件版本一旦删掉，
 //     已发布的工作流就会指向一个取不到的制品。
 //
-// 返回顺序按「类型 → 扩展 ID → 版本」排定：回收会真的删远端数据，删了哪几条
+// 返回顺序按「类型 → 归属 → 版本」排定：回收会真的删远端数据，删了哪几条
 // 必须在日志里有确定的次序，否则事后对不上账。
-func planSuperseded(
-	records []releaseRecord,
-	owners map[string]bool,
-	keep map[string]int,
-	protected map[string]bool,
-) []SupersededRelease {
+func planSuperseded(records []releaseRecord, scope supersedeScope) []SupersededRelease {
+	out := append(supersededReleases(records, scope), supersededBatches(records, scope)...)
+	sort.Slice(out, func(i, j int) bool {
+		if out[i].Kind != out[j].Kind {
+			return out[i].Kind < out[j].Kind
+		}
+		if out[i].ID != out[j].ID {
+			return out[i].ID < out[j].ID
+		}
+		return catalog.CompareVersions(out[i].Version, out[j].Version) < 0
+	})
+	return out
+}
+
+// supersededReleases 挑出单件发布的、超出保留窗口的历史 Release。
+//
+// 单件发布有三个来源：插件与工作流一直是逐件发的，ECC 技能则是在批次发布之前
+// 逐件发过一轮。两者在这里的处理完全一样——按扩展 ID 分组，各留 keep 个版本。
+func supersededReleases(records []releaseRecord, scope supersedeScope) []SupersededRelease {
 	type candidate struct {
 		tag     string
 		id      int64
@@ -133,7 +170,7 @@ func planSuperseded(
 			continue
 		}
 		owner, ok := managedTag(record.Tag)
-		if !ok || !owners[owner] {
+		if !ok || !scope.Owners[owner] {
 			continue
 		}
 		_, _, version, err := distribution.ParseReleaseTag(record.Tag)
@@ -149,7 +186,7 @@ func planSuperseded(
 		if !found {
 			continue
 		}
-		limit := keep[kind]
+		limit := scope.Keep[kind]
 		if limit < 1 {
 			limit = 1
 		}
@@ -164,7 +201,7 @@ func planSuperseded(
 			if index < limit {
 				continue
 			}
-			if protected[item.tag] {
+			if scope.Protected[item.tag] {
 				continue
 			}
 			out = append(out, SupersededRelease{
@@ -172,15 +209,54 @@ func planSuperseded(
 			})
 		}
 	}
-	sort.Slice(out, func(i, j int) bool {
-		if out[i].Kind != out[j].Kind {
-			return out[i].Kind < out[j].Kind
+	return out
+}
+
+// supersededBatches 挑出超出保留窗口的批次 Release。
+//
+// 批次整体回收，不拆成员：批次 tag 的版本号就是同步序号，一批对应一次同步，
+// 「这一批里有两件还要留」不是一个能表达的诉求——要留就该整批留在窗口里。
+// 成员是否已被新批次接管，由新批次整批覆盖，所以按批保留天然是安全的。
+func supersededBatches(records []releaseRecord, scope supersedeScope) []SupersededRelease {
+	type candidate struct {
+		tag     string
+		id      int64
+		version string
+	}
+	items := make([]candidate, 0, len(records))
+	for _, record := range records {
+		if record.Draft || !scope.Batches[record.Tag] {
+			continue
 		}
-		if out[i].ID != out[j].ID {
-			return out[i].ID < out[j].ID
+		version, err := distribution.ParseBatchTag(record.Tag)
+		if err != nil {
+			continue
 		}
-		return catalog.CompareVersions(out[i].Version, out[j].Version) < 0
+		items = append(items, candidate{tag: record.Tag, id: record.ID, version: version})
+	}
+	limit := scope.Keep[BatchRetentionKey]
+	if limit < 1 {
+		limit = DefaultKeepVersions[BatchRetentionKey]
+	}
+	sort.Slice(items, func(i, j int) bool {
+		if cmp := catalog.CompareVersions(items[i].version, items[j].version); cmp != 0 {
+			return cmp > 0
+		}
+		return items[i].tag > items[j].tag
 	})
+	out := []SupersededRelease{}
+	for index, item := range items {
+		if index < limit {
+			continue
+		}
+		if scope.Protected[item.tag] {
+			continue
+		}
+		out = append(out, SupersededRelease{
+			Kind: BatchRetentionKey, ID: item.tag, Version: item.version,
+			Tag: item.tag, ReleaseID: item.id,
+		})
+	}
 	return out
 }
 
@@ -225,10 +301,10 @@ type PruneOptions struct {
 
 // PruneResult 是一次回收的汇总。
 type PruneResult struct {
-	Repository string            `json:"repository"`
-	DryRun     bool              `json:"dry_run"`
-	Keep       map[string]int    `json:"keep_versions"`
-	Scanned    int               `json:"scanned"`
+	Repository string              `json:"repository"`
+	DryRun     bool                `json:"dry_run"`
+	Keep       map[string]int      `json:"keep_versions"`
+	Scanned    int                 `json:"scanned"`
 	Pruned     []SupersededRelease `json:"pruned"`
 	// DroppedEntries 是被一并摘掉的索引记录数：Release 删了、索引还留着，
 	// 市场里就会挂出一条点不开的版本。
@@ -267,7 +343,12 @@ func PruneReleases(repoRoot string, options PruneOptions) (PruneResult, error) {
 		return result, err
 	}
 	result.Scanned = len(records)
-	plan := planSuperseded(records, managedOwners(extensions), keep, pinnedTags(index))
+	plan := planSuperseded(records, supersedeScope{
+		Owners:    managedOwners(extensions),
+		Batches:   managedBatchTags(index),
+		Protected: pinnedTags(index),
+		Keep:      keep,
+	})
 	if options.DryRun || len(plan) == 0 {
 		result.Pruned = plan
 		return result, nil

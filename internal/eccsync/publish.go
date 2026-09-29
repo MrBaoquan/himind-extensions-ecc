@@ -80,8 +80,14 @@ type PublishResult struct {
 	Published     int            `json:"published"`
 	Failed        int            `json:"failed"`
 	// CleanedDrafts 是本次顺手清掉的残留 Draft Release id，正常情况下为空。
-	CleanedDrafts []int64       `json:"cleaned_drafts,omitempty"`
-	Items         []PublishItem `json:"items"`
+	CleanedDrafts []int64 `json:"cleaned_drafts,omitempty"`
+	// Batches 是本次发出去的批次 Release。
+	//
+	// 技能整批发之后，「发了几条 Release」与「发了几件技能」是两个数：前者决定
+	// 仓库首页读起来是什么样子，后者才是市场里真正新增的东西。两个数都报出来，
+	// 一次同步才不至于看起来像发了 268 条。
+	Batches []PublishBatch `json:"batches,omitempty"`
+	Items   []PublishItem  `json:"items"`
 	// Pruned 是发布收尾时顺手回收的历史版本。
 	//
 	// 回收必须排在发布之后：新版本先落地，旧版本才有人接手。顺序反过来，
@@ -92,6 +98,14 @@ type PublishResult struct {
 	// 发布本身已经成功，回收只是收尾，不该把一个已经发生的发布判成失败——
 	// 那会让定时任务在下一轮把同一批东西再发一次。失败照实报出来，下一轮再收。
 	PruneError string `json:"prune_error,omitempty"`
+}
+
+// PublishBatch 是本次发出去的一条批次 Release。
+type PublishBatch struct {
+	Tag     string `json:"tag"`
+	Version string `json:"version"`
+	Members int    `json:"members"`
+	URL     string `json:"url,omitempty"`
 }
 
 // ExcludedItem 是一条被分发策略挡下的上游技能。
@@ -214,7 +228,7 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	}
 	// 有东西要发，顺便把历史遗留的半成品清掉：残留 Draft 会在重跑时和正式
 	// Release 撞成两条同 tag 记录，越积越难查。
-	cleaned, err := sweepStaleDrafts(repository, extensions)
+	cleaned, err := sweepStaleDrafts(repository, extensions, managedBatchTags(index))
 	if err != nil {
 		return result, err
 	}
@@ -250,68 +264,38 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 			return result, err
 		}
 	}
-	for _, target := range targets {
-		item := PublishItem{Extension: target.label(), ID: target.id, Version: target.version}
-		plan, planErr := releaseplan.Build(target.kind, target.dir, repository, channel, planCatalogPath)
-		if planErr != nil {
-			item.Status = "failed"
-			item.Detail = "解析发布计划失败：" + planErr.Error()
-			result.Failed++
-			result.Items = append(result.Items, item)
-			continue
+	// 三段按固定次序走：插件 → 技能批次 → 工作流。
+	//
+	// 次序是硬约束：工作流的依赖 pin 要从索引里解析出插件版本，插件必须先落
+	// 索引；技能整批发一条 Release，排在两者中间，工作流的 pin 才不会指到一条
+	// 还不存在的批次 Release 上。
+	run := publishRun{
+		repoRoot:    repoRoot,
+		repository:  repository,
+		channel:     channel,
+		distDir:     distDir,
+		planCatalog: planCatalogPath,
+		revision:    revision,
+		keyID:       keyID,
+		signer:      signer,
+		dryRun:      options.DryRun,
+		index:       index,
+	}
+	plugins, skills, workflows := splitTargets(targets)
+	for _, target := range plugins {
+		result.take(run.single(target))
+	}
+	if len(skills) > 0 {
+		items, batch := run.batch(lock, skills)
+		for _, item := range items {
+			result.take(item)
 		}
-		plan.SourceCommit = revision
-		item.Tag = plan.Tag
-		item.Artifact = plan.ArtifactName
-		artifactPath := filepath.Join(distDir, plan.ArtifactName)
-		manifestPath := filepath.Join(distDir, plan.ManifestName)
-
-		if err := packageExtension(target, artifactPath); err != nil {
-			item.Status = "failed"
-			item.Detail = "打包失败：" + err.Error()
-			result.Failed++
-			result.Items = append(result.Items, item)
-			continue
+		if batch != nil {
+			result.Batches = append(result.Batches, *batch)
 		}
-		if options.DryRun {
-			if err := recordPlanned(index, target, plan, artifactPath, repository, planCatalogPath); err != nil {
-				item.Status = "failed"
-				item.Detail = "推演索引失败：" + err.Error()
-				result.Failed++
-				result.Items = append(result.Items, item)
-				continue
-			}
-			item.Status = "dry-run"
-			result.Items = append(result.Items, item)
-			continue
-		}
-		release, err := buildRelease(plan, artifactPath, manifestPath, keyID, signer)
-		if err != nil {
-			item.Status = "failed"
-			item.Detail = "签发失败：" + err.Error()
-			result.Failed++
-			result.Items = append(result.Items, item)
-			continue
-		}
-		url, err := ensureRelease(repository, plan.Tag, item, artifactPath, manifestPath, release)
-		if err != nil {
-			item.Status = "failed"
-			item.Detail = "发布 Release 失败：" + err.Error()
-			result.Failed++
-			result.Items = append(result.Items, item)
-			continue
-		}
-		item.ReleaseURL = url
-		if err := upsertCatalog(repoRoot, target.kind, target.dir, release, repository); err != nil {
-			item.Status = "failed"
-			item.Detail = "索引增补失败：" + err.Error()
-			result.Failed++
-			result.Items = append(result.Items, item)
-			continue
-		}
-		item.Status = "published"
-		result.Published++
-		result.Items = append(result.Items, item)
+	}
+	for _, target := range workflows {
+		result.take(run.single(target))
 	}
 	// 收尾回收历史版本：发布成功之后，本仓库名下超出保留窗口的旧版本就不再需要了。
 	// 干跑不碰远端，也就不做这一步（要看回收计划用 `prune -dry-run`）。
@@ -325,6 +309,271 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 		}
 	}
 	return result, nil
+}
+
+// take 把一条发布结果记进汇总。
+//
+// 计数由状态反推，而不是各条分支自己累加：分支多了之后，漏记一处就是
+// 「报了几条、实际几条」对不上，而且只在失败路径上对不上，最难发现。
+func (r *PublishResult) take(item PublishItem) {
+	switch item.Status {
+	case "published":
+		r.Published++
+	case "failed":
+		r.Failed++
+	}
+	r.Items = append(r.Items, item)
+}
+
+// splitTargets 把待发目标按「插件 → 技能 → 工作流」切成三段。
+//
+// 三段各自走不同的发布路径：插件与工作流一件一条 Release，技能整批发一条。
+// 组内保持传入次序（已按 ID 排定），报告因此与「这次打算发什么」一一对应。
+func splitTargets(targets []publishTarget) (plugins, skills, workflows []publishTarget) {
+	for _, target := range targets {
+		switch target.kind {
+		case distribution.KindPlugin:
+			plugins = append(plugins, target)
+		case distribution.KindWorkflow:
+			workflows = append(workflows, target)
+		default:
+			skills = append(skills, target)
+		}
+	}
+	return plugins, skills, workflows
+}
+
+// publishRun 是一次发布的运行上下文。
+//
+// 三个阶段用的是同一份路径、渠道与凭据，装进一个结构里传：每加一个阶段就要
+// 把十来个参数再抄一遍，早晚会出现某一段用了另一个目录里的制品。
+type publishRun struct {
+	repoRoot    string
+	repository  string
+	channel     string
+	distDir     string
+	planCatalog string
+	revision    string
+	keyID       string
+	signer      *rsa.PrivateKey
+	dryRun      bool
+	index       *catalog.Catalog
+}
+
+// single 发布一件「一件一条 Release」的扩展：插件与工作流走这条路。
+//
+// 任一步失败只把这一条判失败，后面的目标继续走：插件失败不该连带把工作流
+// 一起停掉，报告里逐条写清谁卡在哪一步，比整批失败更好排查。
+func (run publishRun) single(target publishTarget) PublishItem {
+	item := PublishItem{Extension: target.label(), ID: target.id, Version: target.version}
+	plan, err := releaseplan.Build(target.kind, target.dir, run.repository, run.channel, run.planCatalog)
+	if err != nil {
+		return item.failing("解析发布计划失败：" + err.Error())
+	}
+	plan.SourceCommit = run.revision
+	item.Tag = plan.Tag
+	item.Artifact = plan.ArtifactName
+	artifactPath := filepath.Join(run.distDir, plan.ArtifactName)
+	manifestPath := filepath.Join(run.distDir, plan.ManifestName)
+	if err := packageExtension(target, artifactPath); err != nil {
+		return item.failing("打包失败：" + err.Error())
+	}
+	if run.dryRun {
+		if err := recordPlanned(run.index, target, plan, artifactPath, run.repository, run.planCatalog); err != nil {
+			return item.failing("推演索引失败：" + err.Error())
+		}
+		item.Status = "dry-run"
+		return item
+	}
+	release, err := buildRelease(plan, artifactPath, manifestPath, run.keyID, run.signer)
+	if err != nil {
+		return item.failing("签发失败：" + err.Error())
+	}
+	url, err := ensureRelease(run.repository, releaseSpec{
+		tag:    plan.Tag,
+		title:  fmt.Sprintf("%s %s", plan.ID, plan.Version),
+		notes:  singleNotes(plan, release),
+		target: release.SourceCommit,
+		assets: []string{artifactPath, manifestPath},
+	})
+	if err != nil {
+		return item.failing("发布 Release 失败：" + err.Error())
+	}
+	item.ReleaseURL = url
+	if err := upsertCatalog(run.repoRoot, target.kind, target.dir, release, run.repository); err != nil {
+		return item.failing("索引增补失败：" + err.Error())
+	}
+	item.Status = "published"
+	return item
+}
+
+// batch 把一件件技能发成一条批次 Release，并逐件增补市场索引。
+//
+// 技能占本仓库扩展的绝大多数（ECC 技能库是 268 件），逐件发一条 Release 会让
+// 仓库首页退化成版本流水账，回收也只能落在发布后面。整批发之后，一次同步在
+// GitHub 上就是一条记录，成员身份仍然写在各自的制品名与发布清单里。
+//
+// 打包与签发仍然逐件做：批次只是容器，不是「拿来一张大表糊过去」——每件技能
+// 的摘要、签名与发布清单必须各自独立、各自可校验。
+func (run publishRun) batch(lock Lock, skills []publishTarget) ([]PublishItem, *PublishBatch) {
+	items := make([]PublishItem, len(skills))
+	ready := make([]readyTarget, 0, len(skills))
+	for position, target := range skills {
+		items[position] = PublishItem{Extension: target.label(), ID: target.id, Version: target.version}
+		plan, err := releaseplan.Build(target.kind, target.dir, run.repository, run.channel, run.planCatalog)
+		if err != nil {
+			items[position] = items[position].failing("解析发布计划失败：" + err.Error())
+			continue
+		}
+		plan.SourceCommit = run.revision
+		artifactPath := filepath.Join(run.distDir, plan.ArtifactName)
+		manifestPath := filepath.Join(run.distDir, plan.ManifestName)
+		if err := packageExtension(target, artifactPath); err != nil {
+			items[position] = items[position].failing("打包失败：" + err.Error())
+			continue
+		}
+		ready = append(ready, readyTarget{
+			position: position, target: target,
+			artifactPath: artifactPath, manifestPath: manifestPath, plan: plan,
+		})
+	}
+	if len(ready) == 0 {
+		return items, nil
+	}
+	version, err := batchVersion(lock, ready)
+	if err != nil {
+		return failRemaining(items, ready, "批次版本推导失败："+err.Error()), nil
+	}
+	tag, err := distribution.BatchTag(version)
+	if err != nil {
+		return failRemaining(items, ready, "批次 tag 不合法："+err.Error()), nil
+	}
+
+	// 成员清单与成员发布清单照旧逐件生成，只有「挂在哪条 Release 上」变成批次
+	// tag：索引里的下载地址随之指向批次资产，安装器按同一条 tag 取清单。
+	signed := make([]readyTarget, 0, len(ready))
+	members := make([]distribution.BatchMember, 0, len(ready))
+	for _, member := range ready {
+		plan := member.plan
+		plan.Tag = tag
+		item := items[member.position]
+		item.Tag = tag
+		item.Artifact = plan.ArtifactName
+		release, err := run.memberRelease(plan, member)
+		if err != nil {
+			items[member.position] = item.failing("签发失败：" + err.Error())
+			continue
+		}
+		member.release = release
+		signed = append(signed, member)
+		members = append(members, distribution.BatchMember{
+			Kind: member.target.kind, ID: member.target.id, Version: member.target.version,
+			Manifest: plan.ManifestName, Artifact: release.Artifact,
+		})
+		items[member.position] = item
+	}
+	if len(signed) == 0 {
+		return items, nil
+	}
+
+	summary := PublishBatch{Tag: tag, Version: version, Members: len(signed)}
+	manifest := batchManifest(tag, version, run.repository, run.channel, run.revision,
+		batchUpstream(lock), members, time.Now())
+	if err := manifest.Validate(); err != nil {
+		return failRemaining(items, signed, "批次清单不自洽："+err.Error()), nil
+	}
+	manifestPath := filepath.Join(run.distDir, manifest.ManifestName())
+	if err := distribution.WriteBatchManifest(manifestPath, manifest); err != nil {
+		return failRemaining(items, signed, "写批次清单失败："+err.Error()), nil
+	}
+	if run.dryRun {
+		for _, member := range signed {
+			plan := member.plan
+			plan.Tag = tag
+			if err := recordPlanned(run.index, member.target, plan, member.artifactPath, run.repository, run.planCatalog); err != nil {
+				items[member.position] = items[member.position].failing("推演索引失败：" + err.Error())
+				continue
+			}
+			items[member.position].Status = "dry-run"
+		}
+		return items, &summary
+	}
+
+	assets := make([]string, 0, len(signed)*2+1)
+	for _, member := range signed {
+		assets = append(assets, member.artifactPath, member.manifestPath)
+	}
+	assets = append(assets, manifestPath)
+	url, err := ensureRelease(run.repository, releaseSpec{
+		tag:    tag,
+		title:  fmt.Sprintf("ECC 技能批次 %s（%d 件）", version, len(signed)),
+		notes:  batchNotes(version, lock, signed),
+		target: run.revision,
+		assets: assets,
+	})
+	if err != nil {
+		return failRemaining(items, signed, "发布批次 Release 失败："+err.Error()), nil
+	}
+	summary.URL = url
+	for _, member := range signed {
+		if err := upsertCatalog(run.repoRoot, member.target.kind, member.target.dir, member.release, run.repository); err != nil {
+			items[member.position] = items[member.position].failing("索引增补失败：" + err.Error())
+			continue
+		}
+		items[member.position].ReleaseURL = url
+		items[member.position].Status = "published"
+	}
+	return items, &summary
+}
+
+// memberRelease 生成一件成员技能的发布清单，并把清单落盘。
+//
+// 干跑不签名也不落盘：签名要私钥，而干跑的全部意义就是「不碰需要凭据的东西」。
+// 清单本身照旧生成，后面的依赖 pin 与摘要比对走的是同一份事实。
+func (run publishRun) memberRelease(plan releaseplan.Plan, member readyTarget) (distribution.ReleaseManifest, error) {
+	data, err := os.ReadFile(member.artifactPath)
+	if err != nil {
+		return distribution.ReleaseManifest{}, err
+	}
+	digest := sha256.Sum256(data)
+	artifact := distribution.ReleaseArtifact{
+		Name:      plan.ArtifactName,
+		SizeBytes: int64(len(data)),
+		SHA256:    hex.EncodeToString(digest[:]),
+	}
+	if run.dryRun {
+		return plan.Manifest(artifact, nil), nil
+	}
+	signature, err := signArtifact(member.artifactPath, plan.ArtifactName, data, run.keyID, run.signer)
+	if err != nil {
+		return distribution.ReleaseManifest{}, err
+	}
+	release := plan.Manifest(artifact, &signature)
+	if err := release.Validate(); err != nil {
+		return distribution.ReleaseManifest{}, err
+	}
+	if err := distribution.WriteReleaseManifest(member.manifestPath, release); err != nil {
+		return distribution.ReleaseManifest{}, err
+	}
+	return release, nil
+}
+
+// failing 把一条汇报标成失败。
+func (item PublishItem) failing(detail string) PublishItem {
+	item.Status = "failed"
+	item.Detail = detail
+	return item
+}
+
+// failRemaining 把整批成员一起判失败：批次是一条 Release，挂不上去就是全都没发出去。
+//
+// 一件件报同一句原因，是因为用户要能一眼看出「这批里哪几件没上去」；报一条
+// 「批次失败」再把成员藏起来，市场里少了几件就只能靠人翻索引找。
+func failRemaining(items []PublishItem, members []readyTarget, detail string) []PublishItem {
+	for _, member := range members {
+		items[member.position] = items[member.position].failing(detail)
+	}
+	return items
 }
 
 // pendingTargets 找出「本地已经有、索引里还缺、分发策略也允许发」的扩展。
@@ -739,11 +988,15 @@ func sortedDraftIDs(drafts map[int64]bool) []int64 {
 	return ids
 }
 
-// managedTag 从 tag 里取出「类型 + 扩展 ID」，并说明这是不是本仓库管得着的名字。
+// managedTag 从 tag 里取出归属键，并说明这是不是本仓库管得着的名字。
 //
-// tag 形如 plugin/com.mrbaoquan.ecc-skill-sync@1.0.3，剥掉 @ 后面的版本就是扩展
-// 的归属键。认不出来的（不是我们这三种类型、没有 @、@ 前是空的）一律不管。
+// 单件 tag 形如 plugin/com.mrbaoquan.ecc-skill-sync@1.0.3，剥掉 @ 后面的版本就是
+// 扩展的归属键；批次 tag 形如 batch/2.2.3，它不属于任何单个扩展，归属键就是它
+// 自己。认不出来的（不是我们这三种类型、没有 @、@ 前是空的）一律不管。
 func managedTag(tag string) (string, bool) {
+	if distribution.IsBatchTag(tag) {
+		return strings.TrimSpace(tag), true
+	}
 	at := strings.LastIndex(tag, "@")
 	if at <= 0 {
 		return "", false
@@ -766,16 +1019,16 @@ func managedTag(tag string) (string, bool) {
 // 为什么要跨 tag 扫，而不是只管「这次要发的那个 tag」：残留 Draft 是上一次发布
 // 卡在挂资产那一步留下的，正常情况下下次发同一个 tag 就顺手清掉了。但只要期间
 // 版本号被手工涨过（这次就真发生过），旧 tag 永远不会再被发一次，半成品就永久
-// 留在仓库里。清扫范围按 extensions.json 里的扩展 ID 精确圈定，不是「见到 Draft
-// 就删」——仓库里别人发的 Release 不在名单里，不会被碰。
-func staleDraftIDs(records []releaseRecord, managed map[string]bool) []int64 {
+// 留在仓库里。清扫范围按扩展清单与索引里记过的批次 tag 精确圈定，不是「见到
+// Draft 就删」——仓库里别人发的 Release 不在名单里，不会被碰。
+func staleDraftIDs(records []releaseRecord, managed, batches map[string]bool) []int64 {
 	drafts := map[int64]bool{}
 	for _, record := range records {
 		if !record.Draft {
 			continue
 		}
 		owner, ok := managedTag(record.Tag)
-		if !ok || !managed[owner] {
+		if !ok || (!managed[owner] && !batches[owner]) {
 			continue
 		}
 		drafts[record.ID] = true
@@ -797,23 +1050,53 @@ func managedOwners(extensions extensionsDocument) map[string]bool {
 	return owners
 }
 
+// managedBatchTags 列出索引里记过的批次 tag。
+//
+// 批次 tag 里没有扩展 ID，认它只能靠「本仓库自己发过」这件事，而发布过的批次
+// 都会以 release_tag 写进索引。没进过索引的批次 tag 不动：那可能是别人在同一个
+// 仓库里发的，删掉就是删别人的东西。
+func managedBatchTags(index *catalog.Catalog) map[string]bool {
+	tags := map[string]bool{}
+	if index == nil {
+		return tags
+	}
+	for _, entry := range index.AllEntries() {
+		if tag := catalogText(entry, "release_tag"); distribution.IsBatchTag(tag) {
+			tags[tag] = true
+		}
+	}
+	return tags
+}
+
 // sweepStaleDrafts 清掉仓库里本仓库名下的残留 Draft。
 //
 // 只在这里删，是因为走到这一步说明本次确实有东西要发；上游没变时整条链在
 // 前面就结束了，不会为了「顺便扫一下」去动网络。
-func sweepStaleDrafts(repository string, extensions extensionsDocument) ([]int64, error) {
+func sweepStaleDrafts(repository string, extensions extensionsDocument, batches map[string]bool) ([]int64, error) {
 	records, err := listReleases(repository)
 	if err != nil {
 		return nil, err
 	}
-	ids := staleDraftIDs(records, managedOwners(extensions))
+	ids := staleDraftIDs(records, managedOwners(extensions), batches)
 	if err := deleteDraftIDs(repository, ids); err != nil {
 		return nil, err
 	}
 	return ids, nil
 }
 
-// ensureRelease 让 tag 对应的 Release 真的带上制品与发布清单两个资产，并返回地址。
+// releaseSpec 是一条 Release 的建法：挂在哪、叫什么、说明写什么、带哪些资产。
+//
+// 批次把「一件制品加一份清单」变成了「一批制品加一批清单」，建 Release 的那几步
+// 因此只认资产清单，不再认那个固定搭配。资产按路径给，重名由调用方保证不出现。
+type releaseSpec struct {
+	tag    string
+	title  string
+	notes  string
+	target string
+	assets []string
+}
+
+// ensureRelease 让 tag 对应的 Release 真的带上全部资产，并返回地址。
 //
 // 凭据走 gh 自己的登录态，不经由 AI 上下文传递。
 //
@@ -823,16 +1106,13 @@ func sweepStaleDrafts(repository string, extensions extensionsDocument) ([]int64
 //     只传了一半」的中间态。这时候重跑若直接 create，只会撞到
 //     「a release with the same tag name already exists」，把本可自愈的中间态
 //     变成要人工清理的故障。
-//   - 索引里的 download_url 指向的正是这两个资产，资产没传全就写索引，等于把
+//   - 索引里的 download_url 指向的正是这些资产，资产没传全就写索引，等于把
 //     「装不上」挂到市场上。所以索引只在回读确认之后才更新。
 //   - Draft 也要一起接管：Draft 不占 tag，「同名 Draft + 同名正式发布」这种脏状态
 //     重跑时既不会报错也不会自愈，只会在仓库里越积越多。开始之前先把同 tag 上的
 //     Draft 清掉，正式发布才是这个 tag 上唯一说得清的那一条。
-func ensureRelease(repository, tag string, item PublishItem, artifactPath, manifestPath string, release distribution.ReleaseManifest) (string, error) {
-	wanted := []string{filepath.Base(artifactPath), filepath.Base(manifestPath)}
-	directory := filepath.Dir(artifactPath)
-
-	state, err := inspectRelease(repository, tag)
+func ensureRelease(repository string, spec releaseSpec) (string, error) {
+	state, err := inspectRelease(repository, spec.tag)
 	if err != nil {
 		return "", err
 	}
@@ -840,59 +1120,101 @@ func ensureRelease(repository, tag string, item PublishItem, artifactPath, manif
 		return "", err
 	}
 	if !state.Exists {
-		if _, err := runGH(releaseCreateArgs(repository, tag, item, artifactPath, manifestPath, release)...); err != nil {
+		if _, err := runGH(releaseCreateArgs(repository, spec)...); err != nil {
 			return "", err
 		}
-	} else if missing := missingAssets(state, wanted, directory); len(missing) > 0 {
-		args := append([]string{"release", "upload", tag, "--repo", repository, "--clobber"}, missing...)
-		if _, err := runGH(args...); err != nil {
+		// 刚建出来的 Release 上一个资产都没有，清单直接按「全都要传」算，
+		// 省掉一次把五百多个资产名拉回来的列表请求。
+		state = releaseAssetState{Exists: true, Assets: map[string]bool{}, Drafts: map[int64]bool{}}
+	}
+	if missing := missingAssets(state, spec.assets); len(missing) > 0 {
+		if err := uploadAssets(repository, spec.tag, missing); err != nil {
 			return "", err
 		}
 	}
 
-	verified, err := inspectRelease(repository, tag)
+	verified, err := inspectRelease(repository, spec.tag)
 	if err != nil {
 		return "", err
 	}
-	for _, name := range wanted {
+	for _, path := range spec.assets {
+		name := filepath.Base(path)
 		if !verified.Assets[name] {
-			return "", fmt.Errorf("Release %s 缺少资产 %s，索引暂不更新", tag, name)
+			return "", fmt.Errorf("Release %s 缺少资产 %s，索引暂不更新", spec.tag, name)
 		}
 	}
 	return verified.URL, nil
 }
 
 // missingAssets 列出这次要挂、但 Release 上还没有的资产路径。
-func missingAssets(state releaseAssetState, wanted []string, directory string) []string {
-	missing := make([]string, 0, len(wanted))
-	for _, name := range wanted {
+func missingAssets(state releaseAssetState, assets []string) []string {
+	missing := make([]string, 0, len(assets))
+	for _, path := range assets {
+		name := filepath.Base(path)
 		if !state.Assets[name] {
-			missing = append(missing, filepath.Join(directory, name))
+			missing = append(missing, path)
 		}
 	}
 	return missing
 }
 
 // releaseCreateArgs 拼出建 Release 的 gh 参数。
-func releaseCreateArgs(repository, tag string, item PublishItem, artifactPath, manifestPath string, release distribution.ReleaseManifest) []string {
-	notes := fmt.Sprintf("ECC 技能同步：%s %s\n\n上游提交：%s\n制品摘要：%s",
-		item.ID, item.Version, release.SourceCommit, release.Artifact.SHA256)
+//
+// 建 Release 这一步不挂资产，资产全部走 upload 分批挂上去。
+//
+// 一条批次 Release 的资产是五百多个（每件技能一件制品、一份发布清单，另加一份
+// 批次清单），全塞进命令行会撞上 Windows 32767 字符的上限——而那时制品已经
+// 打好包、签名已经做完，白跑一轮。分成两次调用没有副作用：Release 建出来到
+// 资产挂满之间，索引还没有指向它，市场里看不到这条半成品。
+func releaseCreateArgs(repository string, spec releaseSpec) []string {
 	args := []string{
-		"release", "create", tag,
-		artifactPath, manifestPath,
+		"release", "create", spec.tag,
 		"--repo", repository,
-		"--title", fmt.Sprintf("%s %s", item.ID, item.Version),
-		"--notes", notes,
+		"--title", spec.title,
+		"--notes", spec.notes,
 	}
 	// 必须显式指定 tag 落在哪个提交上。
 	//
 	// 不写 --target 时 gh 会按默认分支的当前 HEAD 建 tag，而这里的来源提交是
 	// 本地 HEAD：两者一旦不同（分支还没推），tag 就指到别人的提交上去了。
 	// 发布清单里的 source_commit 记的是本地 HEAD，两边必须钉成同一个。
-	if commit := strings.TrimSpace(release.SourceCommit); commit != "" {
+	if commit := strings.TrimSpace(spec.target); commit != "" {
 		args = append(args, "--target", commit)
 	}
 	return args
+}
+
+// releaseUploadChunk 是单次 gh release upload 最多带几个资产。
+//
+// 分批只为绕开命令行长度上限，不为省请求：判断「资产到齐没有」在回读那一步
+// 统一做，传了第几批不作数。
+const releaseUploadChunk = 40
+
+// uploadAssets 把资产分批挂到 Release 上，已存在同名资产的直接覆盖。
+//
+// 用 --clobber 而不是「跳过已存在」：上一次可能挂在了一半，覆盖是唯一能保证
+// 「这批资产和本地这一份字节一致」的做法，摘要校验随后会证实这一点。
+func uploadAssets(repository, tag string, assets []string) error {
+	for start := 0; start < len(assets); start += releaseUploadChunk {
+		end := start + releaseUploadChunk
+		if end > len(assets) {
+			end = len(assets)
+		}
+		args := append([]string{"release", "upload", tag, "--repo", repository, "--clobber"}, assets[start:end]...)
+		if _, err := runGH(args...); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// singleNotes 是单件 Release 的说明：来源提交与制品摘要。
+//
+// 只写这两个事实：说明是给人排查用的，版本号已经在标题里，上游是谁由发布清单
+// 说得更清楚，重复一遍只会让说明变长。
+func singleNotes(plan releaseplan.Plan, release distribution.ReleaseManifest) string {
+	return fmt.Sprintf("%s %s\n\n来源提交：%s\n制品摘要：%s",
+		plan.ID, plan.Version, release.SourceCommit, release.Artifact.SHA256)
 }
 
 // upsertCatalog 把这次发布写进市场索引。

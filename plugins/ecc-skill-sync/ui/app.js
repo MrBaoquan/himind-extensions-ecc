@@ -647,6 +647,12 @@
         (dryRun ? '预演：' : '已发布：') + int(publish.published) + ' 条',
         '待发 ' + int(publish.pending) + ' 条',
       ];
+      // 技能整批发一条 Release：「发了多少条」与「GitHub 上多了几条记录」是两个数，
+      // 少了这一句，发一次同步看起来就像往仓库里塞了几百条 Release。
+      const batches = Array.isArray(publish.batches) ? publish.batches : [];
+      if (batches.length > 0) {
+        parts.push('批次 Release ' + batches.length + ' 条');
+      }
       if (int(publish.excluded)) parts.push('按策略跳过 ' + int(publish.excluded) + ' 条');
       if (int(publish.failed)) parts.push('失败 ' + int(publish.failed) + ' 条');
       parts.push('跳过校对 ' + ((publish.held_for_metadata_review || []).length) + ' 条');

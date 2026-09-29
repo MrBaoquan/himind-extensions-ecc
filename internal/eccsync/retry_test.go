@@ -244,6 +244,8 @@ func TestManagedTagRecognizesOwnedNamespaces(t *testing.T) {
 		"workflow/com.mrbaoquan.workflow.ecc-skill-sync@1.0.5": "workflow/com.mrbaoquan.workflow.ecc-skill-sync",
 		"skill/com.mrbaoquan.ecc.skill.search-first@2.2.2":     "skill/com.mrbaoquan.ecc.skill.search-first",
 		"skill/com.mrbaoquan.ecc.skill.a@b@1.0.0":              "skill/com.mrbaoquan.ecc.skill.a@b",
+		// 批次 tag 不属于任何单个扩展，归属键就是 tag 自己。
+		"batch/2.2.3": "batch/2.2.3",
 	}
 	for tag, want := range cases {
 		got, ok := managedTag(tag)
@@ -287,7 +289,7 @@ func TestStaleDraftIDsOnlyTouchesManagedOwners(t *testing.T) {
 		// 本仓库名下、当前版本的半成品：要清（重跑时它会和正式那条撞车）。
 		{ID: 7, Tag: "workflow/com.mrbaoquan.workflow.ecc-skill-sync@1.0.5", Draft: true},
 	}
-	got := staleDraftIDs(records, managed)
+	got := staleDraftIDs(records, managed, map[string]bool{})
 	want := []int64{7, 398024431}
 	if len(got) != len(want) {
 		t.Fatalf("应清 %v，得到 %v", want, got)

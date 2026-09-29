@@ -24,7 +24,7 @@ func TestPlanSupersededKeepsNewestVersions(t *testing.T) {
 		releaseAt(5, "plugin/com.example.tool@1.0.9"),
 	}
 	owners := map[string]bool{"plugin/com.example.tool": true}
-	plan := planSuperseded(records, owners, map[string]int{distribution.KindPlugin: 2}, map[string]bool{})
+	plan := planSuperseded(records, supersedeScope{Owners: owners, Keep: map[string]int{distribution.KindPlugin: 2}})
 
 	got := []string{}
 	for _, item := range plan {
@@ -58,7 +58,10 @@ func TestPlanSupersededLeavesUnknownOwnersAlone(t *testing.T) {
 		releaseAt(6, "docs/2026-09"),
 	}
 	owners := map[string]bool{"plugin/com.example.tool": true}
-	plan := planSuperseded(records, owners, map[string]int{distribution.KindPlugin: 1, distribution.KindSkill: 1}, map[string]bool{})
+	plan := planSuperseded(records, supersedeScope{
+		Owners: owners,
+		Keep:   map[string]int{distribution.KindPlugin: 1, distribution.KindSkill: 1},
+	})
 	if len(plan) != 0 {
 		t.Fatalf("不该动任何东西，却打算回收 %v", plan)
 	}
@@ -72,7 +75,11 @@ func TestPlanSupersededNeverPrunesPinnedTags(t *testing.T) {
 	}
 	owners := map[string]bool{"plugin/com.example.tool": true}
 	pinned := map[string]bool{"plugin/com.example.tool@1.0.0": true}
-	plan := planSuperseded(records, owners, map[string]int{distribution.KindPlugin: 1}, pinned)
+	plan := planSuperseded(records, supersedeScope{
+		Owners:    owners,
+		Keep:      map[string]int{distribution.KindPlugin: 1},
+		Protected: pinned,
+	})
 
 	if len(plan) != 1 || plan[0].Tag != "plugin/com.example.tool@1.0.1" {
 		t.Fatalf("被工作流钉住的 1.0.0 必须留着，只回收 1.0.1，实际 %v", plan)
@@ -90,7 +97,7 @@ func TestPlanSupersededIgnoresDrafts(t *testing.T) {
 	owners := map[string]bool{"plugin/com.example.tool": true}
 	// 保留窗口按版本数算：半成品没有对外版本，不能占掉一个名额，
 	// 否则 1.0.1 的 Draft 会把窗口占满，把 1.0.0 留在仓库里、反而把 1.0.2 判成要回收。
-	plan := planSuperseded(records, owners, map[string]int{distribution.KindPlugin: 1}, map[string]bool{})
+	plan := planSuperseded(records, supersedeScope{Owners: owners, Keep: map[string]int{distribution.KindPlugin: 1}})
 	if len(plan) != 1 || plan[0].Tag != "plugin/com.example.tool@1.0.0" {
 		t.Fatalf("Draft 不参与保留窗口，实际回收 %v", plan)
 	}
@@ -100,7 +107,7 @@ func TestPlanSupersededKeepsAtLeastOneVersion(t *testing.T) {
 	records := []releaseRecord{releaseAt(1, "skill/com.example.only@1.0.0")}
 	owners := map[string]bool{"skill/com.example.only": true}
 	for _, keep := range []int{0, -1} {
-		plan := planSuperseded(records, owners, map[string]int{distribution.KindSkill: keep}, map[string]bool{})
+		plan := planSuperseded(records, supersedeScope{Owners: owners, Keep: map[string]int{distribution.KindSkill: keep}})
 		if len(plan) != 0 {
 			t.Fatalf("keep=%d 时唯一版本被回收了: %v", keep, plan)
 		}
@@ -119,6 +126,109 @@ func TestKeepForFallsBackToDefaults(t *testing.T) {
 	keep := retention.KeepMap()
 	if len(keep) != len(DefaultKeepVersions) {
 		t.Fatalf("KeepMap 必须覆盖全部扩展类型，实际 %v", keep)
+	}
+	if keep[BatchRetentionKey] != DefaultKeepVersions[BatchRetentionKey] {
+		t.Fatalf("批次必须有独立的保留窗口，实际 %v", keep)
+	}
+}
+
+// 批次按「批」保留，不拆成员。
+//
+// 一批对应一次同步，成员是好几百件技能：回收粒度落到成员身上，就会出现
+// 「这一批里有两件还要留」，而那不是一个能表达的诉求。
+func TestPlanSupersededKeepsNewestBatches(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "batch/2.2.1"),
+		releaseAt(2, "batch/2.2.2"),
+		releaseAt(3, "batch/2.2.3"),
+		// 乱序给进来：批次回收同样不能依赖远端返回的顺序。
+		releaseAt(4, "batch/2.2.10"),
+		releaseAt(5, "batch/2.2.9"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Batches: map[string]bool{
+			"batch/2.2.1": true, "batch/2.2.2": true, "batch/2.2.3": true,
+			"batch/2.2.9": true, "batch/2.2.10": true,
+		},
+		Keep: map[string]int{BatchRetentionKey: 2},
+	})
+	got := make([]string, 0, len(plan))
+	for _, item := range plan {
+		got = append(got, item.Tag)
+	}
+	want := []string{"batch/2.2.1", "batch/2.2.2", "batch/2.2.3"}
+	if len(got) != len(want) {
+		t.Fatalf("要回收 %v，期望 %v", got, want)
+	}
+	for index := range want {
+		if got[index] != want[index] {
+			t.Fatalf("第 %d 条是 %q，期望 %q", index, got[index], want[index])
+		}
+	}
+}
+
+// 没进过索引的批次 tag 不回收：认不出归属就说明它可能是别人在同一个仓库里发的。
+//
+// 批次 tag 里没有扩展 ID，唯一的归属凭据就是「本仓库自己发过、并记进了索引」。
+func TestPlanSupersededLeavesUnregisteredBatchesAlone(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "batch/2.2.1"),
+		releaseAt(2, "batch/2.2.2"),
+		releaseAt(3, "batch/2.2.3"),
+	}
+	// 索引里只记过 2.2.3：另外两条不是这条链发出来的。
+	plan := planSuperseded(records, supersedeScope{
+		Batches: map[string]bool{"batch/2.2.3": true},
+		Keep:    map[string]int{BatchRetentionKey: 1},
+	})
+	if len(plan) != 0 {
+		t.Fatalf("只有索引登记过的批次才归本仓库管，实际回收 %v", plan)
+	}
+}
+
+// 被依赖 pin 钉住的批次不回收：删掉它，已发布的工作流就指向一条不存在的 Release。
+func TestPlanSupersededNeverPrunesPinnedBatches(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "batch/2.2.1"),
+		releaseAt(2, "batch/2.2.2"),
+		releaseAt(3, "batch/2.2.3"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Batches: map[string]bool{"batch/2.2.1": true, "batch/2.2.2": true, "batch/2.2.3": true},
+		Keep:    map[string]int{BatchRetentionKey: 1},
+		// 工作流 pin 住的是最老那一批。
+		Protected: map[string]bool{"batch/2.2.1": true},
+	})
+	if len(plan) != 1 || plan[0].Tag != "batch/2.2.2" {
+		t.Fatalf("被钉住的 2.2.1 必须留着，只回收 2.2.2，实际 %v", plan)
+	}
+	if plan[0].Kind != BatchRetentionKey {
+		t.Fatalf("批次回收条目的类型应是 %s，实际 %s", BatchRetentionKey, plan[0].Kind)
+	}
+}
+
+// 批次与单件扩展在同一份记录里各自成组：批次不该被当成技能、也不该吃掉技能的窗口。
+func TestPlanSupersededSeparatesBatchesFromSkills(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "batch/2.2.1"),
+		releaseAt(2, "batch/2.2.2"),
+		releaseAt(3, "skill/com.example.alpha@2.2.1"),
+		releaseAt(4, "skill/com.example.alpha@2.2.2"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Owners:  map[string]bool{"skill/com.example.alpha": true},
+		Batches: map[string]bool{"batch/2.2.1": true, "batch/2.2.2": true},
+		Keep:    map[string]int{BatchRetentionKey: 1, distribution.KindSkill: 1},
+	})
+	got := map[string]bool{}
+	for _, item := range plan {
+		got[item.Tag] = true
+	}
+	if !got["batch/2.2.1"] || !got["skill/com.example.alpha@2.2.1"] {
+		t.Fatalf("批次与技能该各行其道，各留一版，实际回收 %v", plan)
+	}
+	if got["batch/2.2.2"] || got["skill/com.example.alpha@2.2.2"] {
+		t.Fatalf("最新的一批与最新的一版都不能回收，实际 %v", plan)
 	}
 }
 

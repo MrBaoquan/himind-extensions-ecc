@@ -2,8 +2,6 @@ package eccsync
 
 import (
 	"testing"
-
-	"github.com/MrBaoquan/himind-extensions/tooling/distribution"
 )
 
 // 建 Release 必须显式把 tag 钉在来源提交上。
@@ -13,14 +11,13 @@ import (
 // 「--target 必须在、必须等于来源提交」钉成契约。
 func TestReleaseCreateArgsPinsTagToSourceCommit(t *testing.T) {
 	const commit = "5881b2e0d9eb1cb8d762f24e6bdb1aa7d9de9f79"
-	args := releaseCreateArgs(
-		"MrBaoquan/himind-extensions-ecc",
-		"plugin/com.mrbaoquan.ecc-skill-sync@1.1.6",
-		PublishItem{ID: "com.mrbaoquan.ecc-skill-sync", Version: "1.1.6"},
-		"dist/artifact.hmpkg",
-		"dist/manifest.json",
-		distribution.ReleaseManifest{SourceCommit: commit},
-	)
+	args := releaseCreateArgs("MrBaoquan/himind-extensions-ecc", releaseSpec{
+		tag:    "plugin/com.mrbaoquan.ecc-skill-sync@1.1.6",
+		title:  "com.mrbaoquan.ecc-skill-sync 1.1.6",
+		notes:  "来源提交：" + commit,
+		target: commit,
+		assets: []string{"dist/artifact.hmpkg", "dist/manifest.json"},
+	})
 
 	if args[0] != "release" || args[1] != "create" {
 		t.Fatalf("应该建 Release：%v", args)
@@ -41,19 +38,25 @@ func TestReleaseCreateArgsPinsTagToSourceCommit(t *testing.T) {
 	if index+1 >= len(args) || args[index+1] != commit {
 		t.Fatalf("--target 必须指向来源提交 %s：%v", commit, args)
 	}
+	// 建 Release 只认 tag、标题、说明与 --target，资产一律走 upload。
+	// 这里顺带钉住资产不上命令行：一条批次 Release 有五百多个资产，全塞进参数
+	// 会撞 Windows 命令行长度的上限，而那时制品已经打好包、签名已经做完。
+	for _, arg := range args {
+		if arg == "dist/artifact.hmpkg" || arg == "dist/manifest.json" {
+			t.Fatalf("资产不该出现在建 Release 的参数里：%v", args)
+		}
+	}
 }
 
 // 来源提交读不到时不能拼出一个空的 --target：gh 会当场报参数错，
 // 而那时制品已经打包、签名已经做完，白跑一轮。
 func TestReleaseCreateArgsOmitsTargetWithoutSourceCommit(t *testing.T) {
-	args := releaseCreateArgs(
-		"MrBaoquan/himind-extensions-ecc",
-		"plugin/com.mrbaoquan.ecc-skill-sync@1.1.6",
-		PublishItem{ID: "com.mrbaoquan.ecc-skill-sync", Version: "1.1.6"},
-		"dist/artifact.hmpkg",
-		"dist/manifest.json",
-		distribution.ReleaseManifest{},
-	)
+	args := releaseCreateArgs("MrBaoquan/himind-extensions-ecc", releaseSpec{
+		tag:    "plugin/com.mrbaoquan.ecc-skill-sync@1.1.6",
+		title:  "com.mrbaoquan.ecc-skill-sync 1.1.6",
+		notes:  "无来源提交",
+		assets: []string{"dist/artifact.hmpkg", "dist/manifest.json"},
+	})
 	for _, arg := range args {
 		if arg == "--target" {
 			t.Fatalf("没有来源提交时不该带 --target：%v", args)
