@@ -189,6 +189,19 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	if len(targets) == 0 {
 		return result, nil
 	}
+	// 真发布前先确认这份提交已经在远端。
+	//
+	// Release 的 tag 会被 --target 钉在 SourceCommit 上，而 SourceCommit 就是
+	// 本地 HEAD：HEAD 没推到远端，tag 就只能落在一个远端认得的旧提交上，
+	// 制品资产照样是对的，只有「checkout tag 拿到的源码」跟制品对不上号，
+	// 全程没有任何一步会报错（1.1.1~1.1.5 就是这么错的）。
+	// 干跑不写 tag，也就不拦，免得离线推演被迫先连一次网。
+	revision := repoRevision(repoRoot)
+	if !options.DryRun {
+		if err := ensureRevisionOnRemote(repository, revision); err != nil {
+			return result, err
+		}
+	}
 	// 有东西要发，顺便把历史遗留的半成品清掉：残留 Draft 会在重跑时和正式
 	// Release 撞成两条同 tag 记录，越积越难查。
 	cleaned, err := sweepStaleDrafts(repository, extensions)
@@ -237,7 +250,7 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 			result.Items = append(result.Items, item)
 			continue
 		}
-		plan.SourceCommit = repoRevision(repoRoot)
+		plan.SourceCommit = revision
 		item.Tag = plan.Tag
 		item.Artifact = plan.ArtifactName
 		artifactPath := filepath.Join(distDir, plan.ArtifactName)
@@ -843,13 +856,22 @@ func missingAssets(state releaseAssetState, wanted []string, directory string) [
 func releaseCreateArgs(repository, tag string, item PublishItem, artifactPath, manifestPath string, release distribution.ReleaseManifest) []string {
 	notes := fmt.Sprintf("ECC 技能同步：%s %s\n\n上游提交：%s\n制品摘要：%s",
 		item.ID, item.Version, release.SourceCommit, release.Artifact.SHA256)
-	return []string{
+	args := []string{
 		"release", "create", tag,
 		artifactPath, manifestPath,
 		"--repo", repository,
 		"--title", fmt.Sprintf("%s %s", item.ID, item.Version),
 		"--notes", notes,
 	}
+	// 必须显式指定 tag 落在哪个提交上。
+	//
+	// 不写 --target 时 gh 会按默认分支的当前 HEAD 建 tag，而这里的来源提交是
+	// 本地 HEAD：两者一旦不同（分支还没推），tag 就指到别人的提交上去了。
+	// 发布清单里的 source_commit 记的是本地 HEAD，两边必须钉成同一个。
+	if commit := strings.TrimSpace(release.SourceCommit); commit != "" {
+		args = append(args, "--target", commit)
+	}
+	return args
 }
 
 // upsertCatalog 把这次发布写进市场索引。
@@ -890,6 +912,55 @@ func repoRevision(repoRoot string) string {
 		return ""
 	}
 	return strings.TrimSpace(string(output))
+}
+
+// ensureRevisionOnRemote 确认 revision 已经在发布目标仓库里。
+//
+// 拦在这里而不是靠 gh 报错，是因为 gh 那一步真的会成功：它会把 tag 建到默认
+// 分支的 HEAD 上，于是「这次发布」看起来一切正常，只有回头 checkout tag 才
+// 发现源码是旧的。这种错没有第二步会兜住，只能在发布前把目标钉死。
+//
+// 问发布目标仓库本身，而不是本地 origin：本地远端引用可能过期，发布仓库也能
+// 被 --repository 覆盖，谁被写进 tag 就该由谁说了算。
+func ensureRevisionOnRemote(repository, revision string) error {
+	revision = strings.TrimSpace(revision)
+	if revision == "" {
+		return errors.New("读不到当前提交，发布中止：tag 需要一个明确的提交目标")
+	}
+	_, err := runGH("api", fmt.Sprintf("repos/%s/commits/%s", repository, revision), "--jq", ".sha")
+	if err == nil {
+		return nil
+	}
+	if revisionMissing(err.Error()) {
+		return fmt.Errorf("当前提交 %s 还没推到 %s，发布中止：先推送分支，再让 tag 指向它",
+			shortRevision(revision), repository)
+	}
+	// 限流、网络抖动之类只是这次问不出来，不该当成「没推」硬停：能不能建
+	// Release 由 gh 那一步断言，这里多拦一次只会误伤本来能发的场景。
+	return nil
+}
+
+// revisionMissing 判断 gh 的报错是不是「远端不认识这个提交」。
+//
+// 只有这一句决定硬停：远端不认识提交，意味着 tag 将来只能落到别的提交上，
+// 必须拦住；其余（限流、网络）只是问不出来，交给后面的步骤去报。
+//
+// 两种说法都要认。查提交接口对「没有这个 SHA」回的是 422 加一句
+// `No commit found for SHA`（不是 404），别的入口才会是 404 Not Found——
+// 只认 404 的话这道闸门等于没装，实测就是这么漏过去的。
+func revisionMissing(message string) bool {
+	lower := strings.ToLower(message)
+	return strings.Contains(lower, "no commit found for sha") ||
+		strings.Contains(lower, "not found") ||
+		strings.Contains(lower, "http 404")
+}
+
+// shortRevision 把提交号截成短写法，用于给人看的报错。
+func shortRevision(revision string) string {
+	if len(revision) > 12 {
+		return revision[:12]
+	}
+	return revision
 }
 
 // readExtensions 读仓库的扩展清单。
