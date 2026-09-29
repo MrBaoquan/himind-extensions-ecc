@@ -649,28 +649,44 @@ func pruneSkills(repoRoot string, kept map[string]bool, lock Lock) error {
 	return nil
 }
 
-var versionPattern = regexp.MustCompile(`^(\d+)\.(\d+)`)
+var versionPattern = regexp.MustCompile(`^(\d+)\.(\d+)(?:\.(\d+))?`)
 
-// versionCore 取上游版本的前两段，第三段留给同步序号。
+// versionNumbers 取上游版本的前三段，缺一段按 0 算。
 //
-// 制品版本必须是纯 X.Y.Z：Agent 的版本比较只看前三段数字，
-// 带 `+sha` 之类的后缀会让「同一个扩展的两个版本」永远相等，自动更新失效。
+// 认的是上游 package.json 里的版本，不是它的 Release tag：两者不是一回事
+// （tag 停在 v2.2.1 时，package.json 已经写着 2.2.2），拿 tag 归类会整整落后一版。
 // 上游喜欢写 `v2.2.2`，前缀 v 要在进入正则前剥掉。
-func versionCore(upstreamVersion string) (int, int) {
+func versionNumbers(upstreamVersion string) (int, int, int) {
 	trimmed := strings.TrimSpace(upstreamVersion)
 	trimmed = strings.TrimPrefix(strings.TrimPrefix(trimmed, "v"), "V")
 	match := versionPattern.FindStringSubmatch(trimmed)
 	if match == nil {
-		return 0, 0
+		return 0, 0, 0
 	}
 	major, err := strconv.Atoi(match[1])
 	if err != nil {
-		return 0, 0
+		return 0, 0, 0
 	}
 	minor, err := strconv.Atoi(match[2])
 	if err != nil {
-		return 0, 0
+		return 0, 0, 0
 	}
+	patch := 0
+	if match[3] != "" {
+		patch, err = strconv.Atoi(match[3])
+		if err != nil {
+			return major, minor, 0
+		}
+	}
+	return major, minor, patch
+}
+
+// versionCore 取上游版本的前两段，第三段留给技能制品的同步序号。
+//
+// 制品版本必须是纯 X.Y.Z：Agent 的版本比较只看前三段数字，
+// 带 `+sha` 之类的后缀会让「同一个扩展的两个版本」永远相等，自动更新失效。
+func versionCore(upstreamVersion string) (int, int) {
+	major, minor, _ := versionNumbers(upstreamVersion)
 	return major, minor
 }
 

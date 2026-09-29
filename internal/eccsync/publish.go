@@ -440,7 +440,7 @@ func (run publishRun) batch(lock Lock, skills []publishTarget) ([]PublishItem, *
 	if len(ready) == 0 {
 		return items, nil
 	}
-	version, err := batchVersion(lock, ready)
+	version, err := batchVersion(lock)
 	if err != nil {
 		return failRemaining(items, ready, "批次版本推导失败："+err.Error()), nil
 	}
@@ -505,8 +505,10 @@ func (run publishRun) batch(lock Lock, skills []publishTarget) ([]PublishItem, *
 	}
 	assets = append(assets, manifestPath)
 	url, err := ensureRelease(run.repository, releaseSpec{
-		tag:    tag,
-		title:  fmt.Sprintf("ECC 技能批次 %s（%d 件）", version, len(signed)),
+		tag: tag,
+		// 标题以上游版本打头：Release 列表是用户翻「这批对应上游哪一版」的地方，
+		// 批次号写在 tag 里，标题再重复一遍只会挤掉真正有信息量的部分。
+		title:  fmt.Sprintf("ECC %s 技能批次（%s，%d 件）", lock.Upstream.Version, batchSyncLabel(lock), len(signed)),
 		notes:  batchNotes(version, lock, signed),
 		target: run.revision,
 		assets: assets,
@@ -991,7 +993,7 @@ func sortedDraftIDs(drafts map[int64]bool) []int64 {
 // managedTag 从 tag 里取出归属键，并说明这是不是本仓库管得着的名字。
 //
 // 单件 tag 形如 plugin/com.mrbaoquan.ecc-skill-sync@1.0.3，剥掉 @ 后面的版本就是
-// 扩展的归属键；批次 tag 形如 batch/2.2.3，它不属于任何单个扩展，归属键就是它
+// 扩展的归属键；批次 tag 形如 batch/2.2.2.3，它不属于任何单个扩展，归属键就是它
 // 自己。认不出来的（不是我们这三种类型、没有 @、@ 前是空的）一律不管。
 func managedTag(tag string) (string, bool) {
 	if distribution.IsBatchTag(tag) {

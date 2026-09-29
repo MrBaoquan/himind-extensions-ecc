@@ -27,16 +27,21 @@ type readyTarget struct {
 	release distribution.ReleaseManifest
 }
 
-// batchVersion 推出这一批的版本号。
+// batchVersion 推出这一批的版本号：上游版本三段 + 本仓库同步序号。
 //
-// 前两段直接取上游 package.json，第三段是同步序号。上游按自己的节奏发版，我们
-// 按周对齐，同一个上游版本会被同步很多次（2.2.2 已经同步过三轮），所以上游的
-// Release tag 不能拿来当批次名：同一版本第二次同步就没有名字可用了。带上同步
-// 序号，批次名才唯一，上游版本与提交则写进批次清单留档。
+// 归类的主轴是上游版本——Release 列表里先看「对应上游哪一版」，再看这是本仓库第
+// 几次同步。前两段取上游 package.json 的 major.minor，第三段是它的 patch、第四段
+// 是同步序号，`batch/2.2.2.3` 就是「上游 2.2.2 的第 3 次同步」。
 //
-// 成员版本高于序号推出来的版本时取成员版本：批次号必须盖得住它装的东西。
-func batchVersion(lock Lock, members []readyTarget) (string, error) {
-	major, minor := versionCore(lock.Upstream.Version)
+// 只拿上游版本当批次名不行：上游按自己的节奏发版、同步按周跑，同一个上游版本会被
+// 同步很多轮（2.2.2 已经同步过三轮），第二轮起 tag 就没名字可用。上游的 Release
+// tag 更不能直接用，它比 package.json 的版本落后一档，且同样一轮一个。
+//
+// 批次号只负责在批次之间排序（回收按它挑保留窗口），不负责盖住成员版本：成员版本
+// 走的是另一套推导（上游 major.minor + 同步序号），两者不共享序数，硬取大值只会
+// 让批次名在不同轮次里换格式。
+func batchVersion(lock Lock) (string, error) {
+	major, minor, patch := versionNumbers(lock.Upstream.Version)
 	if major == 0 && minor == 0 {
 		return "", fmt.Errorf("从上游版本 %q 推不出批次版本", lock.Upstream.Version)
 	}
@@ -44,13 +49,19 @@ func batchVersion(lock Lock, members []readyTarget) (string, error) {
 	if sequence < 1 {
 		sequence = 1
 	}
-	version := fmt.Sprintf("%d.%d.%d", major, minor, sequence)
-	for _, member := range members {
-		if catalog.CompareVersions(member.target.version, version) > 0 {
-			version = member.target.version
-		}
+	return fmt.Sprintf("%d.%d.%d.%d", major, minor, patch, sequence), nil
+}
+
+// batchSyncLabel 说明这是上游某一版的第几次同步。
+//
+// 序号为 0 的老锁文件按下限 1 算：批次名一旦落下去就是永久的，宁可少算一次，
+// 也不能推出一条 `第 0 次同步`。
+func batchSyncLabel(lock Lock) string {
+	sequence := lock.Sync.Sequence
+	if sequence < 1 {
+		sequence = 1
 	}
-	return version, nil
+	return fmt.Sprintf("本仓第 %d 次同步", sequence)
 }
 
 // batchUpstream 摘出这批的上游事实，写进批次清单留档。
@@ -70,11 +81,15 @@ func batchUpstream(lock Lock) distribution.BatchUpstream {
 
 // batchNotes 写批次 Release 的说明。
 //
+// 上游版本与同步序号都要写全：同一上游版本会被同步很多轮，只写「2.2.2」分不出
+// 这批是第几次。
+//
 // 技能版本是逐件推出来的：上游这一轮动了 266 件，另外两件还停在老内容上。说明里
 // 因此要给出覆盖到的版本区间，否则「这批是 2.2.3」就是一句不准的话。
 func batchNotes(version string, lock Lock, members []readyTarget) string {
 	low, high := versionSpan(members)
-	notes := fmt.Sprintf("ECC 技能批次 %s：%d 件技能", version, len(members))
+	notes := fmt.Sprintf("批次 %s（上游 %s，%s）：%d 件技能",
+		version, lock.Upstream.Version, batchSyncLabel(lock), len(members))
 	if low != "" && high != "" && low != high {
 		notes += fmt.Sprintf("，版本覆盖 %s 到 %s", low, high)
 	}
