@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用协议做依赖注入，把文件系统、网络与外部接口替换成可控实现，让 Swift 代码可测。当 Swift 代码要测试且需替换外部依赖时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/swift-protocol-di-testing",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

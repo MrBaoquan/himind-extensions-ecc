@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "让产品、架构、开发、测试四种角色在同一会话里就同一问题各自发言。当要设计功能、评审提案或启动新项目、需要多视角时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/dev-team",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

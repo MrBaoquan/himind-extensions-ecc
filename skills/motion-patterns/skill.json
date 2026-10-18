@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "React 与 Next.js 的成品动效模式：按钮、弹窗、提示、列表错落、页面转场、退场与滚动。当要给具体组件加动画时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/motion-patterns",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

@@ -1,18 +1,18 @@
 {
-  "id": "com.mrbaoquan.ecc.skill.frontend-design-direction",
-  "name": "前端设计方向",
+  "id": "com.mrbaoquan.ecc.skill.i18n-sync",
+  "name": "I18n Sync",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.4",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "为生产级界面确定设计方向。当要建或改网站、看板、应用、组件与落地页，需要更强的产品化设计判断时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "description": "Translate and synchronize application JSON locale files using source-key usage, project terminology, and focused…",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -26,8 +26,8 @@
   ],
   "upstream": {
     "repository": "affaan-m/ECC",
-    "path": "skills/frontend-design-direction",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "path": "skills/i18n-sync",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

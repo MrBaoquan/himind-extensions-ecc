@@ -35,8 +35,11 @@ Over many sessions of "ship and forget," the human hasn't grown. This hook enfor
 
 ## Install
 
+From the ECC repository root:
+
 ```bash
-cp quality-gate.py ~/.himind/scripts/
+mkdir -p ~/.himind/scripts
+cp skills/delivery-gate/hooks/quality-gate.py ~/.himind/scripts/
 ```
 
 Add to `~/.himind/settings.json`:

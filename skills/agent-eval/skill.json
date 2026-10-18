@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用自定义任务横向对比编码 agent 的通过率、成本、耗时与稳定性。当要在几个 agent 之间选型，或想用数据而非印象评估某次调整时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/agent-eval",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

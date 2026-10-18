@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "给 agent 起草的对外消息加一道人工批准契约：内部备案通知、草稿哈希、按轮次记录的批准决定、可留存的投递回执，以及起草前的基线闸门。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -29,7 +29,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/operator-approval-loop",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

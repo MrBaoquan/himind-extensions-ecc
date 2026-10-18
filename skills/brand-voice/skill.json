@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "从真实文章、公告、文档或站点文案里提炼专属写作风格，供内容、外联与社媒复用。当要让文字听起来像你而不是 AI 味时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -28,7 +28,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/brand-voice",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

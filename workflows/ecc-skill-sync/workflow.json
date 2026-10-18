@@ -44,7 +44,7 @@
     "ecc.sync.generate",
     "ecc.sync.gate",
     "ecc.sync.publish",
-    "ecc.sync.review_queue"
+    "ecc.sync.review-queue"
   ],
   "dependencies": {
     "skills": [],
@@ -148,7 +148,7 @@
       "id": "E-S-REVIEW",
       "title": "报出待校对技能",
       "kind": "capability",
-      "capability_id": "ecc.sync.review_queue",
+      "capability_id": "ecc.sync.review-queue",
       "execution_mode": "sync",
       "risk_level": "read_only",
       "depends_on": ["E-S-PUBLISH"],

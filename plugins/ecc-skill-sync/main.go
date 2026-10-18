@@ -67,7 +67,7 @@ func handle(request jsonrpc.Request) (any, *jsonrpc.Error) {
 		return nil, rpcError
 	}
 	switch request.Method {
-	case "ecc.sync.repo_hint":
+	case "ecc.sync.repo-hint":
 		return repoHint(in)
 	case "ecc.sync.probe":
 		repoRoot, rpcError := resolveRepo(in)
@@ -106,11 +106,11 @@ func handle(request jsonrpc.Request) (any, *jsonrpc.Error) {
 		return map[string]any{"ok": value.OK, "gate": value}, nil
 	case "ecc.sync.publish":
 		return publish(in)
-	case "ecc.sync.review_queue":
+	case "ecc.sync.review-queue":
 		return reviewQueue(in)
 	case "ecc.sync.distribution":
 		return distribution(in)
-	case "ecc.sync.dispatch_policy_save":
+	case "ecc.sync.dispatch-policy-save":
 		return saveDispatchPolicy(in)
 	default:
 		return nil, jsonrpc.InvalidParams("unsupported ecc sync capability: " + request.Method)

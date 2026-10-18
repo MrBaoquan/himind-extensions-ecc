@@ -2,7 +2,7 @@
 name: inventory-demand-planning
 description: Codified demand planning expertise for multi-location retailers: demand forecasting method selection, ABC/XYZ segmentation, safety stock and reorder-point…
 license: Apache-2.0
-homepage: https://github.com/affaan-m/everything-claude-code
+homepage: https://github.com/affaan-m/ECC
 metadata:
   version: 1.0.0
   origin: ECC

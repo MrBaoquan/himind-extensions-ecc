@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "在 iOS 上使用 Apple 端侧大模型框架：文本生成、结构化生成、工具调用与流式输出。当要在 iOS 应用里加端侧模型能力时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/foundation-models-on-device",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

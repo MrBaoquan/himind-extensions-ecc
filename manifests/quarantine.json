@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-28T05:10:19Z",
-  "upstream_commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+  "generated_at": "2026-10-17T13:13:36Z",
+  "upstream_commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
   "entries": [
     {
       "slug": "agent-self-evaluation",
@@ -15,6 +15,10 @@
       "reason": "策略排除：上游的宿主操作系统壳层，HiMind 自己就是宿主，搬过来只会互相打架"
     },
     {
+      "slug": "change-impact",
+      "reason": "不在任何已映射的上游模块里，无法定分类"
+    },
+    {
       "slug": "ck",
       "reason": "策略排除：上游的会话上下文命令行，依赖上游脚本运行时"
     },
@@ -25,6 +29,10 @@
     {
       "slug": "configure-ecc",
       "reason": "策略排除：配置上游安装器，不是可复用的工作方法"
+    },
+    {
+      "slug": "context-and-decisions",
+      "reason": "不在任何已映射的上游模块里，无法定分类"
     },
     {
       "slug": "continuous-learning",
@@ -42,8 +50,23 @@
       ]
     },
     {
+      "slug": "docs-governance",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/audit-docs.py",
+        "scripts/markdown_links.py"
+      ]
+    },
+    {
       "slug": "ecc-guide",
       "reason": "策略排除：介绍上游技能库自身的用法，属于元内容"
+    },
+    {
+      "slug": "frontend-design-direction",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/check-evidence.js"
+      ]
     },
     {
       "slug": "frontend-slides",
@@ -74,6 +97,10 @@
       "files": [
         "scripts/build-agreement.js"
       ]
+    },
+    {
+      "slug": "module-regression",
+      "reason": "不在任何已映射的上游模块里，无法定分类"
     },
     {
       "slug": "openclaw-persona-forge",
@@ -113,6 +140,13 @@
     {
       "slug": "skill-stocktake",
       "reason": "策略排除：盘点上游技能库自身，属于元内容"
+    },
+    {
+      "slug": "story-lifecycle",
+      "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
+      "files": [
+        "scripts/ledger.js"
+      ]
     },
     {
       "slug": "strategic-compact",
@@ -207,6 +241,10 @@
       "files": [
         "scripts/open-terminal.js"
       ]
+    },
+    {
+      "slug": "test-collaboration",
+      "reason": "不在任何已映射的上游模块里，无法定分类"
     },
     {
       "slug": "unified-memory",

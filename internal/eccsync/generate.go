@@ -12,6 +12,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/MrBaoquan/himind-extensions/tooling/catalog"
 )
 
 // 目录与文件名约定，和 himind-repo-check 保持一致。
@@ -378,14 +380,15 @@ type extensionEntry struct {
 }
 
 type extensionsDocument struct {
-	SchemaVersion              int              `json:"schema_version"`
-	Repository                 string           `json:"repository"`
-	DistributionID             string           `json:"distribution_id"`
-	Channel                    string           `json:"channel"`
-	CatalogID                  string           `json:"catalog_id"`
-	DefaultDistributionTargets []string         `json:"default_distribution_targets"`
-	DefaultBranch              string           `json:"default_branch"`
-	Extensions                 []extensionEntry `json:"extensions"`
+	SchemaVersion              int                   `json:"schema_version"`
+	Repository                 string                `json:"repository"`
+	DistributionID             string                `json:"distribution_id"`
+	Channel                    string                `json:"channel"`
+	CatalogID                  string                `json:"catalog_id"`
+	DefaultDistributionTargets []string              `json:"default_distribution_targets"`
+	DefaultBranch              string                `json:"default_branch"`
+	Extensions                 []extensionEntry      `json:"extensions"`
+	FeaturePacks               []catalog.FeaturePack `json:"feature_packs"`
 }
 
 func newExtensions(skills []extensionEntry) extensionsDocument {
@@ -403,6 +406,12 @@ func newExtensions(skills []extensionEntry) extensionsDocument {
 		extensionEntry{Type: "workflow", ID: workflowID, Path: "workflows/ecc-skill-sync"},
 	)
 	document.Extensions = append(document.Extensions, skills...)
+	document.FeaturePacks = []catalog.FeaturePack{{
+		ID:        "com.mrbaoquan.ecc.feature.sync",
+		Name:      "ECC 技能同步",
+		PluginIDs: []string{pluginID},
+		SkillIDs:  []string{},
+	}}
 	return document
 }
 
@@ -694,27 +703,114 @@ func versionCore(upstreamVersion string) (int, int) {
 // 索引是派生物，这里只在缺失时补一个空壳，条目由发布步骤写入。
 func ensureCatalog(repoRoot string) error {
 	path := filepath.Join(repoRoot, filepath.FromSlash(CatalogFile))
-	if _, err := os.Stat(path); err == nil {
-		return nil
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		document := map[string]any{
+			"schema_version":  1,
+			"source_id":       "",
+			"distribution_id": "mrbaoquan/himind-extensions-ecc",
+			"channel":         "beta",
+			"catalog_id":      "public",
+			"generation":      "",
+			"plugins":         []any{},
+			"skills":          []any{},
+			"workflows":       []any{},
+			"feature_packs": []map[string]any{{
+				"id":         "com.mrbaoquan.ecc.feature.sync",
+				"name":       "ECC 技能同步",
+				"plugin_ids": []string{pluginID},
+				"skill_ids":  []string{},
+			}},
+		}
+		return writeJSON(path, document)
+	} else if err != nil {
+		return err
 	}
-	document := map[string]any{
-		"schema_version":  1,
-		"source_id":       "",
-		"distribution_id": "mrbaoquan/himind-extensions-ecc",
-		"channel":         "beta",
-		"catalog_id":      "public",
-		"generation":      "",
-		"plugins":         []any{},
-		"skills":          []any{},
-		"workflows":       []any{},
-		"feature_packs": []map[string]any{{
-			"id":         "com.mrbaoquan.ecc.feature.sync",
-			"name":       "ECC 技能同步",
-			"plugin_ids": []string{pluginID},
-			"skill_ids":  []string{},
-		}},
+
+	// 索引是派生数据：本次生成不再产出的技能（被策略排除、带脚本被隔离或从上游删除）
+	// 必须在同一步从索引里清掉。否则扩展仓会变成「源码里没有、目录里还挂着」的幽灵条目，
+	// 下一道 himind-repo-check 门禁必然失败，而上游同步本身又没有能力判断这是一个可忽略的历史版本。
+	var document extensionsDocument
+	data, err := os.ReadFile(filepath.Join(repoRoot, filepath.FromSlash(ExtensionsFile)))
+	if err != nil {
+		return err
 	}
-	return writeJSON(path, document)
+	if err := json.Unmarshal(data, &document); err != nil {
+		return err
+	}
+	allowed := map[string]bool{}
+	for _, entry := range document.Extensions {
+		allowed[entry.ID] = true
+	}
+	index, err := catalog.Load(path)
+	if err != nil {
+		return err
+	}
+	changed := false
+	for _, kind := range []string{"plugin", "skill", "workflow"} {
+		entries := index.Entries(kind)
+		kept := make([]map[string]interface{}, 0, len(entries))
+		for _, entry := range entries {
+			if allowed[catalog.IDOf(kind, entry)] {
+				kept = append(kept, entry)
+			} else {
+				changed = true
+			}
+		}
+		if len(kept) != len(entries) {
+			index.SetEntries(kind, kept)
+		}
+	}
+	left, _ := json.Marshal(index.FeaturePacks)
+	right, _ := json.Marshal(document.FeaturePacks)
+	if string(left) != string(right) {
+		index.FeaturePacks = document.FeaturePacks
+		changed = true
+	}
+	if changed {
+		return index.Save(path)
+	}
+	return nil
+}
+
+// catalogNeedsRepair 判断市场索引是否与 extensions.json 不一致：
+// 有幽灵条目，或能力包声明漂移。probe 用它识别「上一轮已推进锁文件、
+// 但生成/门禁没走完」的脏状态。
+func catalogNeedsRepair(repoRoot string) (bool, error) {
+	var document extensionsDocument
+	data, err := os.ReadFile(filepath.Join(repoRoot, filepath.FromSlash(ExtensionsFile)))
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	if err != nil {
+		return false, err
+	}
+	if err := json.Unmarshal(data, &document); err != nil {
+		return false, err
+	}
+	allowed := map[string]bool{}
+	for _, entry := range document.Extensions {
+		allowed[entry.ID] = true
+	}
+	index, err := catalog.Load(filepath.Join(repoRoot, filepath.FromSlash(CatalogFile)))
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	if err != nil {
+		return false, err
+	}
+	for _, kind := range []string{"plugin", "skill", "workflow"} {
+		for _, entry := range index.Entries(kind) {
+			if !allowed[catalog.IDOf(kind, entry)] {
+				return true, nil
+			}
+		}
+	}
+	left, _ := json.Marshal(index.FeaturePacks)
+	right, _ := json.Marshal(document.FeaturePacks)
+	if string(left) != string(right) {
+		return true, nil
+	}
+	return false, nil
 }
 
 // skillManifestJSON 是写进 skill.json 的结构。

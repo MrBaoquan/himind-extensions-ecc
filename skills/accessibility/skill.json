@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "按 WCAG 2.2 AA 设计、实现并审查 Web、iOS 与 Android 的无障碍界面：语义角色与标签、焦点管理、对比度、点击区域与读屏支持。当要做无障碍合规或键盘可用性时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/accessibility",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

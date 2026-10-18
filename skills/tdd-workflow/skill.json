@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "先写会失败的测试、看它失败，再写最小实现转绿，最后在单测、集成与端到端层面重构并保持高覆盖。当要按 TDD 写功能或修缺陷时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/tdd-workflow",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

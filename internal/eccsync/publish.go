@@ -240,7 +240,7 @@ func Publish(repoRoot string, options PublishOptions) (PublishResult, error) {
 	if !options.DryRun {
 		keyPath := strings.TrimSpace(options.PrivateKeyPath)
 		if keyPath == "" {
-			keyPath = DefaultPrivateKeyPath
+			keyPath = defaultPrivateKeyPath()
 		}
 		signer, err = loadPrivateKey(keyPath)
 		if err != nil {
@@ -795,11 +795,21 @@ func recordPlanned(index *catalog.Catalog, target publishTarget, plan releasepla
 	return index.Save(indexPath)
 }
 
-// DefaultPrivateKeyPath 与 DefaultSigningKeyID 是 Agent 生产密钥的默认位置。
-const (
-	DefaultPrivateKeyPath = `C:\Users\Administrator\AppData\Local\HiMind\signing\private\himind-production-2026.key.pem`
-	DefaultSigningKeyID   = "himind-production-2026"
-)
+// DefaultSigningKeyID 是 Agent 生产密钥的标识。
+const DefaultSigningKeyID = "himind-production-2026"
+
+// defaultPrivateKeyPath 使用当前用户的 local app data，而不是某台机器上
+// Administrator 的绝对路径。多用户机器和开发机上路径必须自己推出来，
+// 否则发布会在读私钥时以「文件不存在」失败，真正原因被埋在 Administrator 路径里。
+func defaultPrivateKeyPath() string {
+	if local := strings.TrimSpace(os.Getenv("LOCALAPPDATA")); local != "" {
+		return filepath.Join(local, "HiMind", "signing", "private", "himind-production-2026.key.pem")
+	}
+	if home, err := os.UserHomeDir(); err == nil && strings.TrimSpace(home) != "" {
+		return filepath.Join(home, "AppData", "Local", "HiMind", "signing", "private", "himind-production-2026.key.pem")
+	}
+	return filepath.Join("HiMind", "signing", "private", "himind-production-2026.key.pem")
+}
 
 // splitByMetadataSource 把「元数据还没人工确认」的技能挑出来。
 //

@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "查询实时 GPU 库存、提交固定价算力询价、查看询价与采购状态、吊销设备凭据，并按需跑节点资格校验。当要找 H100/H200 算力或询价时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -28,7 +28,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/ito-compute",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

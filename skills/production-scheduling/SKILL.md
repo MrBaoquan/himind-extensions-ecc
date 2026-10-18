@@ -2,7 +2,7 @@
 name: production-scheduling
 description: Codified expertise for production scheduling, job sequencing, line balancing, changeover optimization, and bottleneck resolution in discrete and batch…
 license: Apache-2.0
-homepage: https://github.com/affaan-m/everything-claude-code
+homepage: https://github.com/affaan-m/ECC
 metadata:
   version: 1.0.0
   origin: ECC

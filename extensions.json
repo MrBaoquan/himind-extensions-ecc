@@ -9,14 +9,6 @@
     "github"
   ],
   "default_branch": "main",
-  "feature_packs": [
-    {
-      "id": "com.mrbaoquan.ecc.feature.sync",
-      "name": "ECC 技能同步",
-      "plugin_ids": ["com.mrbaoquan.ecc-skill-sync"],
-      "skill_ids": []
-    }
-  ],
   "extensions": [
     {
       "type": "plugin",
@@ -57,6 +49,16 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.agent-payment-x402",
       "path": "skills/agent-payment-x402"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-runtime-gateway-smoke-test",
+      "path": "skills/agent-runtime-gateway-smoke-test"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.agent-security-hardening",
+      "path": "skills/agent-security-hardening"
     },
     {
       "type": "skill",
@@ -145,6 +147,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.bengali-nlp",
+      "path": "skills/bengali-nlp"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.blender-motion-state-inspection",
       "path": "skills/blender-motion-state-inspection"
     },
@@ -162,6 +169,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.brand-voice",
       "path": "skills/brand-voice"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.brownfield-retrospective",
+      "path": "skills/brownfield-retrospective"
     },
     {
       "type": "skill",
@@ -270,6 +282,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.conventional-commit-review",
+      "path": "skills/conventional-commit-review"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.cost-aware-llm-pipeline",
       "path": "skills/cost-aware-llm-pipeline"
     },
@@ -347,6 +364,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.deep-research",
       "path": "skills/deep-research"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.deepseek-harness-setup",
+      "path": "skills/deepseek-harness-setup"
     },
     {
       "type": "skill",
@@ -515,11 +537,6 @@
     },
     {
       "type": "skill",
-      "id": "com.mrbaoquan.ecc.skill.frontend-design-direction",
-      "path": "skills/frontend-design-direction"
-    },
-    {
-      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.frontend-patterns",
       "path": "skills/frontend-patterns"
     },
@@ -637,6 +654,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.hookify-rules",
       "path": "skills/hookify-rules"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.i18n-sync",
+      "path": "skills/i18n-sync"
     },
     {
       "type": "skill",
@@ -820,6 +842,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mcp-dependency-review",
+      "path": "skills/mcp-dependency-review"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.mcp-server-patterns",
       "path": "skills/mcp-server-patterns"
     },
@@ -852,6 +879,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.motion-patterns",
       "path": "skills/motion-patterns"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.mybatis-patterns",
+      "path": "skills/mybatis-patterns"
     },
     {
       "type": "skill",
@@ -955,6 +987,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.osint-investigation",
+      "path": "skills/osint-investigation"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.parallel-execution-optimizer",
       "path": "skills/parallel-execution-optimizer"
     },
@@ -1027,6 +1064,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.project-flow-ops",
       "path": "skills/project-flow-ops"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.prompt-caching-strategy",
+      "path": "skills/prompt-caching-strategy"
     },
     {
       "type": "skill",
@@ -1215,6 +1257,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.skill-host-compat",
+      "path": "skills/skill-host-compat"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.skill-scout",
       "path": "skills/skill-scout"
     },
@@ -1310,6 +1357,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.token-card",
+      "path": "skills/token-card"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.ui-demo",
       "path": "skills/ui-demo"
     },
@@ -1367,6 +1419,16 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.x-api",
       "path": "skills/x-api"
+    }
+  ],
+  "feature_packs": [
+    {
+      "id": "com.mrbaoquan.ecc.feature.sync",
+      "name": "ECC 技能同步",
+      "plugin_ids": [
+        "com.mrbaoquan.ecc-skill-sync"
+      ],
+      "skill_ids": []
     }
   ]
 }

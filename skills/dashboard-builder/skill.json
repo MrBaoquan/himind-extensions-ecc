@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "为 Grafana、SigNoz 等平台搭建能回答运维真问题的监控看板。当要把指标变成值班时真看得上、真用得上的看板，而不是好看没用的展板时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/dashboard-builder",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "Quarkus 3.x 架构模式：Camel 消息、接口设计、CDI 服务、Panache 数据访问与异步处理。当要开发或评审事件驱动的 Quarkus 服务时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/quarkus-patterns",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

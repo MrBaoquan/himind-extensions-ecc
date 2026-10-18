@@ -2,7 +2,7 @@
 name: customs-trade-compliance
 description: Codified customs and trade compliance expertise — HS/HTS tariff classification with GRI rules, commercial invoices and entry documentation, Incoterms 2020, FTA…
 license: Apache-2.0
-homepage: https://github.com/affaan-m/everything-claude-code
+homepage: https://github.com/affaan-m/ECC
 metadata:
   version: 1.0.0
   origin: ECC

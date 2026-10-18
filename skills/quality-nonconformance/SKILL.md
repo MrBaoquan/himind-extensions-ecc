@@ -2,7 +2,7 @@
 name: quality-nonconformance
 description: Quality control and non-conformance management for regulated manufacturing (FDA 21 CFR 820, IATF 16949, AS9100): NCR lifecycle and disposition,…
 license: Apache-2.0
-homepage: https://github.com/affaan-m/everything-claude-code
+homepage: https://github.com/affaan-m/ECC
 metadata:
   version: 1.0.0
   origin: ECC

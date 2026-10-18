@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "审计当前仓库、MCP 服务、插件、连接器、环境变量与工具链配置，再推荐最值得装的技能、钩子与运维流程。当要摸清手上这套环境到底有哪些能力时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/workspace-surface-audit",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

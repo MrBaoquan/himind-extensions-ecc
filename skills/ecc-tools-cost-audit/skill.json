@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.4",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "对 ECC Tools 的用量与账单做取证式审计，定位失控的 PR 创建、配额绕过、高价模型泄漏、重复任务与 GitHub App 费用异常。当账单突然飙高要查原因时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/ecc-tools-cost-audit",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

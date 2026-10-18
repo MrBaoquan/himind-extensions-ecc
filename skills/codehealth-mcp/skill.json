@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "经 CodeScene MCP 做结构健康体检：改动前评估、改动后核对评分变化、卡住提交与 PR。当要判断重构或 AI 改动是否让代码变差时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/codehealth-mcp",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

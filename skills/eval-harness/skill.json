@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "AI 编码的评测驱动开发：动手前先定义能力与回归评测，用代码、模型、规则或人工评分，并跟踪通过率与稳定性。当要给 agent 任务定通过标准时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/eval-harness",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

@@ -1,6 +1,7 @@
 package eccsync
 
 import (
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -121,6 +122,9 @@ func TestSplitByMetadataSourceHoldsDerivedEntries(t *testing.T) {
 
 func TestPublishedVersionsKeepsEveryReleasedVersion(t *testing.T) {
 	index := catalog.New("mrbaoquan/himind-extensions-ecc", "beta", "public")
+	index.FeaturePacks = []catalog.FeaturePack{{
+		ID: "com.mrbaoquan.ecc.feature.sync", Name: "ECC 技能同步", PluginIDs: []string{pluginID}, SkillIDs: []string{},
+	}}
 	pluginID := "com.mrbaoquan.ecc-skill-sync"
 	// 索引是版本历史：同一个插件会留着 1.0.0 与 1.0.1 两条。先写新的再写旧的，
 	// 复现「新版本在数组前面」的真实排布，顺序不该影响判定。
@@ -790,5 +794,97 @@ func TestGenerateMovesReviewBaselineOnlyWhenTextWasRewritten(t *testing.T) {
 	}
 	if string(before) != string(after) || len(fourth.Changed) != 0 {
 		t.Fatalf("上游与元数据都没变时必须是零动作：changed=%v", fourth.Changed)
+	}
+}
+
+func TestEnsureCatalogPrunesEntriesNoLongerInExtensions(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, ExtensionsFile), fmt.Sprintf(`{
+  "schema_version": 1,
+  "repository": "https://github.com/MrBaoquan/himind-extensions-ecc.git",
+  "distribution_id": "mrbaoquan/himind-extensions-ecc",
+  "channel": "beta",
+  "catalog_id": "public",
+  "default_distribution_targets": ["workbench", "github"],
+  "default_branch": "main",
+  "extensions": [
+    {"type": "plugin", "id": "%s", "path": "plugins/ecc-skill-sync"},
+    {"type": "workflow", "id": "%s", "path": "workflows/ecc-skill-sync"},
+    {"type": "skill", "id": "%s", "path": "skills/alpha"}
+  ],
+  "feature_packs": [
+    {"id": "com.mrbaoquan.ecc.feature.sync", "name": "ECC 技能同步", "plugin_ids": ["com.mrbaoquan.ecc-skill-sync"], "skill_ids": []}
+  ]
+}`, pluginID, workflowID, SkillID("alpha")))
+
+	index := catalog.New("mrbaoquan/himind-extensions-ecc", "beta", "public")
+	for _, entry := range []struct {
+		kind string
+		id   string
+	}{
+		{distribution.KindPlugin, pluginID},
+		{distribution.KindWorkflow, workflowID},
+		{distribution.KindSkill, SkillID("alpha")},
+		{distribution.KindSkill, SkillID("ghost")},
+	} {
+		field := map[string]string{
+			distribution.KindPlugin:   "plugin_id",
+			distribution.KindWorkflow: "workflow_id",
+			distribution.KindSkill:    "skill_id",
+		}[entry.kind]
+		if err := index.Upsert(entry.kind, map[string]interface{}{field: entry.id, "version": "1.0.0"}); err != nil {
+			t.Fatal(err)
+		}
+	}
+	catalogPath := filepath.Join(repoRoot, filepath.FromSlash(CatalogFile))
+	if err := os.MkdirAll(filepath.Dir(catalogPath), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := index.Save(catalogPath); err != nil {
+		t.Fatal(err)
+	}
+
+	if needsRepair, err := catalogNeedsRepair(repoRoot); err != nil || !needsRepair {
+		t.Fatalf("清理前必须识别出索引漂移: needsRepair=%v err=%v", needsRepair, err)
+	}
+	if err := ensureCatalog(repoRoot); err != nil {
+		t.Fatalf("清理索引失败：%v", err)
+	}
+	if needsRepair, err := catalogNeedsRepair(repoRoot); err != nil || needsRepair {
+		t.Fatalf("清理后不应再有索引漂移: needsRepair=%v err=%v", needsRepair, err)
+	}
+	loaded, err := catalog.Load(catalogPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ids := map[string]bool{}
+	for _, kind := range []string{"plugin", "skill", "workflow"} {
+		for _, entry := range loaded.Entries(kind) {
+			ids[kind+":"+catalog.IDOf(kind, entry)] = true
+		}
+	}
+	for _, expected := range []string{
+		"plugin:" + pluginID,
+		"workflow:" + workflowID,
+		"skill:" + SkillID("alpha"),
+	} {
+		if !ids[expected] {
+			t.Fatalf("索引丢了仍在 extensions.json 的条目 %s: %v", expected, ids)
+		}
+	}
+	if ids["skill:"+SkillID("ghost")] {
+		t.Fatalf("不在 extensions.json 的幽灵条目没有被清掉: %v", ids)
+	}
+	if len(loaded.FeaturePacks) != 1 || loaded.FeaturePacks[0].ID != "com.mrbaoquan.ecc.feature.sync" {
+		t.Fatalf("能力包声明没有被同步到索引: %+v", loaded.FeaturePacks)
+	}
+}
+
+func TestDefaultPrivateKeyPathUsesCurrentUsersLocalAppData(t *testing.T) {
+	t.Setenv("LOCALAPPDATA", `C:/Users/Example/AppData/Local`)
+	got := defaultPrivateKeyPath()
+	want := filepath.Join(`C:/Users/Example/AppData/Local`, "HiMind", "signing", "private", "himind-production-2026.key.pem")
+	if got != want {
+		t.Fatalf("默认私钥路径必须跟随当前用户: got %q want %q", got, want)
 	}
 }

@@ -75,7 +75,15 @@ func Probe(repoRoot string) (ProbeResult, error) {
 		result.Changed = true
 		result.Reason = fmt.Sprintf("上游提交由 %s 前进到 %s", shortSHA(lock.Upstream.Commit), shortSHA(head.Commit))
 	default:
-		result.Reason = "上游提交与本地基线一致，本次无需搬运"
+		// 上一轮可能已经把锁文件推进到新提交，却在门禁阶段失败。此时上游没变，
+		// 但本地生成物/索引仍需修复；只比 HEAD 会把这种情况误判成零动作，
+		// 让幽灵条目永远留在 catalog 里。
+		if needsRepair, err := catalogNeedsRepair(repoRoot); err == nil && needsRepair {
+			result.Changed = true
+			result.Reason = "本地市场索引包含 extensions.json 之外的条目，需要重新生成并清理"
+		} else {
+			result.Reason = "上游提交与本地基线一致，本次无需搬运"
+		}
 	}
 	// 顺手把刚问到的结论落在缓存目录里：紧随其后的 fetch 是同一轮同步的下一步，
 	// 让它接着用，而不是把同一个问题再问一遍上游。

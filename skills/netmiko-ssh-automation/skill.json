@@ -1,6 +1,6 @@
 {
   "id": "com.mrbaoquan.ecc.skill.netmiko-ssh-automation",
-  "name": "网络设备 SSH 自动化",
+  "name": "网络设备 SSH 批量操作",
   "author": "Affaan Mustafa",
   "categories": [
     "system-device"
@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用 Python Netmiko 安全访问网络设备：只读采集、批量 SSH、TextFSM 解析、受控改配置与超时重试。当要批量采集设备状态或推送配置时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/netmiko-ssh-automation",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

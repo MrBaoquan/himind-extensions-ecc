@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.agent-runtime-gateway-smoke-test",
+  "name": "Gateway Smoke Test",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "software-engineering"
+  ],
+  "version": "2.2.4",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Verify a local agent API, temporary gateway tunnel, and remote sandbox callback with a tool-free task, then restore the…",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/agent-runtime-gateway-smoke-test",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "license": "MIT"
+  }
+}

@@ -2,14 +2,21 @@
   "id": "com.mrbaoquan.ecc-skill-sync",
   "name": "ECC 技能同步",
   "author": "马宝全",
-  "categories": ["software-engineering"],
+  "categories": [
+    "software-engineering"
+  ],
   "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
-  "release_notes": "1.1.7：批次发布把还挂在单件 tag 上的旧技能一并接过来，历史逐件 Release 才有机会被回收；限流不再截断技能，避免成员被截断后跟下一次同步撞同名批次 tag。",
-  "version": "1.1.7",
-  "distribution_targets": ["workbench", "github"],
+  "release_notes": "1.1.12：签名私钥默认路径跟随当前用户的 LOCALAPPDATA；能力 ID 统一为小写连字符命名并声明 ecc.sync 命名空间；技能显示名去掉平台禁用词。",
+  "version": "1.1.12",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
   "entry": "ecc-skill-sync.exe",
   "runtime": "process-jsonrpc-stdio",
-  "platforms": ["windows-x64"],
+  "platforms": [
+    "windows-x64"
+  ],
   "min_agent_version": "0.3.47",
   "governance": "managed",
   "capabilities": [
@@ -19,9 +26,17 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          }
         },
         "additionalProperties": false
       },
@@ -35,11 +50,23 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "commit": {"type": "string"},
-          "repo_url": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 1800}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string"
+          },
+          "repo_url": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1800
+          }
         },
         "additionalProperties": false
       },
@@ -53,11 +80,23 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "source_root": {"type": "string"},
-          "tool": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 1800}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "source_root": {
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1800
+          }
         },
         "additionalProperties": false
       },
@@ -71,9 +110,17 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3600
+          }
         },
         "additionalProperties": false
       },
@@ -87,17 +134,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "dry_run": {"type": "boolean"},
-          "limit": {"type": "integer"},
-          "allow_derived": {"type": "boolean"},
-          "repository": {"type": "string"},
-          "channel": {"type": "string"},
-          "private_key_path": {"type": "string"},
-          "key_id": {"type": "string"},
-          "dist_dir": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "dry_run": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "allow_derived": {
+            "type": "boolean"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "private_key_path": {
+            "type": "string"
+          },
+          "key_id": {
+            "type": "string"
+          },
+          "dist_dir": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3600
+          }
         },
         "additionalProperties": false
       },
@@ -106,18 +177,40 @@
       "timeout_seconds": 3600
     },
     {
-      "id": "ecc.sync.review_queue",
+      "id": "ecc.sync.review-queue",
       "description": "报出还欠人工校对的技能条数与明细",
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "source_root": {"type": "string"},
-          "status": {"type": "string", "enum": ["derived", "stale"]},
-          "category": {"type": "string"},
-          "limit": {"type": "integer", "minimum": 0, "maximum": 500},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "source_root": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "derived",
+              "stale"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          }
         },
         "additionalProperties": false
       },
@@ -131,14 +224,40 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "state": {"type": "string", "enum": ["distributed", "pending", "held", "excluded"]},
-          "category": {"type": "string"},
-          "module": {"type": "string"},
-          "keyword": {"type": "string"},
-          "limit": {"type": "integer", "minimum": 0, "maximum": 500},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "distributed",
+              "pending",
+              "held",
+              "excluded"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "module": {
+            "type": "string"
+          },
+          "keyword": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          }
         },
         "additionalProperties": false
       },
@@ -147,17 +266,31 @@
       "timeout_seconds": 600
     },
     {
-      "id": "ecc.sync.dispatch_policy_save",
+      "id": "ecc.sync.dispatch-policy-save",
       "description": "整份写回分发策略：哪些分类、模块或单条技能不参与分发",
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "excluded_modules": {"type": "object"},
-          "excluded_categories": {"type": "object"},
-          "excluded_skills": {"type": "object"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "excluded_modules": {
+            "type": "object"
+          },
+          "excluded_categories": {
+            "type": "object"
+          },
+          "excluded_skills": {
+            "type": "object"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          }
         },
         "additionalProperties": false
       },
@@ -166,14 +299,22 @@
       "timeout_seconds": 600
     },
     {
-      "id": "ecc.sync.repo_hint",
+      "id": "ecc.sync.repo-hint",
       "description": "推断本机的 ECC 仓库根目录，并校验调用方手里那一个还能不能用",
       "input_schema": {
         "type": "object",
         "properties": {
-          "repo_root": {"type": "string"},
-          "workspace_root": {"type": "string"},
-          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 600}
+          "repo_root": {
+            "type": "string"
+          },
+          "workspace_root": {
+            "type": "string"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600
+          }
         },
         "additionalProperties": false
       },
@@ -204,15 +345,43 @@
       }
     ],
     "commands": [
-      {"id": "ecc.sync.probe", "title": "探测上游 ECC 变更"},
-      {"id": "ecc.sync.fetch", "title": "拉取上游 ECC 源码"},
-      {"id": "ecc.sync.generate", "title": "生成 ECC 技能包与索引"},
-      {"id": "ecc.sync.gate", "title": "运行 ECC 同步门禁"},
-      {"id": "ecc.sync.publish", "title": "发布 ECC 扩展到市场"},
-      {"id": "ecc.sync.review_queue", "title": "查看 ECC 待校对技能"},
-      {"id": "ecc.sync.distribution", "title": "查看 ECC 分发状态"},
-      {"id": "ecc.sync.dispatch_policy_save", "title": "保存 ECC 分发策略"},
-      {"id": "ecc.sync.repo_hint", "title": "推断 ECC 仓库目录"}
+      {
+        "id": "ecc.sync.probe",
+        "title": "探测上游 ECC 变更"
+      },
+      {
+        "id": "ecc.sync.fetch",
+        "title": "拉取上游 ECC 源码"
+      },
+      {
+        "id": "ecc.sync.generate",
+        "title": "生成 ECC 技能包与索引"
+      },
+      {
+        "id": "ecc.sync.gate",
+        "title": "运行 ECC 同步门禁"
+      },
+      {
+        "id": "ecc.sync.publish",
+        "title": "发布 ECC 扩展到市场"
+      },
+      {
+        "id": "ecc.sync.review-queue",
+        "title": "查看 ECC 待校对技能"
+      },
+      {
+        "id": "ecc.sync.distribution",
+        "title": "查看 ECC 分发状态"
+      },
+      {
+        "id": "ecc.sync.dispatch-policy-save",
+        "title": "保存 ECC 分发策略"
+      },
+      {
+        "id": "ecc.sync.repo-hint",
+        "title": "推断 ECC 仓库目录"
+      }
     ]
-  }
+  },
+  "capability_namespace": "ecc.sync"
 }

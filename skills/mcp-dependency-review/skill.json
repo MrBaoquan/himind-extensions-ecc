@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.mcp-dependency-review",
+  "name": "Dependency Review",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "testing-quality"
+  ],
+  "version": "2.2.4",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "Statically review MCP configuration for mutable package references before approval or CI, without executing discovered…",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/mcp-dependency-review",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "license": "MIT"
+  }
+}

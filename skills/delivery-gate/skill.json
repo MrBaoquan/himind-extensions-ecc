@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.4",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "在质量检查通过前拦住 agent 收尾的钩子，识别敷衍话术、过期学习日志与磁盘空间不足。当需要机械地强制每次留下经验沉淀时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -28,7 +28,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/delivery-gate",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }

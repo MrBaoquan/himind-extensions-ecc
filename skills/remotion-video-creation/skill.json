@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.3",
+  "version": "2.2.4",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "用 React 写视频的 Remotion 实践准则，覆盖 3D、动画、音频、字幕、图表与转场。当要以代码方式产出可控视频时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal d3b8a3e。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -58,7 +58,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/remotion-video-creation",
-    "commit": "d3b8a3e908904e242ed2dbe66af62cca71131419",
+    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
     "license": "MIT"
   }
 }
