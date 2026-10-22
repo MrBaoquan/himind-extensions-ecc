@@ -149,7 +149,7 @@
       "source": "reviewed"
     },
     "automation-audit-ops": {
-      "name": "自动化盘点",
+      "name": "定时任务盘点",
       "description": "先取证再动手，把仓库里跑着的定时任务、钩子、连接器、MCP 服务和包装层盘一遍：哪些还活着、哪些坏了、哪些重复、哪些缺位。当要改自动化之前先弄清现状时用。",
       "categories": [
         "collaboration-delivery"
@@ -649,7 +649,7 @@
       "source": "reviewed"
     },
     "dmux-workflows": {
-      "name": "多智能体并行",
+      "name": "多代理并行",
       "description": "用 dmux（tmux 里的 AI agent 面板管理器）编排多个 agent 并行开发，给出跨 Claude Code、Codex、OpenCode 的协作模式。当要同时开多个会话并行推进时用。",
       "categories": [
         "collaboration-delivery"
@@ -1436,7 +1436,7 @@
       "source": "reviewed"
     },
     "netmiko-ssh-automation": {
-      "name": "网络设备 SSH 自动化",
+      "name": "网络设备 SSH 批量操作",
       "description": "用 Python Netmiko 安全访问网络设备：只读采集、批量 SSH、TextFSM 解析、受控改配置与超时重试。当要批量采集设备状态或推送配置时用。",
       "categories": [
         "system-device"
