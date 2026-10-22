@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "把描述的工作流映射到对应的命令组，给出执行顺序与停止条件，或浏览现有配方族。仅作建议、不执行。当要问某个任务该跑哪些命令时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/ecc-recipes",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

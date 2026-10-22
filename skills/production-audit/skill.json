@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "仅凭本地证据做上线就绪审计，覆盖发布前评估、合并后检查与上线后哪里会出问题，不上传仓库数据。当要在发布前做生产风险排查时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/production-audit",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

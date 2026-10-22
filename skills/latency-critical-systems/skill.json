@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "优化并验证延迟敏感系统：实时看板、行情数据、流式 agent、执行网关、队列与缓存，跟踪延迟分位、数据新鲜度与队列深度。当延迟或吞吐不达标时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/latency-critical-systems",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

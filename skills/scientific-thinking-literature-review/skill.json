@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "做系统性文献综述：规划检索、筛选来源、综合结论、核查引用并留下证据链。当要写一篇经得起查的综述时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/scientific-thinking-literature-review",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

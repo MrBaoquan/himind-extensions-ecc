@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "长期运行或云端 agent 系统的运维控制：启停与重启、日志指标追踪、最小权限与急停开关，以及带审计的灰度与回滚。当要长期运维 agent 服务时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/enterprise-agent-ops",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

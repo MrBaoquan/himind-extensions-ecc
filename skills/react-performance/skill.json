@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "React 与 Next.js 的性能优化规则集，按请求瀑布、包体积、服务端、客户端取数、重渲染、渲染与微性能等优先级分类。当页面卡顿或包体变大时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/react-performance",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

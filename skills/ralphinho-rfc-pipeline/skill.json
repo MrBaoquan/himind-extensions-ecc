@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "把一份 RFC 拆成多 agent 并行执行的任务图：按依赖与验收拆工作单元，逐单元调研、规划、实现、测试与评审，再经队列合并并做整系统验证。当特性大到单个 agent 做不完时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/ralphinho-rfc-pipeline",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

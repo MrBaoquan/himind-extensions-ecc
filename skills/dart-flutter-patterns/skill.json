@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "Dart 与 Flutter 生产实践：空安全、不可变状态、异步组合、组件架构、状态管理、路由鉴权、网络与测试。当要写或审 Flutter 代码时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/dart-flutter-patterns",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

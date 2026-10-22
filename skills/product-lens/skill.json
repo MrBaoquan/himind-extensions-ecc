@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "动手前先校验「为什么做」：产品诊断与立项建议、产品市场契合信号打分、用户旅程耗时评估与功能优先级排序。当要判断一个产品想法值不值得做时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/product-lens",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

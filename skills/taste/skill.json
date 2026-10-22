@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "给音乐视频与短视频定创作方向：美学名词、情绪与色彩光照体系、卡点剪辑语法。当要先定片子的整体调性时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -28,7 +28,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/taste",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

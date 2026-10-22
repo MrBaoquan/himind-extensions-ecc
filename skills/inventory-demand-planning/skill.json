@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "多门店零售的需求预测方法选择、ABC/XYZ 分类、安全库存与补货点优化、促销增量与促销后回落估算、季节切换与降价时机。当要做备货与促销计划时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/inventory-demand-planning",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

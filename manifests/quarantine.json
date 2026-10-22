@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T13:13:36Z",
-  "upstream_commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+  "generated_at": "2026-10-22T02:17:12Z",
+  "upstream_commit": "90606c8315ee09cafc303515c5f33024db6b9882",
   "entries": [
     {
       "slug": "agent-self-evaluation",

@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用浏览器自动化做上线后 UI 验证：控制台报错与性能冒烟、表单与登录交互、三档断点截图比对与无障碍审计。当发布后要验证页面时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/browser-qa",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

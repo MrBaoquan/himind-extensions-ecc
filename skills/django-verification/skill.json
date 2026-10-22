@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "跑完整的 Django 校验流程：环境检查、静态检查、迁移安全性、测试覆盖率、依赖与安全扫描及配置审查，产出分阶段的通过与否报告。当要发布或提 PR 前用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/django-verification",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

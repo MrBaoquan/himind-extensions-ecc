@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "处理延迟、破损、丢失、短少与承运商纠纷：升级路径、各运输方式下承运商的实际做派、索赔流程，以及「认赔还是追赔」的判断框架。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/logistics-exception-management",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }

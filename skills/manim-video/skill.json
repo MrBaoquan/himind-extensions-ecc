@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用 Manim 制作可复用的技术讲解动画：概念演示、图表、系统图与产品走查。当要把抽象原理讲成动画时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 76aaa77。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -28,7 +28,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/manim-video",
-    "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
     "license": "MIT"
   }
 }
