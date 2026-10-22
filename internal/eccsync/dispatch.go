@@ -278,9 +278,16 @@ const (
 
 // DistributionItem 是一条技能此刻的分发状态。
 type DistributionItem struct {
-	Slug       string   `json:"slug"`
-	SkillID    string   `json:"skill_id"`
-	Name       string   `json:"name,omitempty"`
+	Slug    string `json:"slug"`
+	SkillID string `json:"skill_id"`
+	Name    string `json:"name,omitempty"`
+	// Description 是市场上给用户看的那句介绍：前半句说这条技能做什么，
+	// 结尾一句说什么时候该用它。面板靠它把「已收录的 268 条」变成可浏览的目录，
+	// 缺了它，界面只能给出技能 ID 与状态，用户没有理由点开任何一条。
+	Description string `json:"description,omitempty"`
+	// Scenario 是同一段文案末尾那句「当……时用」。它跟简介分开放，是因为
+	// 浏览的人先判断这条跟自己有没有关系，真要用了才看触发条件。
+	Scenario   string   `json:"scenario,omitempty"`
 	Version    string   `json:"version"`
 	Module     string   `json:"module,omitempty"`
 	Categories []string `json:"categories"`
@@ -420,6 +427,7 @@ func BuildDistribution(repoRoot string, options DistributionOptions) (Distributi
 		id := SkillID(slug)
 		versions := published[distribution.KindSkill+"/"+id]
 		decision := context.Decide(slug, module, categories)
+		intro, scenario := SplitSkillCopy(entry.Description)
 
 		state := DistributionPending
 		detail := ""
@@ -437,6 +445,8 @@ func BuildDistribution(repoRoot string, options DistributionOptions) (Distributi
 			Slug:              slug,
 			SkillID:           id,
 			Name:              entry.Name,
+			Description:       intro,
+			Scenario:          scenario,
 			Version:           item.Version,
 			Module:            module,
 			Categories:        categories,
@@ -588,7 +598,17 @@ func filterDistribution(items []DistributionItem, options DistributionOptions) [
 }
 
 func matchesKeyword(item DistributionItem, keyword string) bool {
-	for _, value := range []string{item.Slug, item.SkillID, item.Name, item.Module, item.SourcePath} {
+	// 简介与场景一起参与匹配：面板是给人翻目录用的，用户记得住的往往是
+	// 「做无障碍那个」「能对比 agent 那个」，而不是 slug。
+	for _, value := range []string{
+		item.Slug,
+		item.SkillID,
+		item.Name,
+		item.Module,
+		item.SourcePath,
+		item.Description,
+		item.Scenario,
+	} {
 		if strings.Contains(strings.ToLower(value), keyword) {
 			return true
 		}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ECC 分发管理</title>
+    <title>ECC 技能库</title>
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
@@ -11,108 +11,133 @@
       <div class="brand">
         <span class="logo" aria-hidden="true">📦</span>
         <div class="brand-text">
-          <strong>ECC 分发管理</strong>
-          <small id="brand-sub">上游技能的分发策略与状态</small>
+          <strong>ECC 技能库</strong>
+          <small id="brand-sub">上游技能的分发状态</small>
         </div>
       </div>
+      <nav class="tabs" role="tablist" aria-label="面板分区">
+        <button id="tab-skills" class="tab" type="button" role="tab" aria-selected="true" aria-controls="panel-skills">技能库</button>
+        <button id="tab-policy" class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-policy">分发策略<span class="pill" id="policy-count">—</span></button>
+      </nav>
       <div class="toolbar">
-        <label class="field repo">
-          <span>ECC 仓库</span>
-          <input id="repo" type="text" spellcheck="false" placeholder="自动定位，也可手动改写" />
-        </label>
-        <button id="repo-use" class="btn" type="button">进入</button>
-        <button id="refresh" class="btn" type="button">刷新</button>
-        <button id="probe" class="btn" type="button">检查上游</button>
-        <button id="dry-run" class="btn" type="button">预演发布</button>
-        <label class="field narrow">
-          <span>单次上限</span>
-          <input id="limit" type="number" min="0" max="500" step="5" value="10" />
-        </label>
-        <button id="publish" class="btn primary" type="button">发布待发项</button>
+        <button id="refresh" class="btn icon" type="button" title="重新读取分发状态" aria-label="重新读取分发状态">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36" /><path d="M21 3v6h-6" /></svg>
+        </button>
       </div>
     </header>
 
-    <p class="notice" id="notice" hidden></p>
+    <div class="source-bar">
+      <label class="source-label" for="repo">本地仓库</label>
+      <input id="repo" type="text" spellcheck="false" placeholder="自动定位，也可手动填写 himind-extensions-ecc 根目录" />
+      <button id="repo-use" class="btn btn-quiet" type="button" disabled>读取此仓库</button>
+    </div>
+
+    <p class="notice" id="notice" role="status" aria-live="polite" hidden></p>
 
     <main class="layout">
-      <aside class="rail">
-        <div class="rail-head">
-          <strong>分发控制</strong>
-          <span class="pill" id="policy-count">—</span>
+      <section class="panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills">
+        <div class="catalog">
+          <div class="catalog-head">
+            <p class="summary" id="summary"></p>
+            <div class="filters">
+              <label class="field">
+                <span>功能分类</span>
+                <select id="filter-category"><option value="">全部分类</option></select>
+              </label>
+              <label class="field">
+                <span>上游模块</span>
+                <select id="filter-module"><option value="">全部模块</option></select>
+              </label>
+              <label class="field grow">
+                <span>关键字</span>
+                <input id="filter-keyword" type="search" spellcheck="false" placeholder="名称、简介、使用场景、技能 ID、模块、上游路径" />
+              </label>
+              <button id="filter-reset" class="btn" type="button">重置</button>
+            </div>
+          </div>
+          <p class="read-error" id="read-error" role="alert" hidden></p>
+          <div class="catalog-body">
+            <div class="skill-list-wrap">
+              <ul id="skill-list" class="skill-list" aria-label="技能列表"></ul>
+              <p class="list-foot" id="skill-list-foot"></p>
+            </div>
+            <article class="skill-detail" id="skill-detail">
+              <p class="detail-empty" id="detail-empty">从左边的列表里选一条技能，看它做什么、什么时候用。</p>
+              <div class="detail-body" id="detail-body" hidden>
+                <header class="detail-head">
+                  <h2 id="detail-name"></h2>
+                  <code id="detail-path"></code>
+                  <div class="detail-badges" id="detail-badges"></div>
+                </header>
+                <section class="detail-block">
+                  <h3>这条技能做什么</h3>
+                  <p id="detail-intro"></p>
+                </section>
+                <section class="detail-block scene" id="detail-scene-block" hidden>
+                  <h3>什么时候用</h3>
+                  <p id="detail-scene"></p>
+                </section>
+                <dl class="facts" id="detail-facts"></dl>
+                <p class="detail-note" id="detail-note" hidden></p>
+                <div class="detail-actions">
+                  <button class="btn" id="detail-toggle" type="button">从分发中排除</button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="rail-body" id="rail-body">
-          <section class="rail-section">
-            <h2>按功能分类</h2>
-            <ul id="category-list" class="rule-list"></ul>
-          </section>
-          <section class="rail-section">
-            <h2>按上游模块</h2>
-            <ul id="module-list" class="rule-list"></ul>
-          </section>
-          <section class="rail-section">
-            <h2>按单条技能</h2>
-            <ul id="skill-rule-list" class="rule-list"></ul>
-            <p class="rail-hint" id="skill-rule-hint">单条技能在右侧列表里逐条排除。</p>
-          </section>
-        </div>
-        <p class="rail-foot" id="policy-foot" title=""></p>
-      </aside>
+      </section>
 
-      <section class="detail">
-        <div class="stats" id="stats"></div>
-        <div class="filters">
-          <label class="field">
-            <span>分发状态</span>
-            <select id="filter-state">
-              <option value="">全部状态</option>
-              <option value="distributed">已分发</option>
-              <option value="pending">待发布</option>
-              <option value="held">待校对</option>
-              <option value="excluded">已排除</option>
-            </select>
-          </label>
-          <label class="field">
-            <span>功能分类</span>
-            <select id="filter-category"><option value="">全部分类</option></select>
-          </label>
-          <label class="field">
-            <span>上游模块</span>
-            <select id="filter-module"><option value="">全部模块</option></select>
-          </label>
-          <label class="field grow">
-            <span>关键字</span>
-            <input id="filter-keyword" type="search" spellcheck="false" placeholder="技能 ID、名称、模块、上游路径" />
-          </label>
-          <button id="filter-reset" class="btn" type="button">重置</button>
-        </div>
-        <div class="table-wrap">
-          <table class="items">
-            <thead>
-              <tr>
-                <th class="col-skill">技能</th>
-                <th class="col-category">功能分类</th>
-                <th class="col-module">上游模块</th>
-                <th class="col-version">版本</th>
-                <th class="col-state">分发状态</th>
-                <th class="col-action">参与分发</th>
-              </tr>
-            </thead>
-            <tbody id="items-body"></tbody>
-          </table>
-          <p class="table-foot" id="table-foot"></p>
+      <section class="panel" id="panel-policy" role="tabpanel" aria-labelledby="tab-policy" hidden>
+        <div class="policy">
+          <div class="policy-head">
+            <p class="policy-note">关掉的分类或模块不再发新版本，已经发到市场的旧版本保留。改动立刻写进策略文件，下一次同步就按它执行。</p>
+            <p class="policy-path" id="policy-path" title=""></p>
+          </div>
+          <p class="rail-error" id="policy-error" role="alert" hidden></p>
+          <div class="policy-columns" id="policy-columns">
+            <section class="policy-column">
+              <h2>功能分类</h2>
+              <ul id="category-list" class="rule-list"><li class="rail-empty">正在读取…</li></ul>
+            </section>
+            <section class="policy-column">
+              <h2>上游模块</h2>
+              <ul id="module-list" class="rule-list"><li class="rail-empty">正在读取…</li></ul>
+            </section>
+            <section class="policy-column">
+              <h2>单条技能</h2>
+              <ul id="skill-rule-list" class="rule-list"></ul>
+              <p class="rail-hint" id="skill-rule-hint">还没有单条排除。要停发某一条技能，去技能库里打开它，点「从分发中排除」。</p>
+            </section>
+          </div>
+          <footer class="publish-bar">
+            <div class="publish-text">
+              <strong>手动补发</strong>
+              <span>日常分发由「ECC 技能同步」定时任务完成；这里用于等不及当天那一次时手动补发。</span>
+            </div>
+            <div class="publish-controls">
+              <label class="field narrow">
+                <span>单次上限</span>
+                <input id="limit" type="number" min="0" max="500" step="5" value="10" title="0 表示不限制；只影响本次发布" />
+              </label>
+              <button id="action-probe" class="btn" type="button">检查上游更新</button>
+              <button id="dry-run" class="btn" type="button">预演</button>
+              <button id="publish" class="btn primary" type="button" title="把待发布技能发到市场与 GitHub；技能按批次合并成一条 Release">发布待发项</button>
+            </div>
+          </footer>
         </div>
       </section>
     </main>
 
-    <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
       <form class="modal" id="modal-form">
         <h2 id="modal-title">排除原因</h2>
         <p class="modal-desc" id="modal-desc"></p>
-        <label class="modal-field">
+        <label class="modal-field" id="modal-field">
           <span>原因</span>
           <input id="modal-input" type="text" maxlength="80" spellcheck="false" />
         </label>
-        <p class="modal-hint">原因会写进 dispatch-policy.json，随仓库长期生效。</p>
+        <p class="modal-hint" id="modal-hint">原因会写进 dispatch-policy.json，随仓库长期生效。</p>
         <div class="modal-actions">
           <button type="button" class="btn" id="modal-cancel">取消</button>
           <button type="submit" class="btn primary" id="modal-confirm">排除</button>

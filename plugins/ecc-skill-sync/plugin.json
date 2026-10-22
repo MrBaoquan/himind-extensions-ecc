@@ -5,9 +5,9 @@
   "categories": [
     "software-engineering"
   ],
-  "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，自动生成技能包、跑门禁并发布到市场与 GitHub。",
-  "release_notes": "1.1.12：签名私钥默认路径跟随当前用户的 LOCALAPPDATA；能力 ID 统一为小写连字符命名并声明 ecc.sync 命名空间；技能显示名去掉平台禁用词。",
-  "version": "1.1.12",
+  "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，并可逐条浏览、控制分发范围。",
+  "release_notes": "1.2.4：面板改为技能库，能力 ID 改用连字符命名，并缩短更新说明以通过仓库门禁。",
+  "version": "1.2.4",
   "distribution_targets": [
     "workbench",
     "github"
@@ -335,8 +335,8 @@
     "views": [
       {
         "id": "ecc-skill-sync.dispatch",
-        "title": "ECC 分发管理",
-        "short_title": "分发管理",
+        "title": "ECC 技能库",
+        "short_title": "ECC 技能库",
         "icon": "package",
         "quick_access": true,
         "order": 60,

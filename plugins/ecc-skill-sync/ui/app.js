@@ -1,41 +1,95 @@
 /**
- * ECC 分发管理自带视图。
+ * ECC 技能库面板。
  *
- * 视图只消费本插件 Manifest 已声明的能力：读分发状态、写分发策略、探测上游、
+ * 这个窗口回答两件事，按使用频率排序：
+ *   1. 上游这些技能分别做什么、什么时候该用 —— 「技能库」标签页，默认打开
+ *   2. 哪些分类、模块或单条技能不参与分发 —— 「分发策略」标签页
+ *
+ * 界面只消费插件 Manifest 已声明的能力：读分发状态、写分发策略、探测上游、
  * 发布待发项。它不直接读写文件，也不拼 shell 命令，因此插件被单独打开或
- * 嵌入宿主时行为一致。
+ * 嵌进宿主时行为一致。
  *
- * 分发策略的判断全部落在 Go 侧：界面只回传「哪些分类/模块/单条技能被排除、
- * 各自的原因」，判定、优先级和落盘校验由 eccsync 负责。界面自算一套口径，
- * 迟早会出现「界面说会发、定时任务却跳过」这种最难查的不一致。
+ * 介绍文案的断句在 Go 侧（eccsync.SplitSkillCopy）：界面不认识「。」的拆法，
+ * 同一段介绍就不会在两个地方被拆成两种样子。拆不出来时场景整块隐藏，
+ * 不拿一句编的话顶上。
+ *
+ * 分发策略的判断同样全部落在 Go 侧：界面只回传「哪些分类/模块/单条技能被
+ * 排除、各自的原因」，判定、优先级和落盘校验由 eccsync 负责。界面自算一套
+ * 口径，迟早会出现「界面说会发、定时任务却跳过」这种最难查的不一致。
  */
 (function () {
   'use strict';
 
   const DEFAULT_REASON = '按分发策略排除';
-  const STORE_KEY = 'com.mrbaoquan.ecc-skill-sync.repo_root';
   const MAX_ITEMS = 500;
 
   const STATE_LABEL = {
     distributed: '已分发',
     pending: '待发布',
-    held: '待校对',
+    held: '待校对文案',
     excluded: '已排除',
   };
+  // 已分发是常态，用最淡的灰；待发布等着人动手，用主色；待校对是卡住的，用警告色。
+  // 排除是主动策略、不是出错，所以也用中性灰：红色只留给读取与发布失败。
   const STATE_TONE = {
-    distributed: 'ok',
-    pending: '',
+    distributed: '',
+    pending: 'accent',
     held: 'warn',
-    excluded: 'danger',
+    excluded: 'off',
+  };
+  // 计数条本身就是筛选入口：同一件事不再有「一排数字」和「一个下拉」两处说法。
+  const SUMMARY_CHIPS = [
+    { key: 'distributed', label: '已分发' },
+    { key: 'pending', label: '待发布', tone: 'accent-on' },
+    { key: 'held', label: '待校对文案', tone: 'warn-on' },
+    { key: 'excluded', label: '已排除' },
+  ];
+
+  // 上游给的分类是英文键，界面上说人话。表与 Agent 的 categoryCatalog 同源，
+  // 两边改要一起改，否则同一个分类在两个界面里叫两个名字。
+  const CATEGORY_LABELS = {
+    'software-engineering': '软件开发与工程',
+    'visual-design': '平面与视觉',
+    'video-post': '视频剪辑与后期',
+    '3d-animation': '三维与动画',
+    'content-production': '内容策划与制作',
+    'audio-sound': '音频与声音',
+    'data-automation': '数据与自动化',
+    'docs-knowledge': '文档与知识',
+    'testing-quality': '测试与质量',
+    'collaboration-delivery': '协作与交付',
+    'system-device': '系统与设备',
   };
 
+  // 每个按钮只在它自己触发的动作里改写文案，其余按钮一律只置灰。
+  // 串用会让「发布待发项」在纯读取时变成「读取中…」，看起来像在发布。
+  // 刷新是个图标按钮，没有文字可改，用它转圈表示。
+  const BASE_LABEL = {
+    'dry-run': '预演',
+    publish: '发布待发项',
+    'action-probe': '检查上游更新',
+    'repo-use': '读取此仓库',
+  };
+  const BUSY_ACTION = {
+    probe: { id: 'action-probe', label: '探测中…' },
+    'dry-run': { id: 'dry-run', label: '预演中…' },
+    publish: { id: 'publish', label: '发布中…' },
+  };
+  const BUSY_DISABLED = ['dry-run', 'publish', 'action-probe', 'refresh'];
+
   const state = {
+    tab: 'skills',
     repoRoot: '',
     report: null,
-    skillNames: {},
+    selectedSlug: '',
     filters: { state: '', category: '', module: '', keyword: '' },
     busy: false,
+    busyAction: '',
   };
+
+  // 被排除的单条技能在策略页只剩一个 slug。名字从读到的报告里攒，攒过就一直用，
+  // 这样筛掉某一类之后，策略页里的技能行不会退回成一串英文键。
+  const skillNames = {};
 
   const el = (id) => document.getElementById(id);
 
@@ -73,6 +127,11 @@
     return Number.isFinite(parsed) ? parsed : 0;
   }
 
+  function categoryLabel(key) {
+    const name = text(key);
+    return CATEGORY_LABELS[name] || name || '未归类';
+  }
+
   function notify(message, tone) {
     const node = el('notice');
     if (!message) {
@@ -86,13 +145,64 @@
     node.textContent = message;
   }
 
-  function setBusy(busy, label) {
-    state.busy = busy;
-    ['refresh', 'probe', 'dry-run', 'publish', 'repo-use'].forEach((id) => {
-      el(id).disabled = busy;
+  // 就近报错：整份结果没读出来时，提示要贴在列表上方，而不是只在顶栏飘一条全局消息。
+  function readError(message) {
+    const node = el('read-error');
+    if (!message) {
+      node.hidden = true;
+      node.textContent = '';
+      return;
+    }
+    node.hidden = false;
+    node.textContent = message;
+  }
+
+  // 切换开关失败时，提示贴在策略列旁边：视线就在那儿，不该跑到顶栏去找。
+  function policyError(message) {
+    const node = el('policy-error');
+    if (!message) {
+      node.hidden = true;
+      node.textContent = '';
+      return;
+    }
+    node.hidden = false;
+    node.textContent = message;
+  }
+
+  function setBusy(busy, action) {
+    state.busy = !!busy;
+    state.busyAction = busy ? action || '' : '';
+    BUSY_DISABLED.forEach((id) => {
+      const node = el(id);
+      if (node) node.disabled = state.busy;
     });
-    el('publish').textContent = busy && label ? label : '发布待发项';
-    el('dry-run').textContent = busy && label ? '执行中…' : '预演发布';
+    syncDetailToggle();
+    const refresh = el('refresh');
+    if (refresh && refresh.classList) refresh.classList.toggle('is-busy', state.busy);
+    const pending = state.busy ? BUSY_ACTION[action] : null;
+    Object.keys(BASE_LABEL).forEach((id) => {
+      const node = el(id);
+      if (!node) return;
+      node.textContent = pending && pending.id === id ? pending.label : BASE_LABEL[id];
+    });
+    syncRepoUse();
+  }
+
+  // 详情区那个按钮的可用态只看两件事：是否在忙、有没有选中技能。它不在
+  // BUSY_DISABLED 名单里，所以忙碌结束时必须在这里单独恢复一次——首次加载是
+  // 先 setBusy(true) 再 render()，按钮在忙碌中被画成禁用，若不回头同步就会一直
+  // 灰着，看起来像点不动。
+  function syncDetailToggle() {
+    const toggle = el('detail-toggle');
+    if (!toggle) return;
+    toggle.disabled = state.busy || !toggle.dataset.slug;
+  }
+
+  // 「读取此仓库」只在填了新的、和当前不同的路径时可点。
+  function syncRepoUse() {
+    const node = el('repo-use');
+    const typed = el('repo').value.trim();
+    node.disabled = state.busy || !typed || samePath(typed, state.repoRoot);
   }
 
   function reason(error) {
@@ -101,37 +211,42 @@
     return error.message || JSON.stringify(error);
   }
 
+  // ---------- 标签页 ----------
+
+  function showTab(name) {
+    state.tab = name === 'policy' ? 'policy' : 'skills';
+    const skills = state.tab === 'skills';
+    el('tab-skills').setAttribute('aria-selected', skills ? 'true' : 'false');
+    el('tab-policy').setAttribute('aria-selected', skills ? 'false' : 'true');
+    el('panel-skills').hidden = !skills;
+    el('panel-policy').hidden = skills;
+  }
+
+  function bindTabs() {
+    const tabs = [el('tab-skills'), el('tab-policy')];
+    const names = ['skills', 'policy'];
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => showTab(names[index]));
+      // 左右箭头在标签间来回：这是标签页该有的键盘行为，不该只靠鼠标。
+      tab.addEventListener('keydown', (event) => {
+        const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        event.preventDefault();
+        const next = (index + step + tabs.length) % tabs.length;
+        showTab(names[next]);
+        tabs[next].focus();
+      });
+    });
+  }
+
   // ---------- 仓库根目录 ----------
-
-  function storedRepoRoot() {
-    try {
-      return window.localStorage.getItem(STORE_KEY) || '';
-    } catch (error) {
-      return '';
-    }
-  }
-
-  function rememberRepoRoot(path) {
-    try {
-      window.localStorage.setItem(STORE_KEY, path);
-    } catch (error) {
-      /* 存不住只影响下次自动填充，不影响本次使用 */
-    }
-  }
-
-  function forgetRepoRoot() {
-    try {
-      window.localStorage.removeItem(STORE_KEY);
-    } catch (error) {
-      /* 清不掉只影响下次自动填充，不影响本次使用 */
-    }
-  }
 
   function adoptRepoRoot(path) {
     state.repoRoot = path;
     el('repo').value = path;
-    el('policy-foot').textContent = path;
-    el('policy-foot').title = path;
+    el('policy-path').textContent = path;
+    el('policy-path').title = path;
+    syncRepoUse();
   }
 
   async function workspaceFromHost() {
@@ -149,7 +264,7 @@
   // 返回 null 表示这条能力不可用（例如插件被单独打开），调用方据此退回旧行为。
   async function repoHint(path) {
     try {
-      const response = await bridgeInvoke('ecc.sync.repo_hint', {
+      const response = await bridgeInvoke('ecc.sync.repo-hint', {
         repo_root: path || '',
         timeout_seconds: 60,
       });
@@ -169,24 +284,14 @@
     return ((hint && hint.candidates) || []).filter((item) => item && item.has_policy && item.path);
   }
 
-  // 该用哪个目录：记住的那个确实还能用就继续用，否则换成宿主推断出来的第一个。
-  // 推断不可用时才退回旧行为（记住的路径 → 当前工作区），老 Agent 上照常能用。
-  function chooseRepoRoot(stored, hint, workspace) {
-    if (hint && hint.current && hint.current.valid) return { path: stored, source: 'stored' };
-    const usable = usableCandidates(hint);
-    if (usable.length) return { path: usable[0].path, source: 'host' };
-    if (hint) return { path: '', source: '' };
-    if (stored) return { path: stored, source: 'stored' };
-    return { path: workspace || '', source: workspace ? 'workspace' : '' };
-  }
-
   function isRepoPathError(error) {
     const message = reason(error);
     return message.indexOf('不是 ECC 同步仓库') >= 0 || message.indexOf('需要 repo_root') >= 0;
   }
 
-  // 手里的路径已经不能用了：换一个候选，换不动就把记忆清掉，
-  // 免得下次打开又从一个错的路径开始。
+  // 手里的路径已经不能用了：换一个候选，换不动就照实报错。
+  // 仓库路径每次打开现推，不再往 localStorage 里存一份会过期的副本——
+  // 那份副本和仓库里的 extension-sources.json 是两个真相，谁对谁错没法判。
   async function recoverRepoRoot() {
     const hint = await repoHint(state.repoRoot);
     const next = usableCandidates(hint).find((item) => !samePath(item.path, state.repoRoot));
@@ -196,29 +301,53 @@
   }
 
   async function boot() {
-    const stored = storedRepoRoot();
-    const hint = await repoHint(stored);
-    const workspace = hint ? '' : await workspaceFromHost();
-    const choice = chooseRepoRoot(stored, hint, workspace);
-    if (!choice.path) {
-      notify('没找到 ECC 仓库，请填写 himind-extensions-ecc 仓库根目录。', 'warn');
-      el('repo').focus();
+    const hint = await repoHint('');
+    const auto = (hint && hint.auto) || null;
+    if (auto && auto.path) {
+      adoptRepoRoot(auto.path);
+      const others = int(auto.count) - 1;
+      const note = others > 0
+        ? '已自动定位 ECC 仓库：' + auto.path + '（本机另有 ' + others + ' 个候选，可在上方改写）'
+        : '';
+      await reload(note);
       return;
     }
-    adoptRepoRoot(choice.path);
-    if (choice.source !== 'stored') forgetRepoRoot();
-    const candidates = usableCandidates(hint).length;
-    const note = choice.source === 'host'
-      ? '已自动定位 ECC 仓库：' + choice.path +
-        (candidates > 1 ? '（本机另有 ' + (candidates - 1) + ' 个候选，可在上方改写）' : '')
-      : '';
-    await reload(note);
+    // 推断能力不可用的老宿主：退回工作区路径，至少让人有个能改的起点。
+    if (!hint) {
+      const workspace = await workspaceFromHost();
+      if (workspace) {
+        adoptRepoRoot(workspace);
+        await reload('没能推断出 ECC 仓库，先按当前工作区读了一次，不对就改上面那行路径。');
+        return;
+      }
+    }
+    notify('');
+    readError('没找到 ECC 仓库，请在上面填写 himind-extensions-ecc 仓库根目录。');
+    waitForRepo();
+    el('repo').focus();
+  }
+
+  // 还没定位到仓库时，三块内容都不该停在「正在读取…」，那会一直读到天荒地老。
+  function waitForRepo() {
+    state.report = null;
+    state.selectedSlug = '';
+    el('summary').innerHTML = '';
+    el('brand-sub').textContent = '上游技能库';
+    el('policy-count').textContent = '—';
+    el('category-list').innerHTML = '<li class="rail-empty">等待仓库路径</li>';
+    el('module-list').innerHTML = '<li class="rail-empty">等待仓库路径</li>';
+    el('skill-rule-list').innerHTML = '';
+    el('skill-rule-hint').hidden = false;
+    el('skill-list').innerHTML = '<li><p class="empty">先指定 ECC 仓库根目录，再看技能库。</p></li>';
+    el('skill-list-foot').textContent = '';
+    el('detail-empty').hidden = false;
+    el('detail-body').hidden = true;
   }
 
   async function useTypedRepoRoot() {
     const path = el('repo').value.trim();
     if (!path) {
-      notify('请填写仓库根目录。', 'warn');
+      readError('先填上 himind-extensions-ecc 仓库根目录。');
       return;
     }
     adoptRepoRoot(path);
@@ -239,13 +368,26 @@
     return payload;
   }
 
+  // 一次读取要几百毫秒，而筛选是防抖触发的：连着改两次条件，两份请求会同时在路上，
+  // 先发的可能后到。只认最后一次发出的那份，早到的结果直接丢掉——否则界面会停在
+  // 「搜索框是新条件、列表是旧结果」的样子，而且没人能一眼看出它是怎么来的。
+  let loadSeq = 0;
+
   async function reload(note) {
     if (!state.repoRoot) {
-      notify('先填上 himind-extensions-ecc 仓库根目录，再进入分发管理。', 'warn');
+      notify('先填上 himind-extensions-ecc 仓库根目录，再读技能库。', 'warn');
       return;
     }
+    const seq = (loadSeq += 1);
     notify('');
-    setBusy(true, '读取中…');
+    readError('');
+    setBusy(true, 'reload');
+    // 还没有结果时给个占位；已经有结果时保留旧列表，只在脚注上写「读取中」。
+    // 否则每敲一下搜索框就整列清空再重填，闪得没法用。
+    if (!state.report) {
+      el('skill-list').innerHTML = '<li><p class="skeleton">正在读取技能库…</p></li>';
+    }
+    el('skill-list-foot').textContent = '读取中…';
     try {
       const report = await bridgeInvoke(
         'ecc.sync.distribution',
@@ -255,33 +397,54 @@
           timeout_seconds: 120,
         }, filterPayload()),
       );
+      if (seq !== loadSeq) return;
       state.report = report;
-      rememberRepoRoot(state.repoRoot);
       (report.items || []).forEach((item) => {
-        if (item.slug && item.name) state.skillNames[item.slug] = item.name;
+        if (item.slug && item.name) skillNames[item.slug] = item.name;
       });
       render();
       notify(note || '', note ? 'ok' : '');
     } catch (error) {
+      if (seq !== loadSeq) return;
       if (isRepoPathError(error)) {
         const recovered = await recoverRepoRoot();
         if (recovered) return reload('已自动改用 ' + recovered);
-        forgetRepoRoot();
       }
-      notify('读取分发状态失败：' + reason(error), 'error');
+      state.report = null;
+      renderEmptyRead(error);
     } finally {
-      setBusy(false);
+      // 这次读取已经被更新的请求取代：忙碌状态归最新那次管，这里不提前放开按钮。
+      if (seq === loadSeq) setBusy(false);
     }
+  }
+
+  // 读取失败后清掉旧渲染，别让上一次的结果继续挂在页面上。
+  function renderEmptyRead(error) {
+    state.selectedSlug = '';
+    el('summary').innerHTML = '';
+    el('skill-list').innerHTML = '<li><p class="empty">读取分发状态失败。</p></li>';
+    el('skill-list-foot').textContent = '';
+    el('detail-empty').hidden = false;
+    el('detail-body').hidden = true;
+    el('policy-count').textContent = '—';
+    el('category-list').innerHTML = '<li class="rail-empty">读取失败，未加载</li>';
+    el('module-list').innerHTML = '<li class="rail-empty">读取失败，未加载</li>';
+    el('skill-rule-list').innerHTML = '';
+    readError('读取分发状态失败：' + reason(error));
+    notify('');
   }
 
   function render() {
     const report = state.report;
     if (!report) return;
+    readError('');
     renderBrandSub(report);
-    renderStats(report);
+    renderSummary(report);
     renderFilters(report);
-    renderRail(report);
-    renderItems(report);
+    renderPolicy(report);
+    reconcileSelection(report.items || []);
+    renderSkillList(report);
+    renderDetail(report);
   }
 
   function renderBrandSub(report) {
@@ -291,58 +454,243 @@
     if (commit) parts.push('上游 ' + commit);
     if (report.commit_date) parts.push(text(report.commit_date).slice(0, 10));
     if (report.sequence) parts.push('第 ' + report.sequence + ' 次同步');
-    el('brand-sub').textContent = parts.join(' · ') || '上游技能的分发策略与状态';
+    el('brand-sub').textContent = parts.join(' · ') || '上游技能库';
   }
 
-  function renderStats(report) {
+  // 计数条：一条总数加四个状态。数值本身不上色，0 条待发布涂成蓝色只会让人以为那一格在报警。
+  function renderSummary(report) {
     const totals = report.totals || {};
-    const cards = [
-      { label: '已收录技能', value: int(totals.skills) },
-      { label: '已分发', value: int(totals.distributed), tone: 'ok' },
-      { label: '待发布', value: int(totals.pending), tone: 'accent' },
-      { label: '待校对', value: int(totals.held), tone: 'warn' },
-      {
-        label: '已排除',
-        value: int(totals.excluded),
-        tone: 'danger',
-        sub: int(totals.frozen) ? '其中 ' + int(totals.frozen) + ' 条停更' : '',
-      },
-      { label: '已发版本', value: int(totals.published_versions) },
+    const parts = [
+      '<span class="summary-total">' + int(totals.skills) + ' 条技能</span>',
     ];
-    el('stats').innerHTML = cards
-      .map((card) => {
-        const sub = card.sub ? ' <small>' + escapeHTML(card.sub) + '</small>' : '';
-        return (
-          '<div class="stat ' + (card.tone || '') + '">' +
-          '<span class="value">' + escapeHTML(card.value) + sub + '</span>' +
-          '<span class="label">' + escapeHTML(card.label) + '</span>' +
-          '</div>'
-        );
-      })
-      .join('');
+    const counts = {
+      distributed: int(totals.distributed),
+      pending: int(totals.pending),
+      held: int(totals.held),
+      excluded: int(totals.excluded),
+    };
+    SUMMARY_CHIPS.forEach((chip) => {
+      const value = counts[chip.key];
+      const on = state.filters.state === chip.key;
+      const tone = on || value > 0 ? chip.tone || '' : '';
+      let title = (on ? '再点一次取消，' : '只看') + chip.label + '的 ' + value + ' 条';
+      if (chip.key === 'excluded' && int(totals.frozen)) {
+        title += '；其中 ' + int(totals.frozen) + ' 条已经发过版本，市场里还留着';
+      }
+      parts.push(
+        '<button type="button" class="state-chip ' + tone + '" data-state="' + chip.key + '"' +
+        ' aria-pressed="' + (on ? 'true' : 'false') + '" title="' + escapeHTML(title) + '">' +
+        escapeHTML(chip.label) + ' <b>' + value + '</b></button>',
+      );
+    });
+    el('summary').innerHTML = parts.join('');
   }
 
   function renderFilters(report) {
-    fillSelect(el('filter-category'), (report.categories || []).map((group) => group.key), '全部分类');
-    fillSelect(el('filter-module'), (report.modules || []).map((group) => group.key), '全部模块');
-    el('filter-state').value = state.filters.state;
+    fillSelect(
+      el('filter-category'),
+      (report.categories || []).map((group) => ({ value: group.key, label: categoryLabel(group.key) })),
+      '全部分类',
+    );
+    fillSelect(
+      el('filter-module'),
+      (report.modules || []).map((group) => ({ value: group.key, label: group.key })),
+      '全部模块',
+    );
     el('filter-category').value = state.filters.category;
     el('filter-module').value = state.filters.module;
-    el('filter-keyword').value = state.filters.keyword;
+    // 选项里已经没有的筛选值（换了仓库）当场清掉，免得下一份请求带着一个不存在的分类。
+    state.filters.category = el('filter-category').value;
+    state.filters.module = el('filter-module').value;
   }
 
-  function fillSelect(select, values, placeholder) {
+  function fillSelect(select, entries, placeholder) {
     const current = select.value;
     const options = ['<option value="">' + escapeHTML(placeholder) + '</option>']
-      .concat(
-        values.map((value) => '<option value="' + escapeHTML(value) + '">' + escapeHTML(value) + '</option>'),
-      )
+      .concat(entries.map((entry) => {
+        return '<option value="' + escapeHTML(entry.value) + '">' + escapeHTML(entry.label) + '</option>';
+      }))
       .join('');
     select.innerHTML = options;
-    if (values.indexOf(current) >= 0) select.value = current;
+    if (entries.some((entry) => entry.value === current)) select.value = current;
   }
 
-  function renderRail(report) {
+  // ---------- 技能库 ----------
+
+  // 选中项跟着结果走：筛完之后原来那条不在了，就落到第一条，别留一个空白的详情区。
+  function reconcileSelection(items) {
+    if (!items.length) {
+      state.selectedSlug = '';
+      return;
+    }
+    const kept = items.some((item) => text(item.slug) === state.selectedSlug);
+    if (!kept) state.selectedSlug = text(items[0].slug);
+  }
+
+  function renderSkillList(report) {
+    const items = report.items || [];
+    const filtered = ['state', 'category', 'module', 'keyword'].some((key) => state.filters[key]);
+    if (!items.length) {
+      el('skill-list').innerHTML = '<li><p class="empty">' + (filtered
+        ? '没有符合当前条件的技能，点「重置」看全部。'
+        : '这个仓库里还没有可分发的技能，先在 HiMind 里跑一次「ECC 技能同步」工作流。') + '</p></li>';
+    } else {
+      el('skill-list').innerHTML = items.map(skillCard).join('');
+    }
+    const parts = [(filtered ? '筛选后 ' : '共 ') + items.length + ' 条'];
+    const truncated = int(report.truncated);
+    if (truncated) parts.push('另有 ' + truncated + ' 条未展开');
+    if (filtered) parts.push('重置看全部');
+    el('skill-list-foot').textContent = parts.join(' · ');
+  }
+
+  function skillCard(item) {
+    const slug = text(item.slug);
+    const categories = (item.categories || [])
+      .map((key) => '<span class="chip">' + escapeHTML(categoryLabel(key)) + '</span>')
+      .join('');
+    const moduleChip = item.module
+      ? '<span class="chip">' + escapeHTML(item.module) + '</span>'
+      : '';
+    return (
+      '<li><button type="button" class="skill-card" data-slug="' + escapeHTML(slug) + '"' +
+      (slug === state.selectedSlug ? ' aria-current="true"' : '') + '>' +
+      '<span class="skill-card-top">' +
+      '<span class="skill-card-name">' + escapeHTML(item.name || slug) + '</span>' +
+      stateBadge(text(item.state)) +
+      '</span>' +
+      '<span class="skill-card-intro">' +
+      escapeHTML(text(item.description) || '这条技能还没有填写介绍。') +
+      '</span>' +
+      '<span class="skill-card-meta">' + categories + moduleChip + '</span>' +
+      '</button></li>'
+    );
+  }
+
+  function stateBadge(stateKey) {
+    return '<span class="badge ' + (STATE_TONE[stateKey] || '') + '">' +
+      escapeHTML(STATE_LABEL[stateKey] || stateKey) + '</span>';
+  }
+
+  function renderDetail(report) {
+    const items = (report && report.items) || [];
+    const item = items.find((entry) => text(entry.slug) === state.selectedSlug) || null;
+    el('detail-empty').hidden = !!item;
+    el('detail-body').hidden = !item;
+    if (!item) {
+      // 没有选中项时清掉残留的技能 ID，免得之后同步按钮状态时把它当成「已选中」。
+      const stale = el('detail-toggle');
+      delete stale.dataset.slug;
+      delete stale.dataset.action;
+      return;
+    }
+
+    const stateKey = text(item.state);
+    el('detail-name').textContent = text(item.name) || text(item.slug);
+    el('detail-path').textContent = text(item.source_path) || text(item.skill_id) || text(item.slug);
+    el('detail-badges').innerHTML = detailBadges(item, stateKey);
+    el('detail-intro').textContent = text(item.description) || '这条技能还没有填写介绍。';
+
+    const scenario = text(item.scenario);
+    el('detail-scene-block').hidden = !scenario;
+    el('detail-scene').textContent = scenario;
+
+    const facts = [
+      ['功能分类', (item.categories || []).map(categoryLabel).join('、') || '未归类'],
+      ['上游模块', text(item.module) || '—'],
+      ['技能版本', text(item.version) || '—'],
+      ['分发状态', STATE_LABEL[stateKey] || stateKey],
+    ];
+    if (item.rule) facts.push(['命中规则', ruleText(item.rule, item.keyword)]);
+    if (int(item.published_versions) > 0) {
+      facts.push(['历史版本', '已发出 ' + int(item.published_versions) + ' 个']);
+    }
+    el('detail-facts').innerHTML = facts.map((pair) => {
+      return '<dt>' + escapeHTML(pair[0]) + '</dt><dd>' + escapeHTML(pair[1]) + '</dd>';
+    }).join('');
+
+    // 排除原因、待校对卡在哪：这两句是「它为什么现在这样」的答案，就摆在状态下面。
+    const note = text(item.detail);
+    el('detail-note').hidden = !note;
+    el('detail-note').textContent = note;
+
+    const excluding = stateKey === 'excluded';
+    const toggle = el('detail-toggle');
+    toggle.textContent = excluding ? '重新纳入分发' : '从分发中排除';
+    toggle.dataset.slug = text(item.slug);
+    toggle.dataset.action = excluding ? 'include' : 'exclude';
+    syncDetailToggle();
+  }
+
+  function detailBadges(item, stateKey) {
+    const parts = [stateBadge(stateKey)];
+    if (item.tier) parts.push('<span class="badge">' + escapeHTML(item.tier) + ' 档</span>');
+    if (item.version) parts.push('<span class="badge">v' + escapeHTML(item.version) + '</span>');
+    (item.categories || []).forEach((key) => {
+      parts.push('<span class="badge">' + escapeHTML(categoryLabel(key)) + '</span>');
+    });
+    if (item.module) parts.push('<span class="badge">' + escapeHTML(item.module) + '</span>');
+    return parts.join('');
+  }
+
+  function selectSkill(slug) {
+    if (!slug || slug === state.selectedSlug) return;
+    state.selectedSlug = slug;
+    syncListSelection();
+    renderDetail(state.report || {});
+  }
+
+  // 换选中项只改 aria-current：整列 268 张卡片重画一遍，点一下就要等一次全量布局，
+  // 而翻目录是一路点下去的。列表内容没变，就没有理由重建 DOM。
+  function syncListSelection() {
+    const cards = el('skill-list').querySelectorAll('button[data-slug]');
+    Array.prototype.forEach.call(cards, (card) => {
+      if (card.dataset.slug === state.selectedSlug) card.setAttribute('aria-current', 'true');
+      else card.removeAttribute('aria-current');
+    });
+  }
+
+  function bindSkillList() {
+    el('skill-list').addEventListener('click', (event) => {
+      const button = event.target.closest ? event.target.closest('button[data-slug]') : null;
+      if (!button) return;
+      selectSkill(button.dataset.slug);
+    });
+    // 上下键在列表里走：一屏能看十来条，用键盘浏览时不该每换一条都回一次鼠标。
+    el('skill-list').addEventListener('keydown', (event) => {
+      const step = event.key === 'ArrowDown' ? 1 : event.key === 'ArrowUp' ? -1 : 0;
+      if (!step) return;
+      const buttons = Array.prototype.slice.call(el('skill-list').querySelectorAll('button[data-slug]'));
+      if (buttons.length < 2) return;
+      const index = buttons.indexOf(event.target);
+      const next = buttons[Math.min(buttons.length - 1, Math.max(0, (index < 0 ? 0 : index) + step))];
+      if (!next) return;
+      event.preventDefault();
+      selectSkill(next.dataset.slug);
+      window.setTimeout(() => {
+        const node = el('skill-list').querySelector('button[data-slug="' + next.dataset.slug + '"]');
+        if (node && node.focus) node.focus();
+      }, 0);
+    });
+  }
+
+  function bindDetail() {
+    el('detail-toggle').addEventListener('click', async () => {
+      const button = el('detail-toggle');
+      if (state.busy || !button.dataset.slug) return;
+      button.disabled = true;
+      const saved = await toggleRule('skill', button.dataset.slug, button.dataset.action === 'exclude');
+      // 没落盘就按服务端最后一份策略重画，别把界面留在「看起来已经改了」的状态。
+      if (!saved) {
+        if (state.report) renderDetail(state.report);
+        else button.disabled = false;
+      }
+    });
+  }
+
+  // ---------- 分发策略 ----------
+
+  function renderPolicy(report) {
     const policy = report.policy || {};
     const excludedModules = policy.excluded_modules || {};
     const excludedCategories = policy.excluded_categories || {};
@@ -352,13 +700,13 @@
       Object.keys(excludedCategories).length +
       Object.keys(excludedSkills).length;
     el('policy-count').textContent = ruleCount ? ruleCount + ' 条规则' : '全部分发';
-    el('policy-foot').textContent = report.policy_path || state.repoRoot;
-    el('policy-foot').title = report.policy_path || state.repoRoot;
+    el('policy-path').textContent = report.policy_path || state.repoRoot;
+    el('policy-path').title = report.policy_path || state.repoRoot;
 
     el('category-list').innerHTML = (report.categories || [])
       .map((group) => {
         const direct = excludedCategories[group.key] !== undefined;
-        const item = ruleItem({
+        return ruleItem({
           kind: 'category',
           key: group.key,
           total: int(group.total),
@@ -366,10 +714,10 @@
           checked: !direct,
           reason: direct ? excludedCategories[group.key] : '',
           tone: direct ? 'off' : '',
+          label: categoryLabel(group.key),
         });
-        return item;
       })
-      .join('') || '<li class="empty">暂无分类</li>';
+      .join('') || '<li class="rail-empty">上游没有声明功能分类</li>';
 
     el('module-list').innerHTML = (report.modules || [])
       .map((group) => {
@@ -386,16 +734,16 @@
           reason: direct
             ? excludedModules[group.key]
             : inherited
-              ? '随分类 ' + group.category + ' 排除'
+              ? '随分类 ' + categoryLabel(group.category) + ' 排除'
               : '',
           tone: direct ? 'off' : inherited ? 'inherited' : '',
         });
       })
-      .join('') || '<li class="empty">暂无模块</li>';
+      .join('') || '<li class="rail-empty">上游没有声明模块</li>';
 
-    const skillKeys = Object.keys(excludedSkills);
-    el('skill-rule-list').innerHTML =
-      skillKeys.map((slug) => ruleItem({
+    const skillKeys = Object.keys(excludedSkills).sort();
+    el('skill-rule-list').innerHTML = skillKeys
+      .map((slug) => ruleItem({
         kind: 'skill',
         key: slug,
         total: 1,
@@ -403,8 +751,9 @@
         checked: false,
         reason: excludedSkills[slug],
         tone: 'off',
-        label: state.skillNames[slug] || slug,
-      })).join('');
+        label: skillNames[slug] || slug,
+      }))
+      .join('');
     el('skill-rule-hint').hidden = skillKeys.length > 0;
   }
 
@@ -418,6 +767,8 @@
       ? '<span class="rule-reason" title="' + escapeHTML(options.reason) + '">' +
         escapeHTML(options.reason) + '</span>'
       : '';
+    // 关掉的项只有删除线太轻，加一个「已排除」让它在一列里能被一眼扫到。
+    const flag = options.tone === 'off' ? '<span class="rule-flag">已排除</span>' : '';
     return (
       '<li class="' + classes + '">' +
       '<label class="switch"><input type="checkbox" data-kind="' + escapeHTML(options.kind) + '"' +
@@ -429,60 +780,16 @@
       escapeHTML(options.label || options.key) + '</span>' +
       '<span class="rule-meta">' + escapeHTML(metaParts.join(' · ')) + '</span>' +
       reason +
+      flag +
       '</span></li>'
-    );
-  }
-
-  function renderItems(report) {
-    const items = report.items || [];
-    if (!items.length) {
-      el('items-body').innerHTML =
-        '<tr><td colspan="6"><p class="row-empty">没有符合条件的技能。换个筛选条件试试。</p></td></tr>';
-    } else {
-      el('items-body').innerHTML = items.map(itemRow).join('');
-    }
-    const truncated = int(report.truncated);
-    el('table-foot').textContent = truncated
-      ? '显示前 ' + items.length + ' 条，另有 ' + truncated + ' 条未展开。'
-      : '共 ' + items.length + ' 条。';
-  }
-
-  function itemRow(item) {
-    const stateKey = text(item.state);
-    const badge =
-      '<span class="badge ' + (STATE_TONE[stateKey] || '') + '">' +
-      escapeHTML(STATE_LABEL[stateKey] || stateKey) +
-      '</span>';
-    const why = item.detail
-      ? '<span class="why" title="' + escapeHTML(item.detail) + '">' + escapeHTML(item.detail) + '</span>'
-      : '';
-    const ruleHint = item.rule
-      ? '<span class="why">命中规则：' + escapeHTML(ruleText(item.rule, item.keyword)) + '</span>'
-      : '';
-    const excluding = stateKey === 'excluded';
-    const categories = (item.categories || [])
-      .map((value) => '<span class="badge">' + escapeHTML(value) + '</span>')
-      .join('');
-    return (
-      '<tr>' +
-      '<td><div class="skill-name"><strong>' + escapeHTML(item.name || item.slug) + '</strong>' +
-      '<code title="' + escapeHTML(item.source_path) + '">' + escapeHTML(item.source_path || item.slug) + '</code>' +
-      '</div></td>' +
-      '<td><div class="tag-list">' + (categories || '<span class="badge">未归类</span>') + '</div></td>' +
-      '<td>' + escapeHTML(item.module || '—') + '</td>' +
-      '<td>' + escapeHTML(item.version) + (item.tier ? ' <span class="badge">' + escapeHTML(item.tier) + '</span>' : '') + '</td>' +
-      '<td><div class="detail-cell">' + badge + why + ruleHint + '</div></td>' +
-      '<td class="col-action">' +
-      '<button class="btn" type="button" data-slug="' + escapeHTML(item.slug) + '"' +
-      ' data-action="' + (excluding ? 'include' : 'exclude') + '">' +
-      (excluding ? '纳入' : '排除') +
-      '</button></td></tr>'
     );
   }
 
   function ruleText(rule, keyword) {
     const names = { skill: '单条技能', module: '上游模块', category: '功能分类' };
-    return (names[rule] || rule) + (keyword ? '「' + keyword + '」' : '');
+    const label = names[rule] || rule;
+    if (!keyword) return label;
+    return label + '「' + (rule === 'category' ? categoryLabel(keyword) : keyword) + '」';
   }
 
   // ---------- 写入策略 ----------
@@ -497,18 +804,19 @@
   }
 
   async function persist(draft) {
-    setBusy(true, '保存中…');
+    setBusy(true, 'save');
     try {
-      await bridgeInvoke('ecc.sync.dispatch_policy_save', {
+      await bridgeInvoke('ecc.sync.dispatch-policy-save', {
         repo_root: state.repoRoot,
         excluded_modules: draft.excluded_modules,
         excluded_categories: draft.excluded_categories,
         excluded_skills: draft.excluded_skills,
         timeout_seconds: 120,
       });
+      policyError('');
       return true;
     } catch (error) {
-      notify('策略没保存：' + reason(error), 'error');
+      policyError('策略没保存：' + reason(error) + '。开关已还原。');
       return false;
     } finally {
       setBusy(false);
@@ -516,9 +824,9 @@
   }
 
   function describeTarget(kind, key) {
-    if (kind === 'category') return '功能分类「' + key + '」';
+    if (kind === 'category') return '功能分类「' + categoryLabel(key) + '」';
     if (kind === 'module') return '上游模块「' + key + '」';
-    return '技能「' + (state.skillNames[key] || key) + '」';
+    return '技能「' + (skillNames[key] || key) + '」';
   }
 
   function targetCount(kind, key) {
@@ -547,6 +855,17 @@
       else if (kind === 'module') draft.excluded_modules[key] = value;
       else draft.excluded_skills[key] = value;
     } else {
+      // 纳入会把一整类技能重新推回市场，不是随手可撤销的操作：先确认再落盘。
+      const count = targetCount(kind, key);
+      const hint = kind === 'skill'
+        ? '这条技能会重新参与分发，下次同步时按上游最新版本发新版本。'
+        : '这一类下 ' + count + ' 条技能会重新参与分发，下次同步时按上游最新版本发新版本。';
+      const confirmed = await askConfirm(
+        '纳入 ' + describeTarget(kind, key),
+        hint,
+        '策略写进 dispatch-policy.json 后随仓库长期生效，记得提交到仓库。',
+      );
+      if (!confirmed) return false;
       if (kind === 'category') delete draft.excluded_categories[key];
       else if (kind === 'module') delete draft.excluded_modules[key];
       else delete draft.excluded_skills[key];
@@ -556,42 +875,69 @@
       await reload();
       notify(
         (exclude ? '已排除 ' : '已纳入 ') + describeTarget(kind, key) +
-          '。策略写在 ' + ((state.report && state.report.policy_file) || 'dispatch-policy.json') +
-          '，记得提交到仓库——定时同步读的是同一份文件。',
+          '，写入 ' + ((state.report && state.report.policy_file) || 'dispatch-policy.json') +
+          '；提交到仓库后定时同步才会按它执行。',
         exclude ? 'warn' : 'ok',
       );
     }
     return saved;
   }
 
-  // ---------- 排除原因弹窗 ----------
+  // ---------- 确认弹窗（排除问原因、纳入问确认，共用一个壳） ----------
 
-  let pendingReason = null;
+  let pendingModal = null;
+  let modalNeedsInput = false;
+
+  function openModal(options) {
+    modalNeedsInput = !!options.input;
+    el('modal-title').textContent = options.title;
+    el('modal-desc').textContent = options.hint || '';
+    el('modal-field').hidden = !modalNeedsInput;
+    el('modal-input').value = modalNeedsInput ? options.value || '' : '';
+    el('modal-hint').textContent = options.note || '';
+    el('modal-hint').hidden = !options.note;
+    el('modal-confirm').textContent = options.confirmLabel || '确定';
+    el('modal').hidden = false;
+    pendingModal = options.resolve;
+    if (modalNeedsInput) {
+      el('modal-input').focus();
+      el('modal-input').select();
+    } else {
+      el('modal-confirm').focus();
+    }
+  }
 
   function askReason(title, hint) {
     return new Promise((resolve) => {
-      el('modal-title').textContent = title;
-      el('modal-desc').textContent = hint || '';
-      el('modal-input').value = DEFAULT_REASON;
-      el('modal').hidden = false;
-      pendingReason = resolve;
-      el('modal-input').focus();
-      el('modal-input').select();
+      openModal({
+        title,
+        hint,
+        input: true,
+        value: DEFAULT_REASON,
+        note: '原因会写进 dispatch-policy.json，随仓库长期生效。',
+        confirmLabel: '排除',
+        resolve,
+      });
+    });
+  }
+
+  function askConfirm(title, hint, note) {
+    return new Promise((resolve) => {
+      openModal({ title, hint, input: false, note, confirmLabel: '纳入', resolve });
     });
   }
 
   function closeModal(value) {
     el('modal').hidden = true;
-    const resolve = pendingReason;
-    pendingReason = null;
+    const resolve = pendingModal;
+    pendingModal = null;
     if (resolve) resolve(value);
   }
 
   function bindModal() {
     el('modal-form').addEventListener('submit', (event) => {
       event.preventDefault();
-      const value = el('modal-input').value.trim() || DEFAULT_REASON;
-      closeModal(value);
+      closeModal(modalNeedsInput ? el('modal-input').value.trim() || DEFAULT_REASON : true);
     });
     el('modal-cancel').addEventListener('click', () => closeModal(null));
     el('modal').addEventListener('click', (event) => {
@@ -605,7 +951,7 @@
   // ---------- 动作 ----------
 
   async function probeUpstream() {
-    setBusy(true, '探测中…');
+    setBusy(true, 'probe');
     try {
       const result = await bridgeInvoke('ecc.sync.probe', {
         repo_root: state.repoRoot,
@@ -633,7 +979,7 @@
 
   async function runPublish(dryRun) {
     const limit = Math.max(0, int(el('limit').value));
-    setBusy(true, dryRun ? '预演中…' : '发布中…');
+    setBusy(true, dryRun ? 'dry-run' : 'publish');
     try {
       const result = await bridgeInvoke('ecc.sync.publish', {
         repo_root: state.repoRoot,
@@ -668,15 +1014,11 @@
 
   function bindFilters() {
     const apply = () => {
-      state.filters = {
-        state: el('filter-state').value,
-        category: el('filter-category').value,
-        module: el('filter-module').value,
-        keyword: el('filter-keyword').value.trim(),
-      };
+      state.filters.category = el('filter-category').value;
+      state.filters.module = el('filter-module').value;
+      state.filters.keyword = el('filter-keyword').value.trim();
       reload();
     };
-    el('filter-state').addEventListener('change', apply);
     el('filter-category').addEventListener('change', apply);
     el('filter-module').addEventListener('change', apply);
     let timer = 0;
@@ -689,11 +1031,19 @@
       state.filters = { state: '', category: '', module: '', keyword: '' };
       reload();
     });
+    // 计数条就是状态筛选入口：点一下只看这一类，再点一下回到全部。
+    el('summary').addEventListener('click', (event) => {
+      const chip = event.target.closest ? event.target.closest('button[data-state]') : null;
+      if (!chip) return;
+      const key = chip.dataset.state;
+      state.filters.state = state.filters.state === key ? '' : key;
+      reload();
+    });
   }
 
-  function bindRail() {
-    el('rail-body').addEventListener('change', async (event) => {
-      const input = event.target.closest('input[data-kind]');
+  function bindPolicy() {
+    el('policy-columns').addEventListener('change', async (event) => {
+      const input = event.target.closest ? event.target.closest('input[data-kind]') : null;
       if (!input || state.busy) return;
       const kind = input.dataset.kind;
       const key = input.dataset.key;
@@ -701,37 +1051,40 @@
       input.disabled = true;
       const saved = await toggleRule(kind, key, exclude);
       if (!saved) {
-        input.checked = !input.checked;
-        input.disabled = false;
+        // 没落盘就按服务端最后一份策略重画，别把界面留在「看起来已经改了」的状态。
+        if (state.report) renderPolicy(state.report);
+        else {
+          input.checked = !input.checked;
+          input.disabled = false;
+        }
       }
     });
   }
 
-  function bindItems() {
-    el('items-body').addEventListener('click', async (event) => {
-      const button = event.target.closest('button[data-action]');
-      if (!button || state.busy) return;
-      button.disabled = true;
-      const saved = await toggleRule('skill', button.dataset.slug, button.dataset.action === 'exclude');
-      if (!saved) button.disabled = false;
-    });
-  }
-
   function bindToolbar() {
+    el('refresh').addEventListener('click', () => {
+      if (!state.busy) reload();
+    });
     el('repo-use').addEventListener('click', useTypedRepoRoot);
+    el('repo').addEventListener('input', syncRepoUse);
+    el('repo').addEventListener('change', syncRepoUse);
     el('repo').addEventListener('keydown', (event) => {
       if (event.key === 'Enter') useTypedRepoRoot();
     });
-    el('refresh').addEventListener('click', reload);
-    el('probe').addEventListener('click', probeUpstream);
     el('dry-run').addEventListener('click', () => runPublish(true));
     el('publish').addEventListener('click', () => runPublish(false));
+    el('action-probe').addEventListener('click', () => {
+      if (!state.busy) probeUpstream();
+    });
   }
 
+  showTab('skills');
+  bindTabs();
   bindToolbar();
   bindFilters();
-  bindRail();
-  bindItems();
+  bindSkillList();
+  bindDetail();
+  bindPolicy();
   bindModal();
   boot();
 })();

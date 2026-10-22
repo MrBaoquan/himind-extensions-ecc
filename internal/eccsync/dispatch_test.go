@@ -248,9 +248,13 @@ func TestPendingTargetsSkipsExcludedSkillsAndKeepsTools(t *testing.T) {
 	}
 }
 
-// TestBuildDistributionSeparatesStates 说明界面拿到的状态是哪来的：
-// 已发、待发、文案没过闸门、被策略排除，四类各一条，互不重叠。
-func TestBuildDistributionSeparatesStates(t *testing.T) {
+// dispatchFixture 铺一份最小可跑的分发仓库：策略、模块映射、同步锁、元数据，
+// 外加一份「alpha 1.0.0 已经发过」的市场索引。
+//
+// 元数据里的介绍照市场真实文案写：前半句说做什么，末尾一句说什么时候用。
+// 面板靠这两段把 268 条技能变成能翻的目录，所以夹具里必须带上它们。
+func dispatchFixture(t *testing.T) string {
+	t.Helper()
 	repoRoot := t.TempDir()
 	writeTestFile(t, filepath.Join(repoRoot, PolicyFile), testPolicyJSON)
 	writeTestFile(t, filepath.Join(repoRoot, filepath.FromSlash(ModulesFile)),
@@ -274,9 +278,17 @@ func TestBuildDistributionSeparatesStates(t *testing.T) {
 	if err := SaveMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)), Metadata{
 		SchemaVersion: MetadataVersion,
 		Skills: map[string]MetadataEntry{
-			"alpha": {Name: "alpha-helper", Source: "reviewed"},
-			"beta":  {Name: "beta-helper", Source: "derived"},
-			"delta": {Name: "delta-helper", Source: "reviewed"},
+			"alpha": {
+				Name:        "alpha-helper",
+				Description: "把需求拆成可验证的测试用例，再逐条落实。当你要给一个改动补上回归保护时用。",
+				Source:      "reviewed",
+			},
+			"beta": {Name: "beta-helper", Source: "derived"},
+			"delta": {
+				Name:        "delta-helper",
+				Description: "对两个 agent 的输出做逐项对比。只在需要判断哪一版更稳时用。",
+				Source:      "reviewed",
+			},
 		},
 	}); err != nil {
 		t.Fatal(err)
@@ -301,6 +313,14 @@ func TestBuildDistributionSeparatesStates(t *testing.T) {
 	}); err != nil {
 		t.Fatal(err)
 	}
+
+	return repoRoot
+}
+
+// TestBuildDistributionSeparatesStates 说明界面拿到的状态是哪来的：
+// 已发、待发、文案没过闸门、被策略排除，四类各一条，互不重叠。
+func TestBuildDistributionSeparatesStates(t *testing.T) {
+	repoRoot := dispatchFixture(t)
 
 	report, err := BuildDistribution(repoRoot, DistributionOptions{})
 	if err != nil {
@@ -345,5 +365,51 @@ func TestBuildDistributionSeparatesStates(t *testing.T) {
 	}
 	if !found {
 		t.Fatalf("分类分组里必须出现 testing-quality：%+v", report.Categories)
+	}
+
+	// 介绍文案在插件出口就被切成两段：列表里显示「做什么」，详情里再回答
+	// 「什么时候用」。切不出来时场景留空，不拿半句话冒充使用场景。
+	bySlug := map[string]DistributionItem{}
+	for _, item := range report.Items {
+		bySlug[item.Slug] = item
+	}
+	if alpha := bySlug["alpha"]; alpha.Description != "把需求拆成可验证的测试用例，再逐条落实。" {
+		t.Fatalf("简介只该留前半句，得到 %q", alpha.Description)
+	}
+	if alpha := bySlug["alpha"]; alpha.Scenario != "当你要给一个改动补上回归保护时用。" {
+		t.Fatalf("末尾那句应当单独作为使用场景，得到 %q", alpha.Scenario)
+	}
+	if delta := bySlug["delta"]; delta.Scenario != "只在需要判断哪一版更稳时用。" {
+		t.Fatalf("「只在……时用」也是场景句，得到 %q", delta.Scenario)
+	}
+	if beta := bySlug["beta"]; beta.Description != "" || beta.Scenario != "" {
+		t.Fatalf("没写介绍的技能不该被编出简介或场景，得到 %+v", beta)
+	}
+}
+
+// TestBuildDistributionKeywordMatchesSkillCopy 盯住搜索口径：面板是给人翻目录
+// 用的，用户记得住的是「补回归保护那个」，不是 slug。简介与场景必须一起参与
+// 匹配，否则搜索框只能搜出用户本来就知道名字的那几条。
+func TestBuildDistributionKeywordMatchesSkillCopy(t *testing.T) {
+	repoRoot := dispatchFixture(t)
+
+	cases := []struct {
+		keyword string
+		slug    string
+		why     string
+	}{
+		{keyword: "回归保护", slug: "alpha", why: "关键词只出现在使用场景里"},
+		{keyword: "逐项对比", slug: "delta", why: "关键词只出现在简介里"},
+		{keyword: "ALPHA", slug: "alpha", why: "大小写不该影响匹配"},
+	}
+	for _, testCase := range cases {
+		report, err := BuildDistribution(repoRoot, DistributionOptions{Keyword: testCase.keyword})
+		if err != nil {
+			t.Fatalf("按 %q 筛选失败：%v", testCase.keyword, err)
+		}
+		if len(report.Items) != 1 || report.Items[0].Slug != testCase.slug {
+			t.Fatalf("%s：按 %q 应当只筛出 %s，得到 %+v",
+				testCase.why, testCase.keyword, testCase.slug, report.Items)
+		}
 	}
 }

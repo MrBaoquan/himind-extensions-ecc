@@ -35,7 +35,7 @@ type input struct {
 	DistDir        string `json:"dist_dir"`
 	Status         string `json:"status"`
 	Category       string `json:"category"`
-	// 分发管理要用的筛选项：状态、上游模块与关键字，三者互不冲突。
+	// 技能库面板要用的筛选项：状态、上游模块与关键字，三者互不冲突。
 	State   string `json:"state"`
 	Module  string `json:"module"`
 	Keyword string `json:"keyword"`

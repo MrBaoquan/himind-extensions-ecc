@@ -10,7 +10,7 @@
 | --- | --- |
 | `skills/` | 迁移后的技能，正文与上游逐字一致，只补了 `skill.json` |
 | `plugins/ecc-skill-sync/` | 同步插件，8 个能力：探测 / 拉取 / 生成 / 门禁 / 发布 / 校对队列 / 分发状态 / 分发策略 |
-| `plugins/ecc-skill-sync/ui/` | 插件自带的分发管理界面，按分类与模块控制谁参与分发 |
+| `plugins/ecc-skill-sync/ui/` | 插件自带的技能库界面，可浏览技能用途并按分类与模块控制分发 |
 | `workflows/ecc-skill-sync/` | 把这 6 步串起来的工作流，可手动跑，也可挂定时计划 |
 | `tools/cmd/himind-ecc-sync/` | 同一个过程的命令行入口，调试用 |
 | `internal/eccsync/` | 真正的实现，插件和 CLI 共用 |
@@ -88,7 +88,7 @@ go build -o plugins/ecc-skill-sync/ecc-skill-sync.exe ./plugins/ecc-skill-sync
 
 | 方式 | 怎么做 |
 | --- | --- |
-| 界面 | 插件视图「分发管理」：按分类或模块整组开关，单条技能也能单独排掉，改完即落盘 |
+| 界面 | 插件视图「ECC 技能库」：浏览技能用途与场景，按分类或模块整组开关，单条技能也能单独排掉，改完即落盘 |
 | 命令行 | `dispatch` 看状态，`dispatch-exclude` / `dispatch-include` 改策略 |
 | 定时任务 | 什么都不用做：`ecc.sync.publish` 每次读同一份策略，排掉的技能一直跳过，跳过清单落进当天的发布报告 |
 
