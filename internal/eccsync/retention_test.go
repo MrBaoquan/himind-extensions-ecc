@@ -207,6 +207,69 @@ func TestPlanSupersededNeverPrunesPinnedBatches(t *testing.T) {
 	}
 }
 
+// 还背着某个扩展最新版的批次不能回收，哪怕它已经掉出保留窗口。
+//
+// 真实发生过：第 7 次同步只有 15 件升版本，其余 219 件的最新版仍寄存在第 5 批上。
+// 按批只留最近 3 条，删掉第 5 批就等于删掉这 219 件唯一一份可取的制品，而索引
+// 还指着它——市场里点得到、装不上。
+func TestPlanSupersededKeepsBatchesServingLatestVersions(t *testing.T) {
+	records := []releaseRecord{
+		releaseAt(1, "batch/2.2.1"),
+		releaseAt(2, "batch/2.2.2"),
+		releaseAt(3, "batch/2.2.3"),
+		releaseAt(4, "batch/2.2.4"),
+	}
+	plan := planSuperseded(records, supersedeScope{
+		Batches: map[string]bool{
+			"batch/2.2.1": true, "batch/2.2.2": true,
+			"batch/2.2.3": true, "batch/2.2.4": true,
+		},
+		// 2.2.1 里还有技能的最新版，2.2.2 里的成员都已被后续批次接管。
+		Served: map[string]bool{"batch/2.2.1": true},
+		Keep:   map[string]int{BatchRetentionKey: 1},
+	})
+	if len(plan) != 2 {
+		t.Fatalf("只该回收 2.2.2 与 2.2.3，实际 %v", plan)
+	}
+	for _, item := range plan {
+		if item.Tag == "batch/2.2.1" {
+			t.Fatal("还有技能最新版寄存在 2.2.1 上，不能回收")
+		}
+	}
+}
+
+// 判「哪个批次还背着最新版」要按技能取最高版本，不能被索引里的旧版本记录带偏。
+func TestServedBatchTagsTakesNewestPerSkill(t *testing.T) {
+	root := t.TempDir()
+	indexPath := filepath.Join(root, "catalog.json")
+	body := `{
+	  "schema_version": 1,
+	  "skills": [
+	    {"skill_id": "com.example.alpha", "version": "2.2.3", "release_tag": "batch/2.2.1"},
+	    {"skill_id": "com.example.alpha", "version": "2.2.7", "release_tag": "batch/2.2.4"},
+	    {"skill_id": "com.example.beta", "version": "2.2.2", "release_tag": "batch/2.2.1"},
+	    {"skill_id": "com.example.gamma", "version": "1.0.0", "release_tag": "skill/com.example.gamma@1.0.0"}
+	  ]
+	}`
+	if err := os.WriteFile(indexPath, []byte(body), 0o644); err != nil {
+		t.Fatalf("写索引失败：%v", err)
+	}
+	index, err := catalog.Load(indexPath)
+	if err != nil {
+		t.Fatalf("读索引失败：%v", err)
+	}
+	served := servedBatchTags(index)
+	if !served["batch/2.2.1"] {
+		t.Fatal("beta 的最新版在 2.2.1 上，这一批必须算在背上")
+	}
+	if !served["batch/2.2.4"] {
+		t.Fatal("alpha 的最新版在 2.2.4 上")
+	}
+	if served["batch/2.2.3"] {
+		t.Fatal("索引里没有条目落在 2.2.3 上，不该算")
+	}
+}
+
 // 批次与单件扩展在同一份记录里各自成组：批次不该被当成技能、也不该吃掉技能的窗口。
 func TestPlanSupersededSeparatesBatchesFromSkills(t *testing.T) {
 	records := []releaseRecord{

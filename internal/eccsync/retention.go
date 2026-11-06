@@ -131,6 +131,12 @@ type supersedeScope struct {
 	Batched map[string]string
 	// Protected 是被依赖 pin 钉住的 tag：删掉它，已发布的工作流就指向一个空处。
 	Protected map[string]bool
+	// Served 是「某个扩展的最新版本现在就挂在这个 tag 上」的批次 tag。
+	//
+	// 按批保留只看条数，会漏掉一种情况：某一批里的成员版本不齐（上游只动了其中
+	// 一部分），这些成员的最新版就停在那一批上，之后的批次里根本没有它们。等到
+	// 那一批掉出保留窗口，被删掉的就是这些成员唯一一份可取的制品。
+	Served map[string]bool
 	// Keep 是各类扩展与批次的保留数量。
 	Keep map[string]int
 }
@@ -235,7 +241,11 @@ func servedByBatch(version, batched string) bool {
 //
 // 批次整体回收，不拆成员：批次 tag 的版本号就是同步序号，一批对应一次同步，
 // 「这一批里有两件还要留」不是一个能表达的诉求——要留就该整批留在窗口里。
-// 成员是否已被新批次接管，由新批次整批覆盖，所以按批保留天然是安全的。
+//
+// 但「按批保留」只数条数会漏掉一批成员版本不齐的情况：上游一次只动一部分技能，
+// 没动的那些件的最新版就停在更早的批次上，之后的新批次里根本没有它们。等到那
+// 一批掉出窗口，被删掉的就是这些件唯一一份可取的制品——而索引还指着它。
+// 所以还背着某个扩展最新版的批次一律跳过（scope.Served）。
 func supersededBatches(records []releaseRecord, scope supersedeScope) []SupersededRelease {
 	type candidate struct {
 		tag     string
@@ -269,6 +279,10 @@ func supersededBatches(records []releaseRecord, scope supersedeScope) []Supersed
 			continue
 		}
 		if scope.Protected[item.tag] {
+			continue
+		}
+		// 还有扩展把最新版寄存在这一批上，删了就没有可取的那一份了。
+		if scope.Served[item.tag] {
 			continue
 		}
 		out = append(out, SupersededRelease{
@@ -342,6 +356,42 @@ func batchedOwners(index *catalog.Catalog) map[string]string {
 	return owners
 }
 
+// servedBatchTags 收出「还背着某个扩展最新版」的批次 tag。
+//
+// 判据只看索引里这一件的最高版本落在哪个 tag 上：技能是按批次发的，一次同步只
+// 升动过的那些件，所以新批次里往往没有「没变的件」，它们的最新版一直停在前面的
+// 批次上。按批保留只数条数，就会把这些人的唯一一份制品连批带走。
+func servedBatchTags(index *catalog.Catalog) map[string]bool {
+	served := map[string]bool{}
+	if index == nil {
+		return served
+	}
+	// 索引里同一件技能可以有多条（旧版本记录也在），先按 ID 取出最高的那一条，
+	// 再问它挂在哪个 tag 上。先标 tag 再比版本会把「旧版本所在的批次」也算进来。
+	type latest struct {
+		version string
+		tag     string
+	}
+	best := map[string]latest{}
+	for _, entry := range index.Entries(distribution.KindSkill) {
+		id := catalogText(entry, "skill_id")
+		if id == "" {
+			continue
+		}
+		version := catalogText(entry, "version")
+		if current, ok := best[id]; ok && catalog.CompareVersions(version, current.version) <= 0 {
+			continue
+		}
+		best[id] = latest{version: version, tag: catalogText(entry, "release_tag")}
+	}
+	for _, item := range best {
+		if distribution.IsBatchTag(item.tag) {
+			served[item.tag] = true
+		}
+	}
+	return served
+}
+
 // PruneOptions 控制一次历史版本回收。
 type PruneOptions struct {
 	// DryRun 只算出要回收哪几条，不删远端。
@@ -399,6 +449,7 @@ func PruneReleases(repoRoot string, options PruneOptions) (PruneResult, error) {
 		Batches:   managedBatchTags(index),
 		Batched:   batchedOwners(index),
 		Protected: pinnedTags(index),
+		Served:    servedBatchTags(index),
 		Keep:      keep,
 	})
 	if options.DryRun || len(plan) == 0 {

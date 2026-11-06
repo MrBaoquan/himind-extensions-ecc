@@ -90,3 +90,55 @@ func TestEnsureRevisionOnRemoteRefusesEmptyRevision(t *testing.T) {
 		t.Fatal("读不到提交号时应该拦住，否则 tag 会落到默认分支 HEAD 上")
 	}
 }
+
+// 声明了 refresh 的资产即使已经在 Release 上也要重传，且整个过程只传一次。
+//
+// 这是补发批次时踩出来的：第一次只发 15 件，之后又补发 219 件挂到同一条 tag 上。
+// 总清单的成员集合变了，但「文件在不在」这个判据认为它已经传过，于是 Release
+// 上的清单长期只有 15 个成员，制品却是 234 件——清单与资产各说各话。
+func TestUploadPlanRefreshesStaleAssetsOnce(t *testing.T) {
+	state := releaseAssetState{Assets: map[string]bool{
+		"a-1.0.0.hmskill":  true,
+		"batch@1.0.0.json": true,
+		"b-1.0.0.hmskill":  false,
+	}}
+	spec := releaseSpec{
+		assets:  []string{"dist/a-1.0.0.hmskill", "dist/b-1.0.0.hmskill", "dist/batch@1.0.0.json"},
+		refresh: []string{"dist/batch@1.0.0.json"},
+	}
+	got := uploadPlan(state, spec)
+	want := []string{"dist/b-1.0.0.hmskill", "dist/batch@1.0.0.json"}
+	if len(got) != len(want) {
+		t.Fatalf("应上传 %v，得到 %v", want, got)
+	}
+	for index := range want {
+		if got[index] != want[index] {
+			t.Fatalf("第 %d 个应是 %q，得到 %q", index, want[index], got[index])
+		}
+	}
+}
+
+// refresh 与缺失列表重合时不能重复上传：同一个文件传两次，回读时看到哪一版
+// 取决于两次写入的先后，等于把校验交给运气。
+func TestUploadPlanDeduplicatesRefreshOverlap(t *testing.T) {
+	state := releaseAssetState{Assets: map[string]bool{}}
+	spec := releaseSpec{
+		assets:  []string{"dist/batch@1.0.0.json"},
+		refresh: []string{"dist/batch@1.0.0.json"},
+	}
+	got := uploadPlan(state, spec)
+	if len(got) != 1 || got[0] != "dist/batch@1.0.0.json" {
+		t.Fatalf("只该传一次，得到 %v", got)
+	}
+}
+
+// 现有 Release 的标题与说明要能被读到，否则补发后件数改了也没人发现。
+func TestReleaseStateFromRecordsKeepsTitleAndNotes(t *testing.T) {
+	state := releaseStateFromRecords([]releaseRecord{{
+		ID: 42, Tag: "batch/2.2.3.7", Name: "ECC 2.2.3 技能批次（本仓第 7 次同步，15 件）",
+		Body: "批次 2.2.3.7（上游 2.2.3，本仓第 7 次同步）：15 件技能",
+	}})
+	if state.Title == "" || state.Notes == "" {
+		t.Fatalf("标题与说明必须带回，得到 %+v", state)
+	}
+}

@@ -6,8 +6,8 @@
     "software-engineering"
   ],
   "description": "把上游 ECC 技能库按 A/B/C 档策略搬进 HiMind，并可逐条浏览、控制分发范围。",
-  "release_notes": "1.2.5：发布清单适配图标参数，校对覆盖率改为只统计已人工确认的条目。",
-  "version": "1.2.5",
+  "release_notes": "1.2.6：批次总清单每次重传，回收时保住还背着最新版的批次。",
+  "version": "1.2.6",
   "distribution_targets": [
     "workbench",
     "github"

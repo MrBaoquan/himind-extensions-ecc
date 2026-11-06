@@ -510,6 +510,9 @@ func (run publishRun) batch(lock Lock, skills []publishTarget) ([]PublishItem, *
 		notes:  batchNotes(version, lock, signed),
 		target: run.revision,
 		assets: assets,
+		// 总清单每次都要重传：同一条批次 tag 可能被补发过，成员集合只在最新
+		// 那份清单里才是对的。
+		refresh: []string{manifestPath},
 	})
 	if err != nil {
 		return failRemaining(items, signed, "发布批次 Release 失败："+err.Error()), nil
@@ -938,6 +941,8 @@ type releaseAsset struct {
 type releaseRecord struct {
 	ID     int64          `json:"id"`
 	Tag    string         `json:"tag_name"`
+	Name   string         `json:"name"`
+	Body   string         `json:"body"`
 	Draft  bool           `json:"draft"`
 	URL    string         `json:"html_url"`
 	Assets []releaseAsset `json:"assets"`
@@ -947,6 +952,10 @@ type releaseRecord struct {
 type releaseAssetState struct {
 	Exists bool
 	URL    string
+	// Title 与 Notes 是现有 Release 的标题和说明：补发会让成员数变化，
+	// 重复发布时要把它们改回本次算出的事实。
+	Title  string
+	Notes  string
 	Assets map[string]bool
 	// Drafts 是同 tag 上残留的半成品 Release 的 id。
 	Drafts map[int64]bool
@@ -1020,6 +1029,8 @@ func releaseStateFromRecords(records []releaseRecord) releaseAssetState {
 		}
 		state.Exists = true
 		state.URL = record.URL
+		state.Title = record.Name
+		state.Notes = record.Body
 		for _, asset := range record.Assets {
 			state.Assets[asset.Name] = true
 		}
@@ -1167,6 +1178,12 @@ type releaseSpec struct {
 	notes  string
 	target string
 	assets []string
+	// refresh 是每次重跑都要重传的资产。
+	//
+	// 批次的总清单写的是「这一批装了谁」，而成员集合会随着补发变大：第一次只发
+	// 几件、后来又补发一批，同一条 Release 上的清单还是旧的，制品却已经是全集。
+	// 只看「资产在不在」会把它当成已完成，于是清单与资产长期各说各话。
+	refresh []string
 }
 
 // ensureRelease 让 tag 对应的 Release 真的带上全部资产，并返回地址。
@@ -1197,11 +1214,25 @@ func ensureRelease(repository string, spec releaseSpec) (string, error) {
 			return "", err
 		}
 		// 刚建出来的 Release 上一个资产都没有，清单直接按「全都要传」算，
-		// 省掉一次把五百多个资产名拉回来的列表请求。
-		state = releaseAssetState{Exists: true, Assets: map[string]bool{}, Drafts: map[int64]bool{}}
+		// 省掉一次把五百多个资产名拉回来的列表请求。标题与说明就是刚传上去
+		// 的那一份，不必再回写一次。
+		state = releaseAssetState{
+			Exists: true, Title: spec.title, Notes: spec.notes,
+			Assets: map[string]bool{}, Drafts: map[int64]bool{},
+		}
 	}
-	if missing := missingAssets(state, spec.assets); len(missing) > 0 {
-		if err := uploadAssets(repository, spec.tag, missing); err != nil {
+	// 标题与说明也要跟着本次事实走。
+	//
+	// 批次是「这次的成员集合」，补发或重排之后件数会变；只补资产不改文字，
+	// Release 标题就会一直停在第一次那批的件数上，读的人以为这批只有那么多。
+	if strings.TrimSpace(state.Title) != strings.TrimSpace(spec.title) ||
+		strings.TrimSpace(state.Notes) != strings.TrimSpace(spec.notes) {
+		if err := editRelease(repository, spec.tag, spec.title, spec.notes); err != nil {
+			return "", err
+		}
+	}
+	if upload := uploadPlan(state, spec); len(upload) > 0 {
+		if err := uploadAssets(repository, spec.tag, upload); err != nil {
 			return "", err
 		}
 	}
@@ -1219,6 +1250,15 @@ func ensureRelease(repository string, spec releaseSpec) (string, error) {
 	return verified.URL, nil
 }
 
+// editRelease 把已存在的 Release 的标题与说明改成本次算出的事实。
+//
+// 补发会让成员集合变大，标题里的件数、说明里的版本区间都跟着变。不跟着改，
+// Release 就一直停在第一次那批的说法上，读的人以为这批只有那么多。
+func editRelease(repository, tag, title, notes string) error {
+	_, err := runGH("release", "edit", tag, "--repo", repository, "--title", title, "--notes", notes)
+	return err
+}
+
 // missingAssets 列出这次要挂、但 Release 上还没有的资产路径。
 func missingAssets(state releaseAssetState, assets []string) []string {
 	missing := make([]string, 0, len(assets))
@@ -1229,6 +1269,27 @@ func missingAssets(state releaseAssetState, assets []string) []string {
 		}
 	}
 	return missing
+}
+
+// uploadPlan 列出这次确实要上传的资产：缺的一律要传，声明了 refresh 的即使
+// 已经在 Release 上也重传一遍。
+//
+// 两者合在一起算，是因为 uploadAssets 的入参只能是一份去重后的列表：分成两次
+// 调用时，同一个文件会在两批里各传一次，同名资产的写入顺序反过来又会让回读
+// 看到旧内容。
+func uploadPlan(state releaseAssetState, spec releaseSpec) []string {
+	plan := missingAssets(state, spec.assets)
+	seen := make(map[string]bool, len(plan))
+	for _, path := range plan {
+		seen[path] = true
+	}
+	for _, path := range spec.refresh {
+		if !seen[path] {
+			plan = append(plan, path)
+			seen[path] = true
+		}
+	}
+	return plan
 }
 
 // releaseCreateArgs 拼出建 Release 的 gh 参数。
