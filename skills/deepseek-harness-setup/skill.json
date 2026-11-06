@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.deepseek-harness-setup",
-  "name": "Harness Setup",
+  "name": "DSH 接入配置",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Install and operate Everything Claude Code (ECC) on the DeepSeek Harness (DSH): native skill roots (~/.dsh/skills, .",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "在 DeepSeek Harness 上安装并运行 ECC：技能根目录走原生挂载，hooks 由官方桥接生成配置，并说明 DSH 上哪些能力可用。当要在 DSH 上接入或排查技能与 hook 时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

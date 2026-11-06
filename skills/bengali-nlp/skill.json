@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.bengali-nlp",
-  "name": "Bengali Nlp",
+  "name": "孟加拉语处理",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Bengali (Bangla) text processing patterns including Unicode normalization, script detection, tokenization, conjunct…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "孟加拉文（Bangla）文本处理：Unicode 归一化、文字识别、分词、连字与排序，并附 Banglish 混排和常见反模式。当要处理孟加拉语文本或做面向该语种的应用时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

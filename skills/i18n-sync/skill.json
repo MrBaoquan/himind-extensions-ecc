@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.i18n-sync",
-  "name": "I18n Sync",
+  "name": "多语言同步",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Translate and synchronize application JSON locale files using source-key usage, project terminology, and focused…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "按源键在产品里的实际用法翻译并同步 JSON 语言文件，沿用项目术语与既有译文，产出可审阅的补丁。当新增语种、源文案改动或要同步语言包时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

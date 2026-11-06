@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.agent-security-hardening",
-  "name": "Security Hardening",
+  "name": "Agent 安全加固",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Security hardening guidance for AI agent frameworks that process untrusted content, invoke tools, write workspace…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "为处理不可信内容、调用工具、写工作区的 agent 框架划边界：校验标识与路径、收住文件访问、限制工具输出，危险动作前先授权。当要审查或加固 agent 运行时安全时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-09-28T08:39:36Z",
+  "reviewed_at": "2026-11-06T02:33:01Z",
   "skills": {
     "accessibility": {
       "name": "无障碍设计",
@@ -51,22 +51,20 @@
       "source": "reviewed"
     },
     "agent-runtime-gateway-smoke-test": {
-      "name": "Gateway Smoke Test",
-      "description": "Verify a local agent API, temporary gateway tunnel, and remote sandbox callback with a tool-free task, then restore the…",
+      "name": "网关链路冒烟",
+      "description": "用无工具任务验证本地 agent API、临时网关隧道与远程沙箱回调是否连得通，跑完恢复原连接。当任务派发后卡住或怀疑网关不通时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "agent-security-hardening": {
-      "name": "Security Hardening",
-      "description": "Security hardening guidance for AI agent frameworks that process untrusted content, invoke tools, write workspace…",
+      "name": "Agent 安全加固",
+      "description": "为处理不可信内容、调用工具、写工作区的 agent 框架划边界：校验标识与路径、收住文件访问、限制工具输出，危险动作前先授权。当要审查或加固 agent 运行时安全时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "agent-sort": {
       "name": "按需精简安装",
@@ -205,13 +203,12 @@
       "source": "reviewed"
     },
     "bengali-nlp": {
-      "name": "Bengali Nlp",
-      "description": "Bengali (Bangla) text processing patterns including Unicode normalization, script detection, tokenization, conjunct…",
+      "name": "孟加拉语处理",
+      "description": "孟加拉文（Bangla）文本处理：Unicode 归一化、文字识别、分词、连字与排序，并附 Banglish 混排和常见反模式。当要处理孟加拉语文本或做面向该语种的应用时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "blender-motion-state-inspection": {
       "name": "Blender 动作检查",
@@ -246,13 +243,12 @@
       "source": "reviewed"
     },
     "brownfield-retrospective": {
-      "name": "Retrospective",
-      "description": "Run the ECC engineering process retroactively against an existing project slice.",
+      "name": "存量项目复盘",
+      "description": "对已成型却没过流程的代码切片做回溯：审计现状、还原当年决策、列出四轴差距，再按标准流程向前修。当接手存量项目或要判断该修还是该重写时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "browser-qa": {
       "name": "浏览器上线验证",
@@ -423,13 +419,12 @@
       "source": "reviewed"
     },
     "conventional-commit-review": {
-      "name": "Commit Review",
-      "description": "Reviews staged changes and drafts a Conventional Commits-compliant commit message with the right type, scope, and…",
+      "name": "提交信息规范",
+      "description": "读暂存区改动，按仓库既有历史风格写一条符合 Conventional Commits 的提交信息：选对 type、scope 与长度。当要写提交信息或修一条不合规范的提交时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "cost-aware-llm-pipeline": {
       "name": "LLM 成本优化",
@@ -560,13 +555,12 @@
       "source": "reviewed"
     },
     "deepseek-harness-setup": {
-      "name": "Harness Setup",
-      "description": "Install and operate Everything Claude Code (ECC) on the DeepSeek Harness (DSH): native skill roots (~/.dsh/skills, .",
+      "name": "DSH 接入配置",
+      "description": "在 DeepSeek Harness 上安装并运行 ECC：技能根目录走原生挂载，hooks 由官方桥接生成配置，并说明 DSH 上哪些能力可用。当要在 DSH 上接入或排查技能与 hook 时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "defi-amm-security": {
       "name": "AMM 合约安全",
@@ -1033,13 +1027,12 @@
       "source": "reviewed"
     },
     "i18n-sync": {
-      "name": "I18n Sync",
-      "description": "Translate and synchronize application JSON locale files using source-key usage, project terminology, and focused…",
+      "name": "多语言同步",
+      "description": "按源键在产品里的实际用法翻译并同步 JSON 语言文件，沿用项目术语与既有译文，产出可审阅的补丁。当新增语种、源文案改动或要同步语言包时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "inherit-legacy-style": {
       "name": "遗留项目风格继承",
@@ -1082,13 +1075,12 @@
       "source": "reviewed"
     },
     "issue-review": {
-      "name": "Issue Review",
-      "description": "Review a GitHub issue the way /code-review reviews a PR. Fetches the issue with the gh CLI, checks the report against…",
+      "name": "Issue 分诊",
+      "description": "像审 PR 那样审一条 GitHub issue：对照代码核实、查重、查是否已修，评估完整性与严重度，并给出报告和回复草稿。当要判断 issue 是否成立或重复时用。",
       "categories": [
         "collaboration-delivery"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "iterative-retrieval": {
       "name": "渐进式检索",
@@ -1339,13 +1331,12 @@
       "source": "reviewed"
     },
     "mcp-dependency-review": {
-      "name": "Dependency Review",
-      "description": "Statically review MCP configuration for mutable package references before approval or CI, without executing discovered…",
+      "name": "MCP 依赖审查",
+      "description": "在批准配置或进 CI 之前静态审查 MCP 配置里的可变包引用，只读文本，不执行任何被引用的服务。当要确认配置会不会悄悄解析到新代码时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "mcp-server-patterns": {
       "name": "MCP 服务开发",
@@ -1404,13 +1395,12 @@
       "source": "reviewed"
     },
     "mybatis-patterns": {
-      "name": "Mybatis Patterns",
-      "description": "MyBatis and MyBatis-Spring patterns for mapper design, XML and annotation SQL, result mapping, dynamic SQL safety,…",
+      "name": "MyBatis 写法",
+      "description": "MyBatis 与 MyBatis-Spring 的落地写法：mapper 设计、XML 与注解 SQL、结果映射、动态 SQL 安全、事务、分页与批量写入。当要写或审查 MyBatis 映射与查询时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "mysql-patterns": {
       "name": "MySQL 使用",
@@ -1573,13 +1563,12 @@
       "source": "reviewed"
     },
     "osint-investigation": {
-      "name": "Investigation",
-      "description": "Sparse-clue OSINT investigation methodology for extracting overlooked leads, connecting fragmented evidence, and…",
+      "name": "公开情报调查",
+      "description": "从稀疏线索出发的公开情报调查：挖出被忽略的细节、串联碎片证据，在图像、文档、地图与档案之间交叉验证，并如实标注不确定。当要解 OSINT 题或核实一段影像时用。",
       "categories": [
         "docs-knowledge"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "parallel-execution-optimizer": {
       "name": "并行加速编排",
@@ -1702,13 +1691,12 @@
       "source": "reviewed"
     },
     "prompt-caching-strategy": {
-      "name": "Caching Strategy",
-      "description": "\u003e-",
+      "name": "提示缓存优化",
+      "description": "整理提示结构以提高缓存命中：不变指令与工具定义固定在前，可变内容后置，并对照厂商要求核对前缀与计费，附成本测算。当要压低模型调用成本时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来"
+      "source": "reviewed"
     },
     "prompt-optimizer": {
       "name": "提示词优化",
@@ -2007,12 +1995,12 @@
       "source": "reviewed"
     },
     "skill-host-compat": {
-      "name": "Skill Host Compat",
-      "description": "Lint ECC skills for Codex/Cursor-safe frontmatter and Claude-only substitutions before a skill PR.",
+      "name": "技能跨宿主兼容",
+      "description": "提技能 PR 前跑一遍跨宿主检查：Codex 与 Cursor 副本的 frontmatter 是否合规，有没有只在 Claude 下才替换的变量。当要确认技能能否装进 Codex 或 Cursor 时用。",
       "categories": [
         "testing-quality"
       ],
-      "source": "derived"
+      "source": "reviewed"
     },
     "skill-scout": {
       "name": "技能先搜后建",
@@ -2167,22 +2155,20 @@
       "source": "reviewed"
     },
     "token-card": {
-      "name": "Token Card",
-      "description": "Render a token-usage stat card from local Claude Code, Codex, Gemini CLI, and OpenCode session logs and commit it into…",
+      "name": "用量卡片",
+      "description": "读本机 Claude Code、Codex、Gemini CLI 与 OpenCode 的会话日志，生成一张 token 用量 SVG 卡片并写进仓库，供 README 引用。当要在文档里展示用量时用。",
       "categories": [
         "collaboration-delivery"
       ],
-      "source": "derived",
-      "note": "说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "typescript-patterns": {
-      "name": "Patterns",
-      "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications.",
+      "name": "TypeScript 写法",
+      "description": "TypeScript 的类型设计写法：严格模式、判别联合、泛型与模块边界、错误与异步处理、类型级测试和工具链基线。当要写、重构或审查 TS/JS 代码时用。",
       "categories": [
         "software-engineering"
       ],
-      "source": "derived",
-      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
+      "source": "reviewed"
     },
     "ui-demo": {
       "name": "界面演示录制",

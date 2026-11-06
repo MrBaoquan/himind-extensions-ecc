@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.conventional-commit-review",
-  "name": "Commit Review",
+  "name": "提交信息规范",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Reviews staged changes and drafts a Conventional Commits-compliant commit message with the right type, scope, and…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "读暂存区改动，按仓库既有历史风格写一条符合 Conventional Commits 的提交信息：选对 type、scope 与长度。当要写提交信息或修一条不合规范的提交时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

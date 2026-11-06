@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.token-card",
-  "name": "Token Card",
+  "name": "用量卡片",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Render a token-usage stat card from local Claude Code, Codex, Gemini CLI, and OpenCode session logs and commit it into…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "读本机 Claude Code、Codex、Gemini CLI 与 OpenCode 的会话日志，生成一张 token 用量 SVG 卡片并写进仓库，供 README 引用。当要在文档里展示用量时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

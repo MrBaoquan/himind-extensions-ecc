@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.osint-investigation",
-  "name": "Investigation",
+  "name": "公开情报调查",
   "author": "Affaan Mustafa",
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Sparse-clue OSINT investigation methodology for extracting overlooked leads, connecting fragmented evidence, and…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "从稀疏线索出发的公开情报调查：挖出被忽略的细节、串联碎片证据，在图像、文档、地图与档案之间交叉验证，并如实标注不确定。当要解 OSINT 题或核实一段影像时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

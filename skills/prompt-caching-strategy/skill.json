@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.prompt-caching-strategy",
-  "name": "Caching Strategy",
+  "name": "提示缓存优化",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "\u003e-",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "整理提示结构以提高缓存命中：不变指令与工具定义固定在前，可变内容后置，并对照厂商要求核对前缀与计费，附成本测算。当要压低模型调用成本时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

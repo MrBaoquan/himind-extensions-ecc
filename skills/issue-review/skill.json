@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.issue-review",
-  "name": "Issue Review",
+  "name": "Issue 分诊",
   "author": "Affaan Mustafa",
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.6",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Review a GitHub issue the way /code-review reviews a PR. Fetches the issue with the gh CLI, checks the report against…",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "像审 PR 那样审一条 GitHub issue：对照代码核实、查重、查是否已修，评估完整性与严重度，并给出报告和回复草稿。当要判断 issue 是否成立或重复时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

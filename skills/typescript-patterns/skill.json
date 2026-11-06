@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.typescript-patterns",
-  "name": "Patterns",
+  "name": "TypeScript 写法",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications.",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "TypeScript 的类型设计写法：严格模式、判别联合、泛型与模块边界、错误与异步处理、类型级测试和工具链基线。当要写、重构或审查 TS/JS 代码时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

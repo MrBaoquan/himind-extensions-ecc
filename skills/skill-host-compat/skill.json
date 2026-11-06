@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.skill-host-compat",
-  "name": "Skill Host Compat",
+  "name": "技能跨宿主兼容",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Lint ECC skills for Codex/Cursor-safe frontmatter and Claude-only substitutions before a skill PR.",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "提技能 PR 前跑一遍跨宿主检查：Codex 与 Cursor 副本的 frontmatter 是否合规，有没有只在 Claude 下才替换的变量。当要确认技能能否装进 Codex 或 Cursor 时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

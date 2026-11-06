@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.mcp-dependency-review",
-  "name": "Dependency Review",
+  "name": "MCP 依赖审查",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Statically review MCP configuration for mutable package references before approval or CI, without executing discovered…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "在批准配置或进 CI 之前静态审查 MCP 配置里的可变包引用，只读文本，不执行任何被引用的服务。当要确认配置会不会悄悄解析到新代码时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

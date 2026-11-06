@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.mybatis-patterns",
-  "name": "Mybatis Patterns",
+  "name": "MyBatis 写法",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "MyBatis and MyBatis-Spring patterns for mapper design, XML and annotation SQL, result mapping, dynamic SQL safety,…",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "MyBatis 与 MyBatis-Spring 的落地写法：mapper 设计、XML 与注解 SQL、结果映射、动态 SQL 安全、事务、分页与批量写入。当要写或审查 MyBatis 映射与查询时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

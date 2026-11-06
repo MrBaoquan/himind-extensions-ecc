@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.brownfield-retrospective",
-  "name": "Retrospective",
+  "name": "存量项目复盘",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.7",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Run the ECC engineering process retroactively against an existing project slice.",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "对已成型却没过流程的代码切片做回溯：审计现状、还原当年决策、列出四轴差距，再按标准流程向前修。当接手存量项目或要判断该修还是该重写时用。",
+  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
