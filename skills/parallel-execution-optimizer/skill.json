@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把任务拆成可并行的依赖图：分车道矩阵、批量读检查、按文件或分支隔离写入，最后给出统一验证表。当想靠并行把任务做快时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "把任务拆成可并行的依赖图：分车道矩阵、批量读检查、按文件或分支隔离写入，同构工作复用已备好的输入。当想靠并行提速时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

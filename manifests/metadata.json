@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-11-06T02:33:01Z",
+  "reviewed_at": "2026-11-06T03:39:51Z",
   "skills": {
     "accessibility": {
       "name": "无障碍设计",
@@ -44,7 +44,7 @@
     },
     "agent-payment-x402": {
       "name": "Agent 自主支付",
-      "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力。当 agent 需要自己付款、且必须控制单次与总额度时用。",
+      "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力，并给出服务方的防重放与结算边界。当 agent 要自己付款且必须控制额度时用。",
       "categories": [
         "software-engineering"
       ],
@@ -76,7 +76,7 @@
     },
     "agentic-engineering": {
       "name": "Agent 化工程方法",
-      "description": "以评测先行、任务拆解与按成本选择模型的思路推进工程。当规划或执行由 agent 端到端承担的研发工作时用。",
+      "description": "以评测先行、任务拆解与按成本选模型推进工程，并先核对工具结果再比较数据。当规划或执行由 agent 端到端承担的研发工作时用。",
       "categories": [
         "software-engineering"
       ],
@@ -164,7 +164,7 @@
     },
     "autonomous-loops": {
       "name": "自主循环模式",
-      "description": "自主 agent 循环的模式与架构，从简单串行流水线到多 agent 有向无环图。仅保留兼容用途，新的循环设计请用持续 agent 循环。",
+      "description": "自主 agent 循环的模式与架构，从串行流水线到多 agent 有向无环图；仅为兼容保留，新循环请看持续 agent 循环。当要参考现成的循环编排时用。",
       "categories": [
         "software-engineering"
       ],
@@ -395,8 +395,8 @@
       "source": "reviewed"
     },
     "context-budget": {
-      "name": "上下文预算审计",
-      "description": "审计 agent、技能、MCP 与规则占用的上下文窗口，找出冗余并按优先级给出省 token 的建议。当上下文快要撑爆时用。",
+      "name": "上下文预算",
+      "description": "先用原生上下文计量看当前用量，需要时再做一次有界的静态组件审计，找出谁在占窗口。当要查上下文还剩多少时用。",
       "categories": [
         "testing-quality"
       ],
@@ -500,7 +500,7 @@
     },
     "customs-trade-compliance": {
       "name": "关务与贸易合规",
-      "description": "HS/HTS 归类与 GRI 规则、商业发票与报关单证、Incoterms 2020、自贸协定与关税优化（USMCA、RCEP、FTZ、退税）、受限方筛查与处罚应对，覆盖美欧英与亚太。",
+      "description": "HS/HTS 归类与 GRI 规则、报关单证、Incoterms 2020、自贸协定与关税优化、受限方筛查与处罚应对，覆盖美欧英与亚太。当要归类商品或备进出口单证时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -572,7 +572,7 @@
     },
     "delivery-gate": {
       "name": "交付闸门",
-      "description": "在质量检查通过前拦住 agent 收尾的钩子，识别敷衍话术、过期学习日志与磁盘空间不足。当需要机械地强制每次留下经验沉淀时用。",
+      "description": "在质量检查通过前拦住 agent 收尾的钩子：查敷衍话术、学习日志是否陈旧与磁盘余量，且每轮收尾至多拦一次。当要机械地强制沉淀时用。",
       "categories": [
         "testing-quality"
       ],
@@ -676,7 +676,7 @@
     },
     "dynamic-workflow-mode": {
       "name": "动态工作流编排",
-      "description": "为自适应 agent 设计任务级脚手架、评测闸门与可复用技能沉淀。当要搭任务级工作流，或把临时做法沉淀成技能时用。",
+      "description": "为自适应 agent 设计任务级脚手架、评测闸门与可复用技能沉淀，并把动作到工具的绑定与实体范围写进交接。当要搭任务级工作流时用。",
       "categories": [
         "software-engineering"
       ],
@@ -716,7 +716,7 @@
     },
     "energy-procurement": {
       "name": "能源采购",
-      "description": "为工商业设施采购电力与天然气：电价与费率方案优化、需量电费削减、供应商招标、固定/指数/组合对冲、绿电 PPA 与 REC 评估及可持续披露。",
+      "description": "为工商业设施采购电力与天然气：费率方案优化、需量电费削减、供应商招标、固定与指数对冲、绿电 PPA 与 REC 评估及可持续披露。当要采购能源或优化电费时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1276,7 +1276,7 @@
     },
     "logistics-exception-management": {
       "name": "物流异常处理",
-      "description": "处理延迟、破损、丢失、短少与承运商纠纷：升级路径、各运输方式下承运商的实际做派、索赔流程，以及「认赔还是追赔」的判断框架。",
+      "description": "处理延迟、破损、丢失、短少与承运商纠纷：升级路径、各运输方式下承运商的实际做派、索赔流程，以及认赔还是追赔的判断。当要处理货运异常或索赔时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1500,7 +1500,7 @@
     },
     "opensource-pipeline": {
       "name": "开源发布流水线",
-      "description": "把私有项目分支、脱敏并打包成可安全公开的仓库，由分叉、脱敏、打包三个环节串联。当要把私有项目开源时用。",
+      "description": "把私有项目分叉、脱敏并打包成可安全公开的仓库，所有修补都要折回同一个提交后再推送。当要把私有项目开源时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1572,7 +1572,7 @@
     },
     "parallel-execution-optimizer": {
       "name": "并行加速编排",
-      "description": "把任务拆成可并行的依赖图：分车道矩阵、批量读检查、按文件或分支隔离写入，最后给出统一验证表。当想靠并行把任务做快时用。",
+      "description": "把任务拆成可并行的依赖图：分车道矩阵、批量读检查、按文件或分支隔离写入，同构工作复用已备好的输入。当想靠并行提速时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1604,7 +1604,7 @@
     },
     "plan-orchestrate": {
       "name": "计划拆解编排",
-      "description": "读一份计划文档，拆成步骤，并为每步设计对应的执行链条，产出可直接使用的编排提示。仅生成、不自动执行。当手上有分步计划要落地时用。",
+      "description": "读一份计划文档，拆成步骤，为每步挑出能承载该步范围的命令并给出可直接粘贴的写法，承载不了的就报失败。当手上有分步计划要落地时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1676,7 +1676,7 @@
     },
     "production-scheduling": {
       "name": "生产排程",
-      "description": "离散与批量制造的生产排程、工序排序、产线平衡、换型优化与瓶颈处理，含鼓-缓冲-绳、SMED、OEE 分析、异常应对与 ERP/MES 交互模式。",
+      "description": "离散与批量制造的生产排程、工序排序、产线平衡、换型优化与瓶颈处理，含鼓-缓冲-绳、SMED、OEE 与异常应对。当要排产或解瓶颈时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1716,7 +1716,7 @@
     },
     "python-testing": {
       "name": "Python 测试",
-      "description": "Python 测试策略：pytest、测试先行、夹具、Mock、参数化与覆盖率要求。当要写 pytest 用例时用。",
+      "description": "Python 测试策略：pytest、测试先行、夹具、Mock、参数化与覆盖率，含 FastAPI 用 lifespan 管理器的异步夹具。当要写 pytest 用例时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1732,7 +1732,7 @@
     },
     "quality-nonconformance": {
       "name": "质量不合格处理",
-      "description": "受监管制造（FDA 21 CFR 820、IATF 16949、AS9100）的不合格品处置：NCR 全流程、5Why 与鱼骨图、故障树、8D 根因分析、CAPA、SPC 判读与 AQL 抽样。",
+      "description": "受监管制造的不合格品处置：NCR 全流程、5Why 与鱼骨图、8D 根因分析、CAPA、SPC 判读、AQL 抽样与供应商质量审核。当要处理不合格品或做根因分析时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1900,7 +1900,7 @@
     },
     "safety-guard": {
       "name": "危险操作护栏",
-      "description": "三种模式拦截破坏性操作：谨慎模式拦下危险命令待确认、冻结模式锁定写入目录、守卫模式两者兼施。当在生产环境或无人值守跑 agent 时用。",
+      "description": "以谨慎、冻结目录、两者兼施三种模式约束 agent 的破坏性操作；它只是自律约定，不带钩子拦截。当在生产或无人值守时用。",
       "categories": [
         "testing-quality"
       ],
@@ -2020,7 +2020,7 @@
     },
     "social-publisher": {
       "name": "社媒排期发布",
-      "description": "经 SocialClaw 在 X、LinkedIn、Instagram、TikTok、YouTube、Reddit 等 13 个平台排期发布与监测。当要批量铺开或管理社媒发布时用。",
+      "description": "经 SocialClaw 在 X、LinkedIn、Instagram、TikTok、YouTube 等 13 个平台排期发布，发布前逐条确认并核对内容。当要批量铺开社媒时用。",
       "categories": [
         "content-production"
       ],
@@ -2140,7 +2140,7 @@
     },
     "tinystruct-patterns": {
       "name": "tinystruct 开发",
-      "description": "使用 tinystruct 这个 Java 框架的实践：应用类、路由映射、单元测试、动作注册表、HTTP 与命令行双模式及内置服务器。当要基于 tinystruct 开发时用。",
+      "description": "使用 tinystruct 这个 Java 框架的实践：传输无关的 @Action、dispatcher、静态文件与日志配置。当要基于 tinystruct 开发时用。",
       "categories": [
         "software-engineering"
       ],
@@ -2204,7 +2204,7 @@
     },
     "verification-loop": {
       "name": "交付前自查",
-      "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
+      "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥扫描、diff 复审，并把目标环境验收单列。当要判断能否交付时用。",
       "categories": [
         "testing-quality"
       ],

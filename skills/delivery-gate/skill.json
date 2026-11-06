@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "在质量检查通过前拦住 agent 收尾的钩子，识别敷衍话术、过期学习日志与磁盘空间不足。当需要机械地强制每次留下经验沉淀时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "在质量检查通过前拦住 agent 收尾的钩子：查敷衍话术、学习日志是否陈旧与磁盘余量，且每轮收尾至多拦一次。当要机械地强制沉淀时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

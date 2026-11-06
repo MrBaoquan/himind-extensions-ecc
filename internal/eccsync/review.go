@@ -351,6 +351,16 @@ func ApplyReviewDecisions(repoRoot string, decisions map[string]ReviewDecision, 
 	if err := SaveMetadata(metadataPath, metadata); err != nil {
 		return result, err
 	}
+	// 重校的基线要当场钉住。
+	//
+	// 校对基线（ReviewedDigest）平时由 generate 按「元数据摘要变了」推出，
+	// 但那只在文案真的改了时成立。重校时很可能读完正文得出「文案不用改」，
+	// 元数据一个字节都没动——这时 generate 不会动基线，这条就永远留在待重校
+	// 队列里，每次同步都重复报一遍。人已经读过并认可了当前文案，基线就该是
+	// 现在这份正文。
+	if err := markReviewedBaseline(filepath.Join(repoRoot, LockFile), lock, slugs, now); err != nil {
+		return result, err
+	}
 	result.DecisionsOf = len(slugs)
 	result.ReviewedAt = metadata.ReviewedAt
 	result.Reviewed = 0
@@ -363,6 +373,30 @@ func ApplyReviewDecisions(repoRoot string, decisions map[string]ReviewDecision, 
 		}
 	}
 	return result, nil
+}
+
+// markReviewedBaseline 把刚校对过的条目在锁文件里的正文基线推进到当前正文。
+//
+// 只碰这次真正校对过的 slug：其它条目的基线表示「上次读的是哪一版正文」，
+// 跟着动就等于把还没重读的条目也当成已确认。
+func markReviewedBaseline(path string, lock Lock, slugs []string, now time.Time) error {
+	changed := false
+	for _, slug := range slugs {
+		item, ok := lock.Skills[slug]
+		if !ok {
+			continue
+		}
+		if item.ReviewedDigest == item.SourceDigest && item.ReviewedDigest != "" {
+			continue
+		}
+		item.ReviewedDigest = item.SourceDigest
+		lock.Skills[slug] = item
+		changed = true
+	}
+	if !changed {
+		return nil
+	}
+	return SaveLock(path, lock)
 }
 
 // validateReviewedText 是校对文案的硬约束，与 resolveEntry 用的是同一组数字。

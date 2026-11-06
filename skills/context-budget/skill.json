@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.context-budget",
-  "name": "上下文预算审计",
+  "name": "上下文预算",
   "author": "Affaan Mustafa",
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "审计 agent、技能、MCP 与规则占用的上下文窗口，找出冗余并按优先级给出省 token 的建议。当上下文快要撑爆时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "先用原生上下文计量看当前用量，需要时再做一次有界的静态组件审计，找出谁在占窗口。当要查上下文还剩多少时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

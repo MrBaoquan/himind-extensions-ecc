@@ -685,6 +685,103 @@ func TestApplyReviewDecisionsIsAllOrNothing(t *testing.T) {
 	}
 }
 
+// 重校时读完正文认定「文案不用改」也是合法结论，基线必须跟着这次校对走。
+//
+// 否则消息永远亮着：元数据没变，generate 就不会动基线，这条待重校条目在每次
+// 同步里重复出现，而实际上已经有人逐字读过并认可了当前文案。
+func TestApplyReviewDecisionsPinsBaselineWithoutTextChange(t *testing.T) {
+	repoRoot, sourceRoot := reviewFixture(t)
+	currentText := "把甲这件事做完"
+	if err := SaveMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)), Metadata{
+		SchemaVersion: MetadataVersion,
+		Skills: map[string]MetadataEntry{
+			"alpha": {Name: "甲工具", Description: currentText, Categories: []string{"software-engineering"}, Source: "reviewed"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	// 上游正文已经动过，基线还停在旧正文：这正是待重校。
+	if err := SaveLock(filepath.Join(repoRoot, LockFile), Lock{
+		SchemaVersion: LockVersion,
+		Skills: map[string]LockSkill{
+			"alpha": {
+				Version:        "2.2.3",
+				SourceDigest:   sourceDigestOf(t, repoRoot, sourceRoot, "alpha"),
+				ReviewedDigest: "0000000000000000000000000000000000000000000000000000000000000000",
+			},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	queue, err := BuildReviewQueue(repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if queue.Stale != 1 {
+		t.Fatalf("前置条件没搭起来：应当有一条待重校，得到 %+v", queue)
+	}
+
+	// 读完之后判定「文案照旧」：与元数据里一个字都不差。
+	if _, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"alpha": {Name: "甲工具", Description: currentText},
+	}, time.Date(2026, 11, 6, 3, 30, 0, 0, time.UTC)); err != nil {
+		t.Fatalf("重校落库失败：%v", err)
+	}
+	after, err := LoadLock(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if after.Skills["alpha"].ReviewedDigest != after.Skills["alpha"].SourceDigest {
+		t.Fatalf("重校后基线要钉在当前正文上，得到 %q", after.Skills["alpha"].ReviewedDigest)
+	}
+	queue, err = BuildReviewQueue(repoRoot, sourceRoot)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if queue.Stale != 0 || len(queue.Items) != 0 {
+		t.Fatalf("重校过之后队列该空，得到 %+v", queue)
+	}
+}
+
+// 重校基线只推到这次真正校对过的那几条，没重读的条目不能被顺手「确认」。
+func TestApplyReviewDecisionsLeavesUntouchedBaselines(t *testing.T) {
+	repoRoot, sourceRoot := reviewFixture(t)
+	staleBaseline := "0000000000000000000000000000000000000000000000000000000000000000"
+	if err := SaveMetadata(filepath.Join(repoRoot, filepath.FromSlash(MetadataFile)), Metadata{
+		SchemaVersion: MetadataVersion,
+		Skills: map[string]MetadataEntry{
+			"alpha": {Name: "甲工具", Description: "把甲这件事做完", Categories: []string{"software-engineering"}, Source: "reviewed"},
+			"beta":  {Name: "乙工具", Description: "把乙这件事做完", Categories: []string{"software-engineering"}, Source: "reviewed"},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := SaveLock(filepath.Join(repoRoot, LockFile), Lock{
+		SchemaVersion: LockVersion,
+		Skills: map[string]LockSkill{
+			"alpha": {Version: "2.2.3", SourceDigest: sourceDigestOf(t, repoRoot, sourceRoot, "alpha"), ReviewedDigest: staleBaseline},
+			"beta":  {Version: "2.2.3", SourceDigest: sourceDigestOf(t, repoRoot, sourceRoot, "beta"), ReviewedDigest: staleBaseline},
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := ApplyReviewDecisions(repoRoot, map[string]ReviewDecision{
+		"alpha": {Name: "甲工具", Description: "把甲这件事做完"},
+	}, time.Date(2026, 11, 6, 3, 30, 0, 0, time.UTC)); err != nil {
+		t.Fatalf("落库失败：%v", err)
+	}
+	after, err := LoadLock(filepath.Join(repoRoot, LockFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if after.Skills["alpha"].ReviewedDigest == staleBaseline {
+		t.Fatal("校对过的那条基线要推进")
+	}
+	if after.Skills["beta"].ReviewedDigest != staleBaseline {
+		t.Fatal("没校对过的条目基线不能跟着动，否则等于替人确认了没读过的正文")
+	}
+}
+
 // 校对基线只在「文案刚被人读过」时刷新。用 SourceDigest 当基线的话，
 // 上游一动就会被判成「刚重校过」，待重校标记永远亮不起来 —— 那这条链路的
 // 唯一价值就没了。

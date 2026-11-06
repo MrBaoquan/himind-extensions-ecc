@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "使用 tinystruct 这个 Java 框架的实践：应用类、路由映射、单元测试、动作注册表、HTTP 与命令行双模式及内置服务器。当要基于 tinystruct 开发时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "使用 tinystruct 这个 Java 框架的实践：传输无关的 @Action、dispatcher、静态文件与日志配置。当要基于 tinystruct 开发时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

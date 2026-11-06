@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力。当 agent 需要自己付款、且必须控制单次与总额度时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力，并给出服务方的防重放与结算边界。当 agent 要自己付款且必须控制额度时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.4",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "为工商业设施采购电力与天然气：电价与费率方案优化、需量电费削减、供应商招标、固定/指数/组合对冲、绿电 PPA 与 REC 评估及可持续披露。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "为工商业设施采购电力与天然气：费率方案优化、需量电费削减、供应商招标、固定与指数对冲、绿电 PPA 与 REC 评估及可持续披露。当要采购能源或优化电费时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

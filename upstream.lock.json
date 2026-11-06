@@ -10,8 +10,8 @@
     "license_holder": "Affaan Mustafa"
   },
   "sync": {
-    "sequence": 7,
-    "generated_at": "2026-11-06T02:33:29Z",
+    "sequence": 8,
+    "generated_at": "2026-11-06T03:36:41Z",
     "tool": "himind-ecc-sync/0.1.0"
   },
   "skills": {
@@ -71,12 +71,12 @@
       "rewritten": true
     },
     "agent-payment-x402": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "210d2b904f7f3988de6f8d06479aae985a86a1361a765cf2f370a396bf4415f9",
       "synced_digest": "df22b5a3efe028ea7d00e3872dc7d57b97afca9575c8760287a68c06dc68cd4d",
-      "metadata_digest": "bf28368c4787f15f9c433b9bb58f267fecc7bc4b3f589a60ec1652a079848608",
+      "metadata_digest": "9d63788937d6eb35adc8bb1c721e8e785dd9d273acc8b921c7dd2a3fcfe983cc",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "377c7990f998135246779a825d0297b1698945bc1a21eb0f8996e3424f8aad16",
+      "reviewed_digest": "210d2b904f7f3988de6f8d06479aae985a86a1361a765cf2f370a396bf4415f9",
       "source_path": "skills/agent-payment-x402",
       "tier": "B",
       "rewritten": true
@@ -114,12 +114,12 @@
       "rewritten": true
     },
     "agentic-engineering": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "2b80b142e2734630d521455a8c9c4572801d338cadcf9d485ad68189bd918534",
       "synced_digest": "9c1f20b96c25bcf4a5a24e9fe91857e973e0d066f37ebff9328baa2713fd6633",
-      "metadata_digest": "ee2f4ed514588501bf5d4d569ee91a5409ce637f3d2f0c21480d0af87d1ae340",
+      "metadata_digest": "b33b28b04f29043bac9a0075500b13173c7d672d9ed9352a506ca58c63a62e7f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "895d154746bb30483c0dc0d5b467db287c00372fac53737aa968ff800822c79c",
+      "reviewed_digest": "2b80b142e2734630d521455a8c9c4572801d338cadcf9d485ad68189bd918534",
       "source_path": "skills/agentic-engineering",
       "tier": "B",
       "rewritten": true
@@ -185,7 +185,7 @@
       "synced_digest": "0bd0b7a9ceb98fcbe6018bb6b0529ede8a342d23b3f06f15cafc5e5cb3abe16d",
       "metadata_digest": "5714cfe87307c504c670b2ef6a7c051b9b97961d4b7e0a136845dc37a58b327c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "eff4f9a8f06048d43b65e72be5fc8d83cb30fd2a279f00d856efc1eaa2d5c4db",
+      "reviewed_digest": "03a1f98b9471c99b9cd70367dad1abe4c7a2a764d808a81bca941e518ae41359",
       "source_path": "skills/api-design",
       "tier": "B",
       "rewritten": true
@@ -235,12 +235,12 @@
       "rewritten": true
     },
     "autonomous-loops": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "b2c290779ad2fa7c83e91949d43943283855fa373a822a7c41ffc732f951e051",
       "synced_digest": "105aef1b002a52bf4ba8ff25b6669fad0db3d9f787a3cfe9a4f70e35a0d46306",
-      "metadata_digest": "1ab2fd50e7fbbc79c3d45f519118901bfda1b78d88b0fdd75722295bede7bff8",
+      "metadata_digest": "64cc27bc8513c880b392f3a496f6e646d77e04450df319e16c4c679487b66b59",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "6aeabfad47afeb34f0181fe3c911146a9a3c6255a7e42e7cae961ea5e5f9ffa8",
+      "reviewed_digest": "b2c290779ad2fa7c83e91949d43943283855fa373a822a7c41ffc732f951e051",
       "source_path": "skills/autonomous-loops",
       "tier": "B",
       "rewritten": true
@@ -317,7 +317,7 @@
       "synced_digest": "5839ac6e721537de2a79626410ee8b19a637c0b1f8127e31b97f9f911b0290b6",
       "metadata_digest": "544789f4758cfaed942e007543701c09ac698fc1d1b253d6641c8f37e5c04924",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "5566c8df09cd61c23c190dca7f8d6ecb7fac034748ba5c151fb11eec152d8087",
+      "reviewed_digest": "9f0e23715661abd6e9ba4f1c7daeeaea75b5bd1ce92c77626ebe945626a0a0ab",
       "source_path": "skills/blueprint",
       "tier": "B",
       "rewritten": true
@@ -372,7 +372,7 @@
       "synced_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "metadata_digest": "3f729224ec4ccf2019e6585473bece86e88b4ad2e1528e3c8f7c9959238e7812",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "e15742521d64ad3b9569e1547f1ebb039017f380eb2098e55851f23b00f2e682",
+      "reviewed_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "source_path": "skills/bun-runtime",
       "tier": "A"
     },
@@ -393,7 +393,7 @@
       "synced_digest": "0e2a67d745cf10f4fc5917c926d7ccf8db914c9e9ad62c72553c922f7019b1d1",
       "metadata_digest": "5937241880bacb99545cf4b80d648613a3b31a712a0f73aee9eeb6bc9a07a64f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "91e527dc834c957a0a23b9ce006021bf8e2d557a774b1880e3398e471022f455",
+      "reviewed_digest": "6895b8da20713b9aa8025bedb348a6197a86fe025e3b65e065d0310fba16a71d",
       "source_path": "skills/carrier-relationship-management",
       "tier": "B",
       "rewritten": true
@@ -553,12 +553,12 @@
       "rewritten": true
     },
     "context-budget": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "78f2e4cb79b16c904b9a265a02d7c55c21ae251a3adad57edbb6bba0b717c750",
       "synced_digest": "ea33866972c69c538b8496f5dc6ee3056b6d55b8324c067a2cd7ca84436f1b48",
-      "metadata_digest": "14420d7eca09e1782f978c45253b2432cc95a14164a268ca2ee600eb6fd4d4e4",
+      "metadata_digest": "db749dcc62fadcd94765775a16cfccf7c1e1e81f373167d2bbd9845780cfef7c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "ac3ec23d548dbd01373fe99a70d18d75c9718c13d7fdc4bc9948617ce6a09549",
+      "reviewed_digest": "78f2e4cb79b16c904b9a265a02d7c55c21ae251a3adad57edbb6bba0b717c750",
       "source_path": "skills/context-budget",
       "tier": "B",
       "rewritten": true
@@ -695,12 +695,12 @@
       "rewritten": true
     },
     "customs-trade-compliance": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "f8b11285243e88d481a779312428ef226937933142a7930e11084f64f7ab2c26",
       "synced_digest": "825e9be90be4659122481706e1c9ba923d00df588fb25183aa5a40cf90bc4388",
-      "metadata_digest": "5cf4a0201d8beb95f605438a982a7315448bdd91c8c3ab67ecd0ac4e11ee0403",
+      "metadata_digest": "ffa52e3df5b49ecb44806e5556f82e979ece8fe2362a1e1aaad3e5b38b0d13a0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "cdcaf9a2db5d5bcfde86400f3ca7cb99d2e9e6f3d299ed5fed774b9949389263",
+      "reviewed_digest": "f8b11285243e88d481a779312428ef226937933142a7930e11084f64f7ab2c26",
       "source_path": "skills/customs-trade-compliance",
       "tier": "B",
       "rewritten": true
@@ -794,12 +794,12 @@
       "rewritten": true
     },
     "delivery-gate": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "1870484a95cf2f02afd5e6c6654a90d5fb0c1593d2d81854a0cea5ee7934a7cc",
       "synced_digest": "21274d6e8a37519422acb9d0633ae173a9641ffc42628a5faa04f091657aeb34",
-      "metadata_digest": "d84897734ba081b34629d7ad89065b10e82368a6a10089cf4c4c25460aa12636",
+      "metadata_digest": "8c0e422116e5692487dbd895595ddf5cb2e2ed2e711e3c8280efde596794e0db",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "3844b933c116766073d503880ecfdc12bfb72e2b944f98a68bc3d8b8e6d6ac42",
+      "reviewed_digest": "1870484a95cf2f02afd5e6c6654a90d5fb0c1593d2d81854a0cea5ee7934a7cc",
       "source_path": "skills/delivery-gate",
       "tier": "B",
       "rewritten": true
@@ -865,7 +865,7 @@
       "synced_digest": "0c578ee73e0d62ed04b20195dfffdc558607526f6059288f7a5e9e88fa3b003b",
       "metadata_digest": "1340123b879f029ade422a1fff2980e7bbe25a9031c61f9f83429507c936d81d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "d1dbd8e0bcea4a653953eba2258caae5bb58c8251a1dfb3436311376729bf39b",
+      "reviewed_digest": "3109256ffcc1fd5f524be1c06186f17f25d49313e6fb31c260b3eec6167f5374",
       "source_path": "skills/django-security",
       "tier": "B",
       "rewritten": true
@@ -898,7 +898,7 @@
       "synced_digest": "d40f3d3e9ad2313342cbb2e80226d0b262b4096da90f67eb321925f664e20870",
       "metadata_digest": "f1b3a839b9be5bf0181b73a9fc5d7a1494b102a2383d20526121f1fee92b9693",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "6af2a589becff930507c53570ac5db8755e80f4b0c24e8f872628347ef084955",
+      "reviewed_digest": "272a3bb21962f48cb891317b32bcc270f1078fa624dc9209549914d722c3a1f0",
       "source_path": "skills/dmux-workflows",
       "tier": "B",
       "rewritten": true
@@ -909,7 +909,7 @@
       "synced_digest": "d3c440fa6c6c04e1d668896b601fc3dfb2a9edee92bb4c7126004319905f7bd0",
       "metadata_digest": "909fa47bb5a6ae6206fa157eb86121e2bd9a3ae921aa43c8fbef6d900c599ee8",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "5aaeecde5c87051c771643e9f067e430593cbe7386f49318a2b462783764c35e",
+      "reviewed_digest": "0d9b0c761a37cddee3ef15425791fd4b623b7eb934c880407ee8da4d035db1d2",
       "source_path": "skills/docker-patterns",
       "tier": "B",
       "rewritten": true
@@ -937,12 +937,12 @@
       "rewritten": true
     },
     "dynamic-workflow-mode": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "1020701008e572b3c58e79fc90f063f93d6c44db1e034df681b5a6a2f2de790c",
       "synced_digest": "33f1e5fcafc3fdb223479e0b8af290bbecb6f9e78d740b82c8073af689a159e0",
-      "metadata_digest": "193e753b98f1dffbcd6557c4e20a81e1edb916f76f4fbaa4c1e05b5867162107",
+      "metadata_digest": "a4946169432ec106f6bcbdf8f8d7c8df9c595f80123d969c83a74ed3454e8068",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "95a049bc2611de68525dad00d789f3f73f38bc04bd30dbcecdde91e102b8d12b",
+      "reviewed_digest": "1020701008e572b3c58e79fc90f063f93d6c44db1e034df681b5a6a2f2de790c",
       "source_path": "skills/dynamic-workflow-mode",
       "tier": "B",
       "rewritten": true
@@ -975,7 +975,7 @@
       "synced_digest": "6660b2d10cd4769262909a0419e5c8846035a7bc6360f34bd8ae0708779dcbf5",
       "metadata_digest": "da5a531873ff070b5fc54ecb6058826062605edcee60bb4b60e4715b838a8b16",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "8fa11168cb542daef952ccee0a76e55bf9f9e21d80cc9f96252313d4ffe3abe6",
+      "reviewed_digest": "003b14dd181b6fef668d58424d48eb922861a9ae42f6457a1c56d4ed6567ed66",
       "source_path": "skills/ecc-tools-cost-audit",
       "tier": "B",
       "rewritten": true
@@ -992,12 +992,12 @@
       "rewritten": true
     },
     "energy-procurement": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "2c0df74560e9131837c3a8a991e65448e7356522c38249104855a1884d433688",
       "synced_digest": "cb0fc10920151d740c6ee451a05b3afbabdf76833fc6d0aa0d186273a13fce1b",
-      "metadata_digest": "35e5e4ab40cc30d0e4619e0c777d984265506d576136dab03721fe426554d8ee",
+      "metadata_digest": "050c02e612fc452664f52b1c0ebd74b42ad9e59d658549bea16900e5879fbcbd",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "03e09ade2ad37a697704a1c908bd75eb6e3521e264a218d329dce9b66a8b8ba9",
+      "reviewed_digest": "2c0df74560e9131837c3a8a991e65448e7356522c38249104855a1884d433688",
       "source_path": "skills/energy-procurement",
       "tier": "B",
       "rewritten": true
@@ -1085,7 +1085,7 @@
       "synced_digest": "dab0a6a238253f857537dbe591f2971c26a229cdf62270fbc7131054c435ab6f",
       "metadata_digest": "54835dcfb97c190dbb8d8e160ae8d494c696d551ae1c1e4eebd2fc2f2bb601b4",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "e6102ade73d864359f00b8911e9e181b3d0c802a95b1b2bf6eafff0631650cf1",
+      "reviewed_digest": "d13740d90724ba9a5a6090059bd9461214fe0babc2a0d25e5c2feab6d8b5ae4b",
       "source_path": "skills/fastapi-patterns",
       "tier": "B",
       "rewritten": true
@@ -1107,7 +1107,7 @@
       "synced_digest": "fe077e3785a2cb59608b8784a92bffb8c7c389ff997ad7aeeae555383b5234dd",
       "metadata_digest": "e2cccb0473dac4e6dcd958d18028b1023e13ae3c643a18024abe631273cbb714",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "9ea8a47f7103057023f26cd260419cc2609a3c0ed53d3d97e960cacf4807c6dd",
+      "reviewed_digest": "2b42e243deb92c5ac0042e49525ae8c9cd5cfd8ffd8139c41ca39a453855835b",
       "source_path": "skills/flox-environments",
       "tier": "B",
       "rewritten": true
@@ -1184,7 +1184,7 @@
       "synced_digest": "647ac67ef25cf171414ead82e81f2577085ad8abe28b5daa9706a0b29f879f38",
       "metadata_digest": "0c42f5ebc8f6affe8f73e540302443ce25803fce7745f55f9d8f6ff88567fd11",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "33b4b0b8df68abccf162def4520f923727c982a57fad527ac02e25a11a68e49c",
+      "reviewed_digest": "34da1c27b39a74a132dc766036a3b79a71dd022888ebf5ddb4b548b61e8bc177",
       "source_path": "skills/gateguard",
       "tier": "B",
       "rewritten": true
@@ -1228,7 +1228,7 @@
       "synced_digest": "3aef0c598afc600be2d49cdae6dbdc0a4f3b147cf55ca92bc035ed43bde331ca",
       "metadata_digest": "2d11766f013c817af03b9d0cb4268dcb649690dfb720e6a025804f41c8eca77d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "eecc1cd31f2ac40e98d6ea38b7f4ad9aeadabda3811b0d3accfc31b5aa850471",
+      "reviewed_digest": "35efbf444485c6774946cbaea7702ac1c5434a41ac027e08e8bb9e30bc085267",
       "source_path": "skills/golang-patterns",
       "tier": "B",
       "rewritten": true
@@ -1404,7 +1404,7 @@
       "synced_digest": "daa42215a677f72a7165d3ff519fcb90476ed26e272239b0d4fb63aef1113e9e",
       "metadata_digest": "9f5443697cf0161b0d00ad62da4b7780c9f48ec30607cd0cd63ded535cc3475e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "84a82b58a184ca5d85460ad62a4dc1c5ad5fff301da960a4f71dd0bf2d5ca685",
+      "reviewed_digest": "fc9591a493a1869eefbcb89820e5a81217615244daff05d2516753184a90f0e3",
       "source_path": "skills/hookify-rules",
       "tier": "B",
       "rewritten": true
@@ -1448,7 +1448,7 @@
       "synced_digest": "f49e408a2451fa01cd054346a90fdd4fb9c17141c71b0b57a7646a18f3f0a4ea",
       "metadata_digest": "311678c99cb6ddb7b8fb1b4e36bab296350c9aaf64ad05a0932f63d37206566a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "a0e83753149e12b33e6bdd8e52ae7fc2a142c07a63d1487b1c2389667ce9d908",
+      "reviewed_digest": "d762c98694a7884c4c11048a667da2a556bbad08bc7ecdc29127f3c0d64cecf6",
       "source_path": "skills/inventory-demand-planning",
       "tier": "B",
       "rewritten": true
@@ -1668,7 +1668,7 @@
       "synced_digest": "409cc4eff936380e772b5fdef4872e902591dce0189eac46b20e66078736b09a",
       "metadata_digest": "f71e44080992f5c7e7d5a8a430549470582a3a9d25286d19c5b1ee7db5867ae0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "a978c561fd68bc38b00e4cba24f658a5c03fee5a8b8d4d5f95ab5f5eac11762b",
+      "reviewed_digest": "dbc47b40bff22c769fdf1c5b018d40412fda6c4f64c8789a7a09a1e482a95742",
       "source_path": "skills/laravel-security",
       "tier": "B",
       "rewritten": true
@@ -1734,7 +1734,7 @@
       "synced_digest": "07cca9e0a754a4d04603df2f89b4b93ab861e8ecc53e1abeacfbe2a03df09389",
       "metadata_digest": "c3083c9025a6a8dfbd6e21502aa54c24c9f5f0f808f6aecce722b755b6ef510b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "d52e36a1a05ce0f97420d94a65c47609b69c309c38566c0ffa2ca9b25b5c8881",
+      "reviewed_digest": "873572e071c740d121dbc189104b811ce6c9477724fc9356a6a7c386d6650bdf",
       "source_path": "skills/living-docs-governance",
       "tier": "B",
       "rewritten": true
@@ -1751,12 +1751,12 @@
       "rewritten": true
     },
     "logistics-exception-management": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "3c19596a4f9e930e16411b24e3c264616e928330a2f75158d1df406b6e673494",
       "synced_digest": "0e2e387de3374ebc51588a1300e983766f4140a4b617b872548ef3d4d3caa6d5",
-      "metadata_digest": "e5da4fde633e04c646ae291fca26eb3280bba6eb655924bfbe00536e71081f67",
+      "metadata_digest": "c52a3d898e3ede870b469aeed0341823329390d9702bd7814772855417e3aa77",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "6b06dfcd9e452ab7e19f239566d172b4d33132f27a0cb9f9184713da4188c799",
+      "reviewed_digest": "3c19596a4f9e930e16411b24e3c264616e928330a2f75158d1df406b6e673494",
       "source_path": "skills/logistics-exception-management",
       "tier": "B",
       "rewritten": true
@@ -2059,12 +2059,12 @@
       "rewritten": true
     },
     "opensource-pipeline": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "43e05c2d0cc56dc38fef18b19d439218b4a6a571125d27adfc4e32ce9c348646",
       "synced_digest": "ae474fe01aa36f9b4d86797d14c7a5677366c607eb55fd7524ec6dd9de03caf0",
-      "metadata_digest": "23bea512c2f2fd44fd22745fcd6159ddf4290488e12ff45534cc98023e0f76e7",
+      "metadata_digest": "36ca9555e46f8c0ef4fd6d4aac8d5c5fa6509036f23de36cbb8f5ff69314ce33",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "1876a8cdedfba17fa2fa7dece410924b84b6aa9d9788266ee274b60f81096d00",
+      "reviewed_digest": "43e05c2d0cc56dc38fef18b19d439218b4a6a571125d27adfc4e32ce9c348646",
       "source_path": "skills/opensource-pipeline",
       "tier": "B",
       "rewritten": true
@@ -2158,12 +2158,12 @@
       "rewritten": true
     },
     "parallel-execution-optimizer": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "3c23279f673f9d93d6df9dfc890ba09ebe86afa39a56eb9021b11726d9f2952e",
       "synced_digest": "61ffbbef76c773ad4347da4b3e2c7fde30649f001cafac895fc4f7d0e04be3a0",
-      "metadata_digest": "94966352c2be2ee12f8c2b6f22beeae0485613291bf86ee04a17f99509097c38",
+      "metadata_digest": "cdca08d21710e26bf633b40e5c3479316937123381da877673406ed56a7e5347",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "ad1b6d3e84448549362e335b6e8c85f505b5b2d76056b25a9f7408c5d3be9ddc",
+      "reviewed_digest": "3c23279f673f9d93d6df9dfc890ba09ebe86afa39a56eb9021b11726d9f2952e",
       "source_path": "skills/parallel-execution-optimizer",
       "tier": "B",
       "rewritten": true
@@ -2185,7 +2185,7 @@
       "synced_digest": "623cf9695640f9b9aad228d07597ddb687cb214e0f22ce93d2fd8b6755995738",
       "metadata_digest": "40aebd6b04afedb1896fa0ec0fb68463896ed764c4a4a12bc14d6830c9514e28",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "7edf72f2518449587f86faff7c9cbc071de0652c5a45a605df590c1ec3c2673b",
+      "reviewed_digest": "47848563e381ddcd1dd8fd94d6450570ff0fef01576426c202a48bee9f344b36",
       "source_path": "skills/perl-security",
       "tier": "B",
       "rewritten": true
@@ -2202,12 +2202,12 @@
       "rewritten": true
     },
     "plan-orchestrate": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "3510b631d91a748ebce64fdc669857ddd957806580e8b65fe123cef722781c86",
       "synced_digest": "5f96e1d3dd5ed95a35e3b519ec91fbac5234eddd03abb0288228777e794853ba",
-      "metadata_digest": "ecec0eacd536aa6373460157aa22c8c33275de7e01db66c03a1f31e0b50ac3e3",
+      "metadata_digest": "0e9bbb71f429193a57ec056b1381be8cded0c6cf87cd07192936901f653df382",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "8194ec01287b71da6bcf27b7ba035096dc968e8311ae01e96a404c9cd8254040",
+      "reviewed_digest": "3510b631d91a748ebce64fdc669857ddd957806580e8b65fe123cef722781c86",
       "source_path": "skills/plan-orchestrate",
       "tier": "B",
       "rewritten": true
@@ -2218,7 +2218,7 @@
       "synced_digest": "7aac21397886bbaf66d0dd8a45470b743d419956ec1cc79bce87d1b5b6cb9eea",
       "metadata_digest": "6b20fa2795b24ec811f145409413656d4872c24be92dc19743e6f2336f462840",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "dbc57a7be4758754a533a11b7f62361c6f26aad8e4aed5cb585e6fa3a3dc6db7",
+      "reviewed_digest": "900206bfbed31e3c267a3eb3c392b8dc2cf6c7a2f26f20405b1a1bf16fb20071",
       "source_path": "skills/plankton-code-quality",
       "tier": "B",
       "rewritten": true
@@ -2301,12 +2301,12 @@
       "rewritten": true
     },
     "production-scheduling": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "c4e8399873a468f5aa0aa0700072eec83308d3c3598b112dd86083feeb8757d4",
       "synced_digest": "c91ad3739b016f7f17d3944e7ae92fd9aa383682483652e99c4197f42f0b1b2f",
-      "metadata_digest": "9d485dfd6998bc5ddd96d30be6c1b2a046e1837e8966eaea7c7751e504e05236",
+      "metadata_digest": "1625041b451f55ded7a51b10a8e4b0d9560e6112ce9cac110ebf3242e7737cd3",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "b1f15e9346ceea797de69150324663b227a39b8b6eb96c39ed1a2194ca2ab6c8",
+      "reviewed_digest": "c4e8399873a468f5aa0aa0700072eec83308d3c3598b112dd86083feeb8757d4",
       "source_path": "skills/production-scheduling",
       "tier": "B",
       "rewritten": true
@@ -2355,12 +2355,12 @@
       "rewritten": true
     },
     "python-testing": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "fd24a9d6ad7d1f3b1128a5f5229f7349b2c6ba1e98e63d396ef5c9fcc983c1c6",
       "synced_digest": "16ab4c1df8fbbf90bbfe2b9cefb5366b22b84275652b8e241e09dd9ca5ae8342",
-      "metadata_digest": "d2cf8bf6db2bdbef0553e7fc531c2ec182a7bb53f662819ab6ba7f002638e06c",
+      "metadata_digest": "d77716c2e8f3567de480d23049f4012f1e401b35b702b4678bd203d50e720eef",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "2a0a34abebcb80eadd0e429dfc14bc0b4abd8c8048608cc620c3b4dd6779566a",
+      "reviewed_digest": "fd24a9d6ad7d1f3b1128a5f5229f7349b2c6ba1e98e63d396ef5c9fcc983c1c6",
       "source_path": "skills/python-testing",
       "tier": "B",
       "rewritten": true
@@ -2377,12 +2377,12 @@
       "rewritten": true
     },
     "quality-nonconformance": {
-      "version": "2.2.4",
+      "version": "2.2.8",
       "source_digest": "c36f3698757ce5ea64629495858aa88a9e556521776e87a0ee8d0efc1c5c2589",
       "synced_digest": "d355b0af38dbac563b932338df887b7fbb78d8a5aa3245890ec729acfd9c8151",
-      "metadata_digest": "b64cdef28c0a1506a2e2ba6245a9a4d11b1cd7f3e50aa1449884c5901d199ac8",
+      "metadata_digest": "f7c9c7722c218b96286d5c9d2836e86ef388b7ecec45706dc44eb400947c66f3",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "a859fcc9b85889417c70eddd7fb8d4490fe755ad25c4be46815695c8d8e153eb",
+      "reviewed_digest": "c36f3698757ce5ea64629495858aa88a9e556521776e87a0ee8d0efc1c5c2589",
       "source_path": "skills/quality-nonconformance",
       "tier": "B",
       "rewritten": true
@@ -2547,7 +2547,7 @@
       "synced_digest": "ea8a328dc35dd151fea62493118d7857282b53225788cb0bbd64510c5bede4ff",
       "metadata_digest": "82062c02a40012f52c980ce37eb48eb601a6ae137f15f33d04fa9f59bd1a2308",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "367e3889f454c9fd30b904cac43744b8a3aa63ef556364906270d38ba726225d",
+      "reviewed_digest": "047c1f7309c082eac091b837e79f0ba3471cea3da91eeacaf5c880ee90f6665f",
       "source_path": "skills/remotion-video-creation",
       "tier": "B",
       "rewritten": true
@@ -2580,7 +2580,7 @@
       "synced_digest": "bab43a6a15325f7fc3d6c1d2d5ab29e847243972edbbfd570d32d5f7cf3a29e9",
       "metadata_digest": "001b358a7494243c683d5f153dd150c1bdb78cfbc412146e71d98cf42d2a2f58",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "96823e8a5fcbb2ee4be19e3b8b2b708503c9d2e5ebb661ade3fc58811e0945d8",
+      "reviewed_digest": "ff631085d2e9986bce384dfee7aecf87edfa1c80b01aed5bac34e3b2215ebc53",
       "source_path": "skills/returns-reverse-logistics",
       "tier": "B",
       "rewritten": true
@@ -2608,12 +2608,12 @@
       "rewritten": true
     },
     "safety-guard": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "756f226d5ba7f3b7bc168deae611b80a23f358e5378cc04232d3b9f28e5304f0",
       "synced_digest": "5cbe19f7060811a44b4c9e2dd6d90e56e772483e99e7058f2b044f0167dbc417",
-      "metadata_digest": "a86c8b1a9e50b72eeec83e4eb111b456dc4296a1eafef775c98c04649e2b0d6b",
+      "metadata_digest": "df72174a4823afff044fbaa43ae895df7d25c8fa69961ce520c0c40fe284e3ca",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "7e5283acbe1e33a6f7c9f503d25d0b844dd5e9ba6546cf58b2c3f14e7febebe6",
+      "reviewed_digest": "756f226d5ba7f3b7bc168deae611b80a23f358e5378cc04232d3b9f28e5304f0",
       "source_path": "skills/safety-guard",
       "tier": "B",
       "rewritten": true
@@ -2635,7 +2635,7 @@
       "synced_digest": "c719ab4105b205a29dde61635cbb97f5c48b8db1ae1d5dbe5275f5671f769b44",
       "metadata_digest": "74d32761b6bf12a7fb639b278f27d2dbb91bf66058fc0e542276348321dd6948",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "50d8dcb5d2319652866f1d48be0104bf49049f6095e22e9bf54bed6b6155e021",
+      "reviewed_digest": "0729f0610c2acf6b37dfe2623b97ca713c79e2cd96c9c068343160318301c33e",
       "source_path": "skills/scientific-db-pubmed-database",
       "tier": "B",
       "rewritten": true
@@ -2646,7 +2646,7 @@
       "synced_digest": "bfc0a17eda8ac766223a33d57c5d993d2bf67c9b7639826e16bbab7300601554",
       "metadata_digest": "35708efeb30b68009fc6b174a02f24d14bfd29c56d4fccd52304219fbc5df58e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "7f23123fc9b5c2c92bd055abff7d3321e5c4e5a88aa51c6636522cb2e7e7414d",
+      "reviewed_digest": "c4cff778c6d5dfe3f2b3cbaa7c6cf3e56c988b35a9bb440eeee7f1c3047ee65b",
       "source_path": "skills/scientific-db-uspto-database",
       "tier": "B",
       "rewritten": true
@@ -2657,7 +2657,7 @@
       "synced_digest": "109bdbec9252756e656f54084d74d456acd40de73f9995b628e261fb518c566a",
       "metadata_digest": "3d20ea918d8eaf12478c45d3a5f19a238840cae0a0498d37d467a895bb1dc777",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "5c2852925b1b5ecd196aa0c169455c87b6cb9620f7a534046f02dd49766bba84",
+      "reviewed_digest": "5786d5db57e54564ea4d7b94565ad89b9f836bf15d814a513ab71daadf4691cf",
       "source_path": "skills/scientific-pkg-gget",
       "tier": "B",
       "rewritten": true
@@ -2668,7 +2668,7 @@
       "synced_digest": "e47ff6fda1f5cb4d5ef558fab3ac504d430ecaf646a48a7b32b4bbe55cd5f8ea",
       "metadata_digest": "946fd90f35b74f1ea1e352d11c84bbf9d8d6872ced0af96890d7dd0f45a750c9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "2c9802f4afffcf0ad5440d065b1880285cc0662408d499b612b3eff5de2e324e",
+      "reviewed_digest": "35f5dc0b83c896f6036afd87961844be7c130611be2274186455a9b312ee9691",
       "source_path": "skills/scientific-thinking-literature-review",
       "tier": "B",
       "rewritten": true
@@ -2679,7 +2679,7 @@
       "synced_digest": "a130086d5d2992f4078637eb0cb2dddc1abf34912af58b4a48a548025bf24185",
       "metadata_digest": "451c1412d973e97f9fad50c58ad24208e800e9bfffda73225b48442880155196",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "4f0c1cf833b9d4dbf4bd00618a59e3f3457233152a93e09dad7cd7776024cacc",
+      "reviewed_digest": "f941008f6492f0289727c193f81e7f46c575d928529d3ccf7fcf13eff09450ca",
       "source_path": "skills/scientific-thinking-scholar-evaluation",
       "tier": "B",
       "rewritten": true
@@ -2756,7 +2756,7 @@
       "synced_digest": "9fb7b90e8f98c6f3934d63fb712d76123fe4b5cbf4d59aaf1814acb98021200b",
       "metadata_digest": "ac4499dba59f9ba337f3f5f63e74b5d829518a0a838adcda1a758e0adb37a643",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "a244bd2febba1b5afe3daf178f3b7185a34fa9aa87a032f1580a929517ba483b",
+      "reviewed_digest": "667b548ba2fa7310625c54bba211fd5c4fe1796a7f9d9c2190d34e8fb6b5c30d",
       "source_path": "skills/skill-scout",
       "tier": "B",
       "rewritten": true
@@ -2773,12 +2773,12 @@
       "rewritten": true
     },
     "social-publisher": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "249f2195e4a632bcab7a7491d89443e62c29010a0d6ab0da9a216ac77c83d3ab",
       "synced_digest": "8c2b28f8eadd3a47d894c853c34a12e270645bcdca4a9b1372c76920d54033b4",
-      "metadata_digest": "00f9a9f6d5425f0528c5d7ddd3b67781505dca3752867467cd99e1a18d94782d",
+      "metadata_digest": "a9326be44458a2f5f5132f7d7645495ce91b438b94f596d0b0fc47f7a39aa2a0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "412d138d60e2d2f6fa567fc2f185fe29fc4afe55acb350163f62e631f9ce7f21",
+      "reviewed_digest": "249f2195e4a632bcab7a7491d89443e62c29010a0d6ab0da9a216ac77c83d3ab",
       "source_path": "skills/social-publisher",
       "tier": "B",
       "rewritten": true
@@ -2898,7 +2898,7 @@
       "synced_digest": "1100d4ae14c6b7f77c8350e8b2efb84f47c86c8de60f90e9b732131f5f078ad3",
       "metadata_digest": "a68dea19aa0de34485c9d7cc816f23d833befab3ea9e7d659e122ef69c3d1a46",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "30e0ab5bed5c435890e8e340faf4793aa52298cf61f427b62a68fb220d913474",
+      "reviewed_digest": "f0c734a00ebdab322399d01e441e0bc6be212bc6b5a35b23fe74cf36ab535d7b",
       "source_path": "skills/tdd-workflow",
       "tier": "B",
       "rewritten": true
@@ -2937,12 +2937,12 @@
       "rewritten": true
     },
     "tinystruct-patterns": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "7c24b1ac13cb32a6e8a026ef7f5031174bc5415dce70e84d8e3ea124dec1f29f",
       "synced_digest": "16a4a6969862a7eb2619aad63ad769e5a0b8b348a946e84923df331a56aaf8b3",
-      "metadata_digest": "82698d398a4180fc6c85b66fbfba9b6b66da84b6a72d411a88c183cb43a670ac",
+      "metadata_digest": "a728248d4e4c5896e5fa2cb172561fbde57bb8b28bf8bda8d1d8021aeced30af",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "cc56b9105d8f12684591cf4938c409fc68ea0c05fda0c3ac333d75d5e9555f0b",
+      "reviewed_digest": "7c24b1ac13cb32a6e8a026ef7f5031174bc5415dce70e84d8e3ea124dec1f29f",
       "source_path": "skills/tinystruct-patterns",
       "tier": "B",
       "rewritten": true
@@ -3024,12 +3024,12 @@
       "rewritten": true
     },
     "verification-loop": {
-      "version": "2.2.6",
+      "version": "2.2.8",
       "source_digest": "370d28955e80b670124750a0f29ef22c5f6f48079fd80b8e98ab77c4d917b815",
       "synced_digest": "9e6d5b657447cda51a5d7c8e69a9c1717a8ba02cfe610a18508fc5c1e9d5dd00",
-      "metadata_digest": "01e07e142a9721c0c99b86e8a67324d3928efb6c8d29e210c3367d9d9498dda8",
+      "metadata_digest": "5cc2dba5f876cf8f98bff25e54450388ab6eb1c208f5533a46b814e53adcf738",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
-      "reviewed_digest": "ddafa7f725b326fcdbc996f95d7c13c162d74ac2e7ab423690f085215e1fe329",
+      "reviewed_digest": "370d28955e80b670124750a0f29ef22c5f6f48079fd80b8e98ab77c4d917b815",
       "source_path": "skills/verification-loop",
       "tier": "B",
       "rewritten": true

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把私有项目分支、脱敏并打包成可安全公开的仓库，由分叉、脱敏、打包三个环节串联。当要把私有项目开源时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "把私有项目分叉、脱敏并打包成可安全公开的仓库，所有修补都要折回同一个提交后再推送。当要把私有项目开源时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

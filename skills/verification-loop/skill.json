@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥扫描、diff 复审，并把目标环境验收单列。当要判断能否交付时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

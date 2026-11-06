@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.4",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "HS/HTS 归类与 GRI 规则、商业发票与报关单证、Incoterms 2020、自贸协定与关税优化（USMCA、RCEP、FTZ、退税）、受限方筛查与处罚应对，覆盖美欧英与亚太。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "HS/HTS 归类与 GRI 规则、报关单证、Incoterms 2020、自贸协定与关税优化、受限方筛查与处罚应对，覆盖美欧英与亚太。当要归类商品或备进出口单证时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

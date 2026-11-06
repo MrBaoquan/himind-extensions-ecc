@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "三种模式拦截破坏性操作：谨慎模式拦下危险命令待确认、冻结模式锁定写入目录、守卫模式两者兼施。当在生产环境或无人值守跑 agent 时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "以谨慎、冻结目录、两者兼施三种模式约束 agent 的破坏性操作；它只是自律约定，不带钩子拦截。当在生产或无人值守时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

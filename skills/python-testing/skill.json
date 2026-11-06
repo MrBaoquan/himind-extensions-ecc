@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.6",
+  "version": "2.2.8",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Python 测试策略：pytest、测试先行、夹具、Mock、参数化与覆盖率要求。当要写 pytest 用例时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "Python 测试策略：pytest、测试先行、夹具、Mock、参数化与覆盖率，含 FastAPI 用 lifespan 管理器的异步夹具。当要写 pytest 用例时用。",
+  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
