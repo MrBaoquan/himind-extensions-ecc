@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 GoogleTest/GoogleMock 与 CMake/CTest 写现代 C++（17/20）测试：夹具、参数化、失败与偶发排查、覆盖率与内存检查。当要写或修 C++ 测试时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "description": "用 GoogleTest/GoogleMock 与 CMake/CTest 写现代 C++（17/20）测试：夹具、参数化、失败排查、覆盖率与内存检查。当要写或修 C++ 测试时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

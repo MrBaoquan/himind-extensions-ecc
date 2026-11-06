@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Kubernetes 工作负载模式、资源管理、RBAC、探针、自动扩缩、ConfigMap/Secret 与 kubectl 排查。当要写或审 K8s 清单、排查探针或权限时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Kubernetes 实践：工作负载模式、资源管理、RBAC、探针、自动扩缩、ConfigMap 与 Secret、kubectl 排查。当要写或审 K8s 清单时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

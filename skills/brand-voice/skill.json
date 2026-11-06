@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "从真实文章、公告、文档或站点文案里提炼专属写作风格，供内容、外联与社媒复用。当要让文字听起来像你而不是 AI 味时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "写作语气：从真实文章、公告、文档或站点文案里提炼专属风格，供内容、外联与社媒复用。当要让文字像你而不是 AI 味时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

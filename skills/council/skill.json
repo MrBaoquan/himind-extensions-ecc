@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "为含糊或高风险的决策召集四种视角各自表态，在选定方向前先把分歧摊开。当有多条可行路径且需要结构化辩论时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "为含糊或高风险的决策召集四种视角各自表态：架构、怀疑、务实与批评，在选方向前把分歧摊开。当有多条可行路径时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

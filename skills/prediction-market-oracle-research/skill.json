@@ -5,14 +5,14 @@
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把预测市场当作数据源或信号源做研究，给出市场隐含概率、注意事项与集成方式，不构成投资建议。当要评估预测市场能否接入产品或决策时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "预测市场情报：把市场当数据源或信号源做研究，给出隐含概率、注意事项与集成方式，不构成投资建议。当要评估能否接入时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

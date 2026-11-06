@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "按你给的样例或品牌口径，写出有辨识度的文章、指南、博客、教程与 newsletter。当需要成篇且语气一致的稿件时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "按你给的样例或品牌口径写出有辨识度的长文：文章、指南、博客、教程与 newsletter。当需要成篇且语气一致的稿件时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

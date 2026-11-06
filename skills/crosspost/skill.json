@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把同一主题分发到 X、LinkedIn、Threads 与 Bluesky，逐平台改写适配，不做同文同发。当要一稿多平台铺开时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "把同一主题分发到 X、LinkedIn、Threads 与 Bluesky：逐平台改写适配，不做同文同发。当要一稿多平台铺开时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能与 GitHub，找到就改造、找不到再自己写。当要决定自研还是复用组件时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "照着目标仓库已有的集成写法再加一个 API 连接器或服务商接入，避免同一个仓库里出现两套集成架构。当需要接入新服务、又不想另起一套模式时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "照着目标仓库已有的集成写法再加一个连接器或服务商接入：分层、校验、参考形状，避免同一仓库出现两套架构。当要接入新服务时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

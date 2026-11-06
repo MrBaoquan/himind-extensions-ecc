@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "读取 Jira 工单、拆解需求、更新状态、追加评论与流转问题，给出 MCP 与 REST 两种调用写法。当要从 Jira 取需求、或把进度回写进去时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Jira 对接：读工单、拆需求、改状态、加评论与流转问题，并给出 MCP 与 REST 两种调用写法。当要从 Jira 取需求或回写进度时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

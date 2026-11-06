@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "从固定可审的提交安装外部 repo-scan 技能，为跨技术栈源码资产审计做准备。当需要先装好 repo-scan 再跑审计时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "仓库扫描：从固定可审的提交安装外部 repo-scan 技能，为跨技术栈源码资产审计做准备。当要先装好它再跑审计时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

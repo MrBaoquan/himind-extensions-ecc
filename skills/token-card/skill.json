@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.7",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "读本机 Claude Code、Codex、Gemini CLI 与 OpenCode 的会话日志，生成一张 token 用量 SVG 卡片并写进仓库，供 README 引用。当要在文档里展示用量时用。",
-  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
+  "description": "用量卡片：读本机多款 agent 的会话日志，生成一张 token 用量 SVG 卡片并写进仓库供 README 引用。当要在文档里展示用量时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.8",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "以评测先行、任务拆解与按成本选模型推进工程，并先核对工具结果再比较数据。当规划或执行由 agent 端到端承担的研发工作时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "agent 端到端承担研发时的工程方法：评测先行、任务拆解、按成本选模型，并先核对工具结果再比较数据。当要规划这类工作时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

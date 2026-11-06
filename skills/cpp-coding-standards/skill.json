@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "基于 C++ Core Guidelines 的编码规范。当要编写、评审或重构 C++ 代码、要求现代且安全的写法时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "基于 C++ Core Guidelines 的现代 C++（17/20/23）编码规范：类型安全、资源安全、不可变性与清晰度。当要编写、评审或重构 C++ 代码时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

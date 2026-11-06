@@ -5,14 +5,14 @@
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "查询实时 GPU 库存、提交固定价算力询价、查看询价与采购状态、吊销设备凭据，并按需跑节点资格校验。当要找 H100/H200 算力或询价时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "GPU 算力预订：查实时库存、提交固定价询价、看询价与采购状态、吊销设备凭据，并按需跑资格校验。当要找算力或询价时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

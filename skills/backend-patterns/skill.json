@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Node.js、Express 与 Next.js 的服务端架构模式、接口设计、数据库优化与实践。当要写或审这类后端接口与数据访问时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Node.js、Express 与 Next.js 的服务端模式：接口设计、数据库、缓存、错误处理、认证与队列。当要写或审这类后端接口时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

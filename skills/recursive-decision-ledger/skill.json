@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "反复重跑与递归推演时，把每次试验、评分、一致性检查与升级闸门记成只追加的账本，避免递归累积的自信自动放行交易、部署或破坏性操作。当要多次重跑收敛结论时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "决策账本：反复重跑与递归推演时，把每次试验、评分与升级闸门记成只追加的账本，避免自信累积后自动放行。当要多次重跑收敛结论时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

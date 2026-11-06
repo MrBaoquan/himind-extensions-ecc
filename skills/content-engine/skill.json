@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "为 X、LinkedIn、TikTok、YouTube 与 newsletter 规划原生内容体系，把一份素材改写适配到各平台。当要做内容日历或成套社媒内容时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "为 X、LinkedIn、TikTok、YouTube 与 newsletter 规划原生内容体系：素材先行、逐平台改写、转用与质量闸门。当要做内容日历或成套内容时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

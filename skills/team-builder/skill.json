@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "从可用角色里挑选最多五个，在同一任务上并行作答，并把共识与分歧汇总成一份报告。当要临时组成多角色小组解决一个问题时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "角色组队：从可用角色里挑最多五个，在同一任务上并行作答，并把共识与分歧汇总成一份报告。当要临时组队解决一个问题时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

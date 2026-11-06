@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "分多次访谈式追问，弄清品牌目的、定位、受众、性格、声音与叙事，最后落成一份品牌手册。当要从零厘清品牌是谁时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "分多次访谈式追问品牌的六个面向：目的、定位、受众、性格、声音与叙事，最后落成一份品牌手册。当要从零厘清品牌是谁时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

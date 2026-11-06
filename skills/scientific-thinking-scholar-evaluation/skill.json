@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "按九维量规评估论文与提案：问题、文献、方法、证据、分析、结果、局限、写作与引用。当要审阅或打分学术成果时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

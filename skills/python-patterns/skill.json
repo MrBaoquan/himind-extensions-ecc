@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "地道的 Python 写法、PEP 8、类型标注与最佳实践。当要写或审 Python 代码、纠结写法或类型时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "地道的 Python 写法：PEP 8、类型标注、错误处理、上下文管理器、生成器、数据类、装饰器与并发。当要写或审 Python 代码时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "带质量闸门、评测与恢复控制的持续自主循环模式。当要让 agent 循环自我检查、按评测卡关并从失败中恢复时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "带质量闸门、评测与恢复控制的持续自主循环：选型流程、组合模式与失败恢复。当要让 agent 循环自我检查并从失败中恢复时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

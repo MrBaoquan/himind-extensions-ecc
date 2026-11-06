@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.8",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力，并给出服务方的防重放与结算边界。当 agent 要自己付款且必须控制额度时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "给 agent 加上按任务预算、支出上限与非托管钱包的支付能力：x402 协议、额度控制与防重放。当 agent 要自己付款且须控制额度时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

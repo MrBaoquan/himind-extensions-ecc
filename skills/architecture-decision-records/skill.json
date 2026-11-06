@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把架构决策写成编号 ADR 文件，含背景、备选方案、后果与索引。当要记录决策、或纠结框架与数据库选型时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "把架构决策写成编号 ADR 文件：背景、备选方案、后果与索引，随代码一起演进。当要记录决策或纠结框架与数据库选型时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

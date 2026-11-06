@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 Playwright 录制带可见光标、节奏自然的精致 UI 演示视频，输出 WebM。当要给产品做演示片时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "用 Playwright 录制带可见光标、节奏自然的 UI 演示视频：发现、彩排、录制三阶段，输出 WebM。当要给产品做演示片时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

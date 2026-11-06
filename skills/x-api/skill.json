@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "对接 X/Twitter API 发推文与长帖、读时间线、搜索和分析，含 OAuth 授权与速率限制处理。当要以程序方式操作 X 时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "X 接口：对接 X/Twitter API 发推文与长帖、读时间线、搜索与分析，含 OAuth 授权与速率限制处理。当要以程序方式操作 X 时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

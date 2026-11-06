@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用一份可机器校验的契约（OpenAPI、AsyncAPI、Protobuf 或 JSON Schema）协调前后端与服务间协作，并生成消费方类型、验证集成。当多方要并行演进接口时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "用一份可机器校验的契约（OpenAPI、AsyncAPI、Protobuf 或 JSON Schema）协调多方：消费方先行，双方验证同一份产物。当多方并行演进接口时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

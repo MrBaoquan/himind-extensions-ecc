@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "项目结构与应用工厂、Pydantic v2 模型、依赖注入、异步处理器、认证与事务服务层、httpx 测试。当要写或审 FastAPI 服务时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "FastAPI 实践：应用工厂与 lifespan、Pydantic v2 模型、依赖注入、异步处理器、事务服务层与 httpx 测试。当要写或审 FastAPI 服务时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

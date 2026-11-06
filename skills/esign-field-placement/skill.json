@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "在网页版电子签编排器里用固定签名页与数值坐标（不走拖拽）确定性放置签名、日期与文本字段，默认存草稿。当要批量准备合同信封、且字段位置必须可复现时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "电子签字段定位：在网页版编排器里用固定签名页与数值坐标放置签名、日期与文本字段，不走拖拽。当字段位置须可复现时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

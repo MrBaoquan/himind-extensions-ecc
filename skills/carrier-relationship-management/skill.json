@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "整车、零担与多式联运承运商池：寻源与资质核验、运价谈判、招标与路由指南、评分与配额续约。当要引入承运商或评运力时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "管理整车、零担与多式联运承运商池：寻源与资质核验、运价谈判、招标与路由指南、评分与配额续约。当要引入承运商或评运力时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

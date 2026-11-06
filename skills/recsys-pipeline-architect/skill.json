@@ -5,14 +5,14 @@
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 Source→Hydrator→Filter→Scorer→Selector→SideEffect 六段式框架设计可组合的推荐、排序与信息流管线。当要搭从候选中挑 Top K 的系统时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "用六段式框架设计可组合的推荐与排序管线：Source、Hydrator、Filter、Scorer、Selector、SideEffect。当要搭 Top K 挑选系统时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

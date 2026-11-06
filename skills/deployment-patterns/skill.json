@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Web 应用的部署流程、CI/CD 流水线、容器化、健康检查、回滚策略与上线前就绪清单。当要搭 CI/CD、容器化应用或做上线检查时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Web 应用的部署流程：滚动、蓝绿与金丝雀策略、容器化、CI/CD、健康检查、回滚与上线前就绪清单。当要搭发布流程或做上线检查时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "为 Grafana、SigNoz 等平台搭建能回答运维真问题的监控看板。当要把指标变成值班时真看得上、真用得上的看板，而不是好看没用的展板时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "为 Grafana、SigNoz 等平台搭建能回答运维真问题的监控看板：最少可用面板、砍掉虚荣指标。当要把指标变成值班时看得上的看板时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

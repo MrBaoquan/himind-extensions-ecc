@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Rails 7.1+ 与 8.x 的落地写法：目录约定、瘦控制器与服务对象、表单与查询对象、ActiveRecord、后台任务与 Hotwire。当要写或审 Rails 应用时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "description": "Rails 7.1+ 与 8.x 的落地写法：目录约定、瘦控制器与服务对象、表单与查询对象、后台任务、ActiveRecord 与 Hotwire。当要写或审 Rails 应用时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

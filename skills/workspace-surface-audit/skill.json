@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "审计当前仓库、MCP 服务、插件、连接器、环境变量与工具链配置，再推荐最值得装的技能、钩子与运维流程。当要摸清手上这套环境到底有哪些能力时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "环境盘点：审计当前仓库、MCP 服务、插件、连接器、环境变量与工具链配置，再推荐最值得装的技能与流程。当要摸清能力时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

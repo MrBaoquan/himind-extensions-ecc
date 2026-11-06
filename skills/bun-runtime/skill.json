@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Bun 当运行时、包管理器、打包器与测试器：安装、脚本、测试与 Runtime API，并对比 Node。当要选运行时或从 Node 迁移时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "把 Bun 当运行时、包管理器、打包器与测试器：安装、脚本、测试与 Runtime API，并与 Node 对比。当要选运行时或从 Node 迁移时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

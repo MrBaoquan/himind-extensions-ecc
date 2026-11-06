@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把一句话目标拆成施工计划：步长按一个 PR，每步自带上下文，标出可并行项，配对抗评审。当要规划跨多会话的大改时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "把一句话目标拆成施工计划：步长按一个 PR、每步自带上下文、标出可并行项，并配对抗评审与计划变更协议。当要规划跨多会话的大改时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

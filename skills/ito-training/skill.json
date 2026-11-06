@@ -5,14 +5,14 @@
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "在已订好的算力上查看训练可用性，并在后端就绪后提交已确认的训练清单。当算力已订好、要做预训练、微调或强化学习时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "模型训练接入：在已订好的算力上看训练可用性，后端就绪后提交已确认的训练清单。当算力已订好、要做微调时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

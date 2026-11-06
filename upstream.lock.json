@@ -10,8 +10,8 @@
     "license_holder": "Affaan Mustafa"
   },
   "sync": {
-    "sequence": 10,
-    "generated_at": "2026-11-06T03:53:12Z",
+    "sequence": 13,
+    "generated_at": "2026-11-06T08:38:09Z",
     "tool": "himind-ecc-sync/0.1.0"
   },
   "skills": {
@@ -27,10 +27,10 @@
       "rewritten": true
     },
     "agent-architecture-audit": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "a5f5fa6afb3e36283828249e4db1cb1521c127b4d724440b3bd89a1fcb213f8d",
       "synced_digest": "3f78e481c80254385fef19b16b9b27f8965b61fdc46ca71aa6e65fe9f75d7250",
-      "metadata_digest": "f892a538d727fb81d07c86f5c90c189cdc5acfc6dd1b4d71c53375785d7768a2",
+      "metadata_digest": "21ba4431bdad06ad5e33b799367bec9055797d70c89dbf9a0136a188a48335c7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a5f5fa6afb3e36283828249e4db1cb1521c127b4d724440b3bd89a1fcb213f8d",
       "source_path": "skills/agent-architecture-audit",
@@ -38,10 +38,10 @@
       "rewritten": true
     },
     "agent-eval": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "e4088ed95122cd8ab8ff71f312ddae0c9a1ca8125b3da2ff01b391409c920247",
       "synced_digest": "86a60fdbe71f80139497bce6c3c567a0aae8b0ee046185eddb12d745412195cf",
-      "metadata_digest": "37cd0fc2dbfd346fd5575119ec37e359d179931de7aad5eaaf722ed6ebe4b22f",
+      "metadata_digest": "165cb9dc4958b06af0bcf55a5810698b95c9ebbf9a2e781a977593b0d050fafc",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e4088ed95122cd8ab8ff71f312ddae0c9a1ca8125b3da2ff01b391409c920247",
       "source_path": "skills/agent-eval",
@@ -49,10 +49,10 @@
       "rewritten": true
     },
     "agent-harness-construction": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "85644a3f22d7e2722f171285034cdd75f66e6a3dd3a2425566ded65c0de858cd",
       "synced_digest": "f063dbad47dddd87a333584b21cfa0d3fb68ce00c6ebd3e51297fc39e0a97a1c",
-      "metadata_digest": "22e9d573f11c98731e877a6a2fd8c8b804fe7f9fcc936483754c12b1e5c50bf3",
+      "metadata_digest": "098f60e106b48bf87932193b6227139e0c9ce01ad0da2971f7d789b9b7b5c20a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "85644a3f22d7e2722f171285034cdd75f66e6a3dd3a2425566ded65c0de858cd",
       "source_path": "skills/agent-harness-construction",
@@ -71,10 +71,10 @@
       "rewritten": true
     },
     "agent-payment-x402": {
-      "version": "2.2.8",
+      "version": "2.2.12",
       "source_digest": "210d2b904f7f3988de6f8d06479aae985a86a1361a765cf2f370a396bf4415f9",
       "synced_digest": "df22b5a3efe028ea7d00e3872dc7d57b97afca9575c8760287a68c06dc68cd4d",
-      "metadata_digest": "9d63788937d6eb35adc8bb1c721e8e785dd9d273acc8b921c7dd2a3fcfe983cc",
+      "metadata_digest": "dceb0a5faea154fd91826aeeff17943053710bf5c8266ca147f562d2c35c65e7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "210d2b904f7f3988de6f8d06479aae985a86a1361a765cf2f370a396bf4415f9",
       "source_path": "skills/agent-payment-x402",
@@ -82,10 +82,10 @@
       "rewritten": true
     },
     "agent-runtime-gateway-smoke-test": {
-      "version": "2.2.7",
+      "version": "2.2.12",
       "source_digest": "1dc8de70ba0eb2cef43382a1a08e0d26c6cf7b5549d57b00849ca9dd7e976f7a",
       "synced_digest": "1dc8de70ba0eb2cef43382a1a08e0d26c6cf7b5549d57b00849ca9dd7e976f7a",
-      "metadata_digest": "3ed52675852e00efe4e9a72111e6f57afe46f0783d977259ba18db099425a061",
+      "metadata_digest": "ab61910771849091af457cfc95a1a2c807025d41110f53b74f3c02621b05819f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "1dc8de70ba0eb2cef43382a1a08e0d26c6cf7b5549d57b00849ca9dd7e976f7a",
       "source_path": "skills/agent-runtime-gateway-smoke-test",
@@ -103,10 +103,10 @@
       "rewritten": true
     },
     "agent-sort": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "fd7e4f7a15ad0af1f63944a45455a8e754a788f37c71be665535501b5eed9117",
       "synced_digest": "f5b14ea768da393ccbdfff479bf5a88391c56c221169c8d53dfae8e5e2e56e73",
-      "metadata_digest": "0c991c230ceabf1d811cf7454cfcf7653de72ed9b19296ca3ee91be840072d72",
+      "metadata_digest": "bc64d4213d57ed04194b58465cc752d2e52549d96303d836f2f78d73f997329c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fd7e4f7a15ad0af1f63944a45455a8e754a788f37c71be665535501b5eed9117",
       "source_path": "skills/agent-sort",
@@ -114,10 +114,10 @@
       "rewritten": true
     },
     "agentic-engineering": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "2b80b142e2734630d521455a8c9c4572801d338cadcf9d485ad68189bd918534",
       "synced_digest": "9c1f20b96c25bcf4a5a24e9fe91857e973e0d066f37ebff9328baa2713fd6633",
-      "metadata_digest": "b33b28b04f29043bac9a0075500b13173c7d672d9ed9352a506ca58c63a62e7f",
+      "metadata_digest": "f825c98a98172ff2bb0545727e8cd84dbfd639833715602229b3a566b2d63f34",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2b80b142e2734630d521455a8c9c4572801d338cadcf9d485ad68189bd918534",
       "source_path": "skills/agentic-engineering",
@@ -125,10 +125,10 @@
       "rewritten": true
     },
     "ai-first-engineering": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "741a8c8fc84d62af86d7c688f10501ee3417cee0c67dd7258fe41163980d6c5e",
       "synced_digest": "9da34e34c6a2bfb9a2b7ed89829f250cf6c44e93b2ff0265e594cddd507751fb",
-      "metadata_digest": "32b92037520aba330f33d53a72cc7ae69077a9c96f3bfe5e0f89b33eeb0e8daf",
+      "metadata_digest": "f04c2c13b44ce98241caed391c6dbf1520f8e3823188906597ab2544fa20de99",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "741a8c8fc84d62af86d7c688f10501ee3417cee0c67dd7258fe41163980d6c5e",
       "source_path": "skills/ai-first-engineering",
@@ -158,10 +158,10 @@
       "rewritten": true
     },
     "angular-developer": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "068caf116a545e1f9768981b34d84d820090850139703b4ea945940cd0e66d30",
       "synced_digest": "8d7d14728b33c9f01d7888d8c3748b81b241c67e8bdd3bd52d9fc1c9a5babd7c",
-      "metadata_digest": "c1fbdc6f4188abd8954228b00b80177712cc31d382e08cb60bb623330e74f485",
+      "metadata_digest": "dde4ffeb4c50105d0a6415fd558fc17457f381f09351c3955bfe0f9455c27c6a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "068caf116a545e1f9768981b34d84d820090850139703b4ea945940cd0e66d30",
       "source_path": "skills/angular-developer",
@@ -169,10 +169,10 @@
       "rewritten": true
     },
     "api-connector-builder": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "4784f02e68dc710e6b5f1eafe41a4bb3fcb01e84cef826817146c10223bd610a",
       "synced_digest": "255538217a7f5c4e12d1cf0b74ff6125d9e7b60eeb884240ec7d9e63fa8bfc49",
-      "metadata_digest": "bb16b4b9782b62d2ce41fdc9051d7e01f2e5265762740c8e6cf04b1cbfdadc8e",
+      "metadata_digest": "92d3399f7fa9285bf95f72adab34ec0c5e84d72a725181caa532f1d463ceb26f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "4784f02e68dc710e6b5f1eafe41a4bb3fcb01e84cef826817146c10223bd610a",
       "source_path": "skills/api-connector-builder",
@@ -180,7 +180,7 @@
       "rewritten": true
     },
     "api-design": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "03a1f98b9471c99b9cd70367dad1abe4c7a2a764d808a81bca941e518ae41359",
       "synced_digest": "0bd0b7a9ceb98fcbe6018bb6b0529ede8a342d23b3f06f15cafc5e5cb3abe16d",
       "metadata_digest": "60366662ef6ba719c15c9ffdf777de142efc7ad08a6e22a3eb94653e50701dfe",
@@ -191,10 +191,10 @@
       "rewritten": true
     },
     "architecture-decision-records": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "103fe05312856a54cad61ea745ad1e3a024e47d31172b37e05032bff6c9c0b4c",
       "synced_digest": "e8ade674ebaa2a03c6dbdd832777cf5e54cecfdf6f4084ba067fb713b8243468",
-      "metadata_digest": "6b7fadea59c470be5315a77a5483de73679eaaff2bb226336780596258cd6cb5",
+      "metadata_digest": "cd68c05a1737b2a47e805c2e81d5b0a4abaf3ad1e13a1a9cb21d95450b19fbc0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "103fe05312856a54cad61ea745ad1e3a024e47d31172b37e05032bff6c9c0b4c",
       "source_path": "skills/architecture-decision-records",
@@ -202,10 +202,10 @@
       "rewritten": true
     },
     "article-writing": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "fa7b733da571c6c8d2d38ebdd970620bdb30366cfdbf121ac7c7ac632289c6b5",
       "synced_digest": "b86e69fd18b0cace5b2d2882950fa27962fee0557879230301aa5dec9ed0c824",
-      "metadata_digest": "54f7ba4eae387bb118de04e5c2b430c49903ca46b64711bee7499bf0a5485730",
+      "metadata_digest": "19f9eea31b59e3d689aaf8cfd6e9b9854398a1b268977fa3921550c4d2f22cdc",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fa7b733da571c6c8d2d38ebdd970620bdb30366cfdbf121ac7c7ac632289c6b5",
       "source_path": "skills/article-writing",
@@ -224,10 +224,10 @@
       "rewritten": true
     },
     "autonomous-agent-harness": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "d15d5ecb8955013bff362280e753609c15a0f0e3dfdc74c9517ebb53ae8d3612",
       "synced_digest": "f26b53da46051efec1c0215382a369764abaee95df2883e385e257d114deeaf6",
-      "metadata_digest": "b55fff82dc1893d8df35fd591d28bd1256020b97bd646c882fd7c27600d124a8",
+      "metadata_digest": "aa2d829bb3e3281cec7ea8d44d8f582de491c8e418eaea497b22359cd01bccff",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d15d5ecb8955013bff362280e753609c15a0f0e3dfdc74c9517ebb53ae8d3612",
       "source_path": "skills/autonomous-agent-harness",
@@ -235,10 +235,10 @@
       "rewritten": true
     },
     "autonomous-loops": {
-      "version": "2.2.8",
+      "version": "2.2.12",
       "source_digest": "b2c290779ad2fa7c83e91949d43943283855fa373a822a7c41ffc732f951e051",
       "synced_digest": "105aef1b002a52bf4ba8ff25b6669fad0db3d9f787a3cfe9a4f70e35a0d46306",
-      "metadata_digest": "64cc27bc8513c880b392f3a496f6e646d77e04450df319e16c4c679487b66b59",
+      "metadata_digest": "9410fce64706793de9d7c5b187460a15ea80dc4dd28b92bff6b0aefeb46e8b98",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b2c290779ad2fa7c83e91949d43943283855fa373a822a7c41ffc732f951e051",
       "source_path": "skills/autonomous-loops",
@@ -246,10 +246,10 @@
       "rewritten": true
     },
     "backend-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "04b930e9b10b02e3aa417bd232928e5dcc38c595cd44b738d5c2c7558c87af6e",
       "synced_digest": "080e507d9aae09cb76b3da2b021953992a3909450445dbed460999ce6a04f3ef",
-      "metadata_digest": "f7892232c30098c9279e2bcb1111e7b488e14c8d43cb89fc76333ab353c3f2a4",
+      "metadata_digest": "6fd75509465d5078a0ce61a44acf935edea87c25a1b8468517a0d65d47e9630a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "04b930e9b10b02e3aa417bd232928e5dcc38c595cd44b738d5c2c7558c87af6e",
       "source_path": "skills/backend-patterns",
@@ -301,10 +301,10 @@
       "rewritten": true
     },
     "blender-motion-state-inspection": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "3950b731fbdd120c86d7bfc2fc8c057db22fdcc8d27915c5c98fcc6f822194fe",
       "synced_digest": "acb5a62025b1443f2ce48d4df788bcb7aa34ccff246b80ed7b1bde5337683143",
-      "metadata_digest": "bc928f6daae7a2f590780e579b66b42042ec2b7f06935d9bf57907a06607bf8e",
+      "metadata_digest": "975c76d1c0abc2b0ffa15529eae89929e19b1b97b5ebbcc2ccbff7ed47b9700d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3950b731fbdd120c86d7bfc2fc8c057db22fdcc8d27915c5c98fcc6f822194fe",
       "source_path": "skills/blender-motion-state-inspection",
@@ -312,10 +312,10 @@
       "rewritten": true
     },
     "blueprint": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "9f0e23715661abd6e9ba4f1c7daeeaea75b5bd1ce92c77626ebe945626a0a0ab",
       "synced_digest": "5839ac6e721537de2a79626410ee8b19a637c0b1f8127e31b97f9f911b0290b6",
-      "metadata_digest": "df641816b93476baf393a918b33f24d9294aab0d4810a220d6303975b755a600",
+      "metadata_digest": "dcbf1f1e3fd4b45a71e780d809c55c7dd78c34e0cacbe0b9f07d7128dfdd5e48",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "9f0e23715661abd6e9ba4f1c7daeeaea75b5bd1ce92c77626ebe945626a0a0ab",
       "source_path": "skills/blueprint",
@@ -323,10 +323,10 @@
       "rewritten": true
     },
     "brand-discovery": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "1da627a15cafab3dcee66bdd2a631efbe8dc017a81de23ebf93c4b341fce1798",
       "synced_digest": "c0d2c78a6a6106bfe4d0ac60b715e8e51f21ef2097d9e73554c5ab424aba67e4",
-      "metadata_digest": "bd241ba41aec80155557c02cea7b2bd991bc81c64646c310b10d718d88c4010e",
+      "metadata_digest": "6487cf40376a4d44098ff3c2258e40287f40c9cd0ea2db4052debdddb52be0c1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "1da627a15cafab3dcee66bdd2a631efbe8dc017a81de23ebf93c4b341fce1798",
       "source_path": "skills/brand-discovery",
@@ -334,10 +334,10 @@
       "rewritten": true
     },
     "brand-voice": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "529a7933f9a1913a135d43df2240a2321a8f546c401945e1531213065f74d1e8",
       "synced_digest": "b66a326cf176353852fec2f866e0b02dbf16ffc4bb215c182e41938e94fb5f43",
-      "metadata_digest": "15072fa7c91213ad80794981648a2429ab481b3e6209bebd6db53b4d1d884769",
+      "metadata_digest": "90050588c2500ab2b708dfe6f70776e92448e7b9722f4b9a36cbda4208ebaac0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "529a7933f9a1913a135d43df2240a2321a8f546c401945e1531213065f74d1e8",
       "source_path": "skills/brand-voice",
@@ -367,10 +367,10 @@
       "rewritten": true
     },
     "bun-runtime": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "synced_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
-      "metadata_digest": "bba027de48daa44779cb73a63587624cbc37b85d36ac1a6c777f9619c23be9e6",
+      "metadata_digest": "6b1239dc0eca7854f8fc2a1bb5a882a153e1a6a748432178a4669377a44a87eb",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "source_path": "skills/bun-runtime",
@@ -388,10 +388,10 @@
       "rewritten": true
     },
     "carrier-relationship-management": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "6895b8da20713b9aa8025bedb348a6197a86fe025e3b65e065d0310fba16a71d",
       "synced_digest": "0e2a67d745cf10f4fc5917c926d7ccf8db914c9e9ad62c72553c922f7019b1d1",
-      "metadata_digest": "d6a7621bf62ed3dd1943808558c93e8d77a53cc91abe1ee8d91143ccc4295304",
+      "metadata_digest": "0d9ece3a24fae567ef11442c0425d35f5e80a9b28f25b9142e7d3bfeb6cc526c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "6895b8da20713b9aa8025bedb348a6197a86fe025e3b65e065d0310fba16a71d",
       "source_path": "skills/carrier-relationship-management",
@@ -399,10 +399,10 @@
       "rewritten": true
     },
     "cisco-ios-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "850aaf06e54e898e59c82cebd2edd80e4e86cbd456ca6e7bcabfe3224cb53ba8",
       "synced_digest": "2e357e9da43fc70e6073e4145c4965410ff830afd1bfd4b52a0ff4d00d23496a",
-      "metadata_digest": "7d6bdf0d39b60a2fdf48c1c1e309c701ad06ec35a2b7f72ae77d92d66a8f5344",
+      "metadata_digest": "a0133fb4ef94f3de35b0b90592f21e833b52be1ad41513847621a22a4b17a4e4",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "850aaf06e54e898e59c82cebd2edd80e4e86cbd456ca6e7bcabfe3224cb53ba8",
       "source_path": "skills/cisco-ios-patterns",
@@ -421,10 +421,10 @@
       "rewritten": true
     },
     "click-path-audit": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "acc09ea20706f6647adfe03f02fff91e0bbc0ea920c48fb5e721d8bf01234062",
       "synced_digest": "1b736b319243507b1a99b6f2a25abe7b1603696acc5674d22c93e90e346318ee",
-      "metadata_digest": "2275e6b136e602e5260a4c1decd11d5489cb092fd18ff18c9670b5e897655855",
+      "metadata_digest": "2acb4ff5615f2e105d543178ebbce5e29ef26b0fc1c85a408d3f95c5c01c9af5",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "acc09ea20706f6647adfe03f02fff91e0bbc0ea920c48fb5e721d8bf01234062",
       "source_path": "skills/click-path-audit",
@@ -432,10 +432,10 @@
       "rewritten": true
     },
     "clickhouse-io": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "65513d74222fe5ea7a69215eb278b7eda46c0df98fa3fbd5df00ce22cdd179ec",
       "synced_digest": "11a20a6b85a9814a65dddf2879c238a90930e007e714fbe7e4dd13baf6257b67",
-      "metadata_digest": "01d1c72e4c279b8823f6a47a17375f55fe0aa2bad652f9cb8b72a607c430e2ea",
+      "metadata_digest": "c32a9ce73188bb7381633a6fef32d381bc9acd3313ab7527c2d9b186058a69d0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "65513d74222fe5ea7a69215eb278b7eda46c0df98fa3fbd5df00ce22cdd179ec",
       "source_path": "skills/clickhouse-io",
@@ -443,10 +443,10 @@
       "rewritten": true
     },
     "code-tour": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "90af2e545e3bcdabac5b39f9e3b9fc5771225fbaefe7f1183de1f4c283b831bf",
       "synced_digest": "f60f41b28b204500daf0d018c6fd37d41ba953c2dec92cf692d70d1d248861fd",
-      "metadata_digest": "0a118281a60cee3cd818ea454daa2a291035dc620ec2e430b173bc5f627de999",
+      "metadata_digest": "605c67dde82e47908fdf54f3ace7c99c8e2ea2cb4f9efd3bc34110822dbc1f28",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "90af2e545e3bcdabac5b39f9e3b9fc5771225fbaefe7f1183de1f4c283b831bf",
       "source_path": "skills/code-tour",
@@ -487,10 +487,10 @@
       "rewritten": true
     },
     "competitive-platform-analysis": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "e96612ed15b1331c23dca2036b569f66ac5af798de8435a1d1077d96aced95f7",
       "synced_digest": "167d39eca4b22c4129b5eddebb3b444fbb5df6f2c3ea216f5955627fb8c0382d",
-      "metadata_digest": "254030e09d27dee33f9dd2dca292818f02e262af6b8ba7a42b2384d066ab1dd9",
+      "metadata_digest": "ac0062e7566a3ad3ad5832995dacd7f5f24b3e98f57d4456b697ce16394ebce0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e96612ed15b1331c23dca2036b569f66ac5af798de8435a1d1077d96aced95f7",
       "source_path": "skills/competitive-platform-analysis",
@@ -531,10 +531,10 @@
       "rewritten": true
     },
     "content-engine": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "db424635400277e6263fc3a43e25a5ebab955d45f746e78361466f1b2c5de722",
       "synced_digest": "ab69b5c1e4ea9419dc6e2176a4324f366aa5613d2bfda40764470d1b5aa2c444",
-      "metadata_digest": "3591ccc52d870a61e75c3af07153b0dc9aee411c665d80766a03174b6b3a6a3f",
+      "metadata_digest": "00d9b44067b176357b0841aef501ebbc4f32ac147d15e8992468839bc1bb15f9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "db424635400277e6263fc3a43e25a5ebab955d45f746e78361466f1b2c5de722",
       "source_path": "skills/content-engine",
@@ -553,10 +553,10 @@
       "rewritten": true
     },
     "context-budget": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "78f2e4cb79b16c904b9a265a02d7c55c21ae251a3adad57edbb6bba0b717c750",
       "synced_digest": "ea33866972c69c538b8496f5dc6ee3056b6d55b8324c067a2cd7ca84436f1b48",
-      "metadata_digest": "db749dcc62fadcd94765775a16cfccf7c1e1e81f373167d2bbd9845780cfef7c",
+      "metadata_digest": "e65eef3d162f23f27528c7e7a179b9f8f55dd9b08952b0b341e0200868f10c8e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "78f2e4cb79b16c904b9a265a02d7c55c21ae251a3adad57edbb6bba0b717c750",
       "source_path": "skills/context-budget",
@@ -564,10 +564,10 @@
       "rewritten": true
     },
     "continuous-agent-loop": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "9840e8e6d8e4ce8c7755032cd5fb27d3f6818f51d3bcb8044eb557f811423287",
       "synced_digest": "64c19d8e142be08d948cf959ca083f5957576bf075074eed9cc8e67f976d4655",
-      "metadata_digest": "cad070a5efd8b46b49a7f3e0cab5dc5233cd70aab1318be01440379369c91fa6",
+      "metadata_digest": "4b8a104975f46e6b60c94ebffeeb246dae0bde7531a2fe66bb072861947c6ec1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "9840e8e6d8e4ce8c7755032cd5fb27d3f6818f51d3bcb8044eb557f811423287",
       "source_path": "skills/continuous-agent-loop",
@@ -575,10 +575,10 @@
       "rewritten": true
     },
     "contract-first": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "68a772b4eea345534f74b758f2f56345365fbf1568e8890a541516bceaef0505",
       "synced_digest": "cdeb71b00e6d44fda936866579579f8ddf88587648220289286d29b9fdca082f",
-      "metadata_digest": "453980131cbaa7c6896a35f887c13d7c26998fd2d69dfecfebb3a93509b9800c",
+      "metadata_digest": "b4fd997ec6118f7a1986d9bd7ee92335959d91cd79cba3f2504282de7efd7eb8",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "68a772b4eea345534f74b758f2f56345365fbf1568e8890a541516bceaef0505",
       "source_path": "skills/contract-first",
@@ -608,10 +608,10 @@
       "rewritten": true
     },
     "cost-tracking": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "2daa66c26598963746a3893eb0ff039e0946df3b33a0730930a38d5ddabd9bfb",
       "synced_digest": "fbe8e1e8b8b528243715e97be0de68def019463bfa64880cf6145b56ada3e9a1",
-      "metadata_digest": "b0ddf89c929a9bf4e98e8b6574f63c6fe530cd95e313914327667115b0f4b1c7",
+      "metadata_digest": "0fe8266c30a4667e84ab8ac4d42522bd1c9dce69829d1feeb2104b269f97ee73",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2daa66c26598963746a3893eb0ff039e0946df3b33a0730930a38d5ddabd9bfb",
       "source_path": "skills/cost-tracking",
@@ -619,10 +619,10 @@
       "rewritten": true
     },
     "council": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "fe8e3a861044ccd41163ff3e00c68e66021f59dcb19cac08397d0f740213520c",
       "synced_digest": "5553f19cfe3ed31f6c86e81abdec95c7d7f6fe472fcda8f66e66e5c9efa6d9de",
-      "metadata_digest": "5ea034ad25ccb0578ba1401265eeacaf3e1100c40482c049f8dfc9625776c593",
+      "metadata_digest": "27243eb46660dd9eb92165931ea8dd71422710a954dea8e0ce873af17cb0f834",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fe8e3a861044ccd41163ff3e00c68e66021f59dcb19cac08397d0f740213520c",
       "source_path": "skills/council",
@@ -630,10 +630,10 @@
       "rewritten": true
     },
     "counterparty-channel-discipline": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "8d7aa5d7684e777fb7fdd2e020e588a6b7f7aad9555ed3333160479bae72a527",
       "synced_digest": "eae188c998798ed4a58cd3a966df02c71a40e3def25f3da0a76c04fc6ff706c9",
-      "metadata_digest": "41b0bca00b4a5cd3f6d59bba968fe917817a1b11e4b210e897b98a93835f37ef",
+      "metadata_digest": "9ef94fd0639f4b0284d2b0d4eeb14fa1f99b9380f50efaa27c7288b5f8428ee5",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "8d7aa5d7684e777fb7fdd2e020e588a6b7f7aad9555ed3333160479bae72a527",
       "source_path": "skills/counterparty-channel-discipline",
@@ -641,10 +641,10 @@
       "rewritten": true
     },
     "cpp-coding-standards": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "6c24ae64170e241f3d4dd56a615ecaeef16f6ec091283d2faff5dec9bf8f1025",
       "synced_digest": "668b15565168231037d4e760fc5497b82bf7c69324162a5bf74e38507d001ea1",
-      "metadata_digest": "f8444b4da1ef6221a29dcf9c29eb5c137c16b329baec90b62f26d2d32aecadca",
+      "metadata_digest": "8551491e8a5ac9aff2bd53668dc68bcff71b48594764bcc85b1da8f6366d8c84",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "6c24ae64170e241f3d4dd56a615ecaeef16f6ec091283d2faff5dec9bf8f1025",
       "source_path": "skills/cpp-coding-standards",
@@ -652,20 +652,20 @@
       "rewritten": true
     },
     "cpp-testing": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
       "synced_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
-      "metadata_digest": "5d22e21869ddf717e6d5649943f2c81cc1c7ab93bb4c2ad559bc50ee652099c6",
+      "metadata_digest": "809e103e06a9ad15e6ee99995999c10de04837213350ea7c0e2c1ad14be03e1e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
       "source_path": "skills/cpp-testing",
       "tier": "A"
     },
     "crosspost": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "d41ea01b9e821043f763bae7a9e0a224cd7ca5389f8380b655ba5bb8417e9088",
       "synced_digest": "a2a57adfe774c18d8fbc1263fb7fef8d6cffbf171ec35f05ed13faabef29ee4e",
-      "metadata_digest": "8116bf53a4da80041beee73f37e4c628189fd205808f8b503ca36f7f130912f9",
+      "metadata_digest": "b5ad28512075d83abde69ad4663022aabf90bc9680c1da9c908fc629ca2fd7f8",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d41ea01b9e821043f763bae7a9e0a224cd7ca5389f8380b655ba5bb8417e9088",
       "source_path": "skills/crosspost",
@@ -684,10 +684,10 @@
       "rewritten": true
     },
     "customer-billing-ops": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "fe32bfb0dde512dc9269bd6ff486ba41059356284acb7f68b519171780817201",
       "synced_digest": "40407c00559d71ebb635bb7b7245b758f28d7763a609b37cf858b65ff8933ef7",
-      "metadata_digest": "89edff03469504ad6cd2bce6bd070c838e6a0c9679d760519451e467c53eb453",
+      "metadata_digest": "99c2325f3b8f067c7239275c89d6555928439ce47ffe02d09d3df6359ff1e70e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fe32bfb0dde512dc9269bd6ff486ba41059356284acb7f68b519171780817201",
       "source_path": "skills/customer-billing-ops",
@@ -695,10 +695,10 @@
       "rewritten": true
     },
     "customs-trade-compliance": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "f8b11285243e88d481a779312428ef226937933142a7930e11084f64f7ab2c26",
       "synced_digest": "825e9be90be4659122481706e1c9ba923d00df588fb25183aa5a40cf90bc4388",
-      "metadata_digest": "ffa52e3df5b49ecb44806e5556f82e979ece8fe2362a1e1aaad3e5b38b0d13a0",
+      "metadata_digest": "1ededacb9fe0679d540df4da5f73aee15547d8bbd986d64aa522882664d7117d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f8b11285243e88d481a779312428ef226937933142a7930e11084f64f7ab2c26",
       "source_path": "skills/customs-trade-compliance",
@@ -717,10 +717,10 @@
       "rewritten": true
     },
     "dashboard-builder": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "3466b8d0760dd6bd3c3f6c7b5818e3b00ccf1747c9a223eebbf1eb487a261e6a",
       "synced_digest": "0425bdcaaa6b2d30a797c55a13f19d5c9b4c8ad9c21c43347d1b0a4ea7a2875d",
-      "metadata_digest": "32fa57c1fc037fe93f2ebec6025bddeec679b82a3d1de82d48868d0c7caadd51",
+      "metadata_digest": "f604c3d4e2d14c5d079e25fa868447623dfbbe72cda18516a5987f793a9692fe",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3466b8d0760dd6bd3c3f6c7b5818e3b00ccf1747c9a223eebbf1eb487a261e6a",
       "source_path": "skills/dashboard-builder",
@@ -761,10 +761,10 @@
       "rewritten": true
     },
     "deep-research": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "a048affad0be05dee33df61488e1de0c0e18120ad296ae3be47768cb33ff8d58",
       "synced_digest": "049014db2bee0ec194d437f813824bfe8b924b3398b06ed919cbf047df9f1bd6",
-      "metadata_digest": "e10d71b8cad76c996d6ee4a4bacd1f5e1bece7f147624c4ae11ebc10d813c074",
+      "metadata_digest": "f2abfdb7726dba6a3d5ed7d71ce40fb0363f2326faff1bdf4a2c72d831c8d3f6",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a048affad0be05dee33df61488e1de0c0e18120ad296ae3be47768cb33ff8d58",
       "source_path": "skills/deep-research",
@@ -805,10 +805,10 @@
       "rewritten": true
     },
     "deployment-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "0721498c7ce090d42ad18031a86120ee015765f61efed5ecb0f6bca5bafb499b",
       "synced_digest": "bb00c3605311639434e9587e9bacb4308090d72a08e40a7fb3190c1d3af7b844",
-      "metadata_digest": "e15dbdb3dc483ebf266fbd88f1448e1fbe3279036e58c52d64e8d8b8a1ac79f2",
+      "metadata_digest": "606b6bfa8430077e9d5eff25a9f01108cc0b4a1874bab45a712fbec808303d26",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "0721498c7ce090d42ad18031a86120ee015765f61efed5ecb0f6bca5bafb499b",
       "source_path": "skills/deployment-patterns",
@@ -827,10 +827,10 @@
       "rewritten": true
     },
     "dev-team": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "b03f26469b2195cec98edb124db569c74c71ce9596e31915ce8036827018da99",
       "synced_digest": "4ff6b986fbce75da45b1f22297b837471606ba2036f281b36c5e9f5fbbf9bcc3",
-      "metadata_digest": "0e60edb3f37e088992bddc10cc8a145836433d4e02c36689d8b4977aca19a47c",
+      "metadata_digest": "67bc1109685163bad162bd7ce57dffff4211044750f1daaaf3099037c800fbf0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b03f26469b2195cec98edb124db569c74c71ce9596e31915ce8036827018da99",
       "source_path": "skills/dev-team",
@@ -849,10 +849,10 @@
       "rewritten": true
     },
     "django-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "91e1b326e75bc10bd4b2892799b6151409c0834817dd19706dd542ac91bbfec8",
       "synced_digest": "ef4f230451e99534b316cd194e5f748cd49a654dad62cf739255abd12858db70",
-      "metadata_digest": "f3113fbea1c5bd042e0c44d888268fe03815eb4afba447b1e894a032269578c5",
+      "metadata_digest": "768b23b7d149f415c05a77d22b79f136d5635b8536e3daf810773b33999a8962",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "91e1b326e75bc10bd4b2892799b6151409c0834817dd19706dd542ac91bbfec8",
       "source_path": "skills/django-patterns",
@@ -860,10 +860,10 @@
       "rewritten": true
     },
     "django-security": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "3109256ffcc1fd5f524be1c06186f17f25d49313e6fb31c260b3eec6167f5374",
       "synced_digest": "0c578ee73e0d62ed04b20195dfffdc558607526f6059288f7a5e9e88fa3b003b",
-      "metadata_digest": "66ddd31fc375b4d3945a5cf8802334f44540f61115b84a3f640cc5feadbefa32",
+      "metadata_digest": "59b057ee1000ab061c075a0be585085b20e15b2f6c31e4f1fa3eaee5472362d2",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3109256ffcc1fd5f524be1c06186f17f25d49313e6fb31c260b3eec6167f5374",
       "source_path": "skills/django-security",
@@ -893,10 +893,10 @@
       "rewritten": true
     },
     "dmux-workflows": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "272a3bb21962f48cb891317b32bcc270f1078fa624dc9209549914d722c3a1f0",
       "synced_digest": "d40f3d3e9ad2313342cbb2e80226d0b262b4096da90f67eb321925f664e20870",
-      "metadata_digest": "ead149ac6f6fb5d26cd4cede4c9d1c64788a8c369cecfbc63af856a57f18a18d",
+      "metadata_digest": "2b95a62e150089830bde5223779635ce26d66f4e216837f748660dd49b90cc1f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "272a3bb21962f48cb891317b32bcc270f1078fa624dc9209549914d722c3a1f0",
       "source_path": "skills/dmux-workflows",
@@ -904,10 +904,10 @@
       "rewritten": true
     },
     "docker-patterns": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "0d9b0c761a37cddee3ef15425791fd4b623b7eb934c880407ee8da4d035db1d2",
       "synced_digest": "d3c440fa6c6c04e1d668896b601fc3dfb2a9edee92bb4c7126004319905f7bd0",
-      "metadata_digest": "795d873a16246a08767c362cb807f3f750253ac1a736642370a94190058aa210",
+      "metadata_digest": "9b62622138b985bb96fda4d1e252be81c3e4842317cd2ee4bf60478044e5dcd0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "0d9b0c761a37cddee3ef15425791fd4b623b7eb934c880407ee8da4d035db1d2",
       "source_path": "skills/docker-patterns",
@@ -915,10 +915,10 @@
       "rewritten": true
     },
     "documentation-lookup": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "5d5fc83ef439036cf567534a8e2f1ef8ebdacbcbb86deac2a1f1e5d5eab22116",
       "synced_digest": "f6c8011c4c4e08b2218321d74ca95f516221d4c7e4ad97cbc932f8e9a4d8cd34",
-      "metadata_digest": "bfbca348fce0c1b69c93a06e07966e9adc23a223f8e3db413d3572b4fb17fce6",
+      "metadata_digest": "5bfe8cf00626d6525036ea62ff304770a2ef34298269a0755c51111b3145b00f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5d5fc83ef439036cf567534a8e2f1ef8ebdacbcbb86deac2a1f1e5d5eab22116",
       "source_path": "skills/documentation-lookup",
@@ -937,10 +937,10 @@
       "rewritten": true
     },
     "dynamic-workflow-mode": {
-      "version": "2.2.8",
+      "version": "2.2.12",
       "source_digest": "1020701008e572b3c58e79fc90f063f93d6c44db1e034df681b5a6a2f2de790c",
       "synced_digest": "33f1e5fcafc3fdb223479e0b8af290bbecb6f9e78d740b82c8073af689a159e0",
-      "metadata_digest": "a4946169432ec106f6bcbdf8f8d7c8df9c595f80123d969c83a74ed3454e8068",
+      "metadata_digest": "70880ad2de19565e99cb13416b023a016860a65e4200d2f850dbe18d898abbb7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "1020701008e572b3c58e79fc90f063f93d6c44db1e034df681b5a6a2f2de790c",
       "source_path": "skills/dynamic-workflow-mode",
@@ -959,10 +959,10 @@
       "rewritten": true
     },
     "ecc-recipes": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "3b64f7e5f4771b05cce78ae1bf657cc9f5f6d04326b639dbb2f9f92bf4582817",
       "synced_digest": "19bb23d2987943201ac7027294ee8acdf8d09e17b5ea958381cf00583a3052e8",
-      "metadata_digest": "b3e7683012bc40ac47a7eaea6341df389e30577c6f14a01d24d93bf0392e030c",
+      "metadata_digest": "fb3c791163e60406fafa4efebdb3e58271b4b25a4be2f283d8a87a3cd34d4b75",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3b64f7e5f4771b05cce78ae1bf657cc9f5f6d04326b639dbb2f9f92bf4582817",
       "source_path": "skills/ecc-recipes",
@@ -970,7 +970,7 @@
       "rewritten": true
     },
     "ecc-tools-cost-audit": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "003b14dd181b6fef668d58424d48eb922861a9ae42f6457a1c56d4ed6567ed66",
       "synced_digest": "6660b2d10cd4769262909a0419e5c8846035a7bc6360f34bd8ae0708779dcbf5",
       "metadata_digest": "7256accddaaeef59422db6877a9650f751e5bbc10e45f803c522d5eda6ff1669",
@@ -1025,10 +1025,10 @@
       "rewritten": true
     },
     "esign-field-placement": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "851a0ffc142e055d435bb8eafd451d9cea27a6a616eac22aedabe9bd3f975f16",
       "synced_digest": "dee9888d6c46b6143cbd9ef6e08cafaf7367dc7e78b52652d6f79bde5246ecfc",
-      "metadata_digest": "50fce1791a130005886f57a77556d0dcbf1850bc62c014a16f15fe39ac27c056",
+      "metadata_digest": "5e8c9f552be2a61f156329f785ebd3640437803023bae4c576d20c1cde689f0d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "851a0ffc142e055d435bb8eafd451d9cea27a6a616eac22aedabe9bd3f975f16",
       "source_path": "skills/esign-field-placement",
@@ -1080,10 +1080,10 @@
       "rewritten": true
     },
     "fastapi-patterns": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "d13740d90724ba9a5a6090059bd9461214fe0babc2a0d25e5c2feab6d8b5ae4b",
       "synced_digest": "dab0a6a238253f857537dbe591f2971c26a229cdf62270fbc7131054c435ab6f",
-      "metadata_digest": "3a96f9c35299460ccebeb70d95f2ca59282631ee4e518bc0fdbe0921d2a41498",
+      "metadata_digest": "372c2db752e1de0da3ec5d1d514e686224daa58868c3d9f5e96dda5f94677186",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d13740d90724ba9a5a6090059bd9461214fe0babc2a0d25e5c2feab6d8b5ae4b",
       "source_path": "skills/fastapi-patterns",
@@ -1091,10 +1091,10 @@
       "rewritten": true
     },
     "finance-billing-ops": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "55e533f3734d988ecaabd76a189cdae730e877e7fc23820e0281713220249b5d",
       "synced_digest": "e485161e4d2db706eed73478c84b968d9d0850dcaf9411bfd3a56bd29bff4571",
-      "metadata_digest": "8ea3545ccfda1cf882c8d35ca168d0e38477debbf92e1317456836d15376741e",
+      "metadata_digest": "f7f6091cf6c176692c8d7abed93c1b3d6fe6ac70ce89d394488abf65a892c582",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "55e533f3734d988ecaabd76a189cdae730e877e7fc23820e0281713220249b5d",
       "source_path": "skills/finance-billing-ops",
@@ -1102,10 +1102,10 @@
       "rewritten": true
     },
     "flox-environments": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "2b42e243deb92c5ac0042e49525ae8c9cd5cfd8ffd8139c41ca39a453855835b",
       "synced_digest": "fe077e3785a2cb59608b8784a92bffb8c7c389ff997ad7aeeae555383b5234dd",
-      "metadata_digest": "4a6789be8aee3f80d5c54125338ddd9d86f2d37f7a7452456d28463fcac21178",
+      "metadata_digest": "ec28f30f6c7cb9fafe609f4d75ff9f84c6cbb1b1635fd5085760299052ef71b9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2b42e243deb92c5ac0042e49525ae8c9cd5cfd8ffd8139c41ca39a453855835b",
       "source_path": "skills/flox-environments",
@@ -1146,10 +1146,10 @@
       "rewritten": true
     },
     "frontend-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "3a28cbea31a04ac83620794c0b9f306bd0f20d241f7aaad31015b47499fe87d6",
       "synced_digest": "3068f34a54274971dcc18dc2abe073dc7162a4b4a97b9ee94ad10ba08258412d",
-      "metadata_digest": "fcc3c09bfadf31e3332c44d1790799ed0a43c1cfe621c8914a876658443465bb",
+      "metadata_digest": "87355f371ba813f1dffc63bd777cd10bda57d068364b7b9807a0232f6995f846",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3a28cbea31a04ac83620794c0b9f306bd0f20d241f7aaad31015b47499fe87d6",
       "source_path": "skills/frontend-patterns",
@@ -1168,10 +1168,10 @@
       "rewritten": true
     },
     "gan-style-harness": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "a2380a288b4ef6203e8ca1961a7274ffcc1b4a7884182c4c49fafe606c41da94",
       "synced_digest": "8d879222601d7429351d37bc90ec87b8332f0db55f75a90c6292e42834192f46",
-      "metadata_digest": "54a29dff6d04b66be09e01d3fb268925b81a14f35c12326eedf90e937f787f3a",
+      "metadata_digest": "b2be4a76cc538ab1b1dbeffe392b97659e60adde57ca2ee50c558ec10e78bda0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a2380a288b4ef6203e8ca1961a7274ffcc1b4a7884182c4c49fafe606c41da94",
       "source_path": "skills/gan-style-harness",
@@ -1179,10 +1179,10 @@
       "rewritten": true
     },
     "gateguard": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "34da1c27b39a74a132dc766036a3b79a71dd022888ebf5ddb4b548b61e8bc177",
       "synced_digest": "647ac67ef25cf171414ead82e81f2577085ad8abe28b5daa9706a0b29f879f38",
-      "metadata_digest": "6ffdd05b8f0d70eb7073284c5312892478c595500f33022728f4e39d9035c9fe",
+      "metadata_digest": "b8a0c59db6ec1d95708066c72171247dcfb7c548c0971db02d25282dbe0a996c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "34da1c27b39a74a132dc766036a3b79a71dd022888ebf5ddb4b548b61e8bc177",
       "source_path": "skills/gateguard",
@@ -1223,10 +1223,10 @@
       "rewritten": true
     },
     "golang-patterns": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "35efbf444485c6774946cbaea7702ac1c5434a41ac027e08e8bb9e30bc085267",
       "synced_digest": "3aef0c598afc600be2d49cdae6dbdc0a4f3b147cf55ca92bc035ed43bde331ca",
-      "metadata_digest": "dcd57ace02ff15f61e90e8d1618ad0e53c0eb69f945318ea0c12d303155bedb9",
+      "metadata_digest": "08f7341ece52c0e1cef5ae3fe9babea9d6f5ab666e63b044a34ba9945be402f3",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "35efbf444485c6774946cbaea7702ac1c5434a41ac027e08e8bb9e30bc085267",
       "source_path": "skills/golang-patterns",
@@ -1311,10 +1311,10 @@
       "rewritten": true
     },
     "hermes-imports": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "05f20316bae7778f40f1cb19a0e60d75f05859bdc712e44905c49f39017b7eef",
       "synced_digest": "3cc3614b361134047877e0dff057129b84eb9780fd3856db22978cf4d97a6b10",
-      "metadata_digest": "8274461c7832d6ab472ebf772b7a25bc21efefca4242168289b4e9754410f11f",
+      "metadata_digest": "0eda4efcc51cc732ba7433f0009ce07c35ab3d8ebece159bbe2c434d0ceaa970",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "05f20316bae7778f40f1cb19a0e60d75f05859bdc712e44905c49f39017b7eef",
       "source_path": "skills/hermes-imports",
@@ -1366,10 +1366,10 @@
       "rewritten": true
     },
     "homelab-pihole-dns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "e655d7441dfc259a70771e466cf1b5c7d5de0af4f36f054876d937b8c3e68b0e",
       "synced_digest": "899cabcfe850eb6424755777024e5e046939bb8d5e9a19b3dd1ae0dd41930384",
-      "metadata_digest": "afb146f3083d7440c2684e86e7ac9adbe6167c1765a1dbabb3cf9a8f1c90e102",
+      "metadata_digest": "d1e5cd671776ef999e11ba9cf3da7a3a16490cee1a656ed2afcd3356f2431aea",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e655d7441dfc259a70771e466cf1b5c7d5de0af4f36f054876d937b8c3e68b0e",
       "source_path": "skills/homelab-pihole-dns",
@@ -1377,10 +1377,10 @@
       "rewritten": true
     },
     "homelab-vlan-segmentation": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "848c06c803dfc95ed1849598e985be66eaa8a98abbdeadcf1d940c43ba67194b",
       "synced_digest": "af1fc2652791d5d3c0bb0f3968e62369873dd239882999c1c714873f3374fccf",
-      "metadata_digest": "ada9900c11c16b113ec4dca117fe4cd2a4a13956c0ef3dd8518cebd4a261fa7a",
+      "metadata_digest": "08fdb4f7f680370cf6829a2d2d6ad55eb07cf3159fb6a2f083b8c260f335603f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "848c06c803dfc95ed1849598e985be66eaa8a98abbdeadcf1d940c43ba67194b",
       "source_path": "skills/homelab-vlan-segmentation",
@@ -1388,10 +1388,10 @@
       "rewritten": true
     },
     "homelab-wireguard-vpn": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "85136f6c02705bd45c67ed26045bf4ce8020b6428742d94e4eca5c0bad384e57",
       "synced_digest": "5244b2fa9703d5aa1823e298c3c7040160596e6492751f344e06b8818bc1a31e",
-      "metadata_digest": "22953dd98a6e86c50d12df62b8c5fb0a2ff3b0efb6c99712d5256d519eae7901",
+      "metadata_digest": "9b8e279b69228e4d25d5b147a561a36df209ab028ddfed0f0eb98efe7e40e0af",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "85136f6c02705bd45c67ed26045bf4ce8020b6428742d94e4eca5c0bad384e57",
       "source_path": "skills/homelab-wireguard-vpn",
@@ -1399,10 +1399,10 @@
       "rewritten": true
     },
     "hookify-rules": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "fc9591a493a1869eefbcb89820e5a81217615244daff05d2516753184a90f0e3",
       "synced_digest": "daa42215a677f72a7165d3ff519fcb90476ed26e272239b0d4fb63aef1113e9e",
-      "metadata_digest": "4491098c1227c9e889eb455d5aea0636f2cc74415c2a6f03989f292a0dd313f3",
+      "metadata_digest": "e4f973f734fe837740b3e17f5c1aca12b561676ee26fe5d406402135ebeb6dc1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fc9591a493a1869eefbcb89820e5a81217615244daff05d2516753184a90f0e3",
       "source_path": "skills/hookify-rules",
@@ -1410,10 +1410,10 @@
       "rewritten": true
     },
     "i18n-sync": {
-      "version": "2.2.7",
+      "version": "2.2.13",
       "source_digest": "9e07602530d6a039e22e7089e2c7ad0f66adcf5a4afd6c880eb88d29477e78dc",
       "synced_digest": "95ac57e6eb5ffd334dc2ceb73479b3e725d6227a061c816c216957169599929d",
-      "metadata_digest": "596c1424d1cc5c76f09eee21bd86aad90b88ee16fcdba4a6d1becca9f18d141c",
+      "metadata_digest": "21f9bcb576c2e5882f3545fcf9057fe85acd5b8473dbfa45a1f809de187c2cf1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "9e07602530d6a039e22e7089e2c7ad0f66adcf5a4afd6c880eb88d29477e78dc",
       "source_path": "skills/i18n-sync",
@@ -1421,10 +1421,10 @@
       "rewritten": true
     },
     "inherit-legacy-style": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "d7fd459ec0a2525bee68fe05dc1e4a9467d69a8f996219e496ea442289030c48",
       "synced_digest": "1129aa443f4b2f980cd861e5ccf0426212ab83d4f9779e64c278932e65beb527",
-      "metadata_digest": "66f81a33a8e4c04cc76a974135f4a3256ac0d6b278c4633952c9136103b842c5",
+      "metadata_digest": "027b65e7eb0995d57db63ce035a90021d9b7d035b9038913449901f94c1f4cf8",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d7fd459ec0a2525bee68fe05dc1e4a9467d69a8f996219e496ea442289030c48",
       "source_path": "skills/inherit-legacy-style",
@@ -1432,10 +1432,10 @@
       "rewritten": true
     },
     "intent-driven-development": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "2c52acfd182add633ae47078a73354a9c1647c74218ef6e3f1a49cd8e9a1ab88",
       "synced_digest": "c4fb1769111c9efc705b527764894df29e2983161b93829422fb950fa5394ae7",
-      "metadata_digest": "4c612c80941114b26f5b8ec4aa6b13a0843c25d396f2865b628c74e2728c289b",
+      "metadata_digest": "5e7d9b6f2181e2f337a53bb7ccb15cbe75ad593ba39d406a2b84fa455e635365",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2c52acfd182add633ae47078a73354a9c1647c74218ef6e3f1a49cd8e9a1ab88",
       "source_path": "skills/intent-driven-development",
@@ -1443,10 +1443,10 @@
       "rewritten": true
     },
     "inventory-demand-planning": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "d762c98694a7884c4c11048a667da2a556bbad08bc7ecdc29127f3c0d64cecf6",
       "synced_digest": "f49e408a2451fa01cd054346a90fdd4fb9c17141c71b0b57a7646a18f3f0a4ea",
-      "metadata_digest": "d8a886b3c2070b4134561154f5b1f15d6ddb47d9167d0d5a80c5515835e4baad",
+      "metadata_digest": "fe5a53b98a5f7cabe88cc18d1e51d9f5704064665f16f5463c4720e041700684",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d762c98694a7884c4c11048a667da2a556bbad08bc7ecdc29127f3c0d64cecf6",
       "source_path": "skills/inventory-demand-planning",
@@ -1454,10 +1454,10 @@
       "rewritten": true
     },
     "investor-materials": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "b671a2c7e659e9fad05f8b8ccc55a84dfc0c7544c432e88df904f84b2f379bcb",
       "synced_digest": "9f7dd6293a5d9a4570150ded867d10ec933659ae94558a8d4f9323135ca3210c",
-      "metadata_digest": "7a54de7acce1f2f674162e4012f02e67964b645aabee9454b6a0e33fdc2acd3c",
+      "metadata_digest": "bd424abd9e631e00002849f3368224bed31d2f44c62ff5cb7311241f185ac936",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b671a2c7e659e9fad05f8b8ccc55a84dfc0c7544c432e88df904f84b2f379bcb",
       "source_path": "skills/investor-materials",
@@ -1465,10 +1465,10 @@
       "rewritten": true
     },
     "investor-outreach": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "697040ee1f2212d8b4d53f3682899eb16584b482404a1999527afdaadbcbf03e",
       "synced_digest": "72fe2efb0000362f4dbd69118925814437f8a403c0e62152dcecfe6992626f6c",
-      "metadata_digest": "aab5d90a6188e94bbf341ddaff855574f65978b3511e98047e5eb6bd792601a0",
+      "metadata_digest": "cbdd8326f1f0b7261347661dd62b824641610c2c6e67db486e51c4794a43c5d7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "697040ee1f2212d8b4d53f3682899eb16584b482404a1999527afdaadbcbf03e",
       "source_path": "skills/investor-outreach",
@@ -1487,10 +1487,10 @@
       "rewritten": true
     },
     "iterative-retrieval": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "2c03a1be6cf19e8c67db39accc1c4e39786beaf3ac66b5812f6cb96e8aa921af",
       "synced_digest": "dd1793124c8061cb02cb61925a6cfd6de3fd8188cefc84c925e5504a2a91ce9c",
-      "metadata_digest": "bcd7d03ba1b171cf209d3c8f39f277befd4ca656c70b4ad1773e1f107874d21c",
+      "metadata_digest": "6071df9a1e0d57c73e1e6ea7f8642dd5360948afe38feb3adb2908a29dfa8274",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2c03a1be6cf19e8c67db39accc1c4e39786beaf3ac66b5812f6cb96e8aa921af",
       "source_path": "skills/iterative-retrieval",
@@ -1498,10 +1498,10 @@
       "rewritten": true
     },
     "ito-compute": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "254435db2b0bca4fc379e0eb72e9612c146178d596431715ca60d0c406a7607b",
       "synced_digest": "c856e0515471593e52a6aee84df01bb433e0c0dffe3c3840f072e63e7ab46510",
-      "metadata_digest": "d54b08f3d4f239ed829d037b9773ec11d54f1e5c6145179d9eab0aef24ea1645",
+      "metadata_digest": "6cef48c51a48475eb1b21f45e56afd94b8401a25ed50b9539326f94e25adf9b2",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "254435db2b0bca4fc379e0eb72e9612c146178d596431715ca60d0c406a7607b",
       "source_path": "skills/ito-compute",
@@ -1509,10 +1509,10 @@
       "rewritten": true
     },
     "ito-inference": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "af210c3ba8f95e3cf0b1eec8b4ccc77d8c5c365ec71119b510236dd584d049f2",
       "synced_digest": "6740d4fded5eecf6f4f090d2ca1f69a404264cf5822be75ab3bb6c8ecc68a3db",
-      "metadata_digest": "bfc8ecc92c8c7bbb572d7648d43c8243ec79e88ed99cde0ce1a3986effcc1450",
+      "metadata_digest": "ff0c54028c588a9c2ad192b772d6120fb2dacc53c29df8c71266336dd8255639",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "af210c3ba8f95e3cf0b1eec8b4ccc77d8c5c365ec71119b510236dd584d049f2",
       "source_path": "skills/ito-inference",
@@ -1520,10 +1520,10 @@
       "rewritten": true
     },
     "ito-training": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "43027b84479f74775c17494a06d505fc9416b523f2fa293cdfc7b8fae7eeda85",
       "synced_digest": "392f1d45e47cb7dd146ca0be7426470880d4ce6cd19a474e9020a37cb8e91695",
-      "metadata_digest": "c8ca2a26fc4a0858175549da1ef95d07af645de83e2dd6d4223f4507a5efe507",
+      "metadata_digest": "3fcb68a476cbbb67cabad4558f0e5e36f63162301860afcead214e071c09decd",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "43027b84479f74775c17494a06d505fc9416b523f2fa293cdfc7b8fae7eeda85",
       "source_path": "skills/ito-training",
@@ -1542,10 +1542,10 @@
       "rewritten": true
     },
     "jira-integration": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "aebcd4e2a5b5ab903900ce39ca74bba36926f889fe46944c6c8a75a9a6bf5d92",
       "synced_digest": "d5aca2957fb7b1b4a5f16a808520ac5f10902030df5ca54968c0aac18f2dbbe4",
-      "metadata_digest": "39497706e5a9b69f7bec8a1d40ebfb9bfe695a11fb440d91c6ce5a2d50c5acab",
+      "metadata_digest": "cb09eb5d2b00ae2decb94914328f83248f235c42f17c029c418f293b66492d9f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "aebcd4e2a5b5ab903900ce39ca74bba36926f889fe46944c6c8a75a9a6bf5d92",
       "source_path": "skills/jira-integration",
@@ -1630,10 +1630,10 @@
       "rewritten": true
     },
     "kubernetes-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "5a090b209f6d8d15df0870c134fc7e5d3f0f14d0d36fda776e888fb97d745279",
       "synced_digest": "2f552e63d670e2cf23379b7d467ab4a3fcac196b4932effc6c1452bc7a0a8e4f",
-      "metadata_digest": "414fc6e4ed5704ebc816ab0846437d7e64922c9ac5523bac3ae13a9164278e6b",
+      "metadata_digest": "c610f18095974b29c995c7bfb368fb38abe3ba15a1f61f9c85beb0bdd101e375",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5a090b209f6d8d15df0870c134fc7e5d3f0f14d0d36fda776e888fb97d745279",
       "source_path": "skills/kubernetes-patterns",
@@ -1663,10 +1663,10 @@
       "rewritten": true
     },
     "laravel-security": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "dbc47b40bff22c769fdf1c5b018d40412fda6c4f64c8789a7a09a1e482a95742",
       "synced_digest": "409cc4eff936380e772b5fdef4872e902591dce0189eac46b20e66078736b09a",
-      "metadata_digest": "1f1f21873efcdf72e569604dca863621ee1475b01b4cc7a589d2917dc3007660",
+      "metadata_digest": "93ad2f62d3220e6e479689fddfdf04dabfa2a50b76c6dbcd97a2c6f03dbff371",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "dbc47b40bff22c769fdf1c5b018d40412fda6c4f64c8789a7a09a1e482a95742",
       "source_path": "skills/laravel-security",
@@ -1729,10 +1729,10 @@
       "rewritten": true
     },
     "living-docs-governance": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "873572e071c740d121dbc189104b811ce6c9477724fc9356a6a7c386d6650bdf",
       "synced_digest": "07cca9e0a754a4d04603df2f89b4b93ab861e8ecc53e1abeacfbe2a03df09389",
-      "metadata_digest": "1d15c9e04a4b7dba51764bc60bd130cd28c5a80f35fcf35fec7cda49596955f4",
+      "metadata_digest": "bd895c1955f0979dab6a19ca812769f93cc06bdef786a5140e6a7de56b7fecc2",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "873572e071c740d121dbc189104b811ce6c9477724fc9356a6a7c386d6650bdf",
       "source_path": "skills/living-docs-governance",
@@ -1762,10 +1762,10 @@
       "rewritten": true
     },
     "loop-design-check": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "456bd277e5caba0c1b28b2ff9a2d683973f5e5e0c5cb62af8995adfe23c5bf5e",
       "synced_digest": "874924820fd3b77677f6a83eb7b1fc43b0cd0c5f64e8036aaddf49ec51eb4d53",
-      "metadata_digest": "15bf947bdc7db889042a7b93e036eb5a1609bf5916d66a53deff102de9064de6",
+      "metadata_digest": "af557d0b435172032a3d7c390b3ead2dbfbb0b9f1792070130bdaee9c4c2f49e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "456bd277e5caba0c1b28b2ff9a2d683973f5e5e0c5cb62af8995adfe23c5bf5e",
       "source_path": "skills/loop-design-check",
@@ -1806,10 +1806,10 @@
       "rewritten": true
     },
     "market-research": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "4270c3a9a21689a4afa567e77c74a7844ab9a4b34fd398165e55b8a5645b1e70",
       "synced_digest": "993c0b297a14336bf6c03f213d4d65e65827e83ee0aba0fcc4ccf2606d3be059",
-      "metadata_digest": "ae3c92b7e0d0fbd4835b759147b170e9362de820ed3b727585fa20f5d26e234b",
+      "metadata_digest": "4786c4bf1f02fd4b7b9b375026d0817a481a732c750ad6c3d104440f0c5708c1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "4270c3a9a21689a4afa567e77c74a7844ab9a4b34fd398165e55b8a5645b1e70",
       "source_path": "skills/market-research",
@@ -1828,10 +1828,10 @@
       "rewritten": true
     },
     "mcp-dependency-review": {
-      "version": "2.2.7",
+      "version": "2.2.13",
       "source_digest": "000dc593ad3a5e91d4822b745bcf464013a171340de9bef3538829a626dc8784",
       "synced_digest": "a9f53b30b4cf4ce1e0f99c8f5f36e19b8da0088df682cdc186829ab5451b90d7",
-      "metadata_digest": "7fd717ca71829387e2ffe9cb5c6388671fa9d07ae633773cc2a6bc4a0a4bcdfe",
+      "metadata_digest": "75ed2f1b40a43275361d692a6f187f8c4054db59f834485bbad87de1b0a14bba",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "000dc593ad3a5e91d4822b745bcf464013a171340de9bef3538829a626dc8784",
       "source_path": "skills/mcp-dependency-review",
@@ -1927,10 +1927,10 @@
       "rewritten": true
     },
     "mysql-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "c973bf4c06c5ea821cd52b850fb8639d06988c173423d09eb9ccee8e6f660852",
       "synced_digest": "1feaeb079586ca1903a0f65d486e74df483b4b38c003b39e6702325a03eb8435",
-      "metadata_digest": "e63de167eee03aa5fca5049e3d045f6cb8b23ae8916f8c1f999c955fac98224a",
+      "metadata_digest": "c893ee75c65755c022438408eae74237e3d34cd8c35ac5186b2bcd307fa54fa7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c973bf4c06c5ea821cd52b850fb8639d06988c173423d09eb9ccee8e6f660852",
       "source_path": "skills/mysql-patterns",
@@ -1938,10 +1938,10 @@
       "rewritten": true
     },
     "nanoclaw-repl": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "01d7289a5bee501e44c386bfa06b5603052dd16151bc2b8effd466ea6b56d510",
       "synced_digest": "b6be6f7726abefa79c11e6ebc1391fb65aad50caf90c34caec1f068d72c1a122",
-      "metadata_digest": "8f1527a2169bf92d57e6464a04487a259ceb716612223cd3e93d9c42d02b180b",
+      "metadata_digest": "3dd62dbad9f77dfe359fc744f6fd97e73ffebbbc4da6443839ecbf7267a5fa2b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "01d7289a5bee501e44c386bfa06b5603052dd16151bc2b8effd466ea6b56d510",
       "source_path": "skills/nanoclaw-repl",
@@ -2004,10 +2004,10 @@
       "rewritten": true
     },
     "network-interface-health": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "3b6b6ad1252cb357e691e052bd205fd8ee113aed5d1aa66a358a5709445e45c2",
       "synced_digest": "197ddee3d106a796ccea39c075e1c66857611c72dbfc5b18076faa99cf7d0edf",
-      "metadata_digest": "0dfeaa8693a379183161a3bfe4a98d5aa3f8ac4450888dbe1cbeac43421a2f33",
+      "metadata_digest": "859a89ae1606d5a94e0f8085ccda1ad3f3a0cf7fbf6fc22c3622b89de98fce2f",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3b6b6ad1252cb357e691e052bd205fd8ee113aed5d1aa66a358a5709445e45c2",
       "source_path": "skills/network-interface-health",
@@ -2059,10 +2059,10 @@
       "rewritten": true
     },
     "opensource-pipeline": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "43e05c2d0cc56dc38fef18b19d439218b4a6a571125d27adfc4e32ce9c348646",
       "synced_digest": "ae474fe01aa36f9b4d86797d14c7a5677366c607eb55fd7524ec6dd9de03caf0",
-      "metadata_digest": "36ca9555e46f8c0ef4fd6d4aac8d5c5fa6509036f23de36cbb8f5ff69314ce33",
+      "metadata_digest": "80cf357a181669d41edbcdb78a02bc49c61a5af4add115fc6c28daf664587784",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "43e05c2d0cc56dc38fef18b19d439218b4a6a571125d27adfc4e32ce9c348646",
       "source_path": "skills/opensource-pipeline",
@@ -2070,10 +2070,10 @@
       "rewritten": true
     },
     "operator-approval-loop": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "75c393e6f577e9996a082843f6869283bfeed67226185822dfcd49ae8bcb5e25",
       "synced_digest": "45befe9e24710352f90c6e1271272ac53f8cc8ff63b25e7c18946df520af0aa6",
-      "metadata_digest": "c147cdabaccf4b70892ee0c4e658f5f4c99123efcc4c650f95789a053b34fff2",
+      "metadata_digest": "77974f460b2357c502574ee631c5e53532217be58b47bb6d3f74c39eea787ec1",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "75c393e6f577e9996a082843f6869283bfeed67226185822dfcd49ae8bcb5e25",
       "source_path": "skills/operator-approval-loop",
@@ -2125,10 +2125,10 @@
       "rewritten": true
     },
     "orch-pipeline": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "e07e8e572246e4ba011e03e8fa0a2732e7246e537908622f7ed8980a0dae49f1",
       "synced_digest": "941ce94183d576c0d1b7d7820b5d17b5b0499b7733cac5b170cc1e46adc34c01",
-      "metadata_digest": "e244b8411a7e6b44d38c4f6b1c4f374b297b442d6e07428ddc6d6177c5cfd129",
+      "metadata_digest": "8a97b65bbe02b16c1f8ca693cb0bd84799da1d1d10eb4a3a7882512746b0747e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e07e8e572246e4ba011e03e8fa0a2732e7246e537908622f7ed8980a0dae49f1",
       "source_path": "skills/orch-pipeline",
@@ -2169,10 +2169,10 @@
       "rewritten": true
     },
     "perl-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "b959a1a862fa4443439ee935b8959919aaf143e69072e68c323c4bf077c0d796",
       "synced_digest": "c62883797500896b953f09598c6e849fa03c8ac41ebb2d3c4ef8b37856c1e1e2",
-      "metadata_digest": "af16d1fb50ad177b3ec33298cc98b94a392cc7444dd2845949638af79e761a3d",
+      "metadata_digest": "b0ab211fd64a092e482e3d26d87c87ced5ee9d7d54d16c61d9e6765c1fcb7aa2",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b959a1a862fa4443439ee935b8959919aaf143e69072e68c323c4bf077c0d796",
       "source_path": "skills/perl-patterns",
@@ -2180,10 +2180,10 @@
       "rewritten": true
     },
     "perl-security": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "47848563e381ddcd1dd8fd94d6450570ff0fef01576426c202a48bee9f344b36",
       "synced_digest": "623cf9695640f9b9aad228d07597ddb687cb214e0f22ce93d2fd8b6755995738",
-      "metadata_digest": "0cb29971e1b7e296be1bb767eb726db6f02c63047c9d56c1e9c56d84cfc2df5e",
+      "metadata_digest": "dcc4ebf8a6faa0567af936bca223dd43e3b6696a5cbed5953e7880cb3bc19848",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "47848563e381ddcd1dd8fd94d6450570ff0fef01576426c202a48bee9f344b36",
       "source_path": "skills/perl-security",
@@ -2202,10 +2202,10 @@
       "rewritten": true
     },
     "plan-orchestrate": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "3510b631d91a748ebce64fdc669857ddd957806580e8b65fe123cef722781c86",
       "synced_digest": "5f96e1d3dd5ed95a35e3b519ec91fbac5234eddd03abb0288228777e794853ba",
-      "metadata_digest": "0e9bbb71f429193a57ec056b1381be8cded0c6cf87cd07192936901f653df382",
+      "metadata_digest": "d005d46d25e0a41ead95aa0b1b924f4779facd8594cd94e4f21865599cdde1ab",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3510b631d91a748ebce64fdc669857ddd957806580e8b65fe123cef722781c86",
       "source_path": "skills/plan-orchestrate",
@@ -2213,10 +2213,10 @@
       "rewritten": true
     },
     "plankton-code-quality": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "900206bfbed31e3c267a3eb3c392b8dc2cf6c7a2f26f20405b1a1bf16fb20071",
       "synced_digest": "7aac21397886bbaf66d0dd8a45470b743d419956ec1cc79bce87d1b5b6cb9eea",
-      "metadata_digest": "fbc256da8d0acbffd5d82f663f6e11090e270745393e7604183a4aa94b212a9c",
+      "metadata_digest": "ad94fd6abe031321384eaa1054f11503a44fb2445c2aaf9a47470c218eacabb4",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "900206bfbed31e3c267a3eb3c392b8dc2cf6c7a2f26f20405b1a1bf16fb20071",
       "source_path": "skills/plankton-code-quality",
@@ -2224,10 +2224,10 @@
       "rewritten": true
     },
     "postgres-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "d48e7553399d446100451713ec3dfc9bdd958dca6ac360e6e09c80f2986202ca",
       "synced_digest": "a2e4d5697a003d49141b005f2a529df2a7ffe28cafae392740b70327d1433924",
-      "metadata_digest": "37af22b23cb4e1eed68e80763e73db1f7e74c4176bdef87251008946be0f204d",
+      "metadata_digest": "1654bd416e604700ede810566189bf5416d9974bf048eb60236c48282c2da866",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d48e7553399d446100451713ec3dfc9bdd958dca6ac360e6e09c80f2986202ca",
       "source_path": "skills/postgres-patterns",
@@ -2235,10 +2235,10 @@
       "rewritten": true
     },
     "prediction-market-oracle-research": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "c1b77133ee85c489af421d14972bf02be3e71369eb23506bb4dec0c6cf10baaa",
       "synced_digest": "86e131fec2074c30a7ac78a6fa846fa64bb23db0e6054028cd13d2c153a3e3c5",
-      "metadata_digest": "f6cb9cf70643940bd7e01cf00966aac284a777faf8cd397c359e795d3dd05c9b",
+      "metadata_digest": "1acdcf95fc7a6a9e99921dcd8bff59eecf1c8123a19d750eaf688edcfb450879",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c1b77133ee85c489af421d14972bf02be3e71369eb23506bb4dec0c6cf10baaa",
       "source_path": "skills/prediction-market-oracle-research",
@@ -2246,10 +2246,10 @@
       "rewritten": true
     },
     "prediction-market-risk-review": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "ebdffde4e2aeb0285ad55f1cd5ea32596cc570803688151b31f72d19a96c4080",
       "synced_digest": "282af5285637d7b35dad193bc8b8e3ad69c3e1940a7f3077df95975dd1ff6d38",
-      "metadata_digest": "92f28ff4ada97d53c731b2924da64b71ec0fab1467b1584b72ab4fa3c2f00487",
+      "metadata_digest": "94f62fe22ddedf6399d2a8657b1bb67dd36022496bbb0ec2caa666bb3fa4889b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "ebdffde4e2aeb0285ad55f1cd5ea32596cc570803688151b31f72d19a96c4080",
       "source_path": "skills/prediction-market-risk-review",
@@ -2268,10 +2268,10 @@
       "rewritten": true
     },
     "product-capability": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "b8776926e0f73d1590757bab3976611e34b7c0ad0075ef81f64cd73c37be6ea6",
       "synced_digest": "3116dd6f5e7df05c989d178182ac585bec9cb1bef4310b38875d36fed2089874",
-      "metadata_digest": "c809676e80db512539f628ebc449c72117b668968327b8118b17f4b8455bf0a6",
+      "metadata_digest": "8eca0b0c32270c92be0d1c4a02b2b4a28322b7af37b7b0f1c1deec09929ab928",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b8776926e0f73d1590757bab3976611e34b7c0ad0075ef81f64cd73c37be6ea6",
       "source_path": "skills/product-capability",
@@ -2290,10 +2290,10 @@
       "rewritten": true
     },
     "production-audit": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "a02423f6e01ed8d12f4abbba19cecdcacf80cea76b6747371daf1968f3771c83",
       "synced_digest": "a9a2886f67d4114227a068996f6cc85fc8839dc59fc82c3d4a7f88e3f5c46b65",
-      "metadata_digest": "38ea209272c72616c4eba3ceec752cc889e8733853b447b9ff7c72ff6bfe11ce",
+      "metadata_digest": "87db9909747aed7e7de8c6d3d899ad3fee454f63173c828f23736f98950618d9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a02423f6e01ed8d12f4abbba19cecdcacf80cea76b6747371daf1968f3771c83",
       "source_path": "skills/production-audit",
@@ -2301,10 +2301,10 @@
       "rewritten": true
     },
     "production-scheduling": {
-      "version": "2.2.8",
+      "version": "2.2.12",
       "source_digest": "c4e8399873a468f5aa0aa0700072eec83308d3c3598b112dd86083feeb8757d4",
       "synced_digest": "c91ad3739b016f7f17d3944e7ae92fd9aa383682483652e99c4197f42f0b1b2f",
-      "metadata_digest": "1625041b451f55ded7a51b10a8e4b0d9560e6112ce9cac110ebf3242e7737cd3",
+      "metadata_digest": "c4bff71bb335b55e2d2e2a575acabffd1e4c576c43f1a7f55c190b49883e9d52",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c4e8399873a468f5aa0aa0700072eec83308d3c3598b112dd86083feeb8757d4",
       "source_path": "skills/production-scheduling",
@@ -2333,10 +2333,10 @@
       "tier": "A"
     },
     "prompt-optimizer": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "d676aeea4a77681645ef397a0612c1a54aee308556cf0e567c3aac73378ac422",
       "synced_digest": "c5050102e99dfc7d7702808de05e133733e53026c93a7e474080e01cb37358b0",
-      "metadata_digest": "231bc566389248b4eecb4137caace41ccadf27fe5989f6f0053cc666e5949de8",
+      "metadata_digest": "789073fa9d723543c07be9899b38c58473462044d895f08bcc8fa5e319adfa02",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d676aeea4a77681645ef397a0612c1a54aee308556cf0e567c3aac73378ac422",
       "source_path": "skills/prompt-optimizer",
@@ -2344,10 +2344,10 @@
       "rewritten": true
     },
     "python-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "c8b935c57c987e1b9690639fc5a66938618132577cdda8d43260cdb004e6dec5",
       "synced_digest": "a30a0f1877f66d0212ade5f9edc8ddb25ab90168802ec11b5247e83a32979121",
-      "metadata_digest": "aabee1d347ec20345ddc9aa0025a33bc90e452929288d565b7c70e75688f77b3",
+      "metadata_digest": "4d5875237b8dfcbbe58b322efcada4bd7e8df920ffe6e83b5710c9eed4cfb467",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c8b935c57c987e1b9690639fc5a66938618132577cdda8d43260cdb004e6dec5",
       "source_path": "skills/python-patterns",
@@ -2399,10 +2399,10 @@
       "rewritten": true
     },
     "quarkus-security": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "ddd0066910da6b7dbdae3a2d9d92f161c7f94a425cc40cfdadafab24c1e9055d",
       "synced_digest": "d7a8840b8e25fe87a226135b5e21228c4214fb92389d753e776624a4335e5920",
-      "metadata_digest": "5f28ca1f21c914c57668411b34076403b0a90e7b201d02d551871d31afdc7c89",
+      "metadata_digest": "4ec7318b51f4eb15f831e4fe30b10c67deb10e3663b8e4520943a8710966ab1d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "ddd0066910da6b7dbdae3a2d9d92f161c7f94a425cc40cfdadafab24c1e9055d",
       "source_path": "skills/quarkus-security",
@@ -2432,10 +2432,10 @@
       "rewritten": true
     },
     "rails-patterns": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "2c96064476f635f2fb9ea3f9cea21818ffbed7a04f8739567ef2b92bc46c9574",
       "synced_digest": "7d664edd25cadd1204c9806c134771360b89241a41ec18411133d03c55ec6a83",
-      "metadata_digest": "0470cfd4ed3a58a1b7348e97fd088527da02148e954bd72702c4b671ec8d7a6a",
+      "metadata_digest": "c87adac2c903537398c870797c34019968f31aaf89f235ebdd308b89136d4ed0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2c96064476f635f2fb9ea3f9cea21818ffbed7a04f8739567ef2b92bc46c9574",
       "source_path": "skills/rails-patterns",
@@ -2476,10 +2476,10 @@
       "rewritten": true
     },
     "react-performance": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "b9ad9618aa2789c6b06b103e1ecdda3d280a0718ab24dd1ee43666f8b53c2f24",
       "synced_digest": "675bc508464d0e16a3aa536ef63fb3cf12321d395e6681b725180e474a59c0c8",
-      "metadata_digest": "fcd7811ca3e6e128af3d945c6ab536b2855159de2ba5ef5029e042882e8c307f",
+      "metadata_digest": "8e344c0441d4ff8fc7d8282c2d2d99dd1cffce31e2e299fa94b4d19b7ba32681",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b9ad9618aa2789c6b06b103e1ecdda3d280a0718ab24dd1ee43666f8b53c2f24",
       "source_path": "skills/react-performance",
@@ -2498,10 +2498,10 @@
       "rewritten": true
     },
     "recsys-pipeline-architect": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "dbbacbf4e9b4ae199d480427aaa034e8f75708bc8a72468cb62cbc3f6a85d957",
       "synced_digest": "32d68946265a9ffa216fbf50bda029315919ff8956d06da65a258e2378833618",
-      "metadata_digest": "6c4542f7051ec7e82da142c16b7e72dbf0f796bee9023de5ecb8b64461468b6f",
+      "metadata_digest": "42f0b33c9bb2293e6974bf79c2a657cf3b09734c32c758a12be85213fb91342a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "dbbacbf4e9b4ae199d480427aaa034e8f75708bc8a72468cb62cbc3f6a85d957",
       "source_path": "skills/recsys-pipeline-architect",
@@ -2509,10 +2509,10 @@
       "rewritten": true
     },
     "recursive-decision-ledger": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "c7746e0f59f3fc0563ddba6a67dca5f1bff8d54fd893b60da00f78204f72173f",
       "synced_digest": "d023b513e8ab1b81c210693ac927afdc772bac0eb5898aee1e47c5ac7da5c1a8",
-      "metadata_digest": "d4ef64f1660db65c759480eeee4689ffe130f471f62259e96dc0af9bf302fc39",
+      "metadata_digest": "ef9267b943c88bac28ea2d647ca0a8bd7c01664a4e192752096c965dc65cf3b0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c7746e0f59f3fc0563ddba6a67dca5f1bff8d54fd893b60da00f78204f72173f",
       "source_path": "skills/recursive-decision-ledger",
@@ -2520,10 +2520,10 @@
       "rewritten": true
     },
     "redis-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "26770116dafc90b0c1762e0f7f88aa6968caab0c0b340236b93f22e5cc052ef7",
       "synced_digest": "11572b64293caa1ca686d74ce076424326128e0dde26cdc1827a231aa1e87c7c",
-      "metadata_digest": "c9bb653f0075b4e7e65c6cd35ef5869189aec33af68d299549cb1714d31c5f1d",
+      "metadata_digest": "beb8f1e44b5f0c25a78d1aaa85ba7a77f1b3888a32a2002e45c59b434cf2b19a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "26770116dafc90b0c1762e0f7f88aa6968caab0c0b340236b93f22e5cc052ef7",
       "source_path": "skills/redis-patterns",
@@ -2542,7 +2542,7 @@
       "rewritten": true
     },
     "remotion-video-creation": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "047c1f7309c082eac091b837e79f0ba3471cea3da91eeacaf5c880ee90f6665f",
       "synced_digest": "ea8a328dc35dd151fea62493118d7857282b53225788cb0bbd64510c5bede4ff",
       "metadata_digest": "310d33179e8ce8ebe1b76c80a85eef441834ed193691b9d137b3c150332e89a0",
@@ -2553,10 +2553,10 @@
       "rewritten": true
     },
     "repo-scan": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "b98d29246759adea79f30735e2f467b8ae6b27e1c1b62e48a8ed934bc6c7098a",
       "synced_digest": "587117dca815d989d984ab700dfd52752f81feda906c270e0e51f465a37d8b20",
-      "metadata_digest": "cc95ddbcb786ef06ca85ef58f71c72377b1ec4aa954cf37e6878ed185ef6bf96",
+      "metadata_digest": "e382df1b880a660a633475815321d0acc6327cb04ee947a032b6741e36a56d3e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "b98d29246759adea79f30735e2f467b8ae6b27e1c1b62e48a8ed934bc6c7098a",
       "source_path": "skills/repo-scan",
@@ -2575,10 +2575,10 @@
       "rewritten": true
     },
     "returns-reverse-logistics": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "ff631085d2e9986bce384dfee7aecf87edfa1c80b01aed5bac34e3b2215ebc53",
       "synced_digest": "bab43a6a15325f7fc3d6c1d2d5ab29e847243972edbbfd570d32d5f7cf3a29e9",
-      "metadata_digest": "dd43f1e91d79fc7d23e4db88e08c210513f9a2c70c092c90e2aa5eb26b14769e",
+      "metadata_digest": "70d8f16321ca57c21079471b8a184406ac4606e1f70701e7e99d2ab2c7650ae5",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "ff631085d2e9986bce384dfee7aecf87edfa1c80b01aed5bac34e3b2215ebc53",
       "source_path": "skills/returns-reverse-logistics",
@@ -2608,10 +2608,10 @@
       "rewritten": true
     },
     "safety-guard": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "756f226d5ba7f3b7bc168deae611b80a23f358e5378cc04232d3b9f28e5304f0",
       "synced_digest": "5cbe19f7060811a44b4c9e2dd6d90e56e772483e99e7058f2b044f0167dbc417",
-      "metadata_digest": "df72174a4823afff044fbaa43ae895df7d25c8fa69961ce520c0c40fe284e3ca",
+      "metadata_digest": "73cd5cc5f91ca8c4f9a5fa44a179e93ad3a9bdbe7a29ced9a86bb44e6ad05c27",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "756f226d5ba7f3b7bc168deae611b80a23f358e5378cc04232d3b9f28e5304f0",
       "source_path": "skills/safety-guard",
@@ -2619,10 +2619,10 @@
       "rewritten": true
     },
     "santa-method": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "4640fd0c874056a91b33d7cb4b36eba25de02cd6e800c98a347f53b19e5affa0",
       "synced_digest": "60be30160bccc3e1239a8ca8dafa5e2bb1efbad2fd3158feefb0cd4d883fe6f8",
-      "metadata_digest": "77b088a0fb005f41f653b86062842b847c8cb8722a6360f0ddf4ec668c2ae806",
+      "metadata_digest": "9979b33dd118316414a3e3e5a942ac6ca393c32f0cc47ebe632256714cf3a3fe",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "4640fd0c874056a91b33d7cb4b36eba25de02cd6e800c98a347f53b19e5affa0",
       "source_path": "skills/santa-method",
@@ -2630,7 +2630,7 @@
       "rewritten": true
     },
     "scientific-db-pubmed-database": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "0729f0610c2acf6b37dfe2623b97ca713c79e2cd96c9c068343160318301c33e",
       "synced_digest": "c719ab4105b205a29dde61635cbb97f5c48b8db1ae1d5dbe5275f5671f769b44",
       "metadata_digest": "e5b37cf228dc39e168ca720c09771d8a17e008976dfc28c108a9df9f93b30552",
@@ -2641,7 +2641,7 @@
       "rewritten": true
     },
     "scientific-db-uspto-database": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "c4cff778c6d5dfe3f2b3cbaa7c6cf3e56c988b35a9bb440eeee7f1c3047ee65b",
       "synced_digest": "bfc0a17eda8ac766223a33d57c5d993d2bf67c9b7639826e16bbab7300601554",
       "metadata_digest": "b594c86632ad568f76abcb6f32308b16be919b15adccf8947968b6691143a314",
@@ -2652,10 +2652,10 @@
       "rewritten": true
     },
     "scientific-pkg-gget": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "5786d5db57e54564ea4d7b94565ad89b9f836bf15d814a513ab71daadf4691cf",
       "synced_digest": "109bdbec9252756e656f54084d74d456acd40de73f9995b628e261fb518c566a",
-      "metadata_digest": "875cc9a13bc430aa4da3802d6628606d117ca2125a13f053f93fd73c1f90809d",
+      "metadata_digest": "6a0a11486a2a8cd16e4697190885b7290bb07ddb8ce1bb327c5c3a7f031e8a45",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5786d5db57e54564ea4d7b94565ad89b9f836bf15d814a513ab71daadf4691cf",
       "source_path": "skills/scientific-pkg-gget",
@@ -2663,10 +2663,10 @@
       "rewritten": true
     },
     "scientific-thinking-literature-review": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "35f5dc0b83c896f6036afd87961844be7c130611be2274186455a9b312ee9691",
       "synced_digest": "e47ff6fda1f5cb4d5ef558fab3ac504d430ecaf646a48a7b32b4bbe55cd5f8ea",
-      "metadata_digest": "fdf7c833319f970860656b144ac54195af68cb532d9a35f2d403631b367f842c",
+      "metadata_digest": "8044e56c51098abb7a47b1bceb1d59c53a800bf6fa66440ff15545d180b89a82",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "35f5dc0b83c896f6036afd87961844be7c130611be2274186455a9b312ee9691",
       "source_path": "skills/scientific-thinking-literature-review",
@@ -2674,7 +2674,7 @@
       "rewritten": true
     },
     "scientific-thinking-scholar-evaluation": {
-      "version": "2.2.9",
+      "version": "2.2.12",
       "source_digest": "f941008f6492f0289727c193f81e7f46c575d928529d3ccf7fcf13eff09450ca",
       "synced_digest": "a130086d5d2992f4078637eb0cb2dddc1abf34912af58b4a48a548025bf24185",
       "metadata_digest": "10f9e41e3df0085a5278eddf1814f3521ec91519141a6e00865d75cbab1b4e46",
@@ -2685,7 +2685,7 @@
       "rewritten": true
     },
     "search-first": {
-      "version": "2.2.10",
+      "version": "2.2.12",
       "source_digest": "af01b0e5a6ee208893bca0a9052069e2ddf5bc19e1c95463f9a3a25a360c0dc5",
       "synced_digest": "9606b2fa98edffdab24b9f54b3df49bbbd0324f111601e55b1881c799b430902",
       "metadata_digest": "2ca7c7bb95cbf72fa66e2b6f79f5e6ea3c454f45a4f4d47b5adbabe99e05c684",
@@ -2696,10 +2696,10 @@
       "rewritten": true
     },
     "security-bounty-hunter": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "a911cfae50c5ac0c3c5ea576b8b0d3af7f9e7ccd5b97c18f3beb1ca2332fca87",
       "synced_digest": "d66e0624499a38a92d10878daeb6ca6708da6df201ac43a0a1afe0d605d0a41f",
-      "metadata_digest": "efb21e7b528980e3cf192e7e003bf0edbc00ad78768ac0f9d537a86b7ade555b",
+      "metadata_digest": "1505741f8f66fc60d32eea36177e3387076f167135c703844fdd9fd5c2ccb8fe",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a911cfae50c5ac0c3c5ea576b8b0d3af7f9e7ccd5b97c18f3beb1ca2332fca87",
       "source_path": "skills/security-bounty-hunter",
@@ -2707,10 +2707,10 @@
       "rewritten": true
     },
     "security-review": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "5acd9232ed942208d13f04b3081911d5856817fc793abb4e4c433b8b591e5533",
       "synced_digest": "673dfe3d30a4bba8a39ecd12c8a0f9bdff06642889213b5cd652b0e826152ce2",
-      "metadata_digest": "2a31f63df39872bf589d2b470ba1373589ace20c72dbe3e8d6911c083695a2fd",
+      "metadata_digest": "c5a4d5d69fbea10279fcbec5c773f696068696af531609a3340a56be40ba3464",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5acd9232ed942208d13f04b3081911d5856817fc793abb4e4c433b8b591e5533",
       "source_path": "skills/security-review",
@@ -2718,10 +2718,10 @@
       "rewritten": true
     },
     "security-scan": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "8df62725f6a786d2c1926aa546adaf2922f034e3a34dac3fab58188e3c70bd16",
       "synced_digest": "3f93de15e2510b0fe2ab642008fb6d3289364e149b1988f67492544b0ae53be0",
-      "metadata_digest": "1125e8b9b9d04c2dc3ea7271be12ecc8c9997b4ae899bb3422c5ca132f818996",
+      "metadata_digest": "6f5eefe0f6403783a76205b5e20e3079377fa8c2f340b271e89a86f2073dc0ce",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "8df62725f6a786d2c1926aa546adaf2922f034e3a34dac3fab58188e3c70bd16",
       "source_path": "skills/security-scan",
@@ -2751,10 +2751,10 @@
       "rewritten": true
     },
     "skill-scout": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "667b548ba2fa7310625c54bba211fd5c4fe1796a7f9d9c2190d34e8fb6b5c30d",
       "synced_digest": "9fb7b90e8f98c6f3934d63fb712d76123fe4b5cbf4d59aaf1814acb98021200b",
-      "metadata_digest": "43cb6011db724be913fdd739b183fe2c85d900b59cbf0add86de89fe359b4ce6",
+      "metadata_digest": "9e8ebab15a161d5e0c3365666abed5f7fb047ac2b1ccf68cbad795cd213ce7a7",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "667b548ba2fa7310625c54bba211fd5c4fe1796a7f9d9c2190d34e8fb6b5c30d",
       "source_path": "skills/skill-scout",
@@ -2762,10 +2762,10 @@
       "rewritten": true
     },
     "social-graph-ranker": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "1dbd9fdb5d96d827b6472d75a615eab5e7e8ccb3d8e21e03039cfa3fe86eabd4",
       "synced_digest": "6cb26bd589aa31b8e85af48cedb634ab2ff1e3653c3768ea9689d152d564f7e0",
-      "metadata_digest": "a09bc7443d542b1f4365bc4cdd2238a6069cadb8f960ffd370b0b620bfd2bab8",
+      "metadata_digest": "e0e8c53817e650dab1f5df5739dbf1a03f13916629515d120d638606e0af882c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "1dbd9fdb5d96d827b6472d75a615eab5e7e8ccb3d8e21e03039cfa3fe86eabd4",
       "source_path": "skills/social-graph-ranker",
@@ -2773,10 +2773,10 @@
       "rewritten": true
     },
     "social-publisher": {
-      "version": "2.2.8",
+      "version": "2.2.13",
       "source_digest": "249f2195e4a632bcab7a7491d89443e62c29010a0d6ab0da9a216ac77c83d3ab",
       "synced_digest": "8c2b28f8eadd3a47d894c853c34a12e270645bcdca4a9b1372c76920d54033b4",
-      "metadata_digest": "a9326be44458a2f5f5132f7d7645495ce91b438b94f596d0b0fc47f7a39aa2a0",
+      "metadata_digest": "aee41b18b477b56e9ae524f3ddcf4c3bf0232117c1dca4f55abe005e1aeb6065",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "249f2195e4a632bcab7a7491d89443e62c29010a0d6ab0da9a216ac77c83d3ab",
       "source_path": "skills/social-publisher",
@@ -2795,10 +2795,10 @@
       "rewritten": true
     },
     "springboot-security": {
-      "version": "2.2.3",
+      "version": "2.2.12",
       "source_digest": "8c5771c6f73951c276015f60285c8c39f45d0841a1dae61582d08a12f3718d59",
       "synced_digest": "a7140e4572103309e80e2935cf4531732c8dc3781547c203b0f263755bd510b4",
-      "metadata_digest": "70839a97acb7918f8c99d780fd51ebab21f0ae0b729f02c62136377e4e35554f",
+      "metadata_digest": "a2c9b93ab64b1c0dad3f6e31c13b217f58614963120336b18da32819cdecb64b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "8c5771c6f73951c276015f60285c8c39f45d0841a1dae61582d08a12f3718d59",
       "source_path": "skills/springboot-security",
@@ -2849,10 +2849,10 @@
       "rewritten": true
     },
     "swift-protocol-di-testing": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "c083d7b5ac1c392d0fd83326dc3536c6933a66b12c6814841c355a7365a735b9",
       "synced_digest": "e82ebc4a1a0689da4d414a75360a10e6a5953cca96a895b1e989e3d6133c9027",
-      "metadata_digest": "fc61529016639ad6177a1f2680dd3e7714321f0cf2bb5cbe1b79719b37951aea",
+      "metadata_digest": "f9f233a686f4eddb73860ca1220a164fdebee947c88ded14c2895fbd8e822c19",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c083d7b5ac1c392d0fd83326dc3536c6933a66b12c6814841c355a7365a735b9",
       "source_path": "skills/swift-protocol-di-testing",
@@ -2882,10 +2882,10 @@
       "rewritten": true
     },
     "tasteforge-video": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "6e8bb1cdb2e40442c1312086acc74cc67078efa16279d26d24b5a3dbe00eb97c",
       "synced_digest": "dfcc31c3d08967554945eabf55bde5d82f9bb278d0756af69a443030f83725e3",
-      "metadata_digest": "a7f05cac3725b853f50f911a91ad239416f6be5d9e008a141f64ff6ed8ce86df",
+      "metadata_digest": "09ae7652414e747608d1d76d0f31e833b14a64af06ecd69a72061cf9dc7f0a3b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "6e8bb1cdb2e40442c1312086acc74cc67078efa16279d26d24b5a3dbe00eb97c",
       "source_path": "skills/tasteforge-video",
@@ -2893,10 +2893,10 @@
       "rewritten": true
     },
     "tdd-workflow": {
-      "version": "2.2.9",
+      "version": "2.2.13",
       "source_digest": "f0c734a00ebdab322399d01e441e0bc6be212bc6b5a35b23fe74cf36ab535d7b",
       "synced_digest": "1100d4ae14c6b7f77c8350e8b2efb84f47c86c8de60f90e9b732131f5f078ad3",
-      "metadata_digest": "6bacff09d683d714ae55a21eaa49c7e44fb1d8b3359806db12c940bd7e514b5c",
+      "metadata_digest": "12859036804ae6950d40d6fc32f2f404764196422a792864a215c7d5d2979b7c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f0c734a00ebdab322399d01e441e0bc6be212bc6b5a35b23fe74cf36ab535d7b",
       "source_path": "skills/tdd-workflow",
@@ -2915,10 +2915,10 @@
       "rewritten": true
     },
     "team-builder": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "a971423e9af023c67cd8fc596cc151366e0e080768a85ac9bb33c2c188b85b59",
       "synced_digest": "051ada0fb074513dc279415913d8444fb502c0115b96589c92c86b820faf759a",
-      "metadata_digest": "bef7b99981c63d7dc1afdbe774adcf252d768ac3cbae73050171dcf877b9d713",
+      "metadata_digest": "5ca3f15338b326cf1cbc6605fd7cda6b49b40dc09688074a8566eb6f16ccc280",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a971423e9af023c67cd8fc596cc151366e0e080768a85ac9bb33c2c188b85b59",
       "source_path": "skills/team-builder",
@@ -2948,10 +2948,10 @@
       "rewritten": true
     },
     "token-budget-advisor": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "0eb4b1cd45a77fdd3093962e957ae03074b2bfddab2f37c09f2b01324f35ac6f",
       "synced_digest": "4883a2df8c001af8be91bc46dc060b38dba1407ca316dcf804ea51fd78da74b0",
-      "metadata_digest": "39b05ebd3b986d6869f504ef7a3397f0bdbe424ad2e7526818c84ed4fbce1c09",
+      "metadata_digest": "285971fef4487e5ccacb4330cec215c4eaefa093caef281783007a429d94fb93",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "0eb4b1cd45a77fdd3093962e957ae03074b2bfddab2f37c09f2b01324f35ac6f",
       "source_path": "skills/token-budget-advisor",
@@ -2959,10 +2959,10 @@
       "rewritten": true
     },
     "token-card": {
-      "version": "2.2.7",
+      "version": "2.2.13",
       "source_digest": "5f4bb07e56e50bc9922f59f21398ccd50d0cce5511c0af5103f3ba33afa89396",
       "synced_digest": "bd98855ec36663b2261803a902ecb69ad0d0bc9f14a3832b139818bf063e0ab6",
-      "metadata_digest": "45c970f5410eddee46397bdb0e910ec2657ce9982e7d1bfe75731e7eb819bbfc",
+      "metadata_digest": "702041a5c0d06a2f0894b65e43726f184bfbb7cbb514d6e45a9299d9891ca052",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5f4bb07e56e50bc9922f59f21398ccd50d0cce5511c0af5103f3ba33afa89396",
       "source_path": "skills/token-card",
@@ -2981,10 +2981,10 @@
       "rewritten": true
     },
     "ui-demo": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "be6ddbd1ef05ced361125df6f6f9d874a55a5ea866eaf50b0b84598cf6379e48",
       "synced_digest": "281a5c17f51d5b67252e96bcfabdca69552d9bc7799b4591b4ff1410c50394ec",
-      "metadata_digest": "af0669f873a2840798992c3763941ca52500665e192d63abfb42d7564614033d",
+      "metadata_digest": "f2e0fe9f40c957c46f9f16a24bfe15f8816f00f4f4858b8562c515dc92bb067c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "be6ddbd1ef05ced361125df6f6f9d874a55a5ea866eaf50b0b84598cf6379e48",
       "source_path": "skills/ui-demo",
@@ -2992,10 +2992,10 @@
       "rewritten": true
     },
     "ui-to-vue": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "a190a5c99f0f6e8be994946dac1ce3fa7cf63486d483315dda9e1aafb58596ee",
       "synced_digest": "a190a5c99f0f6e8be994946dac1ce3fa7cf63486d483315dda9e1aafb58596ee",
-      "metadata_digest": "d6f88468dd56281e86d85b46c7d1b242729e8643ad3bde6f310eacb1ec2243fd",
+      "metadata_digest": "6bca9e52b484114717aff97b98d01fb5ce337c698f0bcf7ad9b7aed462c27bbd",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "a190a5c99f0f6e8be994946dac1ce3fa7cf63486d483315dda9e1aafb58596ee",
       "source_path": "skills/ui-to-vue",
@@ -3013,10 +3013,10 @@
       "rewritten": true
     },
     "unified-notifications-ops": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "f836f0ba3515b97a5f357427f6ba4371bfd0cb426188a28453c5a448ce57ec16",
       "synced_digest": "de7a0329f1ad3bdd3bdd6569dec1d342512d6037deff5a4daddab1da66aa6a54",
-      "metadata_digest": "d0394fc6faea3ce7ed7dd607dd8ddaa4d829f3b3250bdc6fbae2781ca361d64a",
+      "metadata_digest": "93898e0eb9506cb2bae7010568eccb4b6f19ef92709fb274ec22d34178da30b9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f836f0ba3515b97a5f357427f6ba4371bfd0cb426188a28453c5a448ce57ec16",
       "source_path": "skills/unified-notifications-ops",
@@ -3035,10 +3035,10 @@
       "rewritten": true
     },
     "video-editing": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "d965b9c0a755732edde4ee960d585c13d127e745ac10d3fc655caa1d7f5021dd",
       "synced_digest": "d832bc43a00ded8f29a59421dafc1df929156f9ecf95f6ce0f269e20a23b23f2",
-      "metadata_digest": "ec6deff1e8a4cace511d62b6e599b6eb20d696f04c86af3b67baf78b160f00d5",
+      "metadata_digest": "1ec2a1f0cfb2622b9890c915ac4e6648fda1045a7cdc26a1403cfb04176b915b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d965b9c0a755732edde4ee960d585c13d127e745ac10d3fc655caa1d7f5021dd",
       "source_path": "skills/video-editing",
@@ -3046,10 +3046,10 @@
       "rewritten": true
     },
     "visa-doc-translate": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "e5006997e58d3ac16cabba4a3b6f41f8448c1e0f70d38342e70121328d69f059",
       "synced_digest": "6d61474a0d57ff746adb421325df68b6677dfea5c25a19ecdd9972f26d1d8c7a",
-      "metadata_digest": "9c4e2ba1182f9490b9512b0c84205e11079591c83143373da6831dd835b04971",
+      "metadata_digest": "53b95a0f1e9814dc90e5a76081af77fbff32cfe143119d62e8cd0c62c1f3713a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e5006997e58d3ac16cabba4a3b6f41f8448c1e0f70d38342e70121328d69f059",
       "source_path": "skills/visa-doc-translate",
@@ -3079,10 +3079,10 @@
       "rewritten": true
     },
     "windows-desktop-e2e": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "31fed53f05e491ecd37198134dbc40f99239e596f95f2a62c3b6d3e2000fbcc9",
       "synced_digest": "60e84bbba04f81768ad52c69931977836d14a1d0554b8370e7d103182cd958a3",
-      "metadata_digest": "6efb0e2f02ec06eae49b21f918397b47beb75f3af5bd767771627c5faa7e5eff",
+      "metadata_digest": "64d94340ce45a42775d4c34a6c0b76ae1702f2600679f7dca852e66c0e6bbf89",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "31fed53f05e491ecd37198134dbc40f99239e596f95f2a62c3b6d3e2000fbcc9",
       "source_path": "skills/windows-desktop-e2e",
@@ -3090,10 +3090,10 @@
       "rewritten": true
     },
     "workspace-surface-audit": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "f858b8c218013d4b9a2bb90bc8017623aa43c2b1a307bddb2991e57dc22e7c10",
       "synced_digest": "65eecdd392c668eb77c2a50f7becb497b46a0c3afb42b9a8ec69f5b56c3f8c3c",
-      "metadata_digest": "4ff9bd21e83cbe7854d79e415e822cd02971b3fce74bfe0d841ec41962ee36ff",
+      "metadata_digest": "026a182f1af23eb5cade60df45a093609426f4110329537dfc33e4d1b1d904dc",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f858b8c218013d4b9a2bb90bc8017623aa43c2b1a307bddb2991e57dc22e7c10",
       "source_path": "skills/workspace-surface-audit",
@@ -3101,10 +3101,10 @@
       "rewritten": true
     },
     "x-api": {
-      "version": "2.2.3",
+      "version": "2.2.13",
       "source_digest": "7efd59d4591891efff5d68ec407a79d02b5c743c1cc15c17ea417d148eafd21e",
       "synced_digest": "d4f2be3e39efb0cc74b9a8e4bc2c04934bc2b3a5f932e62f5da88aa062db9153",
-      "metadata_digest": "3e80f6033d70252e6c54e5bfe9ade2e8ad33f244f3cb6f2149812d8c4d5cdd7a",
+      "metadata_digest": "45c7653781f0c143117744cefbfabf120dda964a6f57165954bfec6e95eaa52c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "7efd59d4591891efff5d68ec407a79d02b5c743c1cc15c17ea417d148eafd21e",
       "source_path": "skills/x-api",

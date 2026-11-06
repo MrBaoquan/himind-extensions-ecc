@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把界面截图或设计稿批量转成 Vue 3 组件，适配常见组件库。当手上只有图、要批量生成 Vue 页面时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "截图转 Vue：把界面截图或设计稿批量转成 Vue 3 组件，适配常见组件库，并给出密钥处理与产物审查清单。当手上只有图时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

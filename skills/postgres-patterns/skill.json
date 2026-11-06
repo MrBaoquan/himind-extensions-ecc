@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "PostgreSQL 的查询优化、表结构设计、索引与安全，含行级权限策略实践。当要设计表与索引、配置权限，或查询太慢时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "PostgreSQL 的查询优化、表结构设计、索引与安全：执行计划、索引类型与行级权限策略。当要设计表与索引，或查询太慢时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "面向大部分代码由 agent 产出的团队，定好协作流程、评审闸门与代码归属规则。当团队要建立 AI 优先的开发制度时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "面向大部分代码由 agent 产出的团队：协作流程、架构要求、评审闸门与代码归属规则。当要建立 AI 优先的开发制度时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

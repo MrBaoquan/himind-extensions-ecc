@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Cisco IOS / IOS-XE 的 show 命令、配置层级、通配符掩码、ACL 位置、接口整洁与变更窗口安全校验。当要读、写或审 Cisco 配置时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Cisco IOS / IOS-XE 配置审查：show 命令、配置层级、通配符掩码、ACL 位置、接口整洁与变更窗口。当要读、写或审 Cisco 配置时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

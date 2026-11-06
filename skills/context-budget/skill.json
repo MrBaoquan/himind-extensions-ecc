@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.8",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "先用原生上下文计量看当前用量，需要时再做一次有界的静态组件审计，找出谁在占窗口。当要查上下文还剩多少时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "上下文预算：先用原生计量看当前用量，需要时再做一次有界的静态组件审计，找出谁在占窗口。当要查上下文还剩多少时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

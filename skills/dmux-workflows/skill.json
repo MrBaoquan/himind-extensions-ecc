@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.9",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 dmux 在 tmux 里开多个 agent 面板并行推进，再把各面板结果并回一处继续。当要同时开多个会话并行开发时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "用 dmux 在 tmux 里开多个 agent 面板并行推进：分派、观察、按 m 并回结果，并可接工作树隔离。当要并行开多个会话时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

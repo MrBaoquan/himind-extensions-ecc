@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "React 与 Next.js 的前端开发模式、状态管理、性能优化与界面实践。当要写或审 React/Next.js 组件、状态或渲染性能时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "React 与 Next.js 的前端模式：组件与钩子、状态管理、性能优化、表单、错误边界、动画与无障碍。当要写或审 React 组件与状态时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

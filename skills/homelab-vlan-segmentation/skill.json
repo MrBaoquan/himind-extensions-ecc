@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 UniFi、pfSense/OPNsense 与 MikroTik 把家庭网络分成 IoT、访客、可信与服务器网段，含 trunk、防火墙规则与 SSID 映射。当要做网段隔离时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "家庭网段隔离：用 UniFi、pfSense/OPNsense 与 MikroTik 分 IoT、访客、可信与服务器网段，含 trunk 与防火墙规则。当要做网段隔离时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

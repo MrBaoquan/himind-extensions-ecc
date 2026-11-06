@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "做市场研究、竞争分析与行业情报，结论面向决策并标注来源。当要看市场规模、对手对比或做技术扫描时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "做市场研究、竞争分析与行业情报：研究标准、来源标注、常见模式与输出格式。当要看市场规模或对手对比时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

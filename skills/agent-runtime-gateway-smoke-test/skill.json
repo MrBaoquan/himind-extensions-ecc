@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.7",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用无工具任务验证本地 agent API、临时网关隧道与远程沙箱回调是否连得通，跑完恢复原连接。当任务派发后卡住或怀疑网关不通时用。",
-  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
+  "description": "用无工具任务验证整条回调链路：本地 agent API、临时网关隧道与远程沙箱，跑完恢复原连接。当任务派发后卡住或怀疑网关不通时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

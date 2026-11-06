@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用检索工具拆子问题、深读来源，产出带行内引用与置信度的研究报告。当要一份有据可查的深度调研时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "深度调研：用检索工具拆子问题、深读来源，产出带行内引用与置信度的研究报告。当要一份有据可查的调研时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

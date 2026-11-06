@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "从原始素材出发，经 FFmpeg、Remotion、配音与生成工具剪辑，再到后期工具收尾。当要把一堆素材剪成成片时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "从原始素材到成片的分层流程：确定性剪辑、可编程合成、生成资产与后期收尾，各层用不同的工具。当要把素材剪成成片时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Quarkus 安全实现：JWT 与 OIDC 认证、角色权限与身份校验、参数化查询、密码哈希、CORS 与安全头、限流与审计。当要审 Quarkus 认证授权时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "description": "Quarkus 安全：JWT 与 OIDC 认证、角色权限、参数校验、参数化查询、密码哈希、CORS 与安全头、限流与审计。当要审 Quarkus 认证时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

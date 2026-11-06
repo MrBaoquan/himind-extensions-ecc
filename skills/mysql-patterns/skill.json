@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "MySQL 与 MariaDB 的表结构、查询、索引、事务、复制与连接池模式。当要设计表与索引，或查询、事务、从库延迟出问题时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "MySQL 使用：表结构、查询、索引、事务、复制与连接池模式，附诊断脚本。当要设计表与索引，或从库延迟出问题时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

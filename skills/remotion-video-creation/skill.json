@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "用 React 写视频的 29 条领域规则：3D、动画时序、音频、字幕、图表与转场。当要用代码产出可控视频时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

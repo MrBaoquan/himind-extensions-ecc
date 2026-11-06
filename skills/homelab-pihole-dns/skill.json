@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Pi-hole 安装、拦截列表管理、DoH 配置、DHCP 集成、本地 DNS 记录与解析故障排查。当明确要安装或调优 Pi-hole 时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "Pi-hole 的安装与调优：拦截列表、DoH 上游、DHCP 集成、本地 DNS 记录与解析故障排查。当要装或调 Pi-hole 时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

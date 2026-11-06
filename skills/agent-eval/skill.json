@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用自定义任务横向对比编码 agent 的通过率、成本、耗时与稳定性。当要在几个 agent 之间选型，或想用数据而非印象评估某次调整时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "用自定义任务横向对比编码 agent：通过率、成本、耗时与稳定性，按数据而非印象选型。当要在几个 agent 之间选型时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

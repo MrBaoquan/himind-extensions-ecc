@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "两个独立评审按同一标准都通过才放行，配修复后复审的收敛循环与升级给人兜底。当要卡住发布、上线或合规敏感内容时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "两个独立评审按同一标准都通过才放行：修复后复审的收敛循环，加升级给人兜底。当要卡住发布或合规敏感内容时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

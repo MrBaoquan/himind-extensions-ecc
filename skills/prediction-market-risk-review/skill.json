@@ -5,14 +5,14 @@
   "categories": [
     "data-automation"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "审查预测市场、篮子、预言机与交易 agent 流程里的合规、安全、数据质量、隐私与执行风险。当流程要接触账户授权、组合数据或 API 密钥时，先用它。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "预测市场风控：审查市场、篮子、预言机与交易 agent 流程里的合规、安全、数据质量与执行风险。当流程要接触授权或密钥时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

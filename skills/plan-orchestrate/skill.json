@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.8",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "读一份计划文档，拆成步骤，为每步挑出能承载该步范围的命令并给出可直接粘贴的写法，承载不了的就报失败。当手上有分步计划要落地时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "计划拆解：读计划文档、拆成步骤、为每步挑出能承载其范围的命令并给出可直接粘贴的写法。当有分步计划要落地时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

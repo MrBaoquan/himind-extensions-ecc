@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "现代 Perl 5.36+ 的惯例与最佳实践，写出稳健可维护的应用。当要写或审现代 Perl 代码时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "现代 Perl 5.36+ 的惯例与最佳实践：错误处理、Moo 面向对象、正则、数据结构与模块组织。当要写或审现代 Perl 代码时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

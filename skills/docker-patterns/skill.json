@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "多阶段 Dockerfile、Compose 覆盖文件、网络与卷、容器加固与多服务编排。当要写或审 Dockerfile 与 Compose 服务时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "Docker 与 Compose：多阶段构建、覆盖文件、网络与卷、容器加固、dockerignore 与调试。当要写或审 Dockerfile 与 Compose 服务时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

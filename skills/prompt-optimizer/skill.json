@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "分析草稿提示词，识别意图与缺失信息，匹配可用的命令、技能与 agent，输出可直接使用的优化版并附带理由。仅给建议、不执行任务。当想改好提示词时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "提示词优化：分析草稿，识别意图与缺失信息，匹配可用的命令、技能与 agent，输出优化版并附理由。当想改好提示词时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

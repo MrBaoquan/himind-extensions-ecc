@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把本地私有工作流脱敏后转成可公开复用的技能与发布包，避免泄露凭据与本地路径。当要把内部流程对外开源时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "工作流转技能：把内部私有流程脱敏后转成可公开复用的技能与发布包，避免泄露凭据与本地路径。当要把流程对外开源时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

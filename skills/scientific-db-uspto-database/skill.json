@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "查 USPTO 官方记录：专利检索、商标状态与 TSDR、审查档案、转让记录，并留下可复现日志。当要查美国专利或商标时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

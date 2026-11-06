@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "扫描 agent 配置目录里的安全漏洞、错误配置与注入风险，覆盖说明文件、设置、MCP 服务、钩子与 agent 定义。当要审计 agent 配置时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "配置安全扫描：查 agent 配置目录里的漏洞、错误配置与注入风险，覆盖说明文件、设置、MCP 服务、钩子与 agent 定义。当要审计配置时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

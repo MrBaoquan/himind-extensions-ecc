@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "生产配置与环境变量、Sanctum 认证、Eloquent 防注入、CSRF 与 XSS、API 限流与部署加固。当要审 Laravel 认证或数据访问时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "Laravel 安全：生产配置与环境变量、Sanctum 认证、Eloquent 防注入、CSRF 与 XSS、接口限流与部署加固。当要审 Laravel 认证或数据访问时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

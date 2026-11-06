@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "给 agent 的对外消息加人工批准回路：草稿先立为待办、按原文批准、留下投递回执，并在起草前设基线闸门。当 agent 要对外发消息时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "description": "给 agent 的对外消息加人工批准回路：草稿先立为待办、按原文批准、留下投递回执并设基线闸门。当 agent 要对外发消息时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

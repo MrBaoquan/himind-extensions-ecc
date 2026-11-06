@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "取证式核对收入、定价、退款、团队账单与计费模型。当要一份销售快照、定价对比、重复扣费定位，或代码级而不是口头上的计费真相时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "收入与账单：取证式核对定价、退款、团队账单与计费模型，给出代码级而非口头上的真相。当要定位重复扣费或对账时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

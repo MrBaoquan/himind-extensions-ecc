@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "检查 Blender 里的角色、骨骼、姿态、动画重定向、接地、朝向与模型动作对齐。当截图说不清动作问题时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "检查 Blender 里的角色与动画状态：骨骼、姿态、重定向、接地、朝向与模型动作对齐。当截图说不清动作问题时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

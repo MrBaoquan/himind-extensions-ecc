@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "取证式排查成本：先锁仓库范围与入口，再追 worker 副作用与高耗路径，按耗损排序修。当账单或 PR 数异常飙高时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

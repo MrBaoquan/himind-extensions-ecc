@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.7",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "按源键在产品里的实际用法翻译并同步 JSON 语言文件，沿用项目术语与既有译文，产出可审阅的补丁。当新增语种、源文案改动或要同步语言包时用。",
-  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
+  "description": "多语言同步：按源键在产品里的实际用法翻译 JSON 语言文件，沿用术语与既有译文，产出可审阅的补丁。当新增语种或改原文时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

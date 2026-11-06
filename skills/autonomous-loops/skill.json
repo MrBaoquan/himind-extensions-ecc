@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.8",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "自主 agent 循环的模式与架构，从串行流水线到多 agent 有向无环图；仅为兼容保留，新循环请看持续 agent 循环。当要参考现成的循环编排时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "自主 agent 循环的模式与架构：从串行流水线到多 agent 有向无环图。仅为兼容保留，新循环请看持续 agent 循环。当要参考现成编排时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

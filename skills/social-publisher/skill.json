@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.8",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "经 SocialClaw 在 X、LinkedIn、Instagram、TikTok、YouTube 等 13 个平台排期发布，发布前逐条确认并核对内容。当要批量铺开社媒时用。",
-  "release_notes": "2.2.8：同步自上游 ecc-universal b38be6a。",
+  "description": "经 SocialClaw 在 13 个平台排期发布：X、LinkedIn、Instagram、TikTok、YouTube 等，发布前逐条确认内容。当要批量铺开社媒时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

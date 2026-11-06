@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.9",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "首次改文件、建文件或跑命令前要求先给出调用方、数据结构与用户原话，给不出就不放行。当要加首次动作前置校验时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "事实前置闸门：改文件、建文件或跑破坏性命令前先要调用方、数据结构与用户原话，给不出就不放行。当要加首次动作校验时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

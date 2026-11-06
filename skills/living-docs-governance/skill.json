@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.9",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "给文档定纲领、地图、状态与历史四类角色，接进 agent 实读的源头，且只改受影响的那一份。当文档与代码脱节时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "给文档定四类角色：纲领、地图、状态与历史，接进 agent 实读的源头，且只改受影响的那一份。当文档与代码脱节时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.9",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 gget 的命令行与 Python 接口查基因组数据库、取序列、做类 BLAST 搜索与富集。当要快速取生物信息数据时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "基因组查询：用 gget 的命令行与 Python 接口查参考库、取序列、做类 BLAST 搜索与富集，并留下可复现日志。当要快速取生信数据时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "video-post"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "以文件驱动做图像、视频与 3D 资产发现、风格访谈与提炼，输出风格包与可编辑剪辑工程并留溯源审计。当要复用某套视觉风格时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "以文件驱动做图像、视频与 3D 资产：发现、风格访谈与提炼，输出风格包与可编辑剪辑工程并留溯源审计。当要复用某套视觉风格时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

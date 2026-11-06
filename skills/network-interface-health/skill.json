@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "诊断路由器、交换机与 Linux 主机的接口错误、丢包、CRC、双工与速率不匹配、震荡及计数趋势。当接口报错或丢包时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "诊断路由器、交换机与 Linux 主机的接口问题：错误计数、丢包、CRC、双工与速率不匹配、震荡与趋势。当接口报错或丢包时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

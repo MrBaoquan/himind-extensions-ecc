@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把编码 agent 改造成带持久记忆、定时任务、电脑操作与任务队列的常驻自主系统。当要让 agent 持续无人值守运行时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "把编码 agent 改造成常驻自主系统：持久记忆、定时任务、电脑操作与任务队列。当要让 agent 持续无人值守运行时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

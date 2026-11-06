@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "划定竞争范围，识别、归类并筛选出对手清单，为后续对标打分做准备。当要做竞争分析、先确定和谁比时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "划定竞争范围并筛选对手：选型标准、玩家分类、竞争分层、数据来源与打分矩阵模板。当要做竞争分析、先定和谁比时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

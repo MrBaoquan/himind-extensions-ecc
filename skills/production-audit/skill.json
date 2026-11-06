@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "仅凭本地证据做上线就绪审计，覆盖发布前评估、合并后检查与上线后哪里会出问题，不上传仓库数据。当要在发布前做生产风险排查时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "仅凭本地证据做上线就绪审计：发布前评估、合并后检查与上线后风险点，不上传仓库数据。当要在发布前做生产风险排查时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

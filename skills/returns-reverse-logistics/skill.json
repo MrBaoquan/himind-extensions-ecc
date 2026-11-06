@@ -5,14 +5,14 @@
   "categories": [
     "collaboration-delivery"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "退货授权、收货检验与分级、处置决策树、退款与信贷、欺诈识别、厂商追偿与保修索赔。当要处理退货或保修争议时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "退货与逆向物流：退货授权、收货检验与分级、处置决策树、退款、欺诈识别、厂商追偿与保修索赔。当要处理退货争议时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

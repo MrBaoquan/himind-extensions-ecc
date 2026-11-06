@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "结合具体仓库，把技能、命令、规则与钩子分成常用与备用两档，产出有证据支持的精简安装清单。当只想装项目真正需要的东西时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "结合具体仓库把技能、命令、规则与钩子分档：常用与备用两档，产出有证据支持的精简安装清单。当只想装项目真正需要的东西时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

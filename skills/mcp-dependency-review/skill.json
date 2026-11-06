@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.7",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "在批准配置或进 CI 之前静态审查 MCP 配置里的可变包引用，只读文本，不执行任何被引用的服务。当要确认配置会不会悄悄解析到新代码时用。",
-  "release_notes": "2.2.7：同步自上游 ecc-universal b38be6a。",
+  "description": "MCP 依赖审查：批准配置或进 CI 前静态审查可变包引用，只读文本，不执行被引用的服务。当要确认配置会不会悄悄换代码时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

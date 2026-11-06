@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "多轮逐步细化上下文检索，解决子 agent 拿不到所需上下文的问题。当子任务缺上下文、需要跨轮次补齐信息时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "渐进检索：多轮逐步细化上下文检索，解决子 agent 拿不到所需上下文的问题。当子任务缺上下文、要跨轮次补齐时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

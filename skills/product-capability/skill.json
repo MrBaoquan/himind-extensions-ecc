@@ -5,14 +5,14 @@
   "categories": [
     "content-production"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "把 PRD、路线图或产品讨论翻译成可直接开工的能力方案，提前暴露约束、不变量、接口与待决项。当要把需求落成可执行规划时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "把 PRD、路线图或产品讨论翻译成可直接开工的能力方案：约束、不变量、接口与待决项，开工前一次说清。当要把需求落成规划时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

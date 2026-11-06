@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.3",
+  "version": "2.2.13",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "生成带真实文件与行号锚点的分步导览文件，用于新人上手、架构走查、PR 讲解与故障复盘。当要带人读代码时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "生成带真实文件与行号锚点的分步导览文件：发现、推断读者、核对锚点、校验。当要带人读代码或讲架构时用。",
+  "release_notes": "2.2.13：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.9",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "定义问题、规划检索、记录证据、去重与筛选、抽取数据、综合结论并逐条核查引用。当要写经得起查的文献综述时用。",
-  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
+  "description": "做系统性文献综述：定义问题、规划检索、记录证据、去重筛选、抽取数据、综合结论并逐条核查引用。当要写经得起查的综述时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "设计并优化 agent 的动作空间、工具定义与观察结果格式，以提高任务完成率。当要定义或调整 agent 的工具集与输出格式时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "设计并优化 agent 的动作空间：工具定义、粒度规则、观察格式与错误恢复约定。当要调整 agent 的工具集与输出格式时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

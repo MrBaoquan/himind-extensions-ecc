@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.10",
+  "version": "2.2.12",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "新功能、修缺陷与重构共用的编排流水线：先定规模，再走调研到提交的各阶段，过两道人工确认。当要按固定流水线推进时用。",
-  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
+  "description": "新功能、修缺陷与重构共用的编排流水线：先定规模，再走调研到提交的各阶段并过两道人工确认。当要按固定流水线推进时用。",
+  "release_notes": "2.2.12：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
