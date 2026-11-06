@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "扫描遗留项目里的隐性约定，逐条与人对齐冲突，写出可执行的风格规则文件与可选挂接，防止 AI 写歪风格。当要在老项目上引入 AI 时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/inherit-legacy-style",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

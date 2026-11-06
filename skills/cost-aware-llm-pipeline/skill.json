@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "LLM 调用降本模式：按任务复杂度选模型、预算跟踪、重试策略与提示缓存。当模型开销要压下来，或要按档位与预算分发任务时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/cost-aware-llm-pipeline",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

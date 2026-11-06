@@ -687,6 +687,11 @@
     },
     {
       "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.issue-review",
+      "path": "skills/issue-review"
+    },
+    {
+      "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.iterative-retrieval",
       "path": "skills/iterative-retrieval"
     },
@@ -1359,6 +1364,11 @@
       "type": "skill",
       "id": "com.mrbaoquan.ecc.skill.token-card",
       "path": "skills/token-card"
+    },
+    {
+      "type": "skill",
+      "id": "com.mrbaoquan.ecc.skill.typescript-patterns",
+      "path": "skills/typescript-patterns"
     },
     {
       "type": "skill",

@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "把界面截图或设计稿批量转成 Vue 3 组件，适配常见组件库。当手上只有图、要批量生成 Vue 页面时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/ui-to-vue",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

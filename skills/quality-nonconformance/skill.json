@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "受监管制造（FDA 21 CFR 820、IATF 16949、AS9100）的不合格品处置：NCR 全流程、5Why 与鱼骨图、故障树、8D 根因分析、CAPA、SPC 判读与 AQL 抽样。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/quality-nonconformance",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

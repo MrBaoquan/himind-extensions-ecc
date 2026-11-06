@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "检索 PubMed 与 NCBI：MeSH 查询、PMID 定位、引文获取与文献监测。当要找医学文献或跟踪某个主题的新论文时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/scientific-db-pubmed-database",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

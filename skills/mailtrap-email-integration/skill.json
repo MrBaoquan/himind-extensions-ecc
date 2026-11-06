@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "通过 Mailtrap Email API 接入事务邮件：沙箱测试、域名验证与接口鉴权。当要开发发信功能、排查投递问题，或搭建安全的开发、预发邮件测试时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/mailtrap-email-integration",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

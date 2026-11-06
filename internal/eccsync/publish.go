@@ -541,14 +541,15 @@ func (run publishRun) memberRelease(plan releaseplan.Plan, member readyTarget) (
 		SizeBytes: int64(len(data)),
 		SHA256:    hex.EncodeToString(digest[:]),
 	}
+	// 技能包没有品牌图标 sidecar，第三个参数留给签名。
 	if run.dryRun {
-		return plan.Manifest(artifact, nil), nil
+		return plan.Manifest(artifact, nil, nil), nil
 	}
 	signature, err := signArtifact(member.artifactPath, plan.ArtifactName, data, run.keyID, run.signer)
 	if err != nil {
 		return distribution.ReleaseManifest{}, err
 	}
-	release := plan.Manifest(artifact, &signature)
+	release := plan.Manifest(artifact, nil, &signature)
 	if err := release.Validate(); err != nil {
 		return distribution.ReleaseManifest{}, err
 	}
@@ -776,7 +777,7 @@ func recordPlanned(index *catalog.Catalog, target publishTarget, plan releasepla
 		Name:      plan.ArtifactName,
 		SizeBytes: int64(len(data)),
 		SHA256:    hex.EncodeToString(digest[:]),
-	}, nil)
+	}, nil, nil)
 	manifest, err := catalog.ReadManifest(target.dir, target.kind)
 	if err != nil {
 		return err
@@ -852,7 +853,7 @@ func buildRelease(plan releaseplan.Plan, artifactPath, manifestPath, keyID strin
 		Name:      plan.ArtifactName,
 		SizeBytes: int64(len(data)),
 		SHA256:    hex.EncodeToString(digest[:]),
-	}, &signature)
+	}, nil, &signature)
 	if err := release.Validate(); err != nil {
 		return distribution.ReleaseManifest{}, err
 	}

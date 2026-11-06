@@ -93,8 +93,14 @@ func TestSplitSkillCopyCoversShippedMetadata(t *testing.T) {
 	if len(metadata.Skills) == 0 {
 		t.Fatal("元数据里没有技能，这条断言等于没跑")
 	}
-	cut := 0
+	// 只量 reviewed 条目：derived 是上游 frontmatter 的机器直取，英���或
+	// 无「当……用」句式都属正常，把它算进分母会让覆盖率先随新增技能稀释。
+	cut, total := 0, 0
 	for slug, entry := range metadata.Skills {
+		if entry.Source != "reviewed" {
+			continue
+		}
+		total++
 		intro, scenario := SplitSkillCopy(entry.Description)
 		if intro == "" {
 			t.Fatalf("%s 切出来没有简介", slug)
@@ -106,8 +112,11 @@ func TestSplitSkillCopyCoversShippedMetadata(t *testing.T) {
 			}
 		}
 	}
+	if total == 0 {
+		t.Fatal("元数据里没有 reviewed 条目，这条断言等于没跑")
+	}
 	// 上游卡片文案换句式时会掉到这里：不是失败，而是提醒切分口径要跟着走。
-	if cut*10 < len(metadata.Skills)*9 {
-		t.Fatalf("只有 %d/%d 条切出了场景句，切分口径可能已经跟不上上游文案", cut, len(metadata.Skills))
+	if cut*10 < total*9 {
+		t.Fatalf("只有 %d/%d 条 reviewed 文案切出了场景句，切分口径可能已经跟不上上游文案", cut, total)
 	}
 }

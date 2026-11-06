@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "编排修缺陷的完整流程：先用失败的回归用例复现，再修到通过，评审后受控提交。当已有行为出错时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/orch-fix-defect",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

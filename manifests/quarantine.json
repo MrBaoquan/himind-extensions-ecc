@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T02:17:12Z",
-  "upstream_commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+  "generated_at": "2026-10-30T12:32:45Z",
+  "upstream_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
   "entries": [
     {
       "slug": "agent-self-evaluation",
@@ -54,7 +54,8 @@
       "reason": "技能包不允许携带可执行脚本，需人工决定排除或改造成插件",
       "files": [
         "scripts/audit-docs.py",
-        "scripts/markdown_links.py"
+        "scripts/markdown_links.py",
+        "scripts/module_audit.py"
       ]
     },
     {
@@ -97,6 +98,10 @@
       "files": [
         "scripts/build-agreement.js"
       ]
+    },
+    {
+      "slug": "module-governance",
+      "reason": "不在任何已映射的上游模块里，无法定分类"
     },
     {
       "slug": "module-regression",

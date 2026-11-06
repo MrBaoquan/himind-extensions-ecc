@@ -1081,6 +1081,15 @@
       ],
       "source": "reviewed"
     },
+    "issue-review": {
+      "name": "Issue Review",
+      "description": "Review a GitHub issue the way /code-review reviews a PR. Fetches the issue with the gh CLI, checks the report against…",
+      "categories": [
+        "collaboration-delivery"
+      ],
+      "source": "derived",
+      "note": "说明超过 120 字，已按句/词边界截断"
+    },
     "iterative-retrieval": {
       "name": "渐进式检索",
       "description": "多轮逐步细化上下文检索，解决子 agent 拿不到所需上下文的问题。当子任务缺上下文、需要跨轮次补齐信息时用。",
@@ -2165,6 +2174,15 @@
       ],
       "source": "derived",
       "note": "说明超过 120 字，已按句/词边界截断"
+    },
+    "typescript-patterns": {
+      "name": "Patterns",
+      "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications.",
+      "categories": [
+        "software-engineering"
+      ],
+      "source": "derived",
+      "note": "显示名称由上游客名缩写而来；说明超过 120 字，已按句/词边界截断"
     },
     "ui-demo": {
       "name": "界面演示录制",

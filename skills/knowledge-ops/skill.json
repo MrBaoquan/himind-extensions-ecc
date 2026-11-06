@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "在多套存储之间管理知识（本地文件、MCP memory、向量库、Git 仓库）：入库、同步、去重与检索。当要沉淀、整理或跨库搜索自己的知识时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/knowledge-ops",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "React 与 Next.js 的无障碍实践：语义标签、属性、表单标注、键盘导航、焦点管理与读屏支持。当要写或审表单、弹窗、下拉与标签页时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/frontend-a11y",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

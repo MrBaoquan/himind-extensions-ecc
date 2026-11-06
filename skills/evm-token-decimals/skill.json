@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "防止跨 EVM 链的精度不一致缺陷：运行时读取小数位、按链缓存、桥接代币精度漂移与安全归一化。当余额、价格或转账数量对不上时用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/evm-token-decimals",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

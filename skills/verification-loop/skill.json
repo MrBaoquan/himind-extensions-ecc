@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.6",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
   "description": "改完代码按六道工序自查：构建、类型检查、lint、覆盖率测试、密钥与风险扫描、diff 复审，最后给出能不能交付的结论。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/verification-loop",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

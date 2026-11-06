@@ -12,7 +12,7 @@
   ],
   "scope": "organization",
   "description": "用 Plankton 在每次文件改动时自动格式化、静态检查并自动修复。当要配置写入即生效的格式化与检查钩子时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal 90606c8。",
+  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
@@ -27,7 +27,7 @@
   "upstream": {
     "repository": "affaan-m/ECC",
     "path": "skills/plankton-code-quality",
-    "commit": "90606c8315ee09cafc303515c5f33024db6b9882",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
     "license": "MIT"
   }
 }

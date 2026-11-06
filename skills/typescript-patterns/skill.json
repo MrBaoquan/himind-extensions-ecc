@@ -1,0 +1,33 @@
+{
+  "id": "com.mrbaoquan.ecc.skill.typescript-patterns",
+  "name": "Patterns",
+  "author": "Affaan Mustafa",
+  "categories": [
+    "software-engineering"
+  ],
+  "version": "2.2.6",
+  "distribution_targets": [
+    "workbench",
+    "github"
+  ],
+  "scope": "organization",
+  "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications.",
+  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "min_agent_version": "0.3.37",
+  "supported_clients": [
+    "agent-skills"
+  ],
+  "capabilities": [],
+  "plugin_dependencies": [],
+  "risk_summary": "read_only",
+  "contents": [
+    "SKILL.md",
+    "skill.json"
+  ],
+  "upstream": {
+    "repository": "affaan-m/ECC",
+    "path": "skills/typescript-patterns",
+    "commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
+    "license": "MIT"
+  }
+}
