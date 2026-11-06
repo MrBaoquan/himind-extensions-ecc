@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Django 安全实践：认证、授权、CSRF、SQL 注入与 XSS 防护、安全部署配置。当要审 Django 的认证授权、输入处理或部署设置时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "生产配置与密钥管理、安全头与 Cookie、密码校验、自定义用户模型、认证与防注入防 XSS。当要审 Django 认证或部署设置时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

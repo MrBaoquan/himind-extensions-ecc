@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "新建技能前先查本地、市场、GitHub 与网络上的现成技能，避免重复造轮子。当要创建、改造或寻找技能时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "建技能前先查本地、市场、GitHub 与网络，给候选打分并交代取舍，避免重复造轮子。当要新建、改造或寻找技能时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

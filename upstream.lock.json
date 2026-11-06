@@ -10,8 +10,8 @@
     "license_holder": "Affaan Mustafa"
   },
   "sync": {
-    "sequence": 8,
-    "generated_at": "2026-11-06T03:36:41Z",
+    "sequence": 10,
+    "generated_at": "2026-11-06T03:53:12Z",
     "tool": "himind-ecc-sync/0.1.0"
   },
   "skills": {
@@ -180,10 +180,10 @@
       "rewritten": true
     },
     "api-design": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "03a1f98b9471c99b9cd70367dad1abe4c7a2a764d808a81bca941e518ae41359",
       "synced_digest": "0bd0b7a9ceb98fcbe6018bb6b0529ede8a342d23b3f06f15cafc5e5cb3abe16d",
-      "metadata_digest": "5714cfe87307c504c670b2ef6a7c051b9b97961d4b7e0a136845dc37a58b327c",
+      "metadata_digest": "60366662ef6ba719c15c9ffdf777de142efc7ad08a6e22a3eb94653e50701dfe",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "03a1f98b9471c99b9cd70367dad1abe4c7a2a764d808a81bca941e518ae41359",
       "source_path": "skills/api-design",
@@ -312,10 +312,10 @@
       "rewritten": true
     },
     "blueprint": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "9f0e23715661abd6e9ba4f1c7daeeaea75b5bd1ce92c77626ebe945626a0a0ab",
       "synced_digest": "5839ac6e721537de2a79626410ee8b19a637c0b1f8127e31b97f9f911b0290b6",
-      "metadata_digest": "544789f4758cfaed942e007543701c09ac698fc1d1b253d6641c8f37e5c04924",
+      "metadata_digest": "df641816b93476baf393a918b33f24d9294aab0d4810a220d6303975b755a600",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "9f0e23715661abd6e9ba4f1c7daeeaea75b5bd1ce92c77626ebe945626a0a0ab",
       "source_path": "skills/blueprint",
@@ -367,10 +367,10 @@
       "rewritten": true
     },
     "bun-runtime": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "synced_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
-      "metadata_digest": "3f729224ec4ccf2019e6585473bece86e88b4ad2e1528e3c8f7c9959238e7812",
+      "metadata_digest": "bba027de48daa44779cb73a63587624cbc37b85d36ac1a6c777f9619c23be9e6",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "13ff189c927da643722c6ee59e2ff86b98165a0e9e910dae335a8e913266ec62",
       "source_path": "skills/bun-runtime",
@@ -388,10 +388,10 @@
       "rewritten": true
     },
     "carrier-relationship-management": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "6895b8da20713b9aa8025bedb348a6197a86fe025e3b65e065d0310fba16a71d",
       "synced_digest": "0e2a67d745cf10f4fc5917c926d7ccf8db914c9e9ad62c72553c922f7019b1d1",
-      "metadata_digest": "5937241880bacb99545cf4b80d648613a3b31a712a0f73aee9eeb6bc9a07a64f",
+      "metadata_digest": "d6a7621bf62ed3dd1943808558c93e8d77a53cc91abe1ee8d91143ccc4295304",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "6895b8da20713b9aa8025bedb348a6197a86fe025e3b65e065d0310fba16a71d",
       "source_path": "skills/carrier-relationship-management",
@@ -630,10 +630,10 @@
       "rewritten": true
     },
     "counterparty-channel-discipline": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "8d7aa5d7684e777fb7fdd2e020e588a6b7f7aad9555ed3333160479bae72a527",
       "synced_digest": "eae188c998798ed4a58cd3a966df02c71a40e3def25f3da0a76c04fc6ff706c9",
-      "metadata_digest": "a6423f9a4198a8eee10bdcd9d6a748897e485c07ebda1251d20a1130e2720fa6",
+      "metadata_digest": "41b0bca00b4a5cd3f6d59bba968fe917817a1b11e4b210e897b98a93835f37ef",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "8d7aa5d7684e777fb7fdd2e020e588a6b7f7aad9555ed3333160479bae72a527",
       "source_path": "skills/counterparty-channel-discipline",
@@ -652,10 +652,10 @@
       "rewritten": true
     },
     "cpp-testing": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
       "synced_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
-      "metadata_digest": "4df56f26836387916414d427ea4c26fa4e85c4ed2803cfdc379cc714b2ccfc5c",
+      "metadata_digest": "5d22e21869ddf717e6d5649943f2c81cc1c7ab93bb4c2ad559bc50ee652099c6",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "51250966903bbce17715c595d026162b10ae0d591c0b21a3d8ce57c8935baf26",
       "source_path": "skills/cpp-testing",
@@ -860,10 +860,10 @@
       "rewritten": true
     },
     "django-security": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "3109256ffcc1fd5f524be1c06186f17f25d49313e6fb31c260b3eec6167f5374",
       "synced_digest": "0c578ee73e0d62ed04b20195dfffdc558607526f6059288f7a5e9e88fa3b003b",
-      "metadata_digest": "1340123b879f029ade422a1fff2980e7bbe25a9031c61f9f83429507c936d81d",
+      "metadata_digest": "66ddd31fc375b4d3945a5cf8802334f44540f61115b84a3f640cc5feadbefa32",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "3109256ffcc1fd5f524be1c06186f17f25d49313e6fb31c260b3eec6167f5374",
       "source_path": "skills/django-security",
@@ -893,10 +893,10 @@
       "rewritten": true
     },
     "dmux-workflows": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "272a3bb21962f48cb891317b32bcc270f1078fa624dc9209549914d722c3a1f0",
       "synced_digest": "d40f3d3e9ad2313342cbb2e80226d0b262b4096da90f67eb321925f664e20870",
-      "metadata_digest": "f1b3a839b9be5bf0181b73a9fc5d7a1494b102a2383d20526121f1fee92b9693",
+      "metadata_digest": "ead149ac6f6fb5d26cd4cede4c9d1c64788a8c369cecfbc63af856a57f18a18d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "272a3bb21962f48cb891317b32bcc270f1078fa624dc9209549914d722c3a1f0",
       "source_path": "skills/dmux-workflows",
@@ -904,10 +904,10 @@
       "rewritten": true
     },
     "docker-patterns": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "0d9b0c761a37cddee3ef15425791fd4b623b7eb934c880407ee8da4d035db1d2",
       "synced_digest": "d3c440fa6c6c04e1d668896b601fc3dfb2a9edee92bb4c7126004319905f7bd0",
-      "metadata_digest": "909fa47bb5a6ae6206fa157eb86121e2bd9a3ae921aa43c8fbef6d900c599ee8",
+      "metadata_digest": "795d873a16246a08767c362cb807f3f750253ac1a736642370a94190058aa210",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "0d9b0c761a37cddee3ef15425791fd4b623b7eb934c880407ee8da4d035db1d2",
       "source_path": "skills/docker-patterns",
@@ -970,10 +970,10 @@
       "rewritten": true
     },
     "ecc-tools-cost-audit": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "003b14dd181b6fef668d58424d48eb922861a9ae42f6457a1c56d4ed6567ed66",
       "synced_digest": "6660b2d10cd4769262909a0419e5c8846035a7bc6360f34bd8ae0708779dcbf5",
-      "metadata_digest": "da5a531873ff070b5fc54ecb6058826062605edcee60bb4b60e4715b838a8b16",
+      "metadata_digest": "7256accddaaeef59422db6877a9650f751e5bbc10e45f803c522d5eda6ff1669",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "003b14dd181b6fef668d58424d48eb922861a9ae42f6457a1c56d4ed6567ed66",
       "source_path": "skills/ecc-tools-cost-audit",
@@ -1080,10 +1080,10 @@
       "rewritten": true
     },
     "fastapi-patterns": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "d13740d90724ba9a5a6090059bd9461214fe0babc2a0d25e5c2feab6d8b5ae4b",
       "synced_digest": "dab0a6a238253f857537dbe591f2971c26a229cdf62270fbc7131054c435ab6f",
-      "metadata_digest": "54835dcfb97c190dbb8d8e160ae8d494c696d551ae1c1e4eebd2fc2f2bb601b4",
+      "metadata_digest": "3a96f9c35299460ccebeb70d95f2ca59282631ee4e518bc0fdbe0921d2a41498",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d13740d90724ba9a5a6090059bd9461214fe0babc2a0d25e5c2feab6d8b5ae4b",
       "source_path": "skills/fastapi-patterns",
@@ -1102,10 +1102,10 @@
       "rewritten": true
     },
     "flox-environments": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "2b42e243deb92c5ac0042e49525ae8c9cd5cfd8ffd8139c41ca39a453855835b",
       "synced_digest": "fe077e3785a2cb59608b8784a92bffb8c7c389ff997ad7aeeae555383b5234dd",
-      "metadata_digest": "e2cccb0473dac4e6dcd958d18028b1023e13ae3c643a18024abe631273cbb714",
+      "metadata_digest": "4a6789be8aee3f80d5c54125338ddd9d86f2d37f7a7452456d28463fcac21178",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2b42e243deb92c5ac0042e49525ae8c9cd5cfd8ffd8139c41ca39a453855835b",
       "source_path": "skills/flox-environments",
@@ -1179,10 +1179,10 @@
       "rewritten": true
     },
     "gateguard": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "34da1c27b39a74a132dc766036a3b79a71dd022888ebf5ddb4b548b61e8bc177",
       "synced_digest": "647ac67ef25cf171414ead82e81f2577085ad8abe28b5daa9706a0b29f879f38",
-      "metadata_digest": "0c42f5ebc8f6affe8f73e540302443ce25803fce7745f55f9d8f6ff88567fd11",
+      "metadata_digest": "6ffdd05b8f0d70eb7073284c5312892478c595500f33022728f4e39d9035c9fe",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "34da1c27b39a74a132dc766036a3b79a71dd022888ebf5ddb4b548b61e8bc177",
       "source_path": "skills/gateguard",
@@ -1223,10 +1223,10 @@
       "rewritten": true
     },
     "golang-patterns": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "35efbf444485c6774946cbaea7702ac1c5434a41ac027e08e8bb9e30bc085267",
       "synced_digest": "3aef0c598afc600be2d49cdae6dbdc0a4f3b147cf55ca92bc035ed43bde331ca",
-      "metadata_digest": "2d11766f013c817af03b9d0cb4268dcb649690dfb720e6a025804f41c8eca77d",
+      "metadata_digest": "dcd57ace02ff15f61e90e8d1618ad0e53c0eb69f945318ea0c12d303155bedb9",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "35efbf444485c6774946cbaea7702ac1c5434a41ac027e08e8bb9e30bc085267",
       "source_path": "skills/golang-patterns",
@@ -1399,10 +1399,10 @@
       "rewritten": true
     },
     "hookify-rules": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "fc9591a493a1869eefbcb89820e5a81217615244daff05d2516753184a90f0e3",
       "synced_digest": "daa42215a677f72a7165d3ff519fcb90476ed26e272239b0d4fb63aef1113e9e",
-      "metadata_digest": "9f5443697cf0161b0d00ad62da4b7780c9f48ec30607cd0cd63ded535cc3475e",
+      "metadata_digest": "4491098c1227c9e889eb455d5aea0636f2cc74415c2a6f03989f292a0dd313f3",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "fc9591a493a1869eefbcb89820e5a81217615244daff05d2516753184a90f0e3",
       "source_path": "skills/hookify-rules",
@@ -1443,10 +1443,10 @@
       "rewritten": true
     },
     "inventory-demand-planning": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "d762c98694a7884c4c11048a667da2a556bbad08bc7ecdc29127f3c0d64cecf6",
       "synced_digest": "f49e408a2451fa01cd054346a90fdd4fb9c17141c71b0b57a7646a18f3f0a4ea",
-      "metadata_digest": "311678c99cb6ddb7b8fb1b4e36bab296350c9aaf64ad05a0932f63d37206566a",
+      "metadata_digest": "d8a886b3c2070b4134561154f5b1f15d6ddb47d9167d0d5a80c5515835e4baad",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "d762c98694a7884c4c11048a667da2a556bbad08bc7ecdc29127f3c0d64cecf6",
       "source_path": "skills/inventory-demand-planning",
@@ -1663,10 +1663,10 @@
       "rewritten": true
     },
     "laravel-security": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "dbc47b40bff22c769fdf1c5b018d40412fda6c4f64c8789a7a09a1e482a95742",
       "synced_digest": "409cc4eff936380e772b5fdef4872e902591dce0189eac46b20e66078736b09a",
-      "metadata_digest": "f71e44080992f5c7e7d5a8a430549470582a3a9d25286d19c5b1ee7db5867ae0",
+      "metadata_digest": "1f1f21873efcdf72e569604dca863621ee1475b01b4cc7a589d2917dc3007660",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "dbc47b40bff22c769fdf1c5b018d40412fda6c4f64c8789a7a09a1e482a95742",
       "source_path": "skills/laravel-security",
@@ -1729,10 +1729,10 @@
       "rewritten": true
     },
     "living-docs-governance": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "873572e071c740d121dbc189104b811ce6c9477724fc9356a6a7c386d6650bdf",
       "synced_digest": "07cca9e0a754a4d04603df2f89b4b93ab861e8ecc53e1abeacfbe2a03df09389",
-      "metadata_digest": "c3083c9025a6a8dfbd6e21502aa54c24c9f5f0f808f6aecce722b755b6ef510b",
+      "metadata_digest": "1d15c9e04a4b7dba51764bc60bd130cd28c5a80f35fcf35fec7cda49596955f4",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "873572e071c740d121dbc189104b811ce6c9477724fc9356a6a7c386d6650bdf",
       "source_path": "skills/living-docs-governance",
@@ -1938,10 +1938,10 @@
       "rewritten": true
     },
     "nanoclaw-repl": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "01d7289a5bee501e44c386bfa06b5603052dd16151bc2b8effd466ea6b56d510",
       "synced_digest": "b6be6f7726abefa79c11e6ebc1391fb65aad50caf90c34caec1f068d72c1a122",
-      "metadata_digest": "dbe1bb8a8d51ed818296cd97fd69e839b48ba267236c90f547ad7b548a119352",
+      "metadata_digest": "8f1527a2169bf92d57e6464a04487a259ceb716612223cd3e93d9c42d02b180b",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "01d7289a5bee501e44c386bfa06b5603052dd16151bc2b8effd466ea6b56d510",
       "source_path": "skills/nanoclaw-repl",
@@ -2070,10 +2070,10 @@
       "rewritten": true
     },
     "operator-approval-loop": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "75c393e6f577e9996a082843f6869283bfeed67226185822dfcd49ae8bcb5e25",
       "synced_digest": "45befe9e24710352f90c6e1271272ac53f8cc8ff63b25e7c18946df520af0aa6",
-      "metadata_digest": "cfeb719d59ff9878cc79534996d9acb4737185e6b692c82350c707b7fcf6aa7d",
+      "metadata_digest": "c147cdabaccf4b70892ee0c4e658f5f4c99123efcc4c650f95789a053b34fff2",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "75c393e6f577e9996a082843f6869283bfeed67226185822dfcd49ae8bcb5e25",
       "source_path": "skills/operator-approval-loop",
@@ -2125,10 +2125,10 @@
       "rewritten": true
     },
     "orch-pipeline": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "e07e8e572246e4ba011e03e8fa0a2732e7246e537908622f7ed8980a0dae49f1",
       "synced_digest": "941ce94183d576c0d1b7d7820b5d17b5b0499b7733cac5b170cc1e46adc34c01",
-      "metadata_digest": "f1063d33f8687c7849f3f4c3281180d69bd538d36dcfc3e573bce3564475e838",
+      "metadata_digest": "e244b8411a7e6b44d38c4f6b1c4f374b297b442d6e07428ddc6d6177c5cfd129",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "e07e8e572246e4ba011e03e8fa0a2732e7246e537908622f7ed8980a0dae49f1",
       "source_path": "skills/orch-pipeline",
@@ -2180,10 +2180,10 @@
       "rewritten": true
     },
     "perl-security": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "47848563e381ddcd1dd8fd94d6450570ff0fef01576426c202a48bee9f344b36",
       "synced_digest": "623cf9695640f9b9aad228d07597ddb687cb214e0f22ce93d2fd8b6755995738",
-      "metadata_digest": "40aebd6b04afedb1896fa0ec0fb68463896ed764c4a4a12bc14d6830c9514e28",
+      "metadata_digest": "0cb29971e1b7e296be1bb767eb726db6f02c63047c9d56c1e9c56d84cfc2df5e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "47848563e381ddcd1dd8fd94d6450570ff0fef01576426c202a48bee9f344b36",
       "source_path": "skills/perl-security",
@@ -2213,10 +2213,10 @@
       "rewritten": true
     },
     "plankton-code-quality": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "900206bfbed31e3c267a3eb3c392b8dc2cf6c7a2f26f20405b1a1bf16fb20071",
       "synced_digest": "7aac21397886bbaf66d0dd8a45470b743d419956ec1cc79bce87d1b5b6cb9eea",
-      "metadata_digest": "6b20fa2795b24ec811f145409413656d4872c24be92dc19743e6f2336f462840",
+      "metadata_digest": "fbc256da8d0acbffd5d82f663f6e11090e270745393e7604183a4aa94b212a9c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "900206bfbed31e3c267a3eb3c392b8dc2cf6c7a2f26f20405b1a1bf16fb20071",
       "source_path": "skills/plankton-code-quality",
@@ -2399,10 +2399,10 @@
       "rewritten": true
     },
     "quarkus-security": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "ddd0066910da6b7dbdae3a2d9d92f161c7f94a425cc40cfdadafab24c1e9055d",
       "synced_digest": "d7a8840b8e25fe87a226135b5e21228c4214fb92389d753e776624a4335e5920",
-      "metadata_digest": "c1278896ace529dde9c675ba190c50f2ace467ec56ef84ead7eee5724eb087f3",
+      "metadata_digest": "5f28ca1f21c914c57668411b34076403b0a90e7b201d02d551871d31afdc7c89",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "ddd0066910da6b7dbdae3a2d9d92f161c7f94a425cc40cfdadafab24c1e9055d",
       "source_path": "skills/quarkus-security",
@@ -2432,10 +2432,10 @@
       "rewritten": true
     },
     "rails-patterns": {
-      "version": "2.2.3",
+      "version": "2.2.10",
       "source_digest": "2c96064476f635f2fb9ea3f9cea21818ffbed7a04f8739567ef2b92bc46c9574",
       "synced_digest": "7d664edd25cadd1204c9806c134771360b89241a41ec18411133d03c55ec6a83",
-      "metadata_digest": "d3c0962358149a47b33a8d97279bd2137c56c48939e08c221fc8991f4f9be777",
+      "metadata_digest": "0470cfd4ed3a58a1b7348e97fd088527da02148e954bd72702c4b671ec8d7a6a",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "2c96064476f635f2fb9ea3f9cea21818ffbed7a04f8739567ef2b92bc46c9574",
       "source_path": "skills/rails-patterns",
@@ -2542,10 +2542,10 @@
       "rewritten": true
     },
     "remotion-video-creation": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "047c1f7309c082eac091b837e79f0ba3471cea3da91eeacaf5c880ee90f6665f",
       "synced_digest": "ea8a328dc35dd151fea62493118d7857282b53225788cb0bbd64510c5bede4ff",
-      "metadata_digest": "82062c02a40012f52c980ce37eb48eb601a6ae137f15f33d04fa9f59bd1a2308",
+      "metadata_digest": "310d33179e8ce8ebe1b76c80a85eef441834ed193691b9d137b3c150332e89a0",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "047c1f7309c082eac091b837e79f0ba3471cea3da91eeacaf5c880ee90f6665f",
       "source_path": "skills/remotion-video-creation",
@@ -2575,10 +2575,10 @@
       "rewritten": true
     },
     "returns-reverse-logistics": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "ff631085d2e9986bce384dfee7aecf87edfa1c80b01aed5bac34e3b2215ebc53",
       "synced_digest": "bab43a6a15325f7fc3d6c1d2d5ab29e847243972edbbfd570d32d5f7cf3a29e9",
-      "metadata_digest": "001b358a7494243c683d5f153dd150c1bdb78cfbc412146e71d98cf42d2a2f58",
+      "metadata_digest": "dd43f1e91d79fc7d23e4db88e08c210513f9a2c70c092c90e2aa5eb26b14769e",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "ff631085d2e9986bce384dfee7aecf87edfa1c80b01aed5bac34e3b2215ebc53",
       "source_path": "skills/returns-reverse-logistics",
@@ -2630,10 +2630,10 @@
       "rewritten": true
     },
     "scientific-db-pubmed-database": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "0729f0610c2acf6b37dfe2623b97ca713c79e2cd96c9c068343160318301c33e",
       "synced_digest": "c719ab4105b205a29dde61635cbb97f5c48b8db1ae1d5dbe5275f5671f769b44",
-      "metadata_digest": "74d32761b6bf12a7fb639b278f27d2dbb91bf66058fc0e542276348321dd6948",
+      "metadata_digest": "e5b37cf228dc39e168ca720c09771d8a17e008976dfc28c108a9df9f93b30552",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "0729f0610c2acf6b37dfe2623b97ca713c79e2cd96c9c068343160318301c33e",
       "source_path": "skills/scientific-db-pubmed-database",
@@ -2641,10 +2641,10 @@
       "rewritten": true
     },
     "scientific-db-uspto-database": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "c4cff778c6d5dfe3f2b3cbaa7c6cf3e56c988b35a9bb440eeee7f1c3047ee65b",
       "synced_digest": "bfc0a17eda8ac766223a33d57c5d993d2bf67c9b7639826e16bbab7300601554",
-      "metadata_digest": "35708efeb30b68009fc6b174a02f24d14bfd29c56d4fccd52304219fbc5df58e",
+      "metadata_digest": "b594c86632ad568f76abcb6f32308b16be919b15adccf8947968b6691143a314",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "c4cff778c6d5dfe3f2b3cbaa7c6cf3e56c988b35a9bb440eeee7f1c3047ee65b",
       "source_path": "skills/scientific-db-uspto-database",
@@ -2652,10 +2652,10 @@
       "rewritten": true
     },
     "scientific-pkg-gget": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "5786d5db57e54564ea4d7b94565ad89b9f836bf15d814a513ab71daadf4691cf",
       "synced_digest": "109bdbec9252756e656f54084d74d456acd40de73f9995b628e261fb518c566a",
-      "metadata_digest": "3d20ea918d8eaf12478c45d3a5f19a238840cae0a0498d37d467a895bb1dc777",
+      "metadata_digest": "875cc9a13bc430aa4da3802d6628606d117ca2125a13f053f93fd73c1f90809d",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "5786d5db57e54564ea4d7b94565ad89b9f836bf15d814a513ab71daadf4691cf",
       "source_path": "skills/scientific-pkg-gget",
@@ -2663,10 +2663,10 @@
       "rewritten": true
     },
     "scientific-thinking-literature-review": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "35f5dc0b83c896f6036afd87961844be7c130611be2274186455a9b312ee9691",
       "synced_digest": "e47ff6fda1f5cb4d5ef558fab3ac504d430ecaf646a48a7b32b4bbe55cd5f8ea",
-      "metadata_digest": "946fd90f35b74f1ea1e352d11c84bbf9d8d6872ced0af96890d7dd0f45a750c9",
+      "metadata_digest": "fdf7c833319f970860656b144ac54195af68cb532d9a35f2d403631b367f842c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "35f5dc0b83c896f6036afd87961844be7c130611be2274186455a9b312ee9691",
       "source_path": "skills/scientific-thinking-literature-review",
@@ -2674,10 +2674,10 @@
       "rewritten": true
     },
     "scientific-thinking-scholar-evaluation": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "f941008f6492f0289727c193f81e7f46c575d928529d3ccf7fcf13eff09450ca",
       "synced_digest": "a130086d5d2992f4078637eb0cb2dddc1abf34912af58b4a48a548025bf24185",
-      "metadata_digest": "451c1412d973e97f9fad50c58ad24208e800e9bfffda73225b48442880155196",
+      "metadata_digest": "10f9e41e3df0085a5278eddf1814f3521ec91519141a6e00865d75cbab1b4e46",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f941008f6492f0289727c193f81e7f46c575d928529d3ccf7fcf13eff09450ca",
       "source_path": "skills/scientific-thinking-scholar-evaluation",
@@ -2685,10 +2685,10 @@
       "rewritten": true
     },
     "search-first": {
-      "version": "2.2.2",
+      "version": "2.2.10",
       "source_digest": "af01b0e5a6ee208893bca0a9052069e2ddf5bc19e1c95463f9a3a25a360c0dc5",
       "synced_digest": "9606b2fa98edffdab24b9f54b3df49bbbd0324f111601e55b1881c799b430902",
-      "metadata_digest": "9eb4abbe9bd990dc089b07caeca2b5bb3379b8c06251a00dbd49c345dcdc1b77",
+      "metadata_digest": "2ca7c7bb95cbf72fa66e2b6f79f5e6ea3c454f45a4f4d47b5adbabe99e05c684",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "af01b0e5a6ee208893bca0a9052069e2ddf5bc19e1c95463f9a3a25a360c0dc5",
       "source_path": "skills/search-first",
@@ -2751,10 +2751,10 @@
       "rewritten": true
     },
     "skill-scout": {
-      "version": "2.2.4",
+      "version": "2.2.9",
       "source_digest": "667b548ba2fa7310625c54bba211fd5c4fe1796a7f9d9c2190d34e8fb6b5c30d",
       "synced_digest": "9fb7b90e8f98c6f3934d63fb712d76123fe4b5cbf4d59aaf1814acb98021200b",
-      "metadata_digest": "ac4499dba59f9ba337f3f5f63e74b5d829518a0a838adcda1a758e0adb37a643",
+      "metadata_digest": "43cb6011db724be913fdd739b183fe2c85d900b59cbf0add86de89fe359b4ce6",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "667b548ba2fa7310625c54bba211fd5c4fe1796a7f9d9c2190d34e8fb6b5c30d",
       "source_path": "skills/skill-scout",
@@ -2893,10 +2893,10 @@
       "rewritten": true
     },
     "tdd-workflow": {
-      "version": "2.2.6",
+      "version": "2.2.9",
       "source_digest": "f0c734a00ebdab322399d01e441e0bc6be212bc6b5a35b23fe74cf36ab535d7b",
       "synced_digest": "1100d4ae14c6b7f77c8350e8b2efb84f47c86c8de60f90e9b732131f5f078ad3",
-      "metadata_digest": "a68dea19aa0de34485c9d7cc816f23d833befab3ea9e7d659e122ef69c3d1a46",
+      "metadata_digest": "6bacff09d683d714ae55a21eaa49c7e44fb1d8b3359806db12c940bd7e514b5c",
       "source_commit": "b38be6a7f6350964d59328b52f0624e1d1d552d1",
       "reviewed_digest": "f0c734a00ebdab322399d01e441e0bc6be212bc6b5a35b23fe74cf36ab535d7b",
       "source_path": "skills/tdd-workflow",

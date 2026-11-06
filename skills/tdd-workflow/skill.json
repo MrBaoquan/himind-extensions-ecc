@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "先写会失败的测试、看它失败，再写最小实现转绿，最后在单测、集成与端到端层面重构并保持高覆盖。当要按 TDD 写功能或修缺陷时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "先写失败测试并看它变红，再写最小实现转绿，最后在单测、集成与端到端层面重构。当要按 TDD 写功能或修缺陷时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

@@ -1,18 +1,18 @@
 {
   "id": "com.mrbaoquan.ecc.skill.orch-pipeline",
-  "name": "编排引擎",
+  "name": "编排流水线",
   "author": "Affaan Mustafa",
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.3",
+  "version": "2.2.10",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "新功能、缺陷修复与重构等编排技能共用的引擎：受控的调研—规划—测试—评审—提交流水线、规模分级与两道人工确认。一般经具体编排技能间接使用。",
-  "release_notes": "2.2.3：同步自上游 ecc-universal b38be6a。",
+  "description": "新功能、修缺陷与重构共用的编排流水线：先定规模，再走调研到提交的各阶段，过两道人工确认。当要按固定流水线推进时用。",
+  "release_notes": "2.2.10：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

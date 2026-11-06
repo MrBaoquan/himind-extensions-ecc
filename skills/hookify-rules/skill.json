@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.4",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "创建并配置钩子规则：用带 YAML 头的 Markdown 按正则或条件匹配命令、文件、提示或收尾事件，并向 agent 显示警告或拦截信息。当要加模式护栏时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "用带 YAML 头的 Markdown 规则按正则匹配命令、文件、提示与收尾事件，命中后给出警告或拦截。当要加命令或文件护栏时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

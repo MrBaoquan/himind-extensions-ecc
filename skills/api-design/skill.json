@@ -5,14 +5,14 @@
   "categories": [
     "software-engineering"
   ],
-  "version": "2.2.4",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "REST 接口设计规范：资源命名、状态码、分页、过滤、错误响应、版本管理与限流。当要设计或评审接口约定时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "REST 接口约定：资源命名与 URL 结构、方法与状态码、分页过滤、错误响应、版本与限流。当要设计或评审 REST 接口时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

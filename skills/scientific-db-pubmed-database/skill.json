@@ -5,14 +5,14 @@
   "categories": [
     "docs-knowledge"
   ],
-  "version": "2.2.4",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "检索 PubMed 与 NCBI：MeSH 查询、PMID 定位、引文获取与文献监测。当要找医学文献或跟踪某个主题的新论文时用。",
-  "release_notes": "2.2.4：同步自上游 ecc-universal b38be6a。",
+  "description": "用 E-utilities 检索 PubMed：MeSH 与子标题、筛选项、PMID 定位、引文获取与文献监测。当要找生物医学文献而非网页搜索时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

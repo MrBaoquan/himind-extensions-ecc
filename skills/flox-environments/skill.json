@@ -5,14 +5,14 @@
   "categories": [
     "system-device"
   ],
-  "version": "2.2.6",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "用 Flox（基于 Nix 的声明式环境管理器）搭建可复现的跨平台开发环境，锁定工具链与依赖版本。当要统一团队环境或装系统级依赖时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "用一份 TOML 清单锁定工具链与系统级依赖，跨 macOS 与 Linux 复现同一套环境。当要统一团队环境或装系统依赖时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

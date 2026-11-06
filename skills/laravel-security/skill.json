@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Laravel 安全实践：认证、授权、Eloquent 安全、CSRF、XSS 防护、API 安全与安全部署配置。当要审 Laravel 的认证、数据访问或 API 安全时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "生产配置与环境变量、Sanctum 认证、Eloquent 防注入、CSRF 与 XSS、API 限流与部署加固。当要审 Laravel 认证或数据访问时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"

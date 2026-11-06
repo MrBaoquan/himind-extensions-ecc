@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-11-06T03:39:51Z",
+  "reviewed_at": "2026-11-06T03:52:43Z",
   "skills": {
     "accessibility": {
       "name": "无障碍设计",
@@ -124,7 +124,7 @@
     },
     "api-design": {
       "name": "REST API 设计",
-      "description": "REST 接口设计规范：资源命名、状态码、分页、过滤、错误响应、版本管理与限流。当要设计或评审接口约定时用。",
+      "description": "REST 接口约定：资源命名与 URL 结构、方法与状态码、分页过滤、错误响应、版本与限流。当要设计或评审 REST 接口时用。",
       "categories": [
         "software-engineering"
       ],
@@ -220,7 +220,7 @@
     },
     "blueprint": {
       "name": "工程蓝图",
-      "description": "把一句话目标变成分步施工计划：按一个 PR 粒度切步、每步自带上下文、标出可并行的依赖关系，并配对抗评审与计划变更协议。当要规划大型多会话项目时用。",
+      "description": "把一句话目标拆成施工计划：步长按一个 PR，每步自带上下文，标出可并行项，配对抗评审。当要规划跨多会话的大改时用。",
       "categories": [
         "software-engineering"
       ],
@@ -260,7 +260,7 @@
     },
     "bun-runtime": {
       "name": "Bun 运行时",
-      "description": "把 Bun 当作运行时、包管理器、打包器与测试运行器使用：选型对比、迁移要点与部署支持。当要决定是否用 Bun 或做迁移时用。",
+      "description": "Bun 当运行时、包管理器、打包器与测试器：安装、脚本、测试与 Runtime API，并对比 Node。当要选运行时或从 Node 迁移时用。",
       "categories": [
         "software-engineering"
       ],
@@ -276,7 +276,7 @@
     },
     "carrier-relationship-management": {
       "name": "承运商管理",
-      "description": "管理整车、零担与多式联运承运商池：寻源与资质核验、运价与燃油附加费谈判、招标与路由指南、承运商评分、配额分配与续约。当要引入承运商或评估运力绩效时用。",
+      "description": "整车、零担与多式联运承运商池：寻源与资质核验、运价谈判、招标与路由指南、评分与配额续约。当要引入承运商或评运力时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -452,7 +452,7 @@
     },
     "counterparty-channel-discipline": {
       "name": "外部频道纪律",
-      "description": "给混在外部方群聊、共享频道里的 agent 定发言规矩：逐渠道提示词、只在被点名时应答、静默观察、不泄露内部上下文，风险内容只出草稿等人工批准。",
+      "description": "给混在外部频道里的 agent 定发言规矩：逐渠道提示词、只在被点名时应答、静默观察、不泄露内部上下文，风险内容只出草稿等批。当要让 agent 进外部群聊时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -468,7 +468,7 @@
     },
     "cpp-testing": {
       "name": "C++ 测试",
-      "description": "只在编写或修正 C++ 测试、配置 GoogleTest/CTest、排查失败或偶发用例、补覆盖率与内存检查时用。",
+      "description": "用 GoogleTest/GoogleMock 与 CMake/CTest 写现代 C++（17/20）测试：夹具、参数化、失败与偶发排查、覆盖率与内存检查。当要写或修 C++ 测试时用。",
       "categories": [
         "software-engineering"
       ],
@@ -620,7 +620,7 @@
     },
     "django-security": {
       "name": "Django 安全",
-      "description": "Django 安全实践：认证、授权、CSRF、SQL 注入与 XSS 防护、安全部署配置。当要审 Django 的认证授权、输入处理或部署设置时用。",
+      "description": "生产配置与密钥管理、安全头与 Cookie、密码校验、自定义用户模型、认证与防注入防 XSS。当要审 Django 认证或部署设置时用。",
       "categories": [
         "testing-quality"
       ],
@@ -644,7 +644,7 @@
     },
     "dmux-workflows": {
       "name": "多代理并行",
-      "description": "用 dmux（tmux 里的 AI agent 面板管理器）编排多个 agent 并行开发，给出跨 Claude Code、Codex、OpenCode 的协作模式。当要同时开多个会话并行推进时用。",
+      "description": "用 dmux 在 tmux 里开多个 agent 面板并行推进，再把各面板结果并回一处继续。当要同时开多个会话并行开发时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -652,7 +652,7 @@
     },
     "docker-patterns": {
       "name": "Docker 实践",
-      "description": "Docker 与 Compose 实践：本地开发、加固的 CLI 安装器、容器安全、网络、卷与多服务编排。当要写或审 Dockerfile 与 Compose 服务时用。",
+      "description": "多阶段 Dockerfile、Compose 覆盖文件、网络与卷、容器加固与多服务编排。当要写或审 Dockerfile 与 Compose 服务时用。",
       "categories": [
         "system-device"
       ],
@@ -700,7 +700,7 @@
     },
     "ecc-tools-cost-audit": {
       "name": "用量成本审计",
-      "description": "对 ECC Tools 的用量与账单做取证式审计，定位失控的 PR 创建、配额绕过、高价模型泄漏、重复任务与 GitHub App 费用异常。当账单突然飙高要查原因时用。",
+      "description": "取证式排查成本：先锁仓库范围与入口，再追 worker 副作用与高耗路径，按耗损排序修。当账单或 PR 数异常飙高时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -780,7 +780,7 @@
     },
     "fastapi-patterns": {
       "name": "FastAPI 实践",
-      "description": "FastAPI 最佳实践：项目结构、数据模型、依赖注入、异步处理、认证授权、事务服务层与测试。当要开发或评审 FastAPI 服务时用。",
+      "description": "项目结构与应用工厂、Pydantic v2 模型、依赖注入、异步处理器、认证与事务服务层、httpx 测试。当要写或审 FastAPI 服务时用。",
       "categories": [
         "software-engineering"
       ],
@@ -796,7 +796,7 @@
     },
     "flox-environments": {
       "name": "可复现开发环境",
-      "description": "用 Flox（基于 Nix 的声明式环境管理器）搭建可复现的跨平台开发环境，锁定工具链与依赖版本。当要统一团队环境或装系统级依赖时用。",
+      "description": "用一份 TOML 清单锁定工具链与系统级依赖，跨 macOS 与 Linux 复现同一套环境。当要统一团队环境或装系统依赖时用。",
       "categories": [
         "system-device"
       ],
@@ -860,7 +860,7 @@
     },
     "gateguard": {
       "name": "事实前置闸门",
-      "description": "在首次修改文件或执行命令前拦截，要求先给出具体事实（调用方、数据结构、用户原话）才放行。当要配置这类前置校验钩子时用。",
+      "description": "首次改文件、建文件或跑命令前要求先给出调用方、数据结构与用户原话，给不出就不放行。当要加首次动作前置校验时用。",
       "categories": [
         "testing-quality"
       ],
@@ -892,7 +892,7 @@
     },
     "golang-patterns": {
       "name": "Go 开发模式",
-      "description": "地道的 Go 实践与约定，写出稳健、高效、易维护的服务。当要写或审 Go 代码、纠结结构与惯例时用。",
+      "description": "简洁与零值可用、接口进结构出、错误包装与判定、并发与取消、池化缓冲与测试基准。当要写或审 Go 代码时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1020,7 +1020,7 @@
     },
     "hookify-rules": {
       "name": "钩子规则配置",
-      "description": "创建并配置钩子规则：用带 YAML 头的 Markdown 按正则或条件匹配命令、文件、提示或收尾事件，并向 agent 显示警告或拦截信息。当要加模式护栏时用。",
+      "description": "用带 YAML 头的 Markdown 规则按正则匹配命令、文件、提示与收尾事件，命中后给出警告或拦截。当要加命令或文件护栏时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1052,7 +1052,7 @@
     },
     "inventory-demand-planning": {
       "name": "需求与库存计划",
-      "description": "多门店零售的需求预测方法选择、ABC/XYZ 分类、安全库存与补货点优化、促销增量与促销后回落估算、季节切换与降价时机。当要做备货与促销计划时用。",
+      "description": "预测方法选择与精度指标、安全库存与补货点、促销增量与回落、ABC/XYZ 分类、季节切换与降价时机。当要做备货与促销计划时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1212,7 +1212,7 @@
     },
     "laravel-security": {
       "name": "Laravel 安全",
-      "description": "Laravel 安全实践：认证、授权、Eloquent 安全、CSRF、XSS 防护、API 安全与安全部署配置。当要审 Laravel 的认证、数据访问或 API 安全时用。",
+      "description": "生产配置与环境变量、Sanctum 认证、Eloquent 防注入、CSRF 与 XSS、API 限流与部署加固。当要审 Laravel 认证或数据访问时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1260,7 +1260,7 @@
     },
     "living-docs-governance": {
       "name": "长期文档治理",
-      "description": "给长期项目文档定好纲领、地图、状态与历史四类角色，并挂到 agent 实际读取的源头，避免文档腐烂。当文档与代码脱节时用。",
+      "description": "给文档定纲领、地图、状态与历史四类角色，接进 agent 实读的源头，且只改受影响的那一份。当文档与代码脱节时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1412,7 +1412,7 @@
     },
     "nanoclaw-repl": {
       "name": "终端会话工具",
-      "description": "使用并扩展 NanoClaw 这个零依赖终端会话工具：markdown 持久会话与斜杠命令，支持切换模型、加载技能、会话分支、跨会话搜索与导出。",
+      "description": "使用并扩展 NanoClaw 终端会话工具：markdown 持久会话、斜杠命令、切模型、加载技能、会话分支与跨会话搜索。当要用终端里的持久会话时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1508,7 +1508,7 @@
     },
     "operator-approval-loop": {
       "name": "对外消息批准回路",
-      "description": "给 agent 起草的对外消息加一道人工批准契约：内部备案通知、草稿哈希、按轮次记录的批准决定、可留存的投递回执，以及起草前的基线闸门。",
+      "description": "给 agent 的对外消息加人工批准回路：草稿先立为待办、按原文批准、留下投递回执，并在起草前设基线闸门。当 agent 要对外发消息时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1547,8 +1547,8 @@
       "source": "reviewed"
     },
     "orch-pipeline": {
-      "name": "编排引擎",
-      "description": "新功能、缺陷修复与重构等编排技能共用的引擎：受控的调研—规划—测试—评审—提交流水线、规模分级与两道人工确认。一般经具体编排技能间接使用。",
+      "name": "编排流水线",
+      "description": "新功能、修缺陷与重构共用的编排流水线：先定规模，再走调研到提交的各阶段，过两道人工确认。当要按固定流水线推进时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1588,7 +1588,7 @@
     },
     "perl-security": {
       "name": "Perl 安全",
-      "description": "Perl 安全实践：污点模式、输入校验、安全执行进程、DBI 参数化查询、Web 安全与 perlcritic 策略。当要审 Perl 的输入处理或查询时用。",
+      "description": "污点模式与精确反污点、白名单校验、三参数 open 与安全执行、DBI 参数化、Web 防护与 perlcritic。当要审 Perl 输入或查询时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1612,7 +1612,7 @@
     },
     "plankton-code-quality": {
       "name": "写时质量管控",
-      "description": "用 Plankton 在每次文件改动时自动格式化、静态检查并自动修复。当要配置写入即生效的格式化与检查钩子时用。",
+      "description": "每次改文件自动格式化与静态检查，并对漏网问题起子进程修复，同时守住配置不被绕过。当要配写入即检查的钩子时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1748,7 +1748,7 @@
     },
     "quarkus-security": {
       "name": "Quarkus 安全",
-      "description": "Quarkus 安全实现模式：JWT 与 OIDC 认证、角色权限与身份校验、参数化查询、密码哈希、CORS 与安全响应头、限流、审计日志与密钥管理。",
+      "description": "Quarkus 安全实现：JWT 与 OIDC 认证、角色权限与身份校验、参数化查询、密码哈希、CORS 与安全头、限流与审计。当要审 Quarkus 认证授权时用。",
       "categories": [
         "testing-quality"
       ],
@@ -1772,7 +1772,7 @@
     },
     "rails-patterns": {
       "name": "Rails 开发模式",
-      "description": "Rails 7.1+ 与 8.x 的框架模式：目录约定、瘦控制器与服务对象、表单与查询对象、ActiveRecord 惯例、后台任务、组件化视图与实时交互。",
+      "description": "Rails 7.1+ 与 8.x 的落地写法：目录约定、瘦控制器与服务对象、表单与查询对象、ActiveRecord、后台任务与 Hotwire。当要写或审 Rails 应用时用。",
       "categories": [
         "software-engineering"
       ],
@@ -1852,7 +1852,7 @@
     },
     "remotion-video-creation": {
       "name": "Remotion 视频",
-      "description": "用 React 写视频的 Remotion 实践准则，覆盖 3D、动画、音频、字幕、图表与转场。当要以代码方式产出可控视频时用。",
+      "description": "用 React 写视频的 29 条领域规则：3D、动画时序、音频、字幕、图表与转场。当要用代码产出可控视频时用。",
       "categories": [
         "video-post"
       ],
@@ -1876,7 +1876,7 @@
     },
     "returns-reverse-logistics": {
       "name": "退货与逆向物流",
-      "description": "退货授权、收货检验、处置决策、退款处理、欺诈识别与保修索赔管理，含分级框架、处置经济性测算与厂商追偿流程。当要处理退货或保修争议时用。",
+      "description": "退货授权、收货检验与分级、处置决策树、退款与信贷、欺诈识别、厂商追偿与保修索赔。当要处理退货或保修争议时用。",
       "categories": [
         "collaboration-delivery"
       ],
@@ -1916,7 +1916,7 @@
     },
     "scientific-db-pubmed-database": {
       "name": "PubMed 文献检索",
-      "description": "检索 PubMed 与 NCBI：MeSH 查询、PMID 定位、引文获取与文献监测。当要找医学文献或跟踪某个主题的新论文时用。",
+      "description": "用 E-utilities 检索 PubMed：MeSH 与子标题、筛选项、PMID 定位、引文获取与文献监测。当要找生物医学文献而非网页搜索时用。",
       "categories": [
         "docs-knowledge"
       ],
@@ -1924,7 +1924,7 @@
     },
     "scientific-db-uspto-database": {
       "name": "专利商标检索",
-      "description": "查询 USPTO 专利与商标数据：专利检索、商标状态、转让记录，并留下可复现的研究日志。当要做知识产权检索与留痕时用。",
+      "description": "查 USPTO 官方记录：专利检索、商标状态与 TSDR、审查档案、转让记录，并留下可复现日志。当要查美国专利或商标时用。",
       "categories": [
         "docs-knowledge"
       ],
@@ -1932,7 +1932,7 @@
     },
     "scientific-pkg-gget": {
       "name": "基因组数据查询",
-      "description": "用 gget 的命令行与 Python 接口查询基因组数据库、检索序列、做类 BLAST 搜索与富集分析。当要拉取生物信息学数据时用。",
+      "description": "用 gget 的命令行与 Python 接口查基因组数据库、取序列、做类 BLAST 搜索与富集。当要快速取生物信息数据时用。",
       "categories": [
         "docs-knowledge"
       ],
@@ -1940,7 +1940,7 @@
     },
     "scientific-thinking-literature-review": {
       "name": "文献综述",
-      "description": "做系统性文献综述：规划检索、筛选来源、综合结论、核查引用并留下证据链。当要写一篇经得起查的综述时用。",
+      "description": "定义问题、规划检索、记录证据、去重与筛选、抽取数据、综合结论并逐条核查引用。当要写经得起查的文献综述时用。",
       "categories": [
         "docs-knowledge"
       ],
@@ -1948,7 +1948,7 @@
     },
     "scientific-thinking-scholar-evaluation": {
       "name": "学术成果评估",
-      "description": "按可复现的量规评估论文、提案、综述与方法：证据质量、方法严谨性与引用支撑。当要审阅或打分学术成果时用。",
+      "description": "按九维量规评估论文与提案：问题、文献、方法、证据、分析、结果、局限、写作与引用。当要审阅或打分学术成果时用。",
       "categories": [
         "docs-knowledge"
       ],
@@ -1956,7 +1956,7 @@
     },
     "search-first": {
       "name": "先搜后写",
-      "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能和 GitHub。找到就直接用或改造，找不到再自己写。",
+      "description": "动手写代码前先搜现成方案：npm/PyPI、MCP 服务、已有技能与 GitHub，找到就改造、找不到再自己写。当要决定自研还是复用组件时用。",
       "categories": [
         "software-engineering"
       ],
@@ -2004,7 +2004,7 @@
     },
     "skill-scout": {
       "name": "技能先搜后建",
-      "description": "新建技能前先查本地、市场、GitHub 与网络上的现成技能，避免重复造轮子。当要创建、改造或寻找技能时用。",
+      "description": "建技能前先查本地、市场、GitHub 与网络，给候选打分并交代取舍，避免重复造轮子。当要新建、改造或寻找技能时用。",
       "categories": [
         "testing-quality"
       ],
@@ -2108,7 +2108,7 @@
     },
     "tdd-workflow": {
       "name": "测试驱动开发",
-      "description": "先写会失败的测试、看它失败，再写最小实现转绿，最后在单测、集成与端到端层面重构并保持高覆盖。当要按 TDD 写功能或修缺陷时用。",
+      "description": "先写失败测试并看它变红，再写最小实现转绿，最后在单测、集成与端到端层面重构。当要按 TDD 写功能或修缺陷时用。",
       "categories": [
         "testing-quality"
       ],

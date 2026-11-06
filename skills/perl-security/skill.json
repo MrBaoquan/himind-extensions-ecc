@@ -5,14 +5,14 @@
   "categories": [
     "testing-quality"
   ],
-  "version": "2.2.6",
+  "version": "2.2.9",
   "distribution_targets": [
     "workbench",
     "github"
   ],
   "scope": "organization",
-  "description": "Perl 安全实践：污点模式、输入校验、安全执行进程、DBI 参数化查询、Web 安全与 perlcritic 策略。当要审 Perl 的输入处理或查询时用。",
-  "release_notes": "2.2.6：同步自上游 ecc-universal b38be6a。",
+  "description": "污点模式与精确反污点、白名单校验、三参数 open 与安全执行、DBI 参数化、Web 防护与 perlcritic。当要审 Perl 输入或查询时用。",
+  "release_notes": "2.2.9：同步自上游 ecc-universal b38be6a。",
   "min_agent_version": "0.3.37",
   "supported_clients": [
     "agent-skills"
